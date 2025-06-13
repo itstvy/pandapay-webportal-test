@@ -1,8 +1,8 @@
 *** Settings ***
 Resource    ../../../resources/common/common_settings.robot
 Resource    ../../../resources/common/common_variables.robot
-Resource    ../../../resources/page-objects/sign-in/sign-in-keywords.robot
-Resource    ../../../resources/page-objects/sign-in/sign-in-variables.robot
+Resource    ../../../resources/keywords/authentication/sign-in-keywords.robot
+Resource    ../../../resources/variables/authentication/sign-in-variables.robot
 
 
 
@@ -14,8 +14,8 @@ Owner Sign In API Success
 
     #Tạo body cho request đăng nhập
     ${body}=    Create Dictionary
-    ...    user_code=${USER_ID}
-    ...    password=${PASSWORD}
+    ...    user_code=${OWNER_USER_ID}
+    ...    password=${OWNER_PASSWORD}
     ...    type=${TYPE_ORG_ADMIN}
     
     #Gửi POST request đến endpoint đăng nhập
@@ -58,7 +58,7 @@ Owner Sign In API Success
 
 
     # Verify giá trị của các trường trong info
-    Should Be Equal    ${info["user_code"]}    ${USER_ID}
+    Should Be Equal    ${info["user_code"]}    ${OWNER_USER_ID}
     Should Be Equal    ${info["email"]}    an@yopmail.com
     Should Be Equal    ${info["first_name"]}    An
     Should Be Equal    ${info["last_name"]}    Store
