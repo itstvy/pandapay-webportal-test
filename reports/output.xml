@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2.2 (Python 3.13.3 on win32)" generated="2025-06-10T16:47:25.571125" rpa="false" schemaversion="5">
+<suite id="s1" name="Owner-Sign-In-Success" source="D:\Automation-Testing\Robot-Framework\PandaPay-v2\tests\ui\sign-in\owner-sign-in-success.robot">
+<test id="s1-t1" name="Owner Sign In Success" line="8">
+<kw name="Open Sign In Page" owner="sign-in-keywords">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-06-10T16:47:27.450228" level="INFO">Opening browser 'chrome' to base url 'https://app.panda.ennam.vn/login'.</msg>
+<arg>${DEV_URL}/login</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-06-10T16:47:27.448965" elapsed="5.110411"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-06-10T16:47:32.559992" elapsed="0.249121"/>
+</kw>
+<status status="PASS" start="2025-06-10T16:47:27.445289" elapsed="5.364129"/>
+</kw>
+<kw name="Input User ID" owner="sign-in-keywords">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-06-10T16:47:32.818511" level="INFO">Typing text 'annstore' into text field 'xpath=//*[@id="user_code"]'.</msg>
+<arg>${USERID_FIELD}</arg>
+<arg>${USER_ID}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-06-10T16:47:32.816763" elapsed="0.532329"/>
+</kw>
+<status status="PASS" start="2025-06-10T16:47:32.815962" elapsed="0.533438"/>
+</kw>
+<kw name="Input Password" owner="sign-in-keywords">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-06-10T16:47:33.357974" level="INFO">Typing text 'Dev1234!@#' into text field 'xpath=//*[@id="password"]'.</msg>
+<arg>${PASSWORD_FIELD}</arg>
+<arg>${PASSWORD}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-06-10T16:47:33.357413" elapsed="0.289069"/>
+</kw>
+<status status="PASS" start="2025-06-10T16:47:33.356702" elapsed="0.290150"/>
+</kw>
+<kw name="Click Sign In Button" owner="sign-in-keywords">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-06-10T16:47:33.677704" level="INFO">Clicking element 'xpath=/html/body/div[1]/div/div/div/div[2]/div/div/form/button'.</msg>
+<arg>${SIGNIN_BUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-06-10T16:47:33.677226" elapsed="0.281227"/>
+</kw>
+<status status="PASS" start="2025-06-10T16:47:33.676525" elapsed="0.282202"/>
+</kw>
+<kw name="Wait For Report Menu" owner="sign-in-keywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${REPORT_MENU}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-06-10T16:47:33.966161" elapsed="2.508104"/>
+</kw>
+<status status="PASS" start="2025-06-10T16:47:33.965034" elapsed="2.509606"/>
+</kw>
+<status status="PASS" start="2025-06-10T16:47:27.443654" elapsed="9.031723"/>
+</test>
+<status status="PASS" start="2025-06-10T16:47:25.575315" elapsed="10.902211"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Owner-Sign-In-Success" id="s1" pass="1" fail="0" skip="0">Owner-Sign-In-Success</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
