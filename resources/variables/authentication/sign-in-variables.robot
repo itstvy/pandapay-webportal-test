@@ -16,15 +16,15 @@ ${USER_ID_MORE_THAN_20}    annstoreannstoreannstoreannstore
 
 ${user_ID_CONTAIN_SPECIAL_CHARACTERS}    annstore!@#
 
-${USER_ID_CONTAIN_SPACES}    ann store
+${USER_ID_CONTAIN_SPACES}    ${SPACE}
 
-${USER_ID_EMPTY}    
+${USER_ID_EMPTY}     ${EMPTY}
 
-${PASSWORD_EMPTY}
+${PASSWORD_EMPTY}    ${EMPTY}
 
 ${PASSWORD_LESS_THAN_8}    Dev123
 
-${PASSWORN_CONTAIN_SPACES}    Dev 1234!@#
+${PASSWORN_CONTAIN_SPACES}    ${SPACE}
 
 ${PASSWORD_MISSING_NUMBER}    DevPassword!@
 
@@ -40,7 +40,10 @@ ${SIGNIN_ENDPOINT}    /api/user/sign-in/
 
 ${EXPECTED_RESULT}    201
 
+
 #Locator
+${WELCOME_SIGN_IN}    xpath=//h1[text()='Welcome!']
+
 ${USERID_FIELD}     xpath=//*[@id="user_code"]
 
 ${PASSWORD_FIELD}     xpath=//*[@id="password"]
@@ -57,7 +60,11 @@ ${SIGNIN_SUCCESS_MESSAGE}    xpath=/html/body/div[2]/ol/li/div/div[2]/div[text()
 
 ${RETRIEVE_PASSWORD_BUTTON}    xpath=/html/body/div[1]/div/div/div/div[2]/div/div/div/a
 
-${REPORT_MENU}     xpath=/html/body/div[1]/header/div/div[1]/div/a[6]/button
+${REPORT_MENU}     xpath=/html/body/div[1]/header/div/div[1]/div/a[6]/button[text()='Report']
+
+${MY_ACCOUNT_MENU}    xpath=//*[@id="radix-:r1:"]
+
+${SIGN_OUT_BUTTON}    xpath=//*[@id="radix-:r2:"]/div[5][text()='Logout']
 
 #Validation Text of User ID field
 

@@ -5,8 +5,6 @@ Resource    ../../../resources/keywords/authentication/sign-in-keywords.robot
 Resource    ../../../resources/variables/authentication/sign-in-variables.robot
 
 
-
-
 *** Test Cases ***
 Owner Sign In API Success
     #Tạo session

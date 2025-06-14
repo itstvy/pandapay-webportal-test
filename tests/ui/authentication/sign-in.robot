@@ -3,10 +3,17 @@ Resource    ../../../resources/common/common_settings.robot
 Resource    ../../../resources/common/common_variables.robot
 Resource    ../../../resources/keywords/authentication/sign-in-keywords.robot
 Resource    ../../../resources/common/common_keywords.robot
-Suite Setup     Open PandaPay
-Suite Teardown  Close PandaPay
+Suite Setup     Open Sign in PandaPay
+Suite Teardown  Close Browsers
 
 *** Test Cases ***
+
+Verify the system show validation text when data User ID is empty
+    Click on User ID field
+    Do not input User ID
+    Click Sign In Button
+    Wait for Validation Text of User ID empty
+
 Verify the system show validation text when user input data less than 5 character in User ID
     Input User ID less than 5 characters
     Wait for Validation Text of User ID less than 5 characters
@@ -20,18 +27,22 @@ Verify the system show validation text when user input special characters in Use
     Wait for Validation Text of User ID contain special characters
 
 Verify the system show validation text when user input spaces in User ID
+    Click on User ID field
     Input User ID contain spaces
     Wait for Validation Text of User ID contain spaces
 
-Verify the system show validation text when data User ID is empty
-    Do not input User ID
-    Wait for Validation Text of User ID empty
+Verify the system show validation text when data Password is empty
+    Click on Password field
+    Do not input Password
+    Click Sign In Button
+    Wait for Validation Text of Password empty
 
 Verify the system show validation text when user input data less than 8 characters in Password
     Input Password less than 8 characters
     Wait for Validation Text of Password less than 8 characters
 
 Verify the system show validation text when user input spaces in Password
+    Click on Password field
     Input Password contain spaces
     Wait for Validation Text of Password contain spaces
 
@@ -51,10 +62,15 @@ Verify the system show validation text when user input data missing special char
     Input Password missing special character
     Wait for Validation Text of Password missing special character
 
-
-Verify the Owner Sign In Successfully when user input correct account
+Verify the Owner Sign In Successfully when user input correct 
     Input correct Owner User ID
-    sign-in-keywords.Input correct Owner Password
+    Input correct Owner Password
     Click Sign In Button
     Wait For Report Menu
 
+Verify the system Sign Out Successfully when user click Sign Out button
+    [Tags]    Sign Out    Success
+    Given Click on My Account avatar
+    When Click on Sign Out Button
+    Then Wait for system navigate user back to Sign in screen
+    Set Test Message    Sign Out Successfully

@@ -1,71 +1,472 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.2.2 (Python 3.13.3 on win32)" generated="2025-06-10T16:47:25.571125" rpa="false" schemaversion="5">
-<suite id="s1" name="Owner-Sign-In-Success" source="D:\Automation-Testing\Robot-Framework\PandaPay-v2\tests\ui\sign-in\owner-sign-in-success.robot">
-<test id="s1-t1" name="Owner Sign In Success" line="8">
-<kw name="Open Sign In Page" owner="sign-in-keywords">
+<robot generator="Robot 7.2.2 (Python 3.13.3 on win32)" generated="2025-06-14T14:15:29.459655" rpa="false" schemaversion="5">
+<suite id="s1" name="Sign-In" source="D:\Automation-Testing\Robot-Framework\PandaPay-v2\tests\ui\authentication\sign-in.robot">
+<kw name="Open Sign in PandaPay" owner="common_keywords" type="SETUP">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-06-10T16:47:27.450228" level="INFO">Opening browser 'chrome' to base url 'https://app.panda.ennam.vn/login'.</msg>
+<msg time="2025-06-14T14:15:31.308624" level="INFO">Opening browser 'chrome' to base url 'https://app.panda.ennam.vn/login'.</msg>
 <arg>${DEV_URL}/login</arg>
 <arg>${BROWSER}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-06-10T16:47:27.448965" elapsed="5.110411"/>
+<status status="PASS" start="2025-06-14T14:15:31.308017" elapsed="4.122254"/>
 </kw>
 <kw name="Maximize Browser Window" owner="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2025-06-10T16:47:32.559992" elapsed="0.249121"/>
+<status status="PASS" start="2025-06-14T14:15:35.430865" elapsed="0.071477"/>
 </kw>
-<status status="PASS" start="2025-06-10T16:47:27.445289" elapsed="5.364129"/>
-</kw>
-<kw name="Input User ID" owner="sign-in-keywords">
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-06-10T16:47:32.818511" level="INFO">Typing text 'annstore' into text field 'xpath=//*[@id="user_code"]'.</msg>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${USERID_FIELD}</arg>
-<arg>${USER_ID}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-06-10T16:47:32.816763" elapsed="0.532329"/>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-06-14T14:15:35.502835" elapsed="0.433908"/>
 </kw>
-<status status="PASS" start="2025-06-10T16:47:32.815962" elapsed="0.533438"/>
-</kw>
-<kw name="Input Password" owner="sign-in-keywords">
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-06-10T16:47:33.357974" level="INFO">Typing text 'Dev1234!@#' into text field 'xpath=//*[@id="password"]'.</msg>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${PASSWORD_FIELD}</arg>
-<arg>${PASSWORD}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-06-10T16:47:33.357413" elapsed="0.289069"/>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-06-14T14:15:35.937191" elapsed="0.039078"/>
 </kw>
-<status status="PASS" start="2025-06-10T16:47:33.356702" elapsed="0.290150"/>
+<status status="PASS" start="2025-06-14T14:15:31.306156" elapsed="4.670405"/>
+</kw>
+<test id="s1-t1" name="Verify the system show validation text when data User ID is empty" line="11">
+<kw name="Click on User ID field" owner="sign-in-keywords">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-06-14T14:15:35.983263" level="INFO">Clicking element 'xpath=//*[@id="user_code"]'.</msg>
+<arg>${USERID_FIELD}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-06-14T14:15:35.982793" elapsed="0.184219"/>
+</kw>
+<status status="PASS" start="2025-06-14T14:15:35.981943" elapsed="0.185354"/>
+</kw>
+<kw name="Do not input User ID" owner="sign-in-keywords">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-06-14T14:15:36.172886" level="INFO">Typing text '' into text field 'xpath=//*[@id="user_code"]'.</msg>
+<arg>${USERID_FIELD}</arg>
+<arg>${USER_ID_EMPTY}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-06-14T14:15:36.172082" elapsed="0.181909"/>
+</kw>
+<status status="PASS" start="2025-06-14T14:15:36.171318" elapsed="0.182945"/>
 </kw>
 <kw name="Click Sign In Button" owner="sign-in-keywords">
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-06-10T16:47:33.677704" level="INFO">Clicking element 'xpath=/html/body/div[1]/div/div/div/div[2]/div/div/form/button'.</msg>
+<msg time="2025-06-14T14:15:36.356101" level="INFO">Clicking element 'xpath=/html/body/div[1]/div/div/div/div[2]/div/div/form/button'.</msg>
 <arg>${SIGNIN_BUTTON}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-06-10T16:47:33.677226" elapsed="0.281227"/>
+<status status="PASS" start="2025-06-14T14:15:36.355649" elapsed="0.215860"/>
 </kw>
-<status status="PASS" start="2025-06-10T16:47:33.676525" elapsed="0.282202"/>
+<status status="PASS" start="2025-06-14T14:15:36.354972" elapsed="0.216807"/>
+</kw>
+<kw name="Wait for Validation Text of User ID empty" owner="sign-in-keywords">
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2025-06-14T14:15:36.614983" level="INFO">Element 'xpath=//*[@id=":r2:-form-item-message"][text()='The User ID cannot be empty']' is displayed.</msg>
+<arg>${VALIDATION_TEXT_EMPTY_USER_ID}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2025-06-14T14:15:36.573180" elapsed="0.042012"/>
+</kw>
+<status status="PASS" start="2025-06-14T14:15:36.572431" elapsed="0.042993"/>
+</kw>
+<status status="PASS" start="2025-06-14T14:15:35.976776" elapsed="0.639137"/>
+</test>
+<test id="s1-t2" name="Verify the system show validation text when user input data less than 5 character in User ID" line="17">
+<kw name="Input User ID less than 5 characters" owner="sign-in-keywords">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-06-14T14:15:36.618979" level="INFO">Typing text 'annn' into text field 'xpath=//*[@id="user_code"]'.</msg>
+<arg>${USERID_FIELD}</arg>
+<arg>${USER_ID_LESS_THAN_5}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-06-14T14:15:36.618539" elapsed="0.173112"/>
+</kw>
+<status status="PASS" start="2025-06-14T14:15:36.617994" elapsed="0.173925"/>
+</kw>
+<kw name="Wait for Validation Text of User ID less than 5 characters" owner="sign-in-keywords">
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2025-06-14T14:15:36.833407" level="INFO">Element 'xpath=//*[@id=":r2:-form-item-message"][text()='Username must be at least 5 characters.']' is displayed.</msg>
+<arg>${VALIDATION_TEXT_LESS_THAN_5_CHARACTERS}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2025-06-14T14:15:36.793177" elapsed="0.040438"/>
+</kw>
+<status status="PASS" start="2025-06-14T14:15:36.792558" elapsed="0.041286"/>
+</kw>
+<status status="PASS" start="2025-06-14T14:15:36.617010" elapsed="0.217323"/>
+</test>
+<test id="s1-t3" name="Verify the system show validation text when user input data more than 20 characters in User ID" line="21">
+<kw name="Input User ID more than 20 characters" owner="sign-in-keywords">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-06-14T14:15:36.837529" level="INFO">Typing text 'annstoreannstoreannstoreannstore' into text field 'xpath=//*[@id="user_code"]'.</msg>
+<arg>${USERID_FIELD}</arg>
+<arg>${USER_ID_MORE_THAN_20}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-06-14T14:15:36.837084" elapsed="0.400115"/>
+</kw>
+<status status="PASS" start="2025-06-14T14:15:36.836540" elapsed="0.400918"/>
+</kw>
+<kw name="Wait for Validation Text of User ID more than 20 characters" owner="sign-in-keywords">
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2025-06-14T14:15:37.277909" level="INFO">Element 'xpath=//*[@id=":r2:-form-item-message"][text()='Username must be at most 20 characters.']' is displayed.</msg>
+<arg>${VALIDATION_TEXT_MORE_THAN_20_CHARACTERS}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2025-06-14T14:15:37.238768" elapsed="0.039703"/>
+</kw>
+<status status="PASS" start="2025-06-14T14:15:37.238099" elapsed="0.041067"/>
+</kw>
+<status status="PASS" start="2025-06-14T14:15:36.835523" elapsed="0.444472"/>
+</test>
+<test id="s1-t4" name="Verify the system show validation text when user input special characters in User ID" line="25">
+<kw name="Input User ID contain special characters" owner="sign-in-keywords">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-06-14T14:15:37.285054" level="INFO">Typing text 'annstore!@#' into text field 'xpath=//*[@id="user_code"]'.</msg>
+<arg>${USERID_FIELD}</arg>
+<arg>${user_ID_CONTAIN_SPECIAL_CHARACTERS}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-06-14T14:15:37.283866" elapsed="0.266513"/>
+</kw>
+<status status="PASS" start="2025-06-14T14:15:37.283323" elapsed="0.267313"/>
+</kw>
+<kw name="Wait for Validation Text of User ID contain special characters" owner="sign-in-keywords">
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2025-06-14T14:15:37.607115" level="INFO">Element 'xpath=//*[@id=":r2:-form-item-message"][text()='The User ID must be alphanumeric']' is displayed.</msg>
+<arg>${VALIDATION_TEXT_CONTAIN_SPECIAL_CHARACTERS}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2025-06-14T14:15:37.551790" elapsed="0.055529"/>
+</kw>
+<status status="PASS" start="2025-06-14T14:15:37.551210" elapsed="0.056340"/>
+</kw>
+<status status="PASS" start="2025-06-14T14:15:37.282291" elapsed="0.326031"/>
+</test>
+<test id="s1-t5" name="Verify the system show validation text when user input spaces in User ID" line="29">
+<kw name="Click on User ID field" owner="sign-in-keywords">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-06-14T14:15:37.612085" level="INFO">Clicking element 'xpath=//*[@id="user_code"]'.</msg>
+<arg>${USERID_FIELD}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-06-14T14:15:37.611502" elapsed="0.162016"/>
+</kw>
+<status status="PASS" start="2025-06-14T14:15:37.610404" elapsed="0.163364"/>
+</kw>
+<kw name="Input User ID contain spaces" owner="sign-in-keywords">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-06-14T14:15:37.775333" level="INFO">Typing text ' ' into text field 'xpath=//*[@id="user_code"]'.</msg>
+<arg>${USERID_FIELD}</arg>
+<arg>${USER_ID_CONTAIN_SPACES}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-06-14T14:15:37.774907" elapsed="0.169457"/>
+</kw>
+<status status="PASS" start="2025-06-14T14:15:37.774338" elapsed="0.170308"/>
+</kw>
+<kw name="Wait for Validation Text of User ID contain spaces" owner="sign-in-keywords">
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2025-06-14T14:15:37.979893" level="INFO">Element 'xpath=//*[@id=":r2:-form-item-message"][text()='The User ID cannot be empty']' is displayed.</msg>
+<arg>${VALIDATION_TEXT_CONTAIN_SPACES}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2025-06-14T14:15:37.949589" elapsed="0.030564"/>
+</kw>
+<status status="PASS" start="2025-06-14T14:15:37.948848" elapsed="0.031553"/>
+</kw>
+<status status="PASS" start="2025-06-14T14:15:37.609417" elapsed="0.371508"/>
+</test>
+<test id="s1-t6" name="Verify the system show validation text when data Password is empty" line="34">
+<kw name="Click on Password field" owner="sign-in-keywords">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-06-14T14:15:37.984706" level="INFO">Clicking element 'xpath=//*[@id="password"]'.</msg>
+<arg>${PASSWORD_FIELD}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-06-14T14:15:37.984308" elapsed="0.118216"/>
+</kw>
+<status status="PASS" start="2025-06-14T14:15:37.983727" elapsed="0.119406"/>
+</kw>
+<kw name="Do not input Password" owner="sign-in-keywords">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-06-14T14:15:38.105064" level="INFO">Typing text '' into text field 'xpath=//*[@id="password"]'.</msg>
+<arg>${PASSWORD_FIELD}</arg>
+<arg>${PASSWORD_EMPTY}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-06-14T14:15:38.104518" elapsed="0.096221"/>
+</kw>
+<status status="PASS" start="2025-06-14T14:15:38.103807" elapsed="0.097186"/>
+</kw>
+<kw name="Click Sign In Button" owner="sign-in-keywords">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-06-14T14:15:38.202542" level="INFO">Clicking element 'xpath=/html/body/div[1]/div/div/div/div[2]/div/div/form/button'.</msg>
+<arg>${SIGNIN_BUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-06-14T14:15:38.202177" elapsed="0.129763"/>
+</kw>
+<status status="PASS" start="2025-06-14T14:15:38.201613" elapsed="0.130583"/>
+</kw>
+<kw name="Wait for Validation Text of Password empty" owner="sign-in-keywords">
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2025-06-14T14:15:38.375640" level="INFO">Element 'xpath=//*[@id=":r3:-form-item-message"][text()='The Password cannot be empty']' is displayed.</msg>
+<arg>${VALIDATION_TEXT_EMPTY_PASSWORD}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2025-06-14T14:15:38.333943" elapsed="0.041899"/>
+</kw>
+<status status="PASS" start="2025-06-14T14:15:38.332892" elapsed="0.043170"/>
+</kw>
+<status status="PASS" start="2025-06-14T14:15:37.982605" elapsed="0.393957"/>
+</test>
+<test id="s1-t7" name="Verify the system show validation text when user input data less than 8 characters in Password" line="40">
+<kw name="Input Password less than 8 characters" owner="sign-in-keywords">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-06-14T14:15:38.381534" level="INFO">Typing text 'Dev123' into text field 'xpath=//*[@id="password"]'.</msg>
+<arg>${PASSWORD_FIELD}</arg>
+<arg>${PASSWORD_LESS_THAN_8}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-06-14T14:15:38.380998" elapsed="0.198427"/>
+</kw>
+<status status="PASS" start="2025-06-14T14:15:38.380166" elapsed="0.199507"/>
+</kw>
+<kw name="Wait for Validation Text of Password less than 8 characters" owner="sign-in-keywords">
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2025-06-14T14:15:38.617903" level="INFO">Element 'xpath=//*[@id=":r3:-form-item-message"][text()='Password must be at least 8 characters.']' is displayed.</msg>
+<arg>${VALIDATION_TEXT_LESS_THAN_8_CHARACTERS}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2025-06-14T14:15:38.580860" elapsed="0.037244"/>
+</kw>
+<status status="PASS" start="2025-06-14T14:15:38.580287" elapsed="0.038033"/>
+</kw>
+<status status="PASS" start="2025-06-14T14:15:38.378781" elapsed="0.240036"/>
+</test>
+<test id="s1-t8" name="Verify the system show validation text when user input spaces in Password" line="44">
+<kw name="Click on Password field" owner="sign-in-keywords">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-06-14T14:15:38.621687" level="INFO">Clicking element 'xpath=//*[@id="password"]'.</msg>
+<arg>${PASSWORD_FIELD}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-06-14T14:15:38.621329" elapsed="0.117846"/>
+</kw>
+<status status="PASS" start="2025-06-14T14:15:38.620816" elapsed="0.118661"/>
+</kw>
+<kw name="Input Password contain spaces" owner="sign-in-keywords">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-06-14T14:15:38.741706" level="INFO">Typing text ' ' into text field 'xpath=//*[@id="password"]'.</msg>
+<arg>${PASSWORD_FIELD}</arg>
+<arg>${PASSWORN_CONTAIN_SPACES}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-06-14T14:15:38.741238" elapsed="0.167214"/>
+</kw>
+<status status="PASS" start="2025-06-14T14:15:38.740599" elapsed="0.168121"/>
+</kw>
+<kw name="Wait for Validation Text of Password contain spaces" owner="sign-in-keywords">
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2025-06-14T14:15:38.938464" level="INFO">Element 'xpath=//*[@id=":r2:-form-item-message"][text()='The User ID cannot be empty']' is displayed.</msg>
+<arg>${VALIDATION_TEXT_CONTAIN_SPACES}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2025-06-14T14:15:38.909910" elapsed="0.028758"/>
+</kw>
+<status status="PASS" start="2025-06-14T14:15:38.909313" elapsed="0.029576"/>
+</kw>
+<status status="PASS" start="2025-06-14T14:15:38.619877" elapsed="0.319502"/>
+</test>
+<test id="s1-t9" name="Verify the system show validation text when user input data missing number in Password" line="49">
+<kw name="Input Password missing number" owner="sign-in-keywords">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-06-14T14:15:38.942213" level="INFO">Typing text 'DevPassword!@' into text field 'xpath=//*[@id="password"]'.</msg>
+<arg>${PASSWORD_FIELD}</arg>
+<arg>${PASSWORD_MISSING_NUMBER}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-06-14T14:15:38.941789" elapsed="0.187361"/>
+</kw>
+<status status="PASS" start="2025-06-14T14:15:38.941284" elapsed="0.188374"/>
+</kw>
+<kw name="Wait for Validation Text of Password missing number" owner="sign-in-keywords">
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2025-06-14T14:15:39.165650" level="INFO">Element 'xpath=//*[@id=":r3:-form-item-message"][text()='Password must contain at least one number.']' is displayed.</msg>
+<arg>${VALIDATION_TEXT_MISSING_NUMBER}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2025-06-14T14:15:39.130858" elapsed="0.034993"/>
+</kw>
+<status status="PASS" start="2025-06-14T14:15:39.130282" elapsed="0.035792"/>
+</kw>
+<status status="PASS" start="2025-06-14T14:15:38.940362" elapsed="0.226186"/>
+</test>
+<test id="s1-t10" name="Verify the system show validation text when user input data missing uppercase in Password" line="53">
+<kw name="Input Password missing uppercase" owner="sign-in-keywords">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-06-14T14:15:39.169358" level="INFO">Typing text 'devpassword1234!@' into text field 'xpath=//*[@id="password"]'.</msg>
+<arg>${PASSWORD_FIELD}</arg>
+<arg>${PASSWORD_MISSING_UPPERCASE}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-06-14T14:15:39.168935" elapsed="0.242606"/>
+</kw>
+<status status="PASS" start="2025-06-14T14:15:39.168427" elapsed="0.243398"/>
+</kw>
+<kw name="Wait for Validation Text of Password missing uppercase" owner="sign-in-keywords">
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2025-06-14T14:15:39.458365" level="INFO">Element 'xpath=//*[@id=":r3:-form-item-message"][text()='Password must contain at least one uppercase letter.']' is displayed.</msg>
+<arg>${VALIDATION_TEXT_MISSING_UPPERCASE}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2025-06-14T14:15:39.413002" elapsed="0.045590"/>
+</kw>
+<status status="PASS" start="2025-06-14T14:15:39.412406" elapsed="0.046415"/>
+</kw>
+<status status="PASS" start="2025-06-14T14:15:39.167487" elapsed="0.291774"/>
+</test>
+<test id="s1-t11" name="Verify the system show validation text when user input data missing lowercase in Password" line="57">
+<kw name="Input Password missing lowercase" owner="sign-in-keywords">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-06-14T14:15:39.462648" level="INFO">Typing text 'DEVPASSWORD1234!@' into text field 'xpath=//*[@id="password"]'.</msg>
+<arg>${PASSWORD_FIELD}</arg>
+<arg>${PASSWORD_MISSING_LOWERCASE}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-06-14T14:15:39.462224" elapsed="0.247950"/>
+</kw>
+<status status="PASS" start="2025-06-14T14:15:39.461663" elapsed="0.248835"/>
+</kw>
+<kw name="Wait for Validation Text of Password missing lowercase" owner="sign-in-keywords">
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2025-06-14T14:15:39.744897" level="INFO">Element 'xpath=//*[@id=":r3:-form-item-message"][text()='Password must contain at least one lowercase letter.']' is displayed.</msg>
+<arg>${VALIDATION_TEXT_MISSING_LOWERCASE}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2025-06-14T14:15:39.711835" elapsed="0.033271"/>
+</kw>
+<status status="PASS" start="2025-06-14T14:15:39.711212" elapsed="0.034128"/>
+</kw>
+<status status="PASS" start="2025-06-14T14:15:39.460544" elapsed="0.285346"/>
+</test>
+<test id="s1-t12" name="Verify the system show validation text when user input data missing special character in Password" line="61">
+<kw name="Input Password missing special character" owner="sign-in-keywords">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-06-14T14:15:39.749363" level="INFO">Typing text 'DevPassword1234' into text field 'xpath=//*[@id="password"]'.</msg>
+<arg>${PASSWORD_FIELD}</arg>
+<arg>${PASSWORD_MISSING_SPECIAL_CHARACTER}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-06-14T14:15:39.748927" elapsed="0.238559"/>
+</kw>
+<status status="PASS" start="2025-06-14T14:15:39.748372" elapsed="0.239397"/>
+</kw>
+<kw name="Wait for Validation Text of Password missing special character" owner="sign-in-keywords">
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2025-06-14T14:15:40.023128" level="INFO">Element 'xpath=//*[@id=":r3:-form-item-message"][text()='Password must contain at least one special character.']' is displayed.</msg>
+<arg>${VALIDATION_TEXT_MISSING_SPECIAL_CHARACTER}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2025-06-14T14:15:39.989209" elapsed="0.034126"/>
+</kw>
+<status status="PASS" start="2025-06-14T14:15:39.988479" elapsed="0.035078"/>
+</kw>
+<status status="PASS" start="2025-06-14T14:15:39.747299" elapsed="0.276699"/>
+</test>
+<test id="s1-t13" name="Verify the Owner Sign In Successfully when user input correct" line="65">
+<kw name="Input correct Owner User ID" owner="sign-in-keywords">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-06-14T14:15:40.026647" level="INFO">Typing text 'annstore' into text field 'xpath=//*[@id="user_code"]'.</msg>
+<arg>${USERID_FIELD}</arg>
+<arg>${OWNER_USER_ID}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-06-14T14:15:40.026224" elapsed="0.187372"/>
+</kw>
+<status status="PASS" start="2025-06-14T14:15:40.025701" elapsed="0.188159"/>
+</kw>
+<kw name="Input correct Owner Password" owner="sign-in-keywords">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-06-14T14:15:40.216039" level="INFO">Typing text 'Dev1234!@#' into text field 'xpath=//*[@id="password"]'.</msg>
+<arg>${PASSWORD_FIELD}</arg>
+<arg>${OWNER_PASSWORD}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-06-14T14:15:40.215376" elapsed="0.222545"/>
+</kw>
+<status status="PASS" start="2025-06-14T14:15:40.214524" elapsed="0.223656"/>
+</kw>
+<kw name="Click Sign In Button" owner="sign-in-keywords">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-06-14T14:15:40.440518" level="INFO">Clicking element 'xpath=/html/body/div[1]/div/div/div/div[2]/div/div/form/button'.</msg>
+<arg>${SIGNIN_BUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-06-14T14:15:40.439789" elapsed="0.129822"/>
+</kw>
+<status status="PASS" start="2025-06-14T14:15:40.438987" elapsed="0.130883"/>
 </kw>
 <kw name="Wait For Report Menu" owner="sign-in-keywords">
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${REPORT_MENU}</arg>
 <arg>timeout=${TIMEOUT}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-06-10T16:47:33.966161" elapsed="2.508104"/>
+<status status="PASS" start="2025-06-14T14:15:40.571357" elapsed="2.525693"/>
 </kw>
-<status status="PASS" start="2025-06-10T16:47:33.965034" elapsed="2.509606"/>
+<status status="PASS" start="2025-06-14T14:15:40.570502" elapsed="2.526814"/>
 </kw>
-<status status="PASS" start="2025-06-10T16:47:27.443654" elapsed="9.031723"/>
+<status status="PASS" start="2025-06-14T14:15:40.024878" elapsed="3.072937"/>
 </test>
-<status status="PASS" start="2025-06-10T16:47:25.575315" elapsed="10.902211"/>
+<test id="s1-t14" name="Verify the system Sign Out Successfully when user click Sign Out button" line="71">
+<kw name="Given Click on My Account avatar" owner="sign-in-keywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${MY_ACCOUNT_MENU}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-06-14T14:15:43.100514" elapsed="0.038155"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-06-14T14:15:43.140439" level="INFO">Clicking element 'xpath=//*[@id="radix-:r1:"]'.</msg>
+<arg>${MY_ACCOUNT_MENU}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-06-14T14:15:43.139154" elapsed="0.197261"/>
+</kw>
+<status status="PASS" start="2025-06-14T14:15:43.099969" elapsed="0.236923"/>
+</kw>
+<kw name="When Click on Sign Out Button" owner="sign-in-keywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${SIGN_OUT_BUTTON}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-06-14T14:15:43.345574" elapsed="0.062740"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-06-14T14:15:43.409197" level="INFO">Clicking element 'xpath=//*[@id="radix-:r2:"]/div[5][text()='Logout']'.</msg>
+<arg>${SIGN_OUT_BUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-06-14T14:15:43.408747" elapsed="0.148185"/>
+</kw>
+<status status="PASS" start="2025-06-14T14:15:43.343269" elapsed="0.213919"/>
+</kw>
+<kw name="Then Wait for system navigate user back to Sign in screen" owner="sign-in-keywords">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${WELCOME_SIGN_IN}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-06-14T14:15:43.558458" elapsed="1.591538"/>
+</kw>
+<status status="PASS" start="2025-06-14T14:15:43.557837" elapsed="1.592490"/>
+</kw>
+<kw name="Set Test Message" owner="BuiltIn">
+<msg time="2025-06-14T14:15:45.152845" level="INFO">Set test message to:
+Sign Out Successfully</msg>
+<arg>Sign Out Successfully</arg>
+<doc>Sets message for the current test case.</doc>
+<status status="PASS" start="2025-06-14T14:15:45.152315" elapsed="0.000689"/>
+</kw>
+<tag>Sign Out</tag>
+<tag>Success</tag>
+<status status="PASS" start="2025-06-14T14:15:43.098930" elapsed="2.054657">Sign Out Successfully</status>
+</test>
+<kw name="Close Browsers" owner="common_keywords" type="TEARDOWN">
+<kw name="Close All Browsers" owner="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2025-06-14T14:15:45.156441" elapsed="2.670642"/>
+</kw>
+<status status="PASS" start="2025-06-14T14:15:45.155951" elapsed="2.671572"/>
+</kw>
+<status status="PASS" start="2025-06-14T14:15:29.463237" elapsed="18.364426"/>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="0" skip="0">All Tests</stat>
+<stat pass="14" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
+<stat pass="1" fail="0" skip="0">Sign Out</stat>
+<stat pass="1" fail="0" skip="0">Success</stat>
 </tag>
 <suite>
-<stat name="Owner-Sign-In-Success" id="s1" pass="1" fail="0" skip="0">Owner-Sign-In-Success</stat>
+<stat name="Sign-In" id="s1" pass="14" fail="0" skip="0">Sign-In</stat>
 </suite>
 </statistics>
 <errors>

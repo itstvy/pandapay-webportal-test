@@ -1,1 +1,1 @@
-robot -d results tests/
+robot --output logs/output.xml --log logs/log.html --report logs/report.html tests/ui/authentication/sign-in.robot
