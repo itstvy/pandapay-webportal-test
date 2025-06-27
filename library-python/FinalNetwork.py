@@ -62,6 +62,12 @@ class FinalNetwork(AbstractEventListener):
         return driver
 
     @keyword("Inject Request Interceptor")
+    # Mục đích: Inject JavaScript code vào browser để bắt các request đến một endpoint cụ thể
+    # Sử dụng: Khi bạn muốn theo dõi các request đến một API endpoint nhất định
+    # Ví dụ sử dụng trong Robot Framework:
+    # Inject Request Interceptor    ${driver}    /api/login
+    # Bắt đầu theo dõi các request đến endpoint /api/login
+
     def inject_request_interceptor(self, driver: Any, api_endpoint: str) -> None:
         """
         Inject JavaScript to intercept and log requests to a specific API endpoint.
@@ -136,6 +142,12 @@ class FinalNetwork(AbstractEventListener):
         self.logger.info(f"JavaScript interceptor injected for endpoint: {api_endpoint}")
 
     @keyword("Start Network Interception")
+    #Mục đích: Bắt đầu theo dõi tất cả network requests sử dụng Chrome DevTools Protocol (CDP)
+    #  Sử dụng: Khi bạn muốn bắt đầu theo dõi tất cả network traffic
+    #Ví dụ sử dụng trong Robot Framework:
+    #Start Network Interception    ${driver}
+    #Bắt đầu theo dõi tất cả network traffic
+
     def start_network_interception(self, driver: Any) -> None:
         """
         Start intercepting network requests using CDP.
@@ -265,6 +277,14 @@ class FinalNetwork(AbstractEventListener):
                 time.sleep(0.1)
 
     @keyword("Get Intercepted Requests")
+    # Mục đích: Lấy danh sách các requests đã được bắt theo điều kiện
+    # Tham số:
+    # endpoint: URL endpoint cần lọc
+    # method: HTTP method cần lọc
+    # timeout: Thời gian chờ tối đa
+    # Sử dụng: Khi bạn muốn kiểm tra các requests đã được gửi
+    # ${requests}=    Get Intercepted Requests    ${driver}    endpoint=/api/login    method=POST
+
     def get_intercepted_requests(self, driver, endpoint=None, method=None, timeout=10):
         """Get intercepted requests matching the given criteria."""
         start_time = time.time()
@@ -301,6 +321,12 @@ class FinalNetwork(AbstractEventListener):
         return matching_requests
 
     @keyword("Wait For Request")
+    #Mục đích: Đợi cho đến khi một request cụ thể xuất hiện
+    # Sử dụng: Khi bạn cần đợi và verify một request nhất định
+    # Ví dụ sử dụng trong Robot Framework:
+    # ${request}=    Wait For Request    ${driver}    endpoint=/api/login    method=POST
+    # Verify request đã được gửi
+
     def wait_for_request(self, driver, endpoint, method=None, timeout=10):
         """Wait for a specific request to be intercepted."""
         requests = self.get_intercepted_requests(driver, endpoint, method, timeout)
@@ -318,6 +344,12 @@ class FinalNetwork(AbstractEventListener):
         self.logger.info("Cleared all intercepted requests")
 
     @keyword("Stop Network Interception")
+    # Mục đích: Xóa các requests đã bắt và dừng việc theo dõi network
+    # Sử dụng: Sau khi hoàn thành test case hoặc khi cần reset trạng thái
+    # Ví dụ sử dụng trong Robot Framework:
+    # Stop Network Interception    ${driver}
+    # Dừng việc theo dõi network
+
     def stop_network_interception(self, driver: Any) -> None:
         """Stop network interception and cleanup"""
         try:

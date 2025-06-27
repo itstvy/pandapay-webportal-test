@@ -3,7 +3,7 @@ Resource    ../../../resources/common/common_settings.robot
 Resource    ../../../resources/common/common_variables.robot
 Resource    ../../../resources/keywords/authentication/sign-in-keywords.robot
 Resource    ../../../resources/common/common_keywords.robot
-Suite Setup     Open Sign in PandaPay
+Suite Setup     Open Sign in Page
 Suite Teardown  Close Browsers
 
 *** Test Cases ***
@@ -63,13 +63,14 @@ Verify the system show validation text when user input data missing special char
     Wait for Validation Text of Password missing special character
 
 Verify the Owner Sign In Successfully when user input correct 
+    [Tags]    Success
     Input correct Owner User ID
     Input correct Owner Password
     Click Sign In Button
     Wait For Report Menu
 
 Verify the system Sign Out Successfully when user click Sign Out button
-    [Tags]    Sign Out    Success
+    [Tags]    Success
     Given Click on My Account avatar
     When Click on Sign Out Button
     Then Wait for system navigate user back to Sign in screen

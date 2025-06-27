@@ -1,472 +1,462 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.2.2 (Python 3.13.3 on win32)" generated="2025-06-14T14:15:29.459655" rpa="false" schemaversion="5">
-<suite id="s1" name="Sign-In" source="D:\Automation-Testing\Robot-Framework\PandaPay-v2\tests\ui\authentication\sign-in.robot">
-<kw name="Open Sign in PandaPay" owner="common_keywords" type="SETUP">
+<robot generator="Robot 7.2.2 (Python 3.13.3 on win32)" generated="2025-06-27T14:30:02.900540" rpa="false" schemaversion="5">
+<suite id="s1" name="Sign-In-Gherkin-Test" source="D:\Automation-Testing\Robot-Framework\PandaPay-v2\tests\ui\authentication\sign-in-gherkin-test.robot">
+<kw name="Open Sign In Page" owner="sign-in-keywords" type="SETUP">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-06-14T14:15:31.308624" level="INFO">Opening browser 'chrome' to base url 'https://app.panda.ennam.vn/login'.</msg>
+<msg time="2025-06-27T14:30:05.580365" level="INFO">Opening browser 'chrome' to base url 'https://app.panda.ennam.vn/login'.</msg>
 <arg>${DEV_URL}/login</arg>
 <arg>${BROWSER}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-06-14T14:15:31.308017" elapsed="4.122254"/>
+<status status="PASS" start="2025-06-27T14:30:05.579776" elapsed="6.653236"/>
 </kw>
 <kw name="Maximize Browser Window" owner="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2025-06-14T14:15:35.430865" elapsed="0.071477"/>
+<status status="PASS" start="2025-06-27T14:30:12.234339" elapsed="0.243032"/>
 </kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
 <arg>${USERID_FIELD}</arg>
-<arg>10s</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-06-14T14:15:35.502835" elapsed="0.433908"/>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-06-27T14:30:12.478114" elapsed="0.286035"/>
 </kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
 <arg>${PASSWORD_FIELD}</arg>
-<arg>10s</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-06-14T14:15:35.937191" elapsed="0.039078"/>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-06-27T14:30:12.764916" elapsed="0.078954"/>
 </kw>
-<status status="PASS" start="2025-06-14T14:15:31.306156" elapsed="4.670405"/>
+<status status="PASS" start="2025-06-27T14:30:05.577826" elapsed="7.266425"/>
 </kw>
-<test id="s1-t1" name="Verify the system show validation text when data User ID is empty" line="11">
-<kw name="Click on User ID field" owner="sign-in-keywords">
+<test id="s1-t1" name="Verify User ID Empty Validation" line="11">
+<kw name="When user clicks on User ID field" owner="sign-in-gherkin-keyword">
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-06-14T14:15:35.983263" level="INFO">Clicking element 'xpath=//*[@id="user_code"]'.</msg>
+<msg time="2025-06-27T14:30:12.855735" level="INFO">Clicking element 'xpath=//*[@id="user_code"]'.</msg>
 <arg>${USERID_FIELD}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-06-14T14:15:35.982793" elapsed="0.184219"/>
+<status status="PASS" start="2025-06-27T14:30:12.854972" elapsed="0.376605"/>
 </kw>
-<status status="PASS" start="2025-06-14T14:15:35.981943" elapsed="0.185354"/>
+<status status="PASS" start="2025-06-27T14:30:12.853719" elapsed="0.378257"/>
 </kw>
-<kw name="Do not input User ID" owner="sign-in-keywords">
+<kw name="And user leaves User ID empty" owner="sign-in-gherkin-keyword">
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-06-14T14:15:36.172886" level="INFO">Typing text '' into text field 'xpath=//*[@id="user_code"]'.</msg>
+<msg time="2025-06-27T14:30:13.256298" level="INFO">Typing text '' into text field 'xpath=//*[@id="user_code"]'.</msg>
 <arg>${USERID_FIELD}</arg>
-<arg>${USER_ID_EMPTY}</arg>
+<arg>${EMPTY}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-06-14T14:15:36.172082" elapsed="0.181909"/>
+<status status="PASS" start="2025-06-27T14:30:13.254075" elapsed="0.275278"/>
 </kw>
-<status status="PASS" start="2025-06-14T14:15:36.171318" elapsed="0.182945"/>
+<status status="PASS" start="2025-06-27T14:30:13.253021" elapsed="0.276704"/>
 </kw>
-<kw name="Click Sign In Button" owner="sign-in-keywords">
+<kw name="And user clicks Sign In button" owner="sign-in-gherkin-keyword">
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-06-14T14:15:36.356101" level="INFO">Clicking element 'xpath=/html/body/div[1]/div/div/div/div[2]/div/div/form/button'.</msg>
+<msg time="2025-06-27T14:30:13.532422" level="INFO">Clicking element 'xpath=/html/body/div[1]/div/div/div/div[2]/div/div/form/button'.</msg>
 <arg>${SIGNIN_BUTTON}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-06-14T14:15:36.355649" elapsed="0.215860"/>
+<status status="PASS" start="2025-06-27T14:30:13.531726" elapsed="0.282047"/>
 </kw>
-<status status="PASS" start="2025-06-14T14:15:36.354972" elapsed="0.216807"/>
+<status status="PASS" start="2025-06-27T14:30:13.530779" elapsed="0.283351"/>
 </kw>
-<kw name="Wait for Validation Text of User ID empty" owner="sign-in-keywords">
+<kw name="Then user should see User ID empty validation" owner="sign-in-gherkin-keyword">
 <kw name="Element Should Be Visible" owner="SeleniumLibrary">
-<msg time="2025-06-14T14:15:36.614983" level="INFO">Element 'xpath=//*[@id=":r2:-form-item-message"][text()='The User ID cannot be empty']' is displayed.</msg>
+<msg time="2025-06-27T14:30:14.094990" level="INFO">Element 'xpath=//*[@id=":r2:-form-item-message"][text()='The User ID cannot be empty']' is displayed.</msg>
 <arg>${VALIDATION_TEXT_EMPTY_USER_ID}</arg>
 <arg>timeout=${TIMEOUT}</arg>
 <doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<status status="PASS" start="2025-06-14T14:15:36.573180" elapsed="0.042012"/>
+<status status="PASS" start="2025-06-27T14:30:13.816138" elapsed="0.279114"/>
 </kw>
-<status status="PASS" start="2025-06-14T14:15:36.572431" elapsed="0.042993"/>
+<status status="PASS" start="2025-06-27T14:30:13.815128" elapsed="0.280430"/>
 </kw>
-<status status="PASS" start="2025-06-14T14:15:35.976776" elapsed="0.639137"/>
+<status status="PASS" start="2025-06-27T14:30:12.844530" elapsed="1.251729"/>
 </test>
-<test id="s1-t2" name="Verify the system show validation text when user input data less than 5 character in User ID" line="17">
-<kw name="Input User ID less than 5 characters" owner="sign-in-keywords">
+<test id="s1-t2" name="Verify User ID Less Than 5 Characters Validation" line="17">
+<kw name="When user enters User ID with less than 5 characters" owner="sign-in-gherkin-keyword">
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-06-14T14:15:36.618979" level="INFO">Typing text 'annn' into text field 'xpath=//*[@id="user_code"]'.</msg>
+<msg time="2025-06-27T14:30:14.101155" level="INFO">Typing text 'annn' into text field 'xpath=//*[@id="user_code"]'.</msg>
 <arg>${USERID_FIELD}</arg>
 <arg>${USER_ID_LESS_THAN_5}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-06-14T14:15:36.618539" elapsed="0.173112"/>
+<status status="PASS" start="2025-06-27T14:30:14.100419" elapsed="0.297351"/>
 </kw>
-<status status="PASS" start="2025-06-14T14:15:36.617994" elapsed="0.173925"/>
+<status status="PASS" start="2025-06-27T14:30:14.099533" elapsed="0.298615"/>
 </kw>
-<kw name="Wait for Validation Text of User ID less than 5 characters" owner="sign-in-keywords">
+<kw name="Then user should see User ID validation for less than 5 characters" owner="sign-in-gherkin-keyword">
 <kw name="Element Should Be Visible" owner="SeleniumLibrary">
-<msg time="2025-06-14T14:15:36.833407" level="INFO">Element 'xpath=//*[@id=":r2:-form-item-message"][text()='Username must be at least 5 characters.']' is displayed.</msg>
+<msg time="2025-06-27T14:30:14.478664" level="INFO">Element 'xpath=//*[@id=":r2:-form-item-message"][text()='Username must be at least 5 characters.']' is displayed.</msg>
 <arg>${VALIDATION_TEXT_LESS_THAN_5_CHARACTERS}</arg>
 <arg>timeout=${TIMEOUT}</arg>
 <doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<status status="PASS" start="2025-06-14T14:15:36.793177" elapsed="0.040438"/>
+<status status="PASS" start="2025-06-27T14:30:14.401243" elapsed="0.077740"/>
 </kw>
-<status status="PASS" start="2025-06-14T14:15:36.792558" elapsed="0.041286"/>
+<status status="PASS" start="2025-06-27T14:30:14.399292" elapsed="0.080037"/>
 </kw>
-<status status="PASS" start="2025-06-14T14:15:36.617010" elapsed="0.217323"/>
+<status status="PASS" start="2025-06-27T14:30:14.097982" elapsed="0.382342"/>
 </test>
-<test id="s1-t3" name="Verify the system show validation text when user input data more than 20 characters in User ID" line="21">
-<kw name="Input User ID more than 20 characters" owner="sign-in-keywords">
+<test id="s1-t3" name="Verify User ID More Than 20 Characters Validation" line="21">
+<kw name="When user enters User ID with more than 20 characters" owner="sign-in-gherkin-keyword">
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-06-14T14:15:36.837529" level="INFO">Typing text 'annstoreannstoreannstoreannstore' into text field 'xpath=//*[@id="user_code"]'.</msg>
+<msg time="2025-06-27T14:30:14.486817" level="INFO">Typing text 'annstoreannstoreannstoreannstore' into text field 'xpath=//*[@id="user_code"]'.</msg>
 <arg>${USERID_FIELD}</arg>
 <arg>${USER_ID_MORE_THAN_20}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-06-14T14:15:36.837084" elapsed="0.400115"/>
+<status status="PASS" start="2025-06-27T14:30:14.485764" elapsed="0.787371"/>
 </kw>
-<status status="PASS" start="2025-06-14T14:15:36.836540" elapsed="0.400918"/>
+<status status="PASS" start="2025-06-27T14:30:14.484527" elapsed="0.789026"/>
 </kw>
-<kw name="Wait for Validation Text of User ID more than 20 characters" owner="sign-in-keywords">
+<kw name="Then user should see User ID validation for more than 20 characters" owner="sign-in-gherkin-keyword">
 <kw name="Element Should Be Visible" owner="SeleniumLibrary">
-<msg time="2025-06-14T14:15:37.277909" level="INFO">Element 'xpath=//*[@id=":r2:-form-item-message"][text()='Username must be at most 20 characters.']' is displayed.</msg>
+<msg time="2025-06-27T14:30:15.390065" level="INFO">Element 'xpath=//*[@id=":r2:-form-item-message"][text()='Username must be at most 20 characters.']' is displayed.</msg>
 <arg>${VALIDATION_TEXT_MORE_THAN_20_CHARACTERS}</arg>
 <arg>timeout=${TIMEOUT}</arg>
 <doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<status status="PASS" start="2025-06-14T14:15:37.238768" elapsed="0.039703"/>
+<status status="PASS" start="2025-06-27T14:30:15.275607" elapsed="0.114748"/>
 </kw>
-<status status="PASS" start="2025-06-14T14:15:37.238099" elapsed="0.041067"/>
+<status status="PASS" start="2025-06-27T14:30:15.274546" elapsed="0.116140"/>
 </kw>
-<status status="PASS" start="2025-06-14T14:15:36.835523" elapsed="0.444472"/>
+<status status="PASS" start="2025-06-27T14:30:14.482481" elapsed="0.913084"/>
 </test>
-<test id="s1-t4" name="Verify the system show validation text when user input special characters in User ID" line="25">
-<kw name="Input User ID contain special characters" owner="sign-in-keywords">
+<test id="s1-t4" name="Verify User ID Special Characters Validation" line="25">
+<kw name="When user enters User ID with special characters" owner="sign-in-gherkin-keyword">
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-06-14T14:15:37.285054" level="INFO">Typing text 'annstore!@#' into text field 'xpath=//*[@id="user_code"]'.</msg>
+<msg time="2025-06-27T14:30:15.423240" level="INFO">Typing text 'annstore!@#' into text field 'xpath=//*[@id="user_code"]'.</msg>
 <arg>${USERID_FIELD}</arg>
-<arg>${user_ID_CONTAIN_SPECIAL_CHARACTERS}</arg>
+<arg>${USER_ID_CONTAIN_SPECIAL_CHARACTERS}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-06-14T14:15:37.283866" elapsed="0.266513"/>
+<status status="PASS" start="2025-06-27T14:30:15.422458" elapsed="0.450516"/>
 </kw>
-<status status="PASS" start="2025-06-14T14:15:37.283323" elapsed="0.267313"/>
+<status status="PASS" start="2025-06-27T14:30:15.421357" elapsed="0.452058"/>
 </kw>
-<kw name="Wait for Validation Text of User ID contain special characters" owner="sign-in-keywords">
+<kw name="Then user should see User ID validation for special characters" owner="sign-in-gherkin-keyword">
 <kw name="Element Should Be Visible" owner="SeleniumLibrary">
-<msg time="2025-06-14T14:15:37.607115" level="INFO">Element 'xpath=//*[@id=":r2:-form-item-message"][text()='The User ID must be alphanumeric']' is displayed.</msg>
+<msg time="2025-06-27T14:30:15.976904" level="INFO">Element 'xpath=//*[@id=":r2:-form-item-message"][text()='The User ID must be alphanumeric']' is displayed.</msg>
 <arg>${VALIDATION_TEXT_CONTAIN_SPECIAL_CHARACTERS}</arg>
 <arg>timeout=${TIMEOUT}</arg>
 <doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<status status="PASS" start="2025-06-14T14:15:37.551790" elapsed="0.055529"/>
+<status status="PASS" start="2025-06-27T14:30:15.878888" elapsed="0.098419"/>
 </kw>
-<status status="PASS" start="2025-06-14T14:15:37.551210" elapsed="0.056340"/>
+<status status="PASS" start="2025-06-27T14:30:15.877903" elapsed="0.099780"/>
 </kw>
-<status status="PASS" start="2025-06-14T14:15:37.282291" elapsed="0.326031"/>
+<status status="PASS" start="2025-06-27T14:30:15.399759" elapsed="0.580462"/>
 </test>
-<test id="s1-t5" name="Verify the system show validation text when user input spaces in User ID" line="29">
-<kw name="Click on User ID field" owner="sign-in-keywords">
+<test id="s1-t5" name="Verify User ID Spaces Validation" line="29">
+<kw name="When user clicks on User ID field" owner="sign-in-gherkin-keyword">
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-06-14T14:15:37.612085" level="INFO">Clicking element 'xpath=//*[@id="user_code"]'.</msg>
+<msg time="2025-06-27T14:30:15.993132" level="INFO">Clicking element 'xpath=//*[@id="user_code"]'.</msg>
 <arg>${USERID_FIELD}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-06-14T14:15:37.611502" elapsed="0.162016"/>
+<status status="PASS" start="2025-06-27T14:30:15.992432" elapsed="0.268373"/>
 </kw>
-<status status="PASS" start="2025-06-14T14:15:37.610404" elapsed="0.163364"/>
+<status status="PASS" start="2025-06-27T14:30:15.991380" elapsed="0.269807"/>
 </kw>
-<kw name="Input User ID contain spaces" owner="sign-in-keywords">
+<kw name="And user enters User ID with spaces" owner="sign-in-gherkin-keyword">
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-06-14T14:15:37.775333" level="INFO">Typing text ' ' into text field 'xpath=//*[@id="user_code"]'.</msg>
+<msg time="2025-06-27T14:30:16.264654" level="INFO">Typing text ' ' into text field 'xpath=//*[@id="user_code"]'.</msg>
 <arg>${USERID_FIELD}</arg>
 <arg>${USER_ID_CONTAIN_SPACES}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-06-14T14:15:37.774907" elapsed="0.169457"/>
+<status status="PASS" start="2025-06-27T14:30:16.263942" elapsed="0.339234"/>
 </kw>
-<status status="PASS" start="2025-06-14T14:15:37.774338" elapsed="0.170308"/>
+<status status="PASS" start="2025-06-27T14:30:16.262687" elapsed="0.340815"/>
 </kw>
-<kw name="Wait for Validation Text of User ID contain spaces" owner="sign-in-keywords">
+<kw name="Then user should see User ID validation for spaces" owner="sign-in-gherkin-keyword">
 <kw name="Element Should Be Visible" owner="SeleniumLibrary">
-<msg time="2025-06-14T14:15:37.979893" level="INFO">Element 'xpath=//*[@id=":r2:-form-item-message"][text()='The User ID cannot be empty']' is displayed.</msg>
+<msg time="2025-06-27T14:30:16.643613" level="INFO">Element 'xpath=//*[@id=":r2:-form-item-message"][text()='The User ID cannot be empty']' is displayed.</msg>
 <arg>${VALIDATION_TEXT_CONTAIN_SPACES}</arg>
 <arg>timeout=${TIMEOUT}</arg>
 <doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<status status="PASS" start="2025-06-14T14:15:37.949589" elapsed="0.030564"/>
+<status status="PASS" start="2025-06-27T14:30:16.605092" elapsed="0.038786"/>
 </kw>
-<status status="PASS" start="2025-06-14T14:15:37.948848" elapsed="0.031553"/>
+<status status="PASS" start="2025-06-27T14:30:16.604295" elapsed="0.039886"/>
 </kw>
-<status status="PASS" start="2025-06-14T14:15:37.609417" elapsed="0.371508"/>
+<status status="PASS" start="2025-06-27T14:30:15.989683" elapsed="0.655134"/>
 </test>
-<test id="s1-t6" name="Verify the system show validation text when data Password is empty" line="34">
-<kw name="Click on Password field" owner="sign-in-keywords">
+<test id="s1-t6" name="Verify Password Empty Validation" line="34">
+<kw name="When user clicks on Password field" owner="sign-in-gherkin-keyword">
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-06-14T14:15:37.984706" level="INFO">Clicking element 'xpath=//*[@id="password"]'.</msg>
+<msg time="2025-06-27T14:30:16.648904" level="INFO">Clicking element 'xpath=//*[@id="password"]'.</msg>
 <arg>${PASSWORD_FIELD}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-06-14T14:15:37.984308" elapsed="0.118216"/>
+<status status="PASS" start="2025-06-27T14:30:16.648386" elapsed="0.179021"/>
 </kw>
-<status status="PASS" start="2025-06-14T14:15:37.983727" elapsed="0.119406"/>
+<status status="PASS" start="2025-06-27T14:30:16.647630" elapsed="0.180092"/>
 </kw>
-<kw name="Do not input Password" owner="sign-in-keywords">
+<kw name="And user leaves Password empty" owner="sign-in-gherkin-keyword">
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-06-14T14:15:38.105064" level="INFO">Typing text '' into text field 'xpath=//*[@id="password"]'.</msg>
+<msg time="2025-06-27T14:30:16.831640" level="INFO">Typing text '' into text field 'xpath=//*[@id="password"]'.</msg>
 <arg>${PASSWORD_FIELD}</arg>
-<arg>${PASSWORD_EMPTY}</arg>
+<arg>${EMPTY}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-06-14T14:15:38.104518" elapsed="0.096221"/>
+<status status="PASS" start="2025-06-27T14:30:16.829811" elapsed="0.131961"/>
 </kw>
-<status status="PASS" start="2025-06-14T14:15:38.103807" elapsed="0.097186"/>
+<status status="PASS" start="2025-06-27T14:30:16.828803" elapsed="0.133240"/>
 </kw>
-<kw name="Click Sign In Button" owner="sign-in-keywords">
+<kw name="And user clicks Sign In button" owner="sign-in-gherkin-keyword">
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-06-14T14:15:38.202542" level="INFO">Clicking element 'xpath=/html/body/div[1]/div/div/div/div[2]/div/div/form/button'.</msg>
+<msg time="2025-06-27T14:30:16.963770" level="INFO">Clicking element 'xpath=/html/body/div[1]/div/div/div/div[2]/div/div/form/button'.</msg>
 <arg>${SIGNIN_BUTTON}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-06-14T14:15:38.202177" elapsed="0.129763"/>
+<status status="PASS" start="2025-06-27T14:30:16.963372" elapsed="0.161594"/>
 </kw>
-<status status="PASS" start="2025-06-14T14:15:38.201613" elapsed="0.130583"/>
+<status status="PASS" start="2025-06-27T14:30:16.962744" elapsed="0.162828"/>
 </kw>
-<kw name="Wait for Validation Text of Password empty" owner="sign-in-keywords">
+<kw name="Then user should see Password empty validation" owner="sign-in-gherkin-keyword">
 <kw name="Element Should Be Visible" owner="SeleniumLibrary">
-<msg time="2025-06-14T14:15:38.375640" level="INFO">Element 'xpath=//*[@id=":r3:-form-item-message"][text()='The Password cannot be empty']' is displayed.</msg>
+<msg time="2025-06-27T14:30:17.198356" level="INFO">Element 'xpath=//*[@id=":r3:-form-item-message"][text()='The Password cannot be empty']' is displayed.</msg>
 <arg>${VALIDATION_TEXT_EMPTY_PASSWORD}</arg>
 <arg>timeout=${TIMEOUT}</arg>
 <doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<status status="PASS" start="2025-06-14T14:15:38.333943" elapsed="0.041899"/>
+<status status="PASS" start="2025-06-27T14:30:17.129755" elapsed="0.068852"/>
 </kw>
-<status status="PASS" start="2025-06-14T14:15:38.332892" elapsed="0.043170"/>
+<status status="PASS" start="2025-06-27T14:30:17.128908" elapsed="0.069980"/>
 </kw>
-<status status="PASS" start="2025-06-14T14:15:37.982605" elapsed="0.393957"/>
+<status status="PASS" start="2025-06-27T14:30:16.646282" elapsed="0.558702"/>
 </test>
-<test id="s1-t7" name="Verify the system show validation text when user input data less than 8 characters in Password" line="40">
-<kw name="Input Password less than 8 characters" owner="sign-in-keywords">
+<test id="s1-t7" name="Verify Password Less Than 8 Characters Validation" line="40">
+<kw name="When user enters Password with less than 8 characters" owner="sign-in-gherkin-keyword">
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-06-14T14:15:38.381534" level="INFO">Typing text 'Dev123' into text field 'xpath=//*[@id="password"]'.</msg>
+<msg time="2025-06-27T14:30:17.209881" level="INFO">Typing text 'Dev123' into text field 'xpath=//*[@id="password"]'.</msg>
 <arg>${PASSWORD_FIELD}</arg>
 <arg>${PASSWORD_LESS_THAN_8}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-06-14T14:15:38.380998" elapsed="0.198427"/>
+<status status="PASS" start="2025-06-27T14:30:17.209241" elapsed="0.282396"/>
 </kw>
-<status status="PASS" start="2025-06-14T14:15:38.380166" elapsed="0.199507"/>
+<status status="PASS" start="2025-06-27T14:30:17.208300" elapsed="0.283677"/>
 </kw>
-<kw name="Wait for Validation Text of Password less than 8 characters" owner="sign-in-keywords">
+<kw name="Then user should see Password validation for less than 8 characters" owner="sign-in-gherkin-keyword">
 <kw name="Element Should Be Visible" owner="SeleniumLibrary">
-<msg time="2025-06-14T14:15:38.617903" level="INFO">Element 'xpath=//*[@id=":r3:-form-item-message"][text()='Password must be at least 8 characters.']' is displayed.</msg>
+<msg time="2025-06-27T14:30:17.550722" level="INFO">Element 'xpath=//*[@id=":r3:-form-item-message"][text()='Password must be at least 8 characters.']' is displayed.</msg>
 <arg>${VALIDATION_TEXT_LESS_THAN_8_CHARACTERS}</arg>
 <arg>timeout=${TIMEOUT}</arg>
 <doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<status status="PASS" start="2025-06-14T14:15:38.580860" elapsed="0.037244"/>
+<status status="PASS" start="2025-06-27T14:30:17.493694" elapsed="0.057304"/>
 </kw>
-<status status="PASS" start="2025-06-14T14:15:38.580287" elapsed="0.038033"/>
+<status status="PASS" start="2025-06-27T14:30:17.492875" elapsed="0.058470"/>
 </kw>
-<status status="PASS" start="2025-06-14T14:15:38.378781" elapsed="0.240036"/>
+<status status="PASS" start="2025-06-27T14:30:17.206886" elapsed="0.345144"/>
 </test>
-<test id="s1-t8" name="Verify the system show validation text when user input spaces in Password" line="44">
-<kw name="Click on Password field" owner="sign-in-keywords">
+<test id="s1-t8" name="Verify Password Spaces Validation" line="44">
+<kw name="When user clicks on Password field" owner="sign-in-gherkin-keyword">
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-06-14T14:15:38.621687" level="INFO">Clicking element 'xpath=//*[@id="password"]'.</msg>
+<msg time="2025-06-27T14:30:17.555921" level="INFO">Clicking element 'xpath=//*[@id="password"]'.</msg>
 <arg>${PASSWORD_FIELD}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-06-14T14:15:38.621329" elapsed="0.117846"/>
+<status status="PASS" start="2025-06-27T14:30:17.555367" elapsed="0.168381"/>
 </kw>
-<status status="PASS" start="2025-06-14T14:15:38.620816" elapsed="0.118661"/>
+<status status="PASS" start="2025-06-27T14:30:17.554630" elapsed="0.169503"/>
 </kw>
-<kw name="Input Password contain spaces" owner="sign-in-keywords">
+<kw name="And user enters Password with spaces" owner="sign-in-gherkin-keyword">
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-06-14T14:15:38.741706" level="INFO">Typing text ' ' into text field 'xpath=//*[@id="password"]'.</msg>
+<msg time="2025-06-27T14:30:17.727022" level="INFO">Typing text ' ' into text field 'xpath=//*[@id="password"]'.</msg>
 <arg>${PASSWORD_FIELD}</arg>
-<arg>${PASSWORN_CONTAIN_SPACES}</arg>
+<arg>${PASSWORD_CONTAIN_SPACES}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-06-14T14:15:38.741238" elapsed="0.167214"/>
+<status status="PASS" start="2025-06-27T14:30:17.726386" elapsed="0.215214"/>
 </kw>
-<status status="PASS" start="2025-06-14T14:15:38.740599" elapsed="0.168121"/>
+<status status="PASS" start="2025-06-27T14:30:17.725468" elapsed="0.216448"/>
 </kw>
-<kw name="Wait for Validation Text of Password contain spaces" owner="sign-in-keywords">
+<kw name="Then user should see Password validation for spaces" owner="sign-in-gherkin-keyword">
 <kw name="Element Should Be Visible" owner="SeleniumLibrary">
-<msg time="2025-06-14T14:15:38.938464" level="INFO">Element 'xpath=//*[@id=":r2:-form-item-message"][text()='The User ID cannot be empty']' is displayed.</msg>
+<msg time="2025-06-27T14:30:17.979127" level="INFO">Element 'xpath=//*[@id=":r2:-form-item-message"][text()='The User ID cannot be empty']' is displayed.</msg>
 <arg>${VALIDATION_TEXT_CONTAIN_SPACES}</arg>
 <arg>timeout=${TIMEOUT}</arg>
 <doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<status status="PASS" start="2025-06-14T14:15:38.909910" elapsed="0.028758"/>
+<status status="PASS" start="2025-06-27T14:30:17.943429" elapsed="0.035946"/>
 </kw>
-<status status="PASS" start="2025-06-14T14:15:38.909313" elapsed="0.029576"/>
+<status status="PASS" start="2025-06-27T14:30:17.942680" elapsed="0.036967"/>
 </kw>
-<status status="PASS" start="2025-06-14T14:15:38.619877" elapsed="0.319502"/>
+<status status="PASS" start="2025-06-27T14:30:17.553445" elapsed="0.426763"/>
 </test>
-<test id="s1-t9" name="Verify the system show validation text when user input data missing number in Password" line="49">
-<kw name="Input Password missing number" owner="sign-in-keywords">
+<test id="s1-t9" name="Verify Password Missing Number Validation" line="49">
+<kw name="When user enters Password without numbers" owner="sign-in-gherkin-keyword">
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-06-14T14:15:38.942213" level="INFO">Typing text 'DevPassword!@' into text field 'xpath=//*[@id="password"]'.</msg>
+<msg time="2025-06-27T14:30:17.985046" level="INFO">Typing text 'DevPassword!@' into text field 'xpath=//*[@id="password"]'.</msg>
 <arg>${PASSWORD_FIELD}</arg>
 <arg>${PASSWORD_MISSING_NUMBER}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-06-14T14:15:38.941789" elapsed="0.187361"/>
+<status status="PASS" start="2025-06-27T14:30:17.984227" elapsed="0.259745"/>
 </kw>
-<status status="PASS" start="2025-06-14T14:15:38.941284" elapsed="0.188374"/>
+<status status="PASS" start="2025-06-27T14:30:17.983282" elapsed="0.261344"/>
 </kw>
-<kw name="Wait for Validation Text of Password missing number" owner="sign-in-keywords">
+<kw name="Then user should see Password validation for missing number" owner="sign-in-gherkin-keyword">
 <kw name="Element Should Be Visible" owner="SeleniumLibrary">
-<msg time="2025-06-14T14:15:39.165650" level="INFO">Element 'xpath=//*[@id=":r3:-form-item-message"][text()='Password must contain at least one number.']' is displayed.</msg>
+<msg time="2025-06-27T14:30:18.293420" level="INFO">Element 'xpath=//*[@id=":r3:-form-item-message"][text()='Password must contain at least one number.']' is displayed.</msg>
 <arg>${VALIDATION_TEXT_MISSING_NUMBER}</arg>
 <arg>timeout=${TIMEOUT}</arg>
 <doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<status status="PASS" start="2025-06-14T14:15:39.130858" elapsed="0.034993"/>
+<status status="PASS" start="2025-06-27T14:30:18.246319" elapsed="0.047358"/>
 </kw>
-<status status="PASS" start="2025-06-14T14:15:39.130282" elapsed="0.035792"/>
+<status status="PASS" start="2025-06-27T14:30:18.245492" elapsed="0.048478"/>
 </kw>
-<status status="PASS" start="2025-06-14T14:15:38.940362" elapsed="0.226186"/>
+<status status="PASS" start="2025-06-27T14:30:17.981812" elapsed="0.312751"/>
 </test>
-<test id="s1-t10" name="Verify the system show validation text when user input data missing uppercase in Password" line="53">
-<kw name="Input Password missing uppercase" owner="sign-in-keywords">
+<test id="s1-t10" name="Verify Password Missing Uppercase Validation" line="53">
+<kw name="When user enters Password without uppercase letters" owner="sign-in-gherkin-keyword">
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-06-14T14:15:39.169358" level="INFO">Typing text 'devpassword1234!@' into text field 'xpath=//*[@id="password"]'.</msg>
+<msg time="2025-06-27T14:30:18.298408" level="INFO">Typing text 'devpassword1234!@' into text field 'xpath=//*[@id="password"]'.</msg>
 <arg>${PASSWORD_FIELD}</arg>
 <arg>${PASSWORD_MISSING_UPPERCASE}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-06-14T14:15:39.168935" elapsed="0.242606"/>
+<status status="PASS" start="2025-06-27T14:30:18.297798" elapsed="0.572545"/>
 </kw>
-<status status="PASS" start="2025-06-14T14:15:39.168427" elapsed="0.243398"/>
+<status status="PASS" start="2025-06-27T14:30:18.297090" elapsed="0.573613"/>
 </kw>
-<kw name="Wait for Validation Text of Password missing uppercase" owner="sign-in-keywords">
+<kw name="Then user should see Password validation for missing uppercase" owner="sign-in-gherkin-keyword">
 <kw name="Element Should Be Visible" owner="SeleniumLibrary">
-<msg time="2025-06-14T14:15:39.458365" level="INFO">Element 'xpath=//*[@id=":r3:-form-item-message"][text()='Password must contain at least one uppercase letter.']' is displayed.</msg>
+<msg time="2025-06-27T14:30:18.918155" level="INFO">Element 'xpath=//*[@id=":r3:-form-item-message"][text()='Password must contain at least one uppercase letter.']' is displayed.</msg>
 <arg>${VALIDATION_TEXT_MISSING_UPPERCASE}</arg>
 <arg>timeout=${TIMEOUT}</arg>
 <doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<status status="PASS" start="2025-06-14T14:15:39.413002" elapsed="0.045590"/>
+<status status="PASS" start="2025-06-27T14:30:18.872515" elapsed="0.046048"/>
 </kw>
-<status status="PASS" start="2025-06-14T14:15:39.412406" elapsed="0.046415"/>
+<status status="PASS" start="2025-06-27T14:30:18.871595" elapsed="0.047629"/>
 </kw>
-<status status="PASS" start="2025-06-14T14:15:39.167487" elapsed="0.291774"/>
+<status status="PASS" start="2025-06-27T14:30:18.295899" elapsed="0.624048"/>
 </test>
-<test id="s1-t11" name="Verify the system show validation text when user input data missing lowercase in Password" line="57">
-<kw name="Input Password missing lowercase" owner="sign-in-keywords">
+<test id="s1-t11" name="Verify Password Missing Lowercase Validation" line="57">
+<kw name="When user enters Password without lowercase letters" owner="sign-in-gherkin-keyword">
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-06-14T14:15:39.462648" level="INFO">Typing text 'DEVPASSWORD1234!@' into text field 'xpath=//*[@id="password"]'.</msg>
+<msg time="2025-06-27T14:30:18.924352" level="INFO">Typing text 'DEVPASSWORD1234!@' into text field 'xpath=//*[@id="password"]'.</msg>
 <arg>${PASSWORD_FIELD}</arg>
 <arg>${PASSWORD_MISSING_LOWERCASE}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-06-14T14:15:39.462224" elapsed="0.247950"/>
+<status status="PASS" start="2025-06-27T14:30:18.923716" elapsed="0.421416"/>
 </kw>
-<status status="PASS" start="2025-06-14T14:15:39.461663" elapsed="0.248835"/>
+<status status="PASS" start="2025-06-27T14:30:18.922952" elapsed="0.422576"/>
 </kw>
-<kw name="Wait for Validation Text of Password missing lowercase" owner="sign-in-keywords">
+<kw name="Then user should see Password validation for missing lowercase" owner="sign-in-gherkin-keyword">
 <kw name="Element Should Be Visible" owner="SeleniumLibrary">
-<msg time="2025-06-14T14:15:39.744897" level="INFO">Element 'xpath=//*[@id=":r3:-form-item-message"][text()='Password must contain at least one lowercase letter.']' is displayed.</msg>
+<msg time="2025-06-27T14:30:19.411931" level="INFO">Element 'xpath=//*[@id=":r3:-form-item-message"][text()='Password must contain at least one lowercase letter.']' is displayed.</msg>
 <arg>${VALIDATION_TEXT_MISSING_LOWERCASE}</arg>
 <arg>timeout=${TIMEOUT}</arg>
 <doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<status status="PASS" start="2025-06-14T14:15:39.711835" elapsed="0.033271"/>
+<status status="PASS" start="2025-06-27T14:30:19.349107" elapsed="0.063188"/>
 </kw>
-<status status="PASS" start="2025-06-14T14:15:39.711212" elapsed="0.034128"/>
+<status status="PASS" start="2025-06-27T14:30:19.348061" elapsed="0.064588"/>
 </kw>
-<status status="PASS" start="2025-06-14T14:15:39.460544" elapsed="0.285346"/>
+<status status="PASS" start="2025-06-27T14:30:18.921663" elapsed="0.491744"/>
 </test>
-<test id="s1-t12" name="Verify the system show validation text when user input data missing special character in Password" line="61">
-<kw name="Input Password missing special character" owner="sign-in-keywords">
+<test id="s1-t12" name="Verify Password Missing Special Character Validation" line="61">
+<kw name="When user enters Password without special characters" owner="sign-in-gherkin-keyword">
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-06-14T14:15:39.749363" level="INFO">Typing text 'DevPassword1234' into text field 'xpath=//*[@id="password"]'.</msg>
+<msg time="2025-06-27T14:30:19.419518" level="INFO">Typing text 'DevPassword1234' into text field 'xpath=//*[@id="password"]'.</msg>
 <arg>${PASSWORD_FIELD}</arg>
 <arg>${PASSWORD_MISSING_SPECIAL_CHARACTER}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-06-14T14:15:39.748927" elapsed="0.238559"/>
+<status status="PASS" start="2025-06-27T14:30:19.418292" elapsed="0.441543"/>
 </kw>
-<status status="PASS" start="2025-06-14T14:15:39.748372" elapsed="0.239397"/>
+<status status="PASS" start="2025-06-27T14:30:19.416806" elapsed="0.443401"/>
 </kw>
-<kw name="Wait for Validation Text of Password missing special character" owner="sign-in-keywords">
+<kw name="Then user should see Password validation for missing special character" owner="sign-in-gherkin-keyword">
 <kw name="Element Should Be Visible" owner="SeleniumLibrary">
-<msg time="2025-06-14T14:15:40.023128" level="INFO">Element 'xpath=//*[@id=":r3:-form-item-message"][text()='Password must contain at least one special character.']' is displayed.</msg>
+<msg time="2025-06-27T14:30:19.939258" level="INFO">Element 'xpath=//*[@id=":r3:-form-item-message"][text()='Password must contain at least one special character.']' is displayed.</msg>
 <arg>${VALIDATION_TEXT_MISSING_SPECIAL_CHARACTER}</arg>
 <arg>timeout=${TIMEOUT}</arg>
 <doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<status status="PASS" start="2025-06-14T14:15:39.989209" elapsed="0.034126"/>
+<status status="PASS" start="2025-06-27T14:30:19.862122" elapsed="0.077456"/>
 </kw>
-<status status="PASS" start="2025-06-14T14:15:39.988479" elapsed="0.035078"/>
+<status status="PASS" start="2025-06-27T14:30:19.861184" elapsed="0.078798"/>
 </kw>
-<status status="PASS" start="2025-06-14T14:15:39.747299" elapsed="0.276699"/>
+<status status="PASS" start="2025-06-27T14:30:19.415017" elapsed="0.526881"/>
 </test>
-<test id="s1-t13" name="Verify the Owner Sign In Successfully when user input correct" line="65">
-<kw name="Input correct Owner User ID" owner="sign-in-keywords">
+<test id="s1-t13" name="Verify Owner Sign In Successfully" line="65">
+<kw name="When user enters Owner User ID" owner="sign-in-gherkin-keyword">
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-06-14T14:15:40.026647" level="INFO">Typing text 'annstore' into text field 'xpath=//*[@id="user_code"]'.</msg>
+<msg time="2025-06-27T14:30:19.947104" level="INFO">Typing text 'annstore' into text field 'xpath=//*[@id="user_code"]'.</msg>
 <arg>${USERID_FIELD}</arg>
 <arg>${OWNER_USER_ID}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-06-14T14:15:40.026224" elapsed="0.187372"/>
+<status status="PASS" start="2025-06-27T14:30:19.946351" elapsed="0.365496"/>
 </kw>
-<status status="PASS" start="2025-06-14T14:15:40.025701" elapsed="0.188159"/>
+<status status="PASS" start="2025-06-27T14:30:19.945400" elapsed="0.366839"/>
 </kw>
-<kw name="Input correct Owner Password" owner="sign-in-keywords">
+<kw name="And user enters Owner password" owner="sign-in-gherkin-keyword">
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-06-14T14:15:40.216039" level="INFO">Typing text 'Dev1234!@#' into text field 'xpath=//*[@id="password"]'.</msg>
+<msg time="2025-06-27T14:30:20.315080" level="INFO">Typing text 'Dev1234!@#' into text field 'xpath=//*[@id="password"]'.</msg>
 <arg>${PASSWORD_FIELD}</arg>
 <arg>${OWNER_PASSWORD}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-06-14T14:15:40.215376" elapsed="0.222545"/>
+<status status="PASS" start="2025-06-27T14:30:20.314283" elapsed="0.456390"/>
 </kw>
-<status status="PASS" start="2025-06-14T14:15:40.214524" elapsed="0.223656"/>
+<status status="PASS" start="2025-06-27T14:30:20.313302" elapsed="0.458233"/>
 </kw>
-<kw name="Click Sign In Button" owner="sign-in-keywords">
+<kw name="And user clicks Sign In button" owner="sign-in-gherkin-keyword">
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-06-14T14:15:40.440518" level="INFO">Clicking element 'xpath=/html/body/div[1]/div/div/div/div[2]/div/div/form/button'.</msg>
+<msg time="2025-06-27T14:30:20.774544" level="INFO">Clicking element 'xpath=/html/body/div[1]/div/div/div/div[2]/div/div/form/button'.</msg>
 <arg>${SIGNIN_BUTTON}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-06-14T14:15:40.439789" elapsed="0.129822"/>
+<status status="PASS" start="2025-06-27T14:30:20.773816" elapsed="0.410705"/>
 </kw>
-<status status="PASS" start="2025-06-14T14:15:40.438987" elapsed="0.130883"/>
+<status status="PASS" start="2025-06-27T14:30:20.772835" elapsed="0.412062"/>
 </kw>
-<kw name="Wait For Report Menu" owner="sign-in-keywords">
+<kw name="Then user should see Report menu" owner="sign-in-gherkin-keyword">
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${REPORT_MENU}</arg>
 <arg>timeout=${TIMEOUT}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-06-14T14:15:40.571357" elapsed="2.525693"/>
+<status status="PASS" start="2025-06-27T14:30:21.188939" elapsed="2.217069"/>
 </kw>
-<status status="PASS" start="2025-06-14T14:15:40.570502" elapsed="2.526814"/>
+<status status="PASS" start="2025-06-27T14:30:21.187957" elapsed="2.218383"/>
 </kw>
-<status status="PASS" start="2025-06-14T14:15:40.024878" elapsed="3.072937"/>
+<tag>Success</tag>
+<status status="PASS" start="2025-06-27T14:30:19.943795" elapsed="3.463183"/>
 </test>
-<test id="s1-t14" name="Verify the system Sign Out Successfully when user click Sign Out button" line="71">
-<kw name="Given Click on My Account avatar" owner="sign-in-keywords">
+<test id="s1-t14" name="Verify Sign Out Successfully" line="72">
+<kw name="When user clicks on My Account avatar" owner="sign-in-gherkin-keyword">
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${MY_ACCOUNT_MENU}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-06-14T14:15:43.100514" elapsed="0.038155"/>
+<status status="PASS" start="2025-06-27T14:30:23.410591" elapsed="0.100475"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-06-14T14:15:43.140439" level="INFO">Clicking element 'xpath=//*[@id="radix-:r1:"]'.</msg>
+<msg time="2025-06-27T14:30:23.513718" level="INFO">Clicking element 'xpath=//*[@id="radix-:r1:"]'.</msg>
 <arg>${MY_ACCOUNT_MENU}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-06-14T14:15:43.139154" elapsed="0.197261"/>
+<status status="PASS" start="2025-06-27T14:30:23.512347" elapsed="0.256894"/>
 </kw>
-<status status="PASS" start="2025-06-14T14:15:43.099969" elapsed="0.236923"/>
+<status status="PASS" start="2025-06-27T14:30:23.409754" elapsed="0.360010"/>
 </kw>
-<kw name="When Click on Sign Out Button" owner="sign-in-keywords">
+<kw name="And user clicks on Sign Out button" owner="sign-in-gherkin-keyword">
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${SIGN_OUT_BUTTON}</arg>
 <arg>timeout=${TIMEOUT}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-06-14T14:15:43.345574" elapsed="0.062740"/>
+<status status="PASS" start="2025-06-27T14:30:23.772659" elapsed="0.085214"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-06-14T14:15:43.409197" level="INFO">Clicking element 'xpath=//*[@id="radix-:r2:"]/div[5][text()='Logout']'.</msg>
+<msg time="2025-06-27T14:30:23.859651" level="INFO">Clicking element 'xpath=//*[@id="radix-:r2:"]/div[5][text()='Logout']'.</msg>
 <arg>${SIGN_OUT_BUTTON}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-06-14T14:15:43.408747" elapsed="0.148185"/>
+<status status="PASS" start="2025-06-27T14:30:23.858881" elapsed="0.196442"/>
 </kw>
-<status status="PASS" start="2025-06-14T14:15:43.343269" elapsed="0.213919"/>
+<status status="PASS" start="2025-06-27T14:30:23.771630" elapsed="0.284024"/>
 </kw>
-<kw name="Then Wait for system navigate user back to Sign in screen" owner="sign-in-keywords">
+<kw name="Then user should be redirected to Sign in screen" owner="sign-in-gherkin-keyword">
 <kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
 <arg>${WELCOME_SIGN_IN}</arg>
 <arg>timeout=${TIMEOUT}</arg>
 <doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" start="2025-06-14T14:15:43.558458" elapsed="1.591538"/>
+<status status="PASS" start="2025-06-27T14:30:24.057314" elapsed="2.199013"/>
 </kw>
-<status status="PASS" start="2025-06-14T14:15:43.557837" elapsed="1.592490"/>
+<status status="PASS" start="2025-06-27T14:30:24.056503" elapsed="2.200135"/>
 </kw>
-<kw name="Set Test Message" owner="BuiltIn">
-<msg time="2025-06-14T14:15:45.152845" level="INFO">Set test message to:
-Sign Out Successfully</msg>
-<arg>Sign Out Successfully</arg>
-<doc>Sets message for the current test case.</doc>
-<status status="PASS" start="2025-06-14T14:15:45.152315" elapsed="0.000689"/>
-</kw>
-<tag>Sign Out</tag>
 <tag>Success</tag>
-<status status="PASS" start="2025-06-14T14:15:43.098930" elapsed="2.054657">Sign Out Successfully</status>
+<status status="PASS" start="2025-06-27T14:30:23.408357" elapsed="2.848888"/>
 </test>
 <kw name="Close Browsers" owner="common_keywords" type="TEARDOWN">
 <kw name="Close All Browsers" owner="SeleniumLibrary">
 <doc>Closes all open browsers and resets the browser cache.</doc>
-<status status="PASS" start="2025-06-14T14:15:45.156441" elapsed="2.670642"/>
+<status status="PASS" start="2025-06-27T14:30:26.260023" elapsed="3.687927"/>
 </kw>
-<status status="PASS" start="2025-06-14T14:15:45.155951" elapsed="2.671572"/>
+<status status="PASS" start="2025-06-27T14:30:26.259431" elapsed="3.688795"/>
 </kw>
-<status status="PASS" start="2025-06-14T14:15:29.463237" elapsed="18.364426"/>
+<status status="PASS" start="2025-06-27T14:30:02.904179" elapsed="27.044155"/>
 </suite>
 <statistics>
 <total>
 <stat pass="14" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
-<stat pass="1" fail="0" skip="0">Sign Out</stat>
-<stat pass="1" fail="0" skip="0">Success</stat>
+<stat pass="2" fail="0" skip="0">Success</stat>
 </tag>
 <suite>
-<stat name="Sign-In" id="s1" pass="14" fail="0" skip="0">Sign-In</stat>
+<stat name="Sign-In-Gherkin-Test" id="s1" pass="14" fail="0" skip="0">Sign-In-Gherkin-Test</stat>
 </suite>
 </statistics>
 <errors>

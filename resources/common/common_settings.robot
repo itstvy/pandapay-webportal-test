@@ -1,5 +1,5 @@
 *** Settings ***
-Library    SeleniumLibrary    run_on_failure=None
+Library    SeleniumLibrary
 Library    OperatingSystem
 Library    Collections
 Library    String

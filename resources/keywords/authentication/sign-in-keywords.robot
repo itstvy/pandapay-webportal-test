@@ -3,11 +3,12 @@ Resource    ../../../resources/variables/authentication/sign-in-variables.robot
 Resource    ../../../resources/common/common_variables.robot
 Resource    ../../../resources/common/common_settings.robot
 
-*** Keywords *** 
+*** Keywords ***
 Open Sign In Page
     Open Browser    ${DEV_URL}/login   ${BROWSER}
     Maximize Browser Window
-    Wait Until Page Contains Element    ${USERID_FIELD}     ${PASSWORD_FIELD}   
+    Wait Until Page Contains Element    ${USERID_FIELD}
+    Wait Until Page Contains Element    ${PASSWORD_FIELD}
 
 Click on User ID field
     Click Element    ${USERID_FIELD}
@@ -16,28 +17,28 @@ Click on Password field
     Click Element    ${PASSWORD_FIELD}
 
 Input correct Owner User ID
-    Input Text    ${USERID_FIELD}    ${OWNER_USER_ID}    
+    Input Text    ${USERID_FIELD}    ${OWNER_USER_ID}
 
 Input correct Admin User ID
-    Input Text    ${USERID_FIELD}    ${ADMIN}    
+    Input Text    ${USERID_FIELD}    ${ADMIN}
 
 Input correct Admin Password
-    Input Text    ${PASSWORD_FIELD}    ${ADMIN_PASSWORD}    
+    Input Text    ${PASSWORD_FIELD}    ${ADMIN_PASSWORD}
 
 Input correct Owner Password
-    Input Text    ${PASSWORD_FIELD}    ${OWNER_PASSWORD}    
+    Input Text    ${PASSWORD_FIELD}    ${OWNER_PASSWORD}
 
 Click Sign In Button
-    Click Element    ${SIGNIN_BUTTON}    
+    Click Element    ${SIGNIN_BUTTON}
 
 Click on Admin Checkbox
-    Click Element    ${ADMIN_CHECKBOX}    
+    Click Element    ${ADMIN_CHECKBOX}
 
 Wait For Deactivate Account Message
     Element Should Be Visible    ${DEACTIVATED_ACCOUNT_MESSAGE}    timeout=${TIMEOUT}
 
 Wait For Login Success Message
-    Element Should Be Visible    ${SIGNIN_SUCCESS_MESSAGE}    timeout=${TIMEOUT}    
+    Element Should Be Visible    ${SIGNIN_SUCCESS_MESSAGE}    timeout=${TIMEOUT}
 
 Wait For Report Menu
     Wait Until Element Is Visible    ${REPORT_MENU}    timeout=${TIMEOUT}
@@ -51,20 +52,20 @@ Click on Sign Out Button
     Click Element    ${SIGN_OUT_BUTTON}
 
 Wait for system navigate user back to Sign in screen
-    Wait Until Page Contains Element    ${WELCOME_SIGN_IN}    timeout=${TIMEOUT} 
-    
+    Wait Until Page Contains Element    ${WELCOME_SIGN_IN}    timeout=${TIMEOUT}
+
 Input User ID less than 5 characters
-    Input Text    ${USERID_FIELD}    ${USER_ID_LESS_THAN_5}    
+    Input Text    ${USERID_FIELD}    ${USER_ID_LESS_THAN_5}
 
 
 Input User ID more than 20 characters
-    Input Text    ${USERID_FIELD}    ${USER_ID_MORE_THAN_20}    
+    Input Text    ${USERID_FIELD}    ${USER_ID_MORE_THAN_20}
 
 Input User ID contain special characters
-    Input Text    ${USERID_FIELD}    ${user_ID_CONTAIN_SPECIAL_CHARACTERS}    
+    Input Text    ${USERID_FIELD}    ${user_ID_CONTAIN_SPECIAL_CHARACTERS}
 
 Input User ID contain spaces
-    Input Text    ${USERID_FIELD}    ${USER_ID_CONTAIN_SPACES}        
+    Input Text    ${USERID_FIELD}    ${USER_ID_CONTAIN_SPACES}
 
 Do not input User ID
     Input Text    ${USERID_FIELD}    ${USER_ID_EMPTY}
@@ -76,7 +77,7 @@ Input Password less than 8 characters
     Input Text    ${PASSWORD_FIELD}    ${PASSWORD_LESS_THAN_8}
 
 Input Password contain spaces
-    Input Text    ${PASSWORD_FIELD}    ${PASSWORN_CONTAIN_SPACES}
+    Input Text    ${PASSWORD_FIELD}    ${PASSWORD_CONTAIN_SPACES}
 
 Input Password missing number
     Input Text    ${PASSWORD_FIELD}    ${PASSWORD_MISSING_NUMBER}
