@@ -1,10 +1,6 @@
 *** Settings ***
 Resource    ../../../resources/common/common_settings.robot
-Resource    ../../../resources/common/common_variables.robot
-Resource    ../../../resources/keywords/authentication/sign-in-keywords.robot
-Resource    ../../../resources/common/common_keywords.robot
-Resource    ../../../gherkin-style/sign-in-gherkin-keyword.robot
-Suite Setup     Open Sign in Page
+Suite Setup     Open Sign In Page
 Suite Teardown  Close Browsers
 
 *** Test Cases ***

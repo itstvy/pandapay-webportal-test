@@ -5,7 +5,7 @@ Resource    ../../../resources/common/common_settings.robot
 
 *** Keywords ***
 Open Sign In Page
-    Open Browser    ${DEV_URL}/login   ${BROWSER}
+    Open Browser    ${DEV_URL}     ${BROWSER}
     Maximize Browser Window
     Wait Until Page Contains Element    ${USERID_FIELD}
     Wait Until Page Contains Element    ${PASSWORD_FIELD}

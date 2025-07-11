@@ -25,10 +25,11 @@ Owner Sign In API Success
     #Check status code trả về là 201
     Status Should Be    201    ${response}
 
-    #Chuyển response thành JSON để verify
+    #Chuyển response thành dạng JSON để dễ verify
     ${json}=    Set Variable    ${response.json()}
 
-    #Verify các key có trong response
+    #Verify các key có trong response và kiểm tra response có đầy đủ các trường cần thiết
+
     Dictionary Should Contain Key    ${json}    success
     Dictionary Should Contain Key    ${json}    statusCode
     Dictionary Should Contain Key    ${json}    message
@@ -40,7 +41,7 @@ Owner Sign In API Success
     Should Be Equal    ${json["statusCode"]}    ${201}
     Should Be Equal    ${json["message"]}    SIGN_IN_SUCCESSFULLY
 
-    # Verify data object
+    # Verify data object 
     ${data}=    Set Variable    ${json["data"]}
     Dictionary Should Contain Key    ${data}    access_token
     Dictionary Should Contain Key    ${data}    refresh_token

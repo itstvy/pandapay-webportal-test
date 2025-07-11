@@ -2,6 +2,8 @@
 #Data
 ${OWNER_USER_ID}    annstore
 
+${OWNER_EMAIL}    an@yopmail.com
+
 ${ADMIN}    admin
 
 ${ADMIN_PASSWORD}    Exnodes123!@#
@@ -36,7 +38,9 @@ ${PASSWORD_MISSING_SPECIAL_CHARACTER}    DevPassword1234
 
 
 #API ENDPOINT OF SIGN IN
-${SIGNIN_ENDPOINT}    /api/user/sign-in/
+${SIGNIN_ENDPOINT}    api/user/sign-in/
+
+${PROFILE_ENDPOINT}    api/user/me/profile/
 
 ${EXPECTED_RESULT}    201
 

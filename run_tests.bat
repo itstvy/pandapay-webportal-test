@@ -1,1 +1,1 @@
-robot --output logs/output.xml --log logs/log.html --report logs/report.html tests/ui/authentication/sign-in-gherkin-test.robot
+robot --output logs/output.xml --log logs/log.html --report logs/report.html tests/api/authentication/capture-api.robot

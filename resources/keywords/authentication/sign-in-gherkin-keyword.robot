@@ -1,13 +1,11 @@
 *** Settings ***
-Resource    ../resources/variables/authentication/sign-in-variables.robot
-Resource    ../resources/common/common_variables.robot
-Resource    ../resources/common/common_settings.robot
+Resource    ../../../resources/variables/authentication/sign-in-variables.robot
+Resource    ../../../resources/common/common_variables.robot
+Resource    ../../../resources/common/common_settings.robot
 
 *** Keywords ***
 # Basic Navigation Keywords
 user is on the sign in page
-    Open Browser    ${DEV_URL}/login   ${BROWSER}
-    Maximize Browser Window
     Wait Until Page Contains Element    ${USERID_FIELD}
     Wait Until Page Contains Element    ${PASSWORD_FIELD}
 
