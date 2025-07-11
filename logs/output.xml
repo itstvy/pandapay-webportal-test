@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.2.2 (Python 3.13.3 on win32)" generated="2025-07-11T21:59:57.610453" rpa="false" schemaversion="5">
+<robot generator="Robot 7.2.2 (Python 3.13.3 on win32)" generated="2025-07-11T22:23:59.438065" rpa="false" schemaversion="5">
 <suite id="s1" name="Capture-Api" source="D:\Automation-Testing\Robot-Framework\PandaPay-v2\tests\api\authentication\capture-api.robot">
 <kw name="Basic Setup" owner="common_keywords" type="SETUP">
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-07-11T21:59:59.251684" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x00000290FDF56510&gt;</msg>
+<msg time="2025-07-11T22:24:01.188316" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x0000021126D72510&gt;</msg>
 <var>${options}</var>
 <arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
 <arg>sys</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-07-11T21:59:59.250982" elapsed="0.000796"/>
+<status status="PASS" start="2025-07-11T22:24:01.187446" elapsed="0.000977"/>
 </kw>
 <kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-07-11T21:59:59.252712" level="INFO">${logging_prefs} = {'performance': 'ALL'}</msg>
+<msg time="2025-07-11T22:24:01.189560" level="INFO">${logging_prefs} = {'performance': 'ALL'}</msg>
 <var>${logging_prefs}</var>
 <arg>performance=ALL</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-07-11T21:59:59.252145" elapsed="0.000638"/>
+<status status="PASS" start="2025-07-11T22:24:01.188879" elapsed="0.000757"/>
 </kw>
 <kw name="Call Method" owner="BuiltIn">
 <arg>${options}</arg>
@@ -23,113 +23,109 @@
 <arg>goog:loggingPrefs</arg>
 <arg>${logging_prefs}</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="PASS" start="2025-07-11T21:59:59.253047" elapsed="0.000339"/>
+<status status="PASS" start="2025-07-11T22:24:01.189980" elapsed="0.000724"/>
 </kw>
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-07-11T21:59:59.254250" level="INFO">Opening browser 'chrome' to base url 'https://app.panda.ennam.vn'.</msg>
+<msg time="2025-07-11T22:24:01.191959" level="INFO">Opening browser 'chrome' to base url 'https://app.panda.ennam.vn'.</msg>
 <arg>${DEV_URL}</arg>
 <arg>${BROWSER}</arg>
 <arg>options=${options}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-07-11T21:59:59.253708" elapsed="3.775970"/>
+<status status="PASS" start="2025-07-11T22:24:01.191157" elapsed="3.926355"/>
 </kw>
-<status status="PASS" start="2025-07-11T21:59:59.248962" elapsed="3.781173"/>
+<status status="PASS" start="2025-07-11T22:24:01.185160" elapsed="3.932890"/>
 </kw>
 <test id="s1-t1" name="Verify the Owner sign in successfully when input correct account" line="8">
 <kw name="Get Library Instance" owner="BuiltIn">
-<msg time="2025-07-11T22:00:03.034831" level="INFO">${driver} = &lt;SeleniumLibrary.SeleniumLibrary object at 0x00000290FDC57770&gt;</msg>
+<msg time="2025-07-11T22:24:05.131728" level="INFO">${driver} = &lt;SeleniumLibrary.SeleniumLibrary object at 0x0000021126A73770&gt;</msg>
 <var>${driver}</var>
 <arg>SeleniumLibrary</arg>
 <doc>Returns the currently active instance of the specified library.</doc>
-<status status="PASS" start="2025-07-11T22:00:03.033324" elapsed="0.001837"/>
+<status status="PASS" start="2025-07-11T22:24:05.130946" elapsed="0.000942"/>
 </kw>
 <kw name="Given user is on the sign in page" owner="sign-in-gherkin-keyword">
 <kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
 <arg>${USERID_FIELD}</arg>
 <doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" start="2025-07-11T22:00:03.044858" elapsed="1.240724"/>
+<status status="PASS" start="2025-07-11T22:24:05.134212" elapsed="1.511241"/>
 </kw>
 <kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
 <arg>${PASSWORD_FIELD}</arg>
 <doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" start="2025-07-11T22:00:04.286243" elapsed="0.057495"/>
+<status status="PASS" start="2025-07-11T22:24:06.646121" elapsed="0.066591"/>
 </kw>
-<status status="PASS" start="2025-07-11T22:00:03.043601" elapsed="1.300508"/>
+<status status="PASS" start="2025-07-11T22:24:05.133060" elapsed="1.580021"/>
 </kw>
 <kw name="When user enters Owner User ID" owner="sign-in-gherkin-keyword">
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-07-11T22:00:04.356747" level="INFO">Typing text 'annstore' into text field 'xpath=//*[@id="user_code"]'.</msg>
+<msg time="2025-07-11T22:24:06.716753" level="INFO">Typing text 'annstore' into text field 'xpath=//*[@id="user_code"]'.</msg>
 <arg>${USERID_FIELD}</arg>
 <arg>${OWNER_USER_ID}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-07-11T22:00:04.355861" elapsed="0.640085"/>
+<status status="PASS" start="2025-07-11T22:24:06.715889" elapsed="0.458188"/>
 </kw>
-<status status="PASS" start="2025-07-11T22:00:04.354034" elapsed="0.642303"/>
+<status status="PASS" start="2025-07-11T22:24:06.714807" elapsed="0.459885"/>
 </kw>
 <kw name="And user enters Owner password" owner="sign-in-gherkin-keyword">
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-07-11T22:00:05.002638" level="INFO">Typing text 'Dev1234!@#' into text field 'xpath=//*[@id="password"]'.</msg>
+<msg time="2025-07-11T22:24:07.188830" level="INFO">Typing text 'Dev1234!@#' into text field 'xpath=//*[@id="password"]'.</msg>
 <arg>${PASSWORD_FIELD}</arg>
 <arg>${OWNER_PASSWORD}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-07-11T22:00:05.001819" elapsed="0.378186"/>
+<status status="PASS" start="2025-07-11T22:24:07.187268" elapsed="0.357652"/>
 </kw>
-<status status="PASS" start="2025-07-11T22:00:05.000776" elapsed="0.379604"/>
+<status status="PASS" start="2025-07-11T22:24:07.186224" elapsed="0.359061"/>
 </kw>
 <kw name="And user clicks Sign In button" owner="sign-in-gherkin-keyword">
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-07-11T22:00:05.384561" level="INFO">Clicking element 'xpath=/html/body/div[1]/div/div/div/div[2]/div/div/form/button'.</msg>
+<msg time="2025-07-11T22:24:07.548256" level="INFO">Clicking element 'xpath=/html/body/div[1]/div/div/div/div[2]/div/div/form/button'.</msg>
 <arg>${SIGNIN_BUTTON}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-07-11T22:00:05.383747" elapsed="0.300392"/>
+<status status="PASS" start="2025-07-11T22:24:07.547483" elapsed="0.253701"/>
 </kw>
-<status status="PASS" start="2025-07-11T22:00:05.382747" elapsed="0.301825"/>
+<status status="PASS" start="2025-07-11T22:24:07.546283" elapsed="0.255222"/>
 </kw>
 <kw name="Start Network Interception" owner="bikipluyenrong">
-<msg time="2025-07-11T22:00:05.701492" level="INFO">Network tracking enabled</msg>
-<msg time="2025-07-11T22:00:05.705425" level="INFO">Successfully started network monitoring</msg>
+<msg time="2025-07-11T22:24:07.815295" level="INFO">Network tracking enabled</msg>
+<msg time="2025-07-11T22:24:07.818510" level="INFO">Successfully started network monitoring</msg>
 <arg>${driver.driver}</arg>
 <doc>Start intercepting network requests using CDP.</doc>
-<status status="PASS" start="2025-07-11T22:00:05.685329" elapsed="0.020579"/>
+<status status="PASS" start="2025-07-11T22:24:07.802250" elapsed="0.016581"/>
 </kw>
 <kw name="Clear Intercepted Requests" owner="bikipluyenrong">
-<msg time="2025-07-11T22:00:05.753875" level="INFO">Cleared all intercepted requests</msg>
+<msg time="2025-07-11T22:24:07.846144" level="INFO">Cleared all intercepted requests</msg>
 <arg>${driver.driver}</arg>
 <doc>Clear all intercepted requests</doc>
-<status status="PASS" start="2025-07-11T22:00:05.711574" elapsed="0.042665"/>
+<status status="PASS" start="2025-07-11T22:24:07.821729" elapsed="0.024729"/>
 </kw>
 <kw name="Wait For Request" owner="bikipluyenrong">
-<msg time="2025-07-11T22:00:09.058584" level="WARN">Connection pool is full, discarding connection: localhost. Connection pool size: 1</msg>
-<msg time="2025-07-11T22:00:09.177068" level="WARN">Connection pool is full, discarding connection: localhost. Connection pool size: 1</msg>
-<msg time="2025-07-11T22:00:09.291114" level="WARN">Connection pool is full, discarding connection: localhost. Connection pool size: 1</msg>
-<msg time="2025-07-11T22:00:09.409160" level="WARN">Connection pool is full, discarding connection: localhost. Connection pool size: 1</msg>
-<msg time="2025-07-11T22:00:09.862302" level="INFO">Found 1 matching requests</msg>
-<msg time="2025-07-11T22:00:09.862791" level="INFO">${profile_request} = {'url': 'https://api.panda.ennam.vn/api/user/me/profile/', 'method': 'GET', 'headers': {'Accept': 'application/json, text/plain, */*', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ...</msg>
+<msg time="2025-07-11T22:24:12.134644" level="INFO">Found 1 matching requests</msg>
+<msg time="2025-07-11T22:24:12.135018" level="INFO">${profile_request} = {'url': 'https://api.panda.ennam.vn/api/user/me/profile/', 'method': 'GET', 'headers': {'Accept': 'application/json, text/plain, */*', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ...</msg>
 <var>${profile_request}</var>
 <arg>${driver.driver}</arg>
 <arg>${PROFILE_ENDPOINT}</arg>
 <arg>GET</arg>
 <arg>10</arg>
 <doc>Wait for a specific request to be intercepted.</doc>
-<status status="PASS" start="2025-07-11T22:00:05.769437" elapsed="4.093444"/>
+<status status="PASS" start="2025-07-11T22:24:07.847450" elapsed="4.287647"/>
 </kw>
 <kw name="Stop Network Interception" owner="bikipluyenrong">
-<msg time="2025-07-11T22:00:09.928706" level="INFO">Cleared all intercepted requests</msg>
-<msg time="2025-07-11T22:00:09.928938" level="INFO">Network interception stopped</msg>
+<msg time="2025-07-11T22:24:13.004823" level="INFO">Cleared all intercepted requests</msg>
+<msg time="2025-07-11T22:24:13.005012" level="INFO">Network interception stopped</msg>
 <arg>${driver.driver}</arg>
 <doc>Stop network interception and cleanup</doc>
-<status status="PASS" start="2025-07-11T22:00:09.863631" elapsed="0.077666"/>
+<status status="PASS" start="2025-07-11T22:24:12.135811" elapsed="0.878800"/>
 </kw>
-<status status="PASS" start="2025-07-11T22:00:03.030430" elapsed="6.911585"/>
+<status status="PASS" start="2025-07-11T22:24:05.118350" elapsed="7.897312"/>
 </test>
 <kw name="Close Browsers" owner="common_keywords" type="TEARDOWN">
 <kw name="Close All Browsers" owner="SeleniumLibrary">
 <doc>Closes all open browsers and resets the browser cache.</doc>
-<status status="PASS" start="2025-07-11T22:00:09.944758" elapsed="2.649180"/>
+<status status="PASS" start="2025-07-11T22:24:13.018501" elapsed="2.534535"/>
 </kw>
-<status status="PASS" start="2025-07-11T22:00:09.944188" elapsed="2.650041"/>
+<status status="PASS" start="2025-07-11T22:24:13.017985" elapsed="2.535308"/>
 </kw>
-<status status="PASS" start="2025-07-11T21:59:57.613510" elapsed="14.980845"/>
+<status status="PASS" start="2025-07-11T22:23:59.441209" elapsed="16.112189"/>
 </suite>
 <statistics>
 <total>
@@ -142,9 +138,5 @@
 </suite>
 </statistics>
 <errors>
-<msg time="2025-07-11T22:00:09.058584" level="WARN">Connection pool is full, discarding connection: localhost. Connection pool size: 1</msg>
-<msg time="2025-07-11T22:00:09.177068" level="WARN">Connection pool is full, discarding connection: localhost. Connection pool size: 1</msg>
-<msg time="2025-07-11T22:00:09.291114" level="WARN">Connection pool is full, discarding connection: localhost. Connection pool size: 1</msg>
-<msg time="2025-07-11T22:00:09.409160" level="WARN">Connection pool is full, discarding connection: localhost. Connection pool size: 1</msg>
 </errors>
 </robot>

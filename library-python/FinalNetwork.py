@@ -259,10 +259,10 @@ class FinalNetwork(AbstractEventListener):
                 if js_requests:
                     self._js_intercepted_requests.extend(js_requests)
                     self.driver.execute_script("window._requests = [];")
-                time.sleep(0.1)  # Use same sleep time as GetResponse
+                time.sleep(1.0)  # Use same sleep time as GetResponse
             except Exception as e:
                 self.logger.error(f"Error in network monitoring: {str(e)}")
-                time.sleep(0.1)
+                time.sleep(1.0)
 
     @keyword("Get Intercepted Requests")
     def get_intercepted_requests(self, driver, endpoint=None, method=None, timeout=10):
@@ -295,7 +295,7 @@ class FinalNetwork(AbstractEventListener):
             if matching_requests:
                 break
 
-            time.sleep(0.1)
+            time.sleep(1.0)
 
         self.logger.info(f"Found {len(matching_requests)} matching requests")
         return matching_requests
