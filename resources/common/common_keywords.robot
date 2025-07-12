@@ -5,7 +5,7 @@ Resource    ../../resources/keywords/authentication/sign-in-keywords.robot
 
 *** Keywords ***
 
-Close Browsers
+Close PandaPay
     Close All Browsers
 
 *** Keywords ***

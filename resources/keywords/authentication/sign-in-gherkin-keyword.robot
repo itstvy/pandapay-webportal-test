@@ -1,6 +1,4 @@
 *** Settings ***
-Resource    ../../../resources/variables/authentication/sign-in-variables.robot
-Resource    ../../../resources/common/common_variables.robot
 Resource    ../../../resources/common/common_settings.robot
 
 *** Keywords ***

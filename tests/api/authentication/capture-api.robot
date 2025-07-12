@@ -2,7 +2,7 @@
 Resource    ../../../resources/common/common_settings.robot
 Library     ../../../library-python/FinalNetwork.py    WITH NAME    bikipluyenrong
 Suite Setup    Basic Setup
-Suite Teardown  Close Browsers
+Suite Teardown  Close PandaPay
 
 *** Test Cases ***
 Verify the Owner sign in successfully when input correct account

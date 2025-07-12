@@ -1,10 +1,8 @@
 *** Settings ***
-Resource    ../../../resources/variables/authentication/sign-in-variables.robot
-Resource    ../../../resources/common/common_variables.robot
 Resource    ../../../resources/common/common_settings.robot
 
 *** Keywords ***
-Open Sign In Page
+Open PandaPay
     Open Browser    ${DEV_URL}     ${BROWSER}
     Maximize Browser Window
     Wait Until Page Contains Element    ${USERID_FIELD}

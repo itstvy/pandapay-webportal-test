@@ -1,7 +1,7 @@
 *** Settings ***
 Resource    ../../../resources/common/common_settings.robot
-Suite Setup     Open Sign In Page
-Suite Teardown  Close Browsers
+Suite Setup     Open PandaPay
+Suite Teardown  Close PandaPay
 
 *** Test Cases ***
 
