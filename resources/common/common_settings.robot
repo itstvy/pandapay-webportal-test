@@ -5,6 +5,8 @@ Library    Collections
 Library    String
 Library    BuiltIn
 Library    RequestsLibrary
+Library    json
+
 Resource    ../../resources/common/common_variables.robot
 Resource    ../../resources/common/common_keywords.robot
 Resource    ../../resources/keywords/authentication/sign-in-keywords.robot

@@ -1,6 +1,6 @@
 *** Settings ***
 Resource    ../../../resources/common/common_settings.robot
-Suite Setup     Open PandaPay
+Suite Setup     Basic Setup
 Suite Teardown  Close PandaPay
 
 *** Test Cases ***
@@ -62,7 +62,8 @@ Verify Owner Sign In Successfully
     [Tags]    Success
     When user enters Owner User ID
     And user enters Owner password
-    And user clicks Sign In button
+    And user click on Sign In button and send request to server
+    Sleep    5s
     Then user should see Report menu
 
 Verify Sign Out Successfully

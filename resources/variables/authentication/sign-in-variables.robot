@@ -1,14 +1,14 @@
 *** Variables ***
 #Data
-${OWNER_USER_ID}    annstore
+${OWNER_USER_ID}    bennguyen
 
-${OWNER_EMAIL}    an@yopmail.com
+${OWNER_EMAIL}    ben@yopmail.com
 
 ${ADMIN}    admin
 
 ${ADMIN_PASSWORD}    Exnodes123!@#
 
-${OWNER_PASSWORD}    Dev1234!@#
+${OWNER_PASSWORD}    Dev123!@#
 
 ${TYPE_ORG_ADMIN}    ORG_ADMIN
 

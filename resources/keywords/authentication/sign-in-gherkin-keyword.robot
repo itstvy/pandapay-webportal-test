@@ -1,5 +1,6 @@
 *** Settings ***
 Resource    ../../../resources/common/common_settings.robot
+Library     ../../../library-python/FinalNetwork.py    WITH NAME    bikipluyenrong
 
 *** Keywords ***
 # Basic Navigation Keywords
@@ -9,9 +10,11 @@ user is on the sign in page
 
 # Input Field Interaction Keywords
 user clicks on User ID field
+    Wait Until Page Contains Element    ${USERID_FIELD}
     Click Element    ${USERID_FIELD}
 
 user clicks on Password field
+    Wait Until Page Contains Element    ${PASSWORD_FIELD}
     Click Element    ${PASSWORD_FIELD}
 
 user clicks Sign In button
@@ -118,3 +121,38 @@ user should see Report menu
 
 user should be redirected to Sign in screen
     Wait Until Page Contains Element    ${WELCOME_SIGN_IN}    timeout=${TIMEOUT}
+
+#API Keywords
+user click on Sign In button and send request to server
+    ${driver}=    Get Library Instance    SeleniumLibrary
+    When user clicks Sign In button
+    bikipluyenrong.Start Network Interception    ${driver.driver}
+    # Clear any existing requests
+    bikipluyenrong.Clear Intercepted Requests    ${driver.driver}
+    # Wait for profile request
+    ${profile_request}=    bikipluyenrong.Wait For Request    ${driver.driver}    ${PROFILE_ENDPOINT}    GET    10
+    Log    Request-has-been-catch: ${profile_request}
+    Log    Status: ${profile_request['status']}
+    Log    URL-Profile: ${profile_request['url']}
+
+    #Verify HTTP Status code by browser
+    Should Be Equal As Integers    ${profile_request['status']}    200
+
+    #Get response from profile request has been catch
+    ${response_of_profile_api}=    Get From Dictionary    ${profile_request}    response
+    
+    #Response body thường là JSON string, cần parse để truy cập data
+    #Parse JSON string to Python object
+
+    ${response_json}=    Evaluate    json.loads('''${response_of_profile_api}''')
+
+    #Get data from response body
+    ${data_in_response}=    Set Variable    ${response_json['data']}
+    
+    #Verify data from data in response
+    Log    ${data_in_response['user_id']}  
+
+    #Verify the user_id in response is correct
+    Should Be Equal    ${data_in_response['user_id']}    ${OWNER_USER_ID}
+
+    bikipluyenrong.Stop Network Interception    ${driver.driver}

@@ -336,3 +336,5 @@ class FinalNetwork(AbstractEventListener):
             self._request_map.clear()
             self._js_intercepted_requests.clear()
             self.driver.execute_script("window._requests = [];")
+    
+    
