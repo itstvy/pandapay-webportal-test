@@ -33,6 +33,11 @@ Verify the Owner sign in successfully when input correct account
     
     Should Be Equal    ${info_of_signin['user_code']}    ${OWNER_USER_ID}
 
+    Set Test Message    URL: ${signin_request['url']}
+    Set Test Message    \nStatusCode: ${signin_request['status']}    append=True
+    Set Test Message    \nPayload: ${signin_request['payload']}    append=True
+    Set Test Message    \nResponse: ${signin_request['response']}    append=True
+
     bikip.Stop Network Interception    ${driver.driver}
 
 

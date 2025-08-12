@@ -62,7 +62,7 @@ Verify Owner Sign In Successfully
     [Tags]    Success
     When user enters Owner User ID
     And user enters Owner password
-    And user click on Sign In button and send request to server
+    And user click on Sign In button and the system call Sign In Api
     Sleep    5s
     Then user should see Report menu
 

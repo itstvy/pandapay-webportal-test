@@ -1,6 +1,5 @@
 *** Settings ***
 Resource    ../../../resources/common/common_settings.robot
-Library     ../../../library-python/FinalNetwork.py    WITH NAME    bikipluyenrong
 
 *** Keywords ***
 # Basic Navigation Keywords
@@ -123,36 +122,33 @@ user should be redirected to Sign in screen
     Wait Until Page Contains Element    ${WELCOME_SIGN_IN}    timeout=${TIMEOUT}
 
 #API Keywords
-user click on Sign In button and send request to server
+user click on Sign In button and the system call Sign In Api
     ${driver}=    Get Library Instance    SeleniumLibrary
-    When user clicks Sign In button
-    bikipluyenrong.Start Network Interception    ${driver.driver}
-    # Clear any existing requests
-    bikipluyenrong.Clear Intercepted Requests    ${driver.driver}
-    # Wait for profile request
-    ${profile_request}=    bikipluyenrong.Wait For Request    ${driver.driver}    ${PROFILE_ENDPOINT}    GET    10
-    Log    Request-has-been-catch: ${profile_request}
-    Log    Status: ${profile_request['status']}
-    Log    URL-Profile: ${profile_request['url']}
+    bikip.Start Network Interception    ${driver.driver}
+    bikip.Clear Intercepted Requests    ${driver.driver}
 
-    #Verify HTTP Status code by browser
-    Should Be Equal As Integers    ${profile_request['status']}    200
+    And user clicks Sign In button
 
-    #Get response from profile request has been catch
-    ${response_of_profile_api}=    Get From Dictionary    ${profile_request}    response
+    #Capture API
+    ${signin_request}=    Wait for API Request    ${driver.driver}    ${SIGNIN_ENDPOINT}    POST    10
+
+    #Log
+    Log everything of API Request    ${signin_request}
+
+    #Parse response
+    ${signin_response}=    Set Variable    ${signin_request['response']}
+    ${parse_signin_response}=    Evaluate    json.loads('''${signin_response}''')    json
     
-    #Response body thường là JSON string, cần parse để truy cập data
-    #Parse JSON string to Python object
-
-    ${response_json}=    Evaluate    json.loads('''${response_of_profile_api}''')
-
-    #Get data from response body
-    ${data_in_response}=    Set Variable    ${response_json['data']}
+    #Get info in Sign In response
+    ${data_of_signin}=    Set Variable    ${parse_signin_response['data']}
+    ${info_of_signin}=    Set Variable    ${data_of_signin['info']}
     
-    #Verify data from data in response
-    Log    ${data_in_response['user_id']}  
+    #Log User ID
+    Log    ${info_of_signin['user_code']}
+    Should Be Equal    ${info_of_signin['user_code']}    ${OWNER_USER_ID}
 
-    #Verify the user_id in response is correct
-    Should Be Equal    ${data_in_response['user_id']}    ${OWNER_USER_ID}
+    
 
-    bikipluyenrong.Stop Network Interception    ${driver.driver}
+    bikip.Stop Network Interception    ${driver.driver}
+
+
