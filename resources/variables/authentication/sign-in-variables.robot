@@ -64,11 +64,7 @@ ${SIGNIN_SUCCESS_MESSAGE}    xpath=/html/body/div[2]/ol/li/div/div[2]/div[text()
 
 ${RETRIEVE_PASSWORD_BUTTON}    xpath=/html/body/div[1]/div/div/div/div[2]/div/div/div/a
 
-${REPORT_MENU}     xpath=/html/body/div[1]/header/div/div[1]/div/a[6]/button[text()='Report']
 
-${MY_ACCOUNT_MENU}    xpath=//*[@id="radix-:r1:"]
-
-${SIGN_OUT_BUTTON}    xpath=//*[@id="radix-:r2:"]/div[5][text()='Logout']
 
 #Validation Text of User ID field
 

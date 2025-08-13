@@ -1,8 +1,5 @@
 *** Settings ***
-Resource    ../../../resources/common/common_settings.robot
-Resource    ../../../resources/common/common_variables.robot
-Resource    ../../../resources/keywords/authentication/sign-in-keywords.robot
-Resource    ../../../resources/variables/authentication/sign-in-variables.robot
+Resource    ../resources/common/common_settings.robot
 
 
 *** Test Cases ***

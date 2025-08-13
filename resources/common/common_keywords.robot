@@ -1,6 +1,5 @@
 *** Settings ***
 Resource    ../../resources/common/common_settings.robot
-Resource    ../../resources/keywords/authentication/sign-in-keywords.robot
 
 Library    ../../library-python/CaptureAPI.py    WITH NAME     bikip
 
@@ -20,6 +19,7 @@ Basic Setup
 
 Wait for API Request
     [Arguments]    ${driver}    ${api_endpoint}    ${http-method}    ${timeout}
+    bikip.Clear Persistent Storage    ${driver}
     ${request}=    bikip.Wait For Request    ${driver}    ${api_endpoint}    ${http-method}    ${timeout}
     [RETURN]    ${request}
 

@@ -306,6 +306,31 @@ class CaptureAPI(AbstractEventListener):
         except Exception:
             pass
 
+    @keyword("Clear Persistent Storage")
+    def clear_persistent_storage(self, driver: Any) -> None:
+        """Clear persistent storage file and in-memory storage to avoid getting old cached requests."""
+        self.driver = self._get_webdriver(driver)
+        # Clear in-memory storage
+        self._captured_requests.clear()
+        self._request_details.clear()
+        self._all_requests.clear()
+        
+        # Clear persistent storage file
+        if self._persistent_storage and os.path.exists(self._storage_file):
+            try:
+                os.remove(self._storage_file)
+                self.logger.info(f"Cleared persistent storage file: {self._storage_file}")
+            except Exception as e:
+                self.logger.error(f"Error clearing persistent storage file: {str(e)}")
+        
+        # Clear sessionStorage hooks buffer
+        try:
+            self.driver.execute_script("sessionStorage.removeItem('_sessionRequests');")
+        except Exception:
+            pass
+        
+        self.logger.info("Cleared all persistent storage and in-memory buffers")
+
     @keyword("Get Intercepted Requests")
     def get_intercepted_requests(self, driver: Any) -> List[Dict[str, Any]]:
         """Return all captured requests so far (current session memory)."""

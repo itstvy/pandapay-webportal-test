@@ -1,5 +1,5 @@
 *** Settings ***
-Resource    ../../../resources/common/common_settings.robot
+Resource    ../resources/common/common_settings.robot
 
 *** Keywords ***
 Open PandaPay

@@ -16,6 +16,10 @@ user clicks on Password field
     Wait Until Page Contains Element    ${PASSWORD_FIELD}
     Click Element    ${PASSWORD_FIELD}
 
+user tick on the Admin checkbox
+    Wait Until Page Contains Element    ${ADMIN_CHECKBOX}
+    Click Element    ${ADMIN_CHECKBOX}
+
 user clicks Sign In button
     Click Element    ${SIGNIN_BUTTON}
 
@@ -122,33 +126,65 @@ user should be redirected to Sign in screen
     Wait Until Page Contains Element    ${WELCOME_SIGN_IN}    timeout=${TIMEOUT}
 
 #API Keywords
-user click on Sign In button and the system call Sign In Api
+user click on Sign In button and send Owner valid credentials
     ${driver}=    Get Library Instance    SeleniumLibrary
+    # Clear persistent storage first to avoid getting old cached requests
+    bikip.Clear Persistent Storage    ${driver.driver}
     bikip.Start Network Interception    ${driver.driver}
     bikip.Clear Intercepted Requests    ${driver.driver}
-
     And user clicks Sign In button
-
     #Capture API
     ${signin_request}=    Wait for API Request    ${driver.driver}    ${SIGNIN_ENDPOINT}    POST    10
-
     #Log
     Log everything of API Request    ${signin_request}
-
+    Should Be Equal As Strings    ${signin_request['status']}    201
     #Parse response
     ${signin_response}=    Set Variable    ${signin_request['response']}
-    ${parse_signin_response}=    Evaluate    json.loads('''${signin_response}''')    json
-    
+    ${parse_signin_response}=    Evaluate    json.loads('''${signin_response}''')    json    
+    Should Be Equal    ${parse_signin_response['message']}    SIGN_IN_SUCCESSFULLY
     #Get info in Sign In response
     ${data_of_signin}=    Set Variable    ${parse_signin_response['data']}
-    ${info_of_signin}=    Set Variable    ${data_of_signin['info']}
-    
+    ${info_of_signin}=    Set Variable    ${data_of_signin['info']}    
     #Log User ID
     Log    ${info_of_signin['user_code']}
     Should Be Equal    ${info_of_signin['user_code']}    ${OWNER_USER_ID}
-
-    
-
+    #Set message
+    Set Test Message    URL: ${signin_request['url']}
+    Set Test Message    \n\nStatusCode: ${signin_request['status']}    append=True
+    Set Test Message    \n\nPayload: ${signin_request['payload']}    append=True
+    Set Test Message    \n\nResponse: ${signin_request['response']}    append=True
     bikip.Stop Network Interception    ${driver.driver}
+
+
+user click on Sign In button and send Admin valid credentials
+    ${driver}=    Get Library Instance    SeleniumLibrary
+    # Clear persistent storage first to avoid getting old cached requests
+    bikip.Clear Persistent Storage    ${driver.driver}
+    bikip.Start Network Interception    ${driver.driver}
+    bikip.Clear Intercepted Requests    ${driver.driver}
+    And user clicks Sign In button
+    #Capture API
+    ${signin_request}=    Wait for API Request    ${driver.driver}    ${SIGNIN_ENDPOINT}    POST    10
+    #Log
+    Log everything of API Request    ${signin_request}
+    Should Be Equal As Strings    ${signin_request['status']}    201
+        #Parse response
+    ${signin_response}=    Set Variable    ${signin_request['response']}
+    ${parse_signin_response}=    Evaluate    json.loads('''${signin_response}''')    json    
+    Should Be Equal    ${parse_signin_response['message']}    SIGN_IN_SUCCESSFULLY
+    #Get info in Sign In response
+    ${data_of_signin}=    Set Variable    ${parse_signin_response['data']}
+    ${info_of_signin}=    Set Variable    ${data_of_signin['info']}    
+    #Log User ID
+    Log    ${info_of_signin['user_code']}
+    Should Be Equal    ${info_of_signin['user_code']}    ${ADMIN}
+    #Set message
+    Set Test Message    URL: ${signin_request['url']}
+    Set Test Message    \n\nStatusCode: ${signin_request['status']}    append=True
+    Set Test Message    \n\nPayload: ${signin_request['payload']}    append=True
+    Set Test Message    \n\nResponse: ${signin_request['response']}    append=True
+    bikip.Stop Network Interception    ${driver.driver}
+
+
 
 
