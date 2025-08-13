@@ -49,6 +49,9 @@ user enters User ID with spaces
 user enters Owner password
     Input Text    ${PASSWORD_FIELD}    ${OWNER_PASSWORD}
 
+user enters incorrect Owner Password
+    Input Text    ${PASSWORD_FIELD}    ${INCORRECT_PASSWORD}
+
 user enters Admin password
     Input Text    ${PASSWORD_FIELD}    ${ADMIN_PASSWORD}
 
@@ -119,6 +122,9 @@ user should see Password validation for missing lowercase
 user should see Password validation for missing special character
     Element Should Be Visible    ${VALIDATION_TEXT_MISSING_SPECIAL_CHARACTER}    timeout=${TIMEOUT}
 
+user should see an error message
+    Element Should Be Visible    ${INCORRECT_ACCOUNT_MESSAGE}
+
 user should see Report menu
     Wait Until Element Is Visible    ${REPORT_MENU}    timeout=${TIMEOUT}
 
@@ -126,6 +132,7 @@ user should be redirected to Sign in screen
     Wait Until Page Contains Element    ${WELCOME_SIGN_IN}    timeout=${TIMEOUT}
 
 #API Keywords
+#Owner sign in successfully
 user click on Sign In button and send Owner valid credentials
     ${driver}=    Get Library Instance    SeleniumLibrary
     # Clear persistent storage first to avoid getting old cached requests
@@ -155,7 +162,7 @@ user click on Sign In button and send Owner valid credentials
     Set Test Message    \n\nResponse: ${signin_request['response']}    append=True
     bikip.Stop Network Interception    ${driver.driver}
 
-
+#Admin sign in successfully
 user click on Sign In button and send Admin valid credentials
     ${driver}=    Get Library Instance    SeleniumLibrary
     # Clear persistent storage first to avoid getting old cached requests
@@ -185,6 +192,24 @@ user click on Sign In button and send Admin valid credentials
     Set Test Message    \n\nResponse: ${signin_request['response']}    append=True
     bikip.Stop Network Interception    ${driver.driver}
 
-
+#Owner sign in unsuccessfully
+user click on Sign in button and send Owner Incorrect credentials
+    ${driver}=    Get Library Instance    SeleniumLibrary
+    # Clear persistent storage first to avoid getting old cached requests
+    bikip.Clear Persistent Storage    ${driver.driver}
+    bikip.Start Network Interception    ${driver.driver}
+    bikip.Clear Intercepted Requests    ${driver.driver}
+    And user clicks Sign In button
+    #Capture API
+    ${signin_request}=    Wait for API Request    ${driver.driver}    ${SIGNIN_ENDPOINT}    POST    10
+    #Log
+    Log everything of API Request    ${signin_request}
+    Should Be Equal As Strings    ${signin_request['status']}    ${401_Unauthorized}
+    #Set message
+    Set Test Message    URL: ${signin_request['url']}
+    Set Test Message    \n\nStatusCode: ${signin_request['status']}    append=True
+    Set Test Message    \n\nPayload: ${signin_request['payload']}    append=True
+    Set Test Message    \n\nResponse: ${signin_request['response']}    append=True
+    bikip.Stop Network Interception    ${driver.driver}
 
 

@@ -93,3 +93,16 @@ Verify the Admin Sign In Successfully when user inputs correct credentials
     Sleep    5s
     Then user should see Report menu
 
+Verify Sign Out Successfully when user click on Sign Out button in My Account menu
+    [Tags]    Success
+    When user clicks on My Account avatar
+    And user clicks on Sign Out button
+    Then user should be redirected to Sign in screen
+
+Verify the Owner Sign In Unsuccessfully when user inputs incorrect credentials
+    [Tags]    Unsuccess    API
+    When user enters Owner User ID
+    And user enters incorrect Owner Password
+    And user click on Sign in button and send Owner Incorrect credentials
+    Sleep    5s
+    Then user should see an error message

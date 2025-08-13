@@ -10,6 +10,8 @@ ${ADMIN_PASSWORD}    Exnodes123!@#
 
 ${OWNER_PASSWORD}    Dev123!@#
 
+${INCORRECT_PASSWORD}    Dev123!@#$
+
 ${TYPE_ORG_ADMIN}    ORG_ADMIN
 
 ${USER_ID_LESS_THAN_5}    annn
@@ -42,7 +44,9 @@ ${SIGNIN_ENDPOINT}    api/user/sign-in/
 
 ${PROFILE_ENDPOINT}    api/user/me/profile/
 
-${EXPECTED_RESULT}    201
+${201_Created}    201
+
+${401_Unauthorized}    401
 
 
 #Locator
