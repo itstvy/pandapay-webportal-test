@@ -104,5 +104,18 @@ Verify the Owner Sign In Unsuccessfully when user inputs incorrect credentials
     When user enters Owner User ID
     And user enters incorrect Owner Password
     And user click on Sign in button and send Owner Incorrect credentials
-    Sleep    5s
-    Then user should see an error message
+    Then user should see an Incorrect Account error message
+Verify the system displays error message when user inputs Deactivated Owner credentials
+    [Tags]    Unsuccess    API
+    When user enters Deactivated User ID
+    And user enters Deactivated Password
+    And user click on Sign in button and send Owner Deactivated credentials
+    Then user should see a Deactivated Account error message
+
+Verify the system displays error message when Owner tries to sign in with Admin role
+    [Tags]    Unsuccess    API
+    When user enters Owner User ID
+    And user enters Owner password
+    And user tick on the Admin checkbox
+    And user click on Sign In button and send Owner valid credentials in Admin role
+    Then user should see an Incorrect Account error message

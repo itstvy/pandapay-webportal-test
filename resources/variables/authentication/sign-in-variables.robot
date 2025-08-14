@@ -14,6 +14,12 @@ ${INCORRECT_PASSWORD}    Dev123!@#$
 
 ${TYPE_ORG_ADMIN}    ORG_ADMIN
 
+${TYPE_MASTER_ADMIN}    MASTER_ADMIN
+
+${DEACTIVATED_USER_ID}    bennguyen2000
+
+${DEACTIVATED_PASSWORD}    Dev123!@#
+
 ${USER_ID_LESS_THAN_5}    annn
 
 ${USER_ID_MORE_THAN_20}    annstoreannstoreannstoreannstore

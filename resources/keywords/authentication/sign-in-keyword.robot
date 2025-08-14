@@ -30,6 +30,12 @@ user enters Owner User ID
 user enters Admin User ID
     Input Text    ${USERID_FIELD}    ${ADMIN}
 
+user enters Deactivated User ID
+    Input Text    ${USERID_FIELD}    ${DEACTIVATED_USER_ID}
+
+user enters Deactivated Password
+    Input Text    ${PASSWORD_FIELD}    ${DEACTIVATED_PASSWORD}
+
 user leaves User ID empty
     Input Text    ${USERID_FIELD}    ${EMPTY}
 
@@ -122,8 +128,11 @@ user should see Password validation for missing lowercase
 user should see Password validation for missing special character
     Element Should Be Visible    ${VALIDATION_TEXT_MISSING_SPECIAL_CHARACTER}    timeout=${TIMEOUT}
 
-user should see an error message
+user should see an Incorrect Account error message
     Element Should Be Visible    ${INCORRECT_ACCOUNT_MESSAGE}
+
+user should see a Deactivated Account error message
+    Element Should Be Visible    ${DEACTIVATED_ACCOUNT_MESSAGE}
 
 user should see Report menu
     Wait Until Element Is Visible    ${REPORT_MENU}    timeout=${TIMEOUT}
@@ -145,16 +154,24 @@ user click on Sign In button and send Owner valid credentials
     #Log
     Log everything of API Request    ${signin_request}
     Should Be Equal As Strings    ${signin_request['status']}    201
+    
+    #Parse payload
+    ${signin_payload}=    Set Variable    ${signin_request['payload']}
+    ${parse_signin_payload}=    Evaluate    json.loads('''${signin_payload}''')    json
+    Should Be Equal    ${parse_signin_payload['type']}    ${TYPE_ORG_ADMIN}
+
     #Parse response
     ${signin_response}=    Set Variable    ${signin_request['response']}
     ${parse_signin_response}=    Evaluate    json.loads('''${signin_response}''')    json    
-    Should Be Equal    ${parse_signin_response['message']}    SIGN_IN_SUCCESSFULLY
+
     #Get info in Sign In response
     ${data_of_signin}=    Set Variable    ${parse_signin_response['data']}
     ${info_of_signin}=    Set Variable    ${data_of_signin['info']}    
+
     #Log User ID
     Log    ${info_of_signin['user_code']}
     Should Be Equal    ${info_of_signin['user_code']}    ${OWNER_USER_ID}
+
     #Set message
     Set Test Message    URL: ${signin_request['url']}
     Set Test Message    \n\nStatusCode: ${signin_request['status']}    append=True
@@ -175,16 +192,25 @@ user click on Sign In button and send Admin valid credentials
     #Log
     Log everything of API Request    ${signin_request}
     Should Be Equal As Strings    ${signin_request['status']}    201
-        #Parse response
+
+    #Parse payload
+    ${signin_payload}=    Set Variable    ${signin_request['payload']}
+    ${parse_signin_payload}=    Evaluate    json.loads('''${signin_payload}''')    json
+    Should Be Equal    ${parse_signin_payload['type']}    ${TYPE_MASTER_ADMIN}
+
+    #Parse response
     ${signin_response}=    Set Variable    ${signin_request['response']}
     ${parse_signin_response}=    Evaluate    json.loads('''${signin_response}''')    json    
     Should Be Equal    ${parse_signin_response['message']}    SIGN_IN_SUCCESSFULLY
+
     #Get info in Sign In response
     ${data_of_signin}=    Set Variable    ${parse_signin_response['data']}
     ${info_of_signin}=    Set Variable    ${data_of_signin['info']}    
+
     #Log User ID
     Log    ${info_of_signin['user_code']}
     Should Be Equal    ${info_of_signin['user_code']}    ${ADMIN}
+
     #Set message
     Set Test Message    URL: ${signin_request['url']}
     Set Test Message    \n\nStatusCode: ${signin_request['status']}    append=True
@@ -205,6 +231,34 @@ user click on Sign in button and send Owner Incorrect credentials
     #Log
     Log everything of API Request    ${signin_request}
     Should Be Equal As Strings    ${signin_request['status']}    ${401_Unauthorized}
+    
+    #Parse Payload
+    ${signin_payload}=    Set Variable    ${signin_request['payload']}
+    ${parse_signin_payload}=    Evaluate    json.loads('''${signin_payload}''')    json
+    Should Be Equal    ${parse_signin_payload['password']}    ${INCORRECT_PASSWORD}
+    Log    IncorrectPassword:${parse_signin_payload['password']}
+
+    #Set message
+    Set Test Message    URL: ${signin_request['url']}
+    Set Test Message    \n\nStatusCode: ${signin_request['status']}    append=True
+    Set Test Message    \n\nPayload: ${signin_request['payload']}    append=True
+    Set Test Message    \n\nIncorrectPassword:${parse_signin_payload['password']}    append=True
+    Set Test Message    \n\nResponse: ${signin_request['response']}    append=True
+    bikip.Stop Network Interception    ${driver.driver}
+
+#Sign in by Deactivated account
+user click on Sign in button and send Owner Deactivated credentials
+    ${driver}=    Get Library Instance    SeleniumLibrary
+    # Clear persistent storage first to avoid getting old cached requests
+    bikip.Clear Persistent Storage    ${driver.driver}
+    bikip.Start Network Interception    ${driver.driver}
+    bikip.Clear Intercepted Requests    ${driver.driver}
+    And user clicks Sign In button
+    #Capture API
+    ${signin_request}=    Wait for API Request    ${driver.driver}    ${SIGNIN_ENDPOINT}    POST    10
+    #Log
+    Log everything of API Request    ${signin_request}
+    Should Be Equal As Strings    ${signin_request['status']}    ${401_Unauthorized}
     #Set message
     Set Test Message    URL: ${signin_request['url']}
     Set Test Message    \n\nStatusCode: ${signin_request['status']}    append=True
@@ -212,4 +266,24 @@ user click on Sign in button and send Owner Incorrect credentials
     Set Test Message    \n\nResponse: ${signin_request['response']}    append=True
     bikip.Stop Network Interception    ${driver.driver}
 
+user click on Sign In button and send Owner valid credentials in Admin role
+    ${driver}=    Get Library Instance    SeleniumLibrary
+    bikip.Clear Persistent Storage    ${driver.driver}
+    bikip.Start Network Interception    ${driver.driver}
+    bikip.Clear Intercepted Requests    ${driver.driver}
 
+    And user clicks Sign In button
+
+    #Capture API
+    ${signin_request}=    Wait for API Request    ${driver.driver}    ${SIGNIN_ENDPOINT}    POST    10
+
+    #Log
+    Log everything of API Request    ${signin_request}
+    Should Be Equal As Strings    ${signin_request['status']}    ${401_Unauthorized}
+
+    #Set message
+    Set Test Message    URL: ${signin_request['url']}
+    Set Test Message    \n\nStatusCode: ${signin_request['status']}    append=True
+    Set Test Message    \n\nPayload: ${signin_request['payload']}    append=True
+    Set Test Message    \n\nResponse: ${signin_request['response']}    append=True
+    bikip.Stop Network Interception    ${driver.driver}
