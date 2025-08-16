@@ -5,10 +5,8 @@ Suite Teardown  Close PandaPay
 
 *** Test Cases ***
 Verify the Admin sign in successfully when input correct account
-    ${driver}=    Get Library Instance    SeleniumLibrary
-    bikip.Clear Persistent Storage    ${driver.driver}
-    bikip.Start Network Interception    ${driver.driver}
-    bikip.Clear Intercepted Requests    ${driver.driver}
+    ${webdriver}=    Get Selenium Driver
+    Setup API Capture Environment    ${webdriver}
 
     Given user is on the sign in page
     When user enters Admin User ID
@@ -17,7 +15,7 @@ Verify the Admin sign in successfully when input correct account
     And user clicks Sign In button
     
     #Capture API
-    ${signin_request}=    Wait for API Request    ${driver.driver}    ${SIGNIN_ENDPOINT}    POST    10
+    ${signin_request}=    Wait for API Request    ${webdriver}    ${SIGNIN_ENDPOINT}    POST    10
     #Log
     Log everything of API Request    ${signin_request}
     
@@ -42,7 +40,7 @@ Verify the Admin sign in successfully when input correct account
     Set Test Message    \n\nPayload: ${signin_request['payload']}    append=True
     Set Test Message    \n\nResponse: ${signin_request['response']}    append=True
 
-    bikip.Stop Network Interception    ${driver.driver}
+    bikip.Stop Network Interception    ${webdriver}
 
 
 

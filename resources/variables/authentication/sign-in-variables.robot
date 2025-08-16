@@ -48,8 +48,6 @@ ${PASSWORD_MISSING_SPECIAL_CHARACTER}    DevPassword1234
 #API ENDPOINT OF SIGN IN
 ${SIGNIN_ENDPOINT}    api/user/sign-in/
 
-${PROFILE_ENDPOINT}    api/user/me/profile/
-
 ${201_Created}    201
 
 ${401_Unauthorized}    401
