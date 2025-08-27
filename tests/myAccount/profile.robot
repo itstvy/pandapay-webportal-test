@@ -27,10 +27,11 @@ Verify the system displays validation text when data in First Name field is empt
     Then user leaves First Name field empty
     Then system should displays validation text if data in First Name is empty
 
-# Verify the system displays validation text when data in Last Name field is empty
-#     [Tags]    Validation
-#     When user clear data in Last Name field
-#     Then system should displays validation text if data in Last Name is empty
+Verify the system displays validation text when data in Last Name field is empty
+    [Tags]    Validation
+    When user clicks on Last Name field
+    Then user leaves Last Name field empty
+    Then system should displays validation text if data in Last Name is empty
 
 # Verify the system displays validation text when user input data less than 2 characters in First Name field
 #     [Tags]    Validation

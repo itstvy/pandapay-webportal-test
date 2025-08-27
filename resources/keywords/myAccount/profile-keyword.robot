@@ -1,6 +1,5 @@
 *** Settings ***
 Resource    ../../../resources/common/common_settings.robot
-Library    Browser
 
 *** Keywords ***
 #UI
@@ -42,10 +41,16 @@ user enters data more than 50 characters in First Name field
 user clicks on Last Name field
     Click Element    ${PROFILE_LAST_NAME_FIELD}
 
+user leaves Last Name field empty
+    Clear Input field    ${PROFILE_LAST_NAME_FIELD}
+
 # Validation Message Verification Keywords
 #First Name field
 system should displays validation text if data in First Name is empty
     Wait Until Element Is Visible    ${VALIDATION_FIRST_NAME_IS_REQUIRED}    5s
+
+system should displays validation text if data in Last Name is empty
+    Wait Until Element Is Visible    ${VALIDATION_LAST_NAME_IS_REQUIRED}    5s
 
 #Message
 the system must displays success message when update profile successfully
