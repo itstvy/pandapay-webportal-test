@@ -5,6 +5,18 @@ ${PROD_URL}     https://www.pandapay360.ca/
 ${BROWSER}     chrome
 ${TIMEOUT}    20s
 
+#Status Code
+${201_Created}    201
+${202_Accepted}    202
+${401_Unauthorized}    401
+
+#API Endpoint
+#SIGN IN
+${SIGNIN_ENDPOINT}    api/user/sign-in/
+${SIGNOUT_ENDPOINT}    api/logout/
+#PROFILE
+${PROFILE_ENDPOINT}    api/user/me/profile/
+
 #Common Data Input
 ${DATA_EMPTY}    ${EMPTY}
 ${ONLY_SPACES}    ${SPACE}

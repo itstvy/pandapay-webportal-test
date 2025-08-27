@@ -7,12 +7,14 @@ Library    ../../library-python/CaptureAPI.py    WITH NAME     bikip
 Close PandaPay
     Close All Browsers
 
-*** Keywords ***
+Clear Input field
+    [Arguments]    ${locator}
+    SeleniumLibrary.Press Keys       ${locator}    CTRL+A+BACKSPACE
 Basic Setup
     ${options}=    Evaluate    sys.modules['selenium.webdriver'].ChromeOptions()    sys
     ${logging_prefs}=    Create Dictionary    performance=ALL
     Call Method    ${options}    set_capability    goog:loggingPrefs    ${logging_prefs}
-    Open Browser    ${DEV_URL}    ${BROWSER}    options=${options}
+    SeleniumLibrary.Open Browser    ${DEV_URL}    ${BROWSER}    options=${options}
     Maximize Browser Window
     Wait Until Page Contains Element    ${USERID_FIELD}
     Wait Until Page Contains Element    ${PASSWORD_FIELD}
@@ -50,7 +52,6 @@ Setup API Capture Environment
     Start API Capture    ${driver}
     Clear API Intercepted Requests    ${driver}
 
-
 Log everything of API Request
     [Arguments]    ${request}
 
@@ -59,3 +60,10 @@ Log everything of API Request
     Log    StatusCode: ${request['status']}
     Log    Payload: ${request['payload']}
     Log    Response: ${request['response']}
+
+Set Log Request to Test Message
+    [Arguments]    ${request}    ${append}=True
+    Set Test Message    URL: ${request['url']}
+    Set Test Message    \n\nStatusCode: ${request['status']}    append=${append}
+    Set Test Message    \n\nPayload: ${request['payload']}    append=${append}
+    Set Test Message    \n\nResponse: ${request['response']}    append=${append}

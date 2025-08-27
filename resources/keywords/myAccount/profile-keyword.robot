@@ -1,21 +1,19 @@
 *** Settings ***
 Resource    ../../../resources/common/common_settings.robot
+Library    Browser
 
 *** Keywords ***
+#UI
 user click on the Profile menu button
     Click Element    ${PROFILE_MENU_BUTTON}
 user should see a Profile menu button
     Wait Until Element Is Visible    ${PROFILE_MENU_BUTTON}
-
+user clicks on Submit button in User Information form
+    Click Element    ${SUBMIT_PROFILE_BUTTON_2}
 the system displays the Change User Information screen
     Sleep    5s
     Wait Until Element Is Visible     ${CHANGE_USER_INFORMATION_TITLE} 
-    Wait Until Element Is Visible    ${PROFILE_FIRST_NAME_FIELD}
-    Wait Until Element Is Visible    ${PROFILE_LAST_NAME_FIELD}
-    Wait Until Element Is Visible    ${PROFILE_ADDRESS_FIELD}
-    Wait Until Element Is Visible    ${SUBMIT_PROFILE_BUTTON_1}
-    Wait Until Element Is Visible    ${SUBMIT_PROFILE_BUTTON_2}
-
+#Success 
 user input new User information
     Clear Element Text    ${PROFILE_FIRST_NAME_FIELD}
     Input Text    ${PROFILE_FIRST_NAME_FIELD}    ${NEW_FIRST_NAME}
@@ -26,16 +24,35 @@ user input new User information
     Clear Element Text    ${PROFILE_ADDRESS_FIELD}
     Input Text    ${PROFILE_ADDRESS_FIELD}    ${NEW_ADRESS}
 
+#First Name Input keywords
+user clicks on First Name field
+    Click Element    ${PROFILE_FIRST_NAME_FIELD}
+user leaves First Name field empty
+    Clear Input field    ${PROFILE_FIRST_NAME_FIELD}
+
+
 user enters data less than 2 characters in First Name field
     Clear Element Text    ${PROFILE_FIRST_NAME_FIELD}
     Input Text    ${PROFILE_FIRST_NAME_FIELD}    ${LESS_THAN_2_CHARACTERS}
+user enters data more than 50 characters in First Name field
+    Clear Element Text    ${PROFILE_FIRST_NAME_FIELD}
+    Input Text    ${PROFILE_FIRST_NAME_FIELD}    ${MORE_THAN_50_CHARACTERS}
 
-user should see First Name validation for less than 2 characters
-    Element Should Be Visible   ${FIRST_NAME_LESS_THAN_2_CHARACTERS}
+#Last Name Input keywords
+user clicks on Last Name field
+    Click Element    ${PROFILE_LAST_NAME_FIELD}
 
-user clicks on Submit button in User Information form
-    Click Element    ${SUBMIT_PROFILE_BUTTON_2}
+# Validation Message Verification Keywords
+#First Name field
+system should displays validation text if data in First Name is empty
+    Wait Until Element Is Visible    ${VALIDATION_FIRST_NAME_IS_REQUIRED}    5s
 
+#Message
+the system must displays success message when update profile successfully
+    Wait Until Element Is Visible    ${UPDATE_PROFILE_SUCCESS}
+
+
+#API
 user clicks on Submit button in User Information form and send valid information
     ${webdriver}=    Get Selenium Driver
     Setup API Capture Environment    ${webdriver}
@@ -59,14 +76,8 @@ user clicks on Submit button in User Information form and send valid information
     ${parse_profile_response}=    Evaluate    json.loads('''${profile_response}''')
     Log    Response Message:${parse_profile_response['message']}
     Should Be Equal As Strings    ${parse_profile_response['message']}    Updated profile successfully
-    
-    #Set Test Message
-    Set Test Message    URL: ${update_profile_request['url']}
-    Set Test Message    \n\nStatusCode: ${update_profile_request['status']}    append=True
-    Set Test Message    \n\nPayload: ${update_profile_request['payload']}    append=True
     Set Test Message    \n\nResponse Message:${parse_profile_response['message']}    append=True
-    Set Test Message    \n\nResponse: ${update_profile_request['response']}    append=True
+    #Set Test Message
+    Set Log Request to Test Message    ${update_profile_request}
 
-the system must displays success message when update profile successfully
-    Wait Until Element Is Visible    ${UPDATE_PROFILE_SUCCESS}
     

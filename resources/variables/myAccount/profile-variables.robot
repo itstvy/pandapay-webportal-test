@@ -13,10 +13,6 @@ ${SUBMIT_PROFILE_BUTTON_2}    xpath=/html/body/div[1]/div/main/div/form/button[t
 ${REMOVE_UPLOADED_AVATAR}    xpath=/html/body/div[1]/div/main/div/form/div[2]/div[1]/div/button
 ${UPLOAD_AVATAR}    xpath=/html/body/div[1]/div/main/div/form/div[2]/div[1]/div/div[text()='Upload Avatar']
 
-#Endpoint of Profile
-${PROFILE_ENDPOINT}    api/user/me/profile/
-
-${202_Accepted}    202
 
 #Profile Data
 ${NEW_FIRST_NAME}    Vy
@@ -27,8 +23,10 @@ ${NEW_ADRESS}    1090 NW 1st Avennue
 ${UPDATE_PROFILE_SUCCESS}    xpath=/html/body/div[2]/ol/li/div/div[text()='Information updated successfully']
 
 #Validation Text
-${FIRST_NAME_IS_REQUIRED}    xpath=//input[@id='first_name']/following-sibling::p[normalize-space(text())='First name is required.']
-${LAST_NAME_IS_REQUIRED}    xpath=//*[@id=":rb:-form-item-message"][text()='Last name is required.']
+${VALIDATION_FIRST_NAME_IS_REQUIRED}    xpath=//input[@id='first_name']/following::p[normalize-space(.)='First name is required.'][1]
+
+
+${LAST_NAME_IS_REQUIRED}    xpath=//input[@id='first_name']/following-sibling::p[normalize-space(text())='Last name is required.']
 ${FIRST_NAME_LESS_THAN_2_CHARACTERS}    xpath=//input[@id='first_name']/following-sibling::p[normalize-space(text())='First name must be at least 2 characters']
 ${FIRST_NAME_MORE_THAN_50_CHARACTERS}    xpath=//input[@id='first_name']/following-sibling::p[normalize-space(text())='First name must be at most 50 characters']
 ${LAST_NAME_LESS_THAN_2_CHARACTERS}    xpath=//*[@id=":rb:-form-item-message"][text()='Last name must be at least 2 characters']

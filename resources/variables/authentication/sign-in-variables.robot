@@ -45,14 +45,6 @@ ${PASSWORD_MISSING_LOWERCASE}    DEVPASSWORD1234!@
 ${PASSWORD_MISSING_SPECIAL_CHARACTER}    DevPassword1234
 
 
-#API ENDPOINT OF SIGN IN
-${SIGNIN_ENDPOINT}    api/user/sign-in/
-
-${201_Created}    201
-
-${401_Unauthorized}    401
-
-
 #Locator
 ${WELCOME_SIGN_IN}    xpath=//h1[text()='Welcome!']
 
@@ -62,7 +54,9 @@ ${PASSWORD_FIELD}     xpath=//*[@id="password"]
 
 ${SIGNIN_BUTTON}     xpath=/html/body/div[1]/div/div/div/div[2]/div/div/form/button
 
-${ADMIN_CHECKBOX}     xpath=//*[@id="portal"]
+${ADMIN_CHECKBOX_CHECKED}     xpath=//button[@role='checkbox' and @aria-checked='true']
+
+${ADMIN_CHECKBOX_UNCHECKED}    xpath=//button[@role='checkbox' and @aria-checked='false']
 
 ${INCORRECT_ACCOUNT_MESSAGE}    xpath=/html/body/div[2]/ol/li/div/div[2]/div[text()='Incorrect User ID or Password']
 

@@ -70,52 +70,60 @@ Verify the system shows validation text when user enters Password without specia
     When user enters Password without special characters
     Then user should see Password validation for missing special character
 
-Verify Owner Sign In Successfully when user inputs correct credentials
-    [Tags]    Success    API
-    When user enters Owner User ID
-    And user enters Owner password
-    When user click on Sign In button and send Owner valid credentials
-    Sleep    5s
-    Then user should see Report menu
-
-Verify Sign Out Successfully when user click on Sign Out button in My Account menu
-    [Tags]    Success
-    When user clicks on My Account avatar
-    And user clicks on Sign Out button
-    Then user should be redirected to Sign in screen
-
-Verify the Admin Sign In Successfully when user inputs correct credentials
-    [Tags]    Success    API
-    When user enters Admin User ID
-    And user enters Admin password
-    And user tick on the Admin checkbox
-    When user click on Sign In button and send Admin valid credentials
-    Sleep    5s
-    Then user should see Report menu
-
-Verify Sign Out Successfully when user click on Sign Out button in My Account menu
-    [Tags]    Success
-    When user clicks on My Account avatar
-    And user clicks on Sign Out button
-    Then user should be redirected to Sign in screen
-
 Verify the Owner Sign In Unsuccessfully when user inputs incorrect credentials
     [Tags]    Unsuccess    API
     When user enters Owner User ID
     And user enters incorrect Owner Password
     And user click on Sign in button and send Owner Incorrect credentials
     Then user should see an Incorrect Account error message
-Verify the system displays error message when user inputs Deactivated Owner credentials
+
+Verify the Owner Sign In Unsuccessfully when user inputs Deactivated Owner credentials
     [Tags]    Unsuccess    API
     When user enters Deactivated User ID
     And user enters Deactivated Password
     And user click on Sign in button and send Owner Deactivated credentials
     Then user should see a Deactivated Account error message
 
-Verify the system displays error message when Owner tries to sign in with Admin role
+Verify the Owner Sign In Unsuccessfully when Owner tries to sign in with Admin role
     [Tags]    Unsuccess    API
     When user enters Owner User ID
     And user enters Owner password
-    And user tick on the Admin checkbox
+    And user ticks the Admin checkbox
     And user click on Sign In button and send Owner valid credentials in Admin role
     Then user should see an Incorrect Account error message
+
+Verify that Admin sign-in fails when the Admin checkbox is not selected
+    [Tags]    Unsuccess    API
+    When user enters Admin User ID
+    And user enters Admin password
+    And user unticks the Admin checkbox
+    And user click on Sign In button and Send Admin invalid credentials in Admin role
+    Then user should see an Incorrect Account error message
+
+Verify the Owner Sign In Successfully when user inputs correct credentials
+    [Tags]    Success    API
+    When user enters Owner User ID
+    And user enters Owner password
+    When user click on Sign In button and send Owner valid credentials
+    Sleep    5s
+    Then user should see Report menu
+    
+Verify the system Sign user out successfully when user click on Sign Out button
+    [Tags]    Success    API
+    Given user clicks on My Account avatar
+    And user click on Sign Out button and system sign user out successfully
+    Then user should be redirected to Sign in screen
+
+Verify the Admin Sign In Successfully when user inputs correct credentials
+    [Tags]    Success    API
+    When user enters Admin User ID
+    And user enters Admin password
+    And user ticks the Admin checkbox
+    When user click on Sign In button and send Admin valid credentials
+    Sleep    5s
+    Then user should see Report menu
+
+
+
+
+

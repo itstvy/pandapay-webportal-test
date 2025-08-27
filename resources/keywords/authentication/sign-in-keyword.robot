@@ -16,9 +16,12 @@ user clicks on Password field
     Wait Until Page Contains Element    ${PASSWORD_FIELD}
     Click Element    ${PASSWORD_FIELD}
 
-user tick on the Admin checkbox
-    Wait Until Page Contains Element    ${ADMIN_CHECKBOX}
-    Click Element    ${ADMIN_CHECKBOX}
+user ticks the Admin checkbox
+    Wait Until Page Contains Element    ${ADMIN_CHECKBOX_UNCHECKED}
+    Click Element    ${ADMIN_CHECKBOX_UNCHECKED}
+user unticks the Admin checkbox
+    Wait Until Page Contains Element    ${ADMIN_CHECKBOX_CHECKED}
+    Click Element    ${ADMIN_CHECKBOX_CHECKED}
 
 user clicks Sign In button
     Click Element    ${SIGNIN_BUTTON}
@@ -91,6 +94,11 @@ user clicks on Sign Out button
     Wait Until Element Is Visible    ${SIGN_OUT_BUTTON}    timeout=${TIMEOUT}
     Click Element    ${SIGN_OUT_BUTTON}
 
+user Sign Out successfully
+    Given user clicks on My Account avatar
+    And user clicks on Sign Out button
+    Then user should be redirected to Sign in screen
+
 # Validation Message Verification Keywords
 user should see User ID empty validation
     Element Should Be Visible    ${VALIDATION_TEXT_EMPTY_USER_ID}    timeout=${TIMEOUT}
@@ -140,17 +148,15 @@ user should see Report menu
 user should be redirected to Sign in screen
     Wait Until Page Contains Element    ${WELCOME_SIGN_IN}    timeout=${TIMEOUT}
 
+
 #API Keywords
 #Owner sign in successfully
 user click on Sign In button and send Owner valid credentials
-    ${driver}=    Get Library Instance    SeleniumLibrary
-    # Clear persistent storage first to avoid getting old cached requests
-    bikip.Clear Persistent Storage    ${driver.driver}
-    bikip.Start Network Interception    ${driver.driver}
-    bikip.Clear Intercepted Requests    ${driver.driver}
+    ${webdriver}=    Get Selenium Driver
+    Start API Capture    ${webdriver}
     And user clicks Sign In button
     #Capture API
-    ${signin_request}=    Wait for API Request    ${driver.driver}    ${SIGNIN_ENDPOINT}    POST    10
+    ${signin_request}=    Wait for API Request    ${webdriver}    ${SIGNIN_ENDPOINT}    POST    10
     #Log
     Log everything of API Request    ${signin_request}
     Should Be Equal As Strings    ${signin_request['status']}    201
@@ -173,22 +179,16 @@ user click on Sign In button and send Owner valid credentials
     Should Be Equal    ${info_of_signin['user_code']}    ${OWNER_USER_ID}
 
     #Set message
-    Set Test Message    URL: ${signin_request['url']}
-    Set Test Message    \n\nStatusCode: ${signin_request['status']}    append=True
-    Set Test Message    \n\nPayload: ${signin_request['payload']}    append=True
-    Set Test Message    \n\nResponse: ${signin_request['response']}    append=True
-    bikip.Stop Network Interception    ${driver.driver}
+    Set Log Request to Test Message    ${signin_request}
+    bikip.Stop Network Interception    ${webdriver}
 
 #Admin sign in successfully
 user click on Sign In button and send Admin valid credentials
-    ${driver}=    Get Library Instance    SeleniumLibrary
-    # Clear persistent storage first to avoid getting old cached requests
-    bikip.Clear Persistent Storage    ${driver.driver}
-    bikip.Start Network Interception    ${driver.driver}
-    bikip.Clear Intercepted Requests    ${driver.driver}
+    ${webdriver}=    Get Selenium Driver
+    Start API Capture    ${webdriver}
     And user clicks Sign In button
     #Capture API
-    ${signin_request}=    Wait for API Request    ${driver.driver}    ${SIGNIN_ENDPOINT}    POST    10
+    ${signin_request}=    Wait for API Request    ${webdriver}    ${SIGNIN_ENDPOINT}    POST    10
     #Log
     Log everything of API Request    ${signin_request}
     Should Be Equal As Strings    ${signin_request['status']}    201
@@ -210,80 +210,82 @@ user click on Sign In button and send Admin valid credentials
     #Log User ID
     Log    ${info_of_signin['user_code']}
     Should Be Equal    ${info_of_signin['user_code']}    ${ADMIN}
+    Set Test Message    ${info_of_signin['user_code']}
 
     #Set message
-    Set Test Message    URL: ${signin_request['url']}
-    Set Test Message    \n\nStatusCode: ${signin_request['status']}    append=True
-    Set Test Message    \n\nPayload: ${signin_request['payload']}    append=True
-    Set Test Message    \n\nResponse: ${signin_request['response']}    append=True
-    bikip.Stop Network Interception    ${driver.driver}
+    Set Log Request to Test Message    ${signin_request}
+    bikip.Stop Network Interception    ${webdriver}
 
 #Owner sign in unsuccessfully
 user click on Sign in button and send Owner Incorrect credentials
-    ${driver}=    Get Library Instance    SeleniumLibrary
-    # Clear persistent storage first to avoid getting old cached requests
-    bikip.Clear Persistent Storage    ${driver.driver}
-    bikip.Start Network Interception    ${driver.driver}
-    bikip.Clear Intercepted Requests    ${driver.driver}
+    ${webdriver}=    Get Selenium Driver
+    Start API Capture    ${webdriver}
     And user clicks Sign In button
     #Capture API
-    ${signin_request}=    Wait for API Request    ${driver.driver}    ${SIGNIN_ENDPOINT}    POST    10
+    ${signin_request}=    Wait for API Request    ${webdriver}    ${SIGNIN_ENDPOINT}    POST    10
     #Log
     Log everything of API Request    ${signin_request}
-    Should Be Equal As Strings    ${signin_request['status']}    ${401_Unauthorized}
-    
+    Should Be Equal As Strings    ${signin_request['status']}    ${401_Unauthorized}    
     #Parse Payload
     ${signin_payload}=    Set Variable    ${signin_request['payload']}
     ${parse_signin_payload}=    Evaluate    json.loads('''${signin_payload}''')    json
     Should Be Equal    ${parse_signin_payload['password']}    ${INCORRECT_PASSWORD}
-    Log    IncorrectPassword:${parse_signin_payload['password']}
-
     #Set message
-    Set Test Message    URL: ${signin_request['url']}
-    Set Test Message    \n\nStatusCode: ${signin_request['status']}    append=True
-    Set Test Message    \n\nPayload: ${signin_request['payload']}    append=True
     Set Test Message    \n\nIncorrectPassword:${parse_signin_payload['password']}    append=True
-    Set Test Message    \n\nResponse: ${signin_request['response']}    append=True
-    bikip.Stop Network Interception    ${driver.driver}
+    Set Log Request to Test Message    ${signin_request}
+    bikip.Stop Network Interception    ${webdriver}
 
 #Sign in by Deactivated account
 user click on Sign in button and send Owner Deactivated credentials
-    ${driver}=    Get Library Instance    SeleniumLibrary
-    # Clear persistent storage first to avoid getting old cached requests
-    bikip.Clear Persistent Storage    ${driver.driver}
-    bikip.Start Network Interception    ${driver.driver}
-    bikip.Clear Intercepted Requests    ${driver.driver}
+    #Prepare
+    ${webdriver}=    Get Selenium Driver
+    Start API Capture    ${webdriver}
     And user clicks Sign In button
     #Capture API
-    ${signin_request}=    Wait for API Request    ${driver.driver}    ${SIGNIN_ENDPOINT}    POST    10
+    ${signin_request}=    Wait for API Request    ${webdriver}    ${SIGNIN_ENDPOINT}    POST    10
     #Log
     Log everything of API Request    ${signin_request}
     Should Be Equal As Strings    ${signin_request['status']}    ${401_Unauthorized}
     #Set message
-    Set Test Message    URL: ${signin_request['url']}
-    Set Test Message    \n\nStatusCode: ${signin_request['status']}    append=True
-    Set Test Message    \n\nPayload: ${signin_request['payload']}    append=True
-    Set Test Message    \n\nResponse: ${signin_request['response']}    append=True
-    bikip.Stop Network Interception    ${driver.driver}
+    Set Log Request to Test Message    ${signin_request}
+    bikip.Stop Network Interception    ${webdriver}
 
 user click on Sign In button and send Owner valid credentials in Admin role
-    ${driver}=    Get Library Instance    SeleniumLibrary
-    bikip.Clear Persistent Storage    ${driver.driver}
-    bikip.Start Network Interception    ${driver.driver}
-    bikip.Clear Intercepted Requests    ${driver.driver}
-
+    #Prepare
+    ${webdriver}=    Get Selenium Driver
+    Start API Capture    ${webdriver}
     And user clicks Sign In button
-
     #Capture API
-    ${signin_request}=    Wait for API Request    ${driver.driver}    ${SIGNIN_ENDPOINT}    POST    10
-
+    ${signin_request}=    Wait for API Request    ${webdriver}    ${SIGNIN_ENDPOINT}    POST    10
     #Log
     Log everything of API Request    ${signin_request}
     Should Be Equal As Strings    ${signin_request['status']}    ${401_Unauthorized}
-
     #Set message
-    Set Test Message    URL: ${signin_request['url']}
-    Set Test Message    \n\nStatusCode: ${signin_request['status']}    append=True
-    Set Test Message    \n\nPayload: ${signin_request['payload']}    append=True
-    Set Test Message    \n\nResponse: ${signin_request['response']}    append=True
-    bikip.Stop Network Interception    ${driver.driver}
+    Set Log Request to Test Message    ${signin_request}
+    bikip.Stop Network Interception    ${webdriver}
+
+user click on Sign In button and Send Admin invalid credentials in Admin role
+    ${webdriver}=    Get Selenium Driver
+    Start API Capture    ${webdriver}
+    And user clicks Sign In button
+    #Capture API
+    ${signin_request}=    Wait for API Request    ${webdriver}    ${SIGNIN_ENDPOINT}    POST    10
+    #Log
+    Log everything of API Request    ${signin_request}
+    Should Be Equal As Strings    ${signin_request['status']}    ${401_Unauthorized}
+    #Set message
+    Set Log Request to Test Message    ${signin_request}
+    bikip.Stop Network Interception    ${webdriver}
+
+user click on Sign Out button and system sign user out successfully
+    #Prepare
+    ${webdriver}=    Get Selenium Driver
+    Start API Capture    ${webdriver}
+    And user clicks on Sign Out button
+    #Capture API
+    ${signout_request}=    Wait for API Request    ${webdriver}    ${SIGNOUT_ENDPOINT}    POST    10
+    #Log
+    Log everything of API Request    ${signout_request}
+    #Set message
+    Set Log Request to Test Message    ${signout_request}
+    bikip.Stop Network Interception    ${webdriver}

@@ -1,6 +1,5 @@
 *** Settings ***
 Resource    ../../resources/common/common_settings.robot
-Resource    ../../resources/keywords/myAccount/profile-keyword.robot
 Suite Setup    Basic Setup
 Suite Teardown    Close PandaPay
 
@@ -22,22 +21,26 @@ Verify the system displays Change User Information screen when user click on Pro
     And user click on the Profile menu button
     Then the system displays the Change User Information screen
 
-Verify the system displays validation text when user input data less than 2 characters in First Name field
+Verify the system displays validation text when data in First Name field is empty
     [Tags]    Validation
-    Given the system displays the Change User Information screen
-    And user enters data less than 2 characters in First Name field
-    Then user should see First Name validation for less than 2 characters
-
-# Verify the system displays validation text when user input data more than 50 characters in First Name field
-
+    Given user clicks on First Name field
+    Then user leaves First Name field empty
+    Then system should displays validation text if data in First Name is empty
 
 # Verify the system displays validation text when data in Last Name field is empty
+#     [Tags]    Validation
+#     When user clear data in Last Name field
+#     Then system should displays validation text if data in Last Name is empty
 
-# Verify the system displays validation text when user input data less than 2 characters in Last Name field
+# Verify the system displays validation text when user input data less than 2 characters in First Name field
+#     [Tags]    Validation
+#     When user enters data less than 2 characters in First Name field
+#     Then system should displays validation text if the First Name is less than 2 characters
 
-# Verify the system displays validation text when user input data more than 50 characters in Last Name field
-
-
+# Verify the system displays validation text when user input data more than 50 characters in First Name 
+#     [Tags]    Validation
+#     When user enters data more than 50 characters in First Name field
+#     Then system should displays validation text if the First Name is more than 50 characters
 
 
 # Verify the system displays success message when user update profile successfully
