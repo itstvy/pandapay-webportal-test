@@ -10,6 +10,7 @@ Close PandaPay
 Clear Input field
     [Arguments]    ${locator}
     SeleniumLibrary.Press Keys       ${locator}    CTRL+A+BACKSPACE
+    
 Basic Setup
     ${options}=    Evaluate    sys.modules['selenium.webdriver'].ChromeOptions()    sys
     ${logging_prefs}=    Create Dictionary    performance=ALL
@@ -67,3 +68,7 @@ Set Log Request to Test Message
     Set Test Message    \n\nStatusCode: ${request['status']}    append=${append}
     Set Test Message    \n\nPayload: ${request['payload']}    append=${append}
     Set Test Message    \n\nResponse: ${request['response']}    append=${append}
+
+Set element to Test Message
+    [Arguments]    ${element}
+    Set Test Message    Validation Text:${element}

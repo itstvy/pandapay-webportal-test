@@ -28,34 +28,65 @@ user clicks on First Name field
     Click Element    ${PROFILE_FIRST_NAME_FIELD}
 user leaves First Name field empty
     Clear Input field    ${PROFILE_FIRST_NAME_FIELD}
-
-
 user enters data less than 2 characters in First Name field
-    Clear Element Text    ${PROFILE_FIRST_NAME_FIELD}
+    Clear Input field    ${PROFILE_FIRST_NAME_FIELD}
     Input Text    ${PROFILE_FIRST_NAME_FIELD}    ${LESS_THAN_2_CHARACTERS}
 user enters data more than 50 characters in First Name field
-    Clear Element Text    ${PROFILE_FIRST_NAME_FIELD}
+    Clear Input field    ${PROFILE_FIRST_NAME_FIELD}
     Input Text    ${PROFILE_FIRST_NAME_FIELD}    ${MORE_THAN_50_CHARACTERS}
 
 #Last Name Input keywords
 user clicks on Last Name field
     Click Element    ${PROFILE_LAST_NAME_FIELD}
-
 user leaves Last Name field empty
     Clear Input field    ${PROFILE_LAST_NAME_FIELD}
+user enters data less than 2 characters in Last Name field
+    Clear Input field    ${PROFILE_LAST_NAME_FIELD}
+    Input Text    ${PROFILE_LAST_NAME_FIELD}    ${LESS_THAN_2_CHARACTERS}
+user enters data more than 50 characters in Last Name field
+    Clear Input field    ${PROFILE_LAST_NAME_FIELD}
+    Input Text    ${PROFILE_LAST_NAME_FIELD}    ${MORE_THAN_50_CHARACTERS}
+
+#Address Input Keywords
+user clicks on Address field
+    Click Element    ${PROFILE_ADDRESS_FIELD}
+user enters data less than 5 characters in Address field
+    Clear Input field    ${PROFILE_ADDRESS_FIELD}
+    Input Text    ${PROFILE_ADDRESS_FIELD}    ${LESS_THAN_5_CHARACTERS}
+user enters data more than 100 characters in Address field
+    Clear Input field    ${PROFILE_ADDRESS_FIELD}
+    Input Text    ${PROFILE_ADDRESS_FIELD}    ${MORE_THAN_100_CHARACTERS}
 
 # Validation Message Verification Keywords
 #First Name field
 system should displays validation text if data in First Name is empty
     Wait Until Element Is Visible    ${VALIDATION_FIRST_NAME_IS_REQUIRED}    5s
 
+system should displays validation text if the First Name field has fewer than 2 characters
+    Wait Until Element Is Visible    ${VALIDATION_FIRST_NAME_LESS_THAN_2_CHARACTERS}    5s
+
+system should displays validation text if the First Name field has more than 50 characters
+    Wait Until Element Is Visible    ${VALIDATION_FIRST_NAME_MORE_THAN_50_CHARACTERS}    5s
+
+#Last Name field
 system should displays validation text if data in Last Name is empty
     Wait Until Element Is Visible    ${VALIDATION_LAST_NAME_IS_REQUIRED}    5s
+
+system should displays validation text if the Last Name field has fewer than 2 characters
+    Wait Until Element Is Visible    ${VALIDATION_LAST_NAME_LESS_THAN_2_CHARACTERS}    5s
+
+system should displays validation text if the Last Name field has more than 50 characters
+    Wait Until Element Is Visible    ${VALIDATION_LAST_NAME_MORE_THAN_50_CHARACTERS}    5s
+
+#Address field
+system should displays validation text if the Address field has fewer than 5 characters
+    Wait Until Element Is Visible    ${VALIDATION_ADDRESS_LESS_THAN_5_CHARACTERS}    5s
+system should displays validation text if the Address field has more than 100 characters
+    Wait Until Element Is Visible    ${VALIDATION_ADDRESS_MORE_THAN_100_CHARACTERS}    5s
 
 #Message
 the system must displays success message when update profile successfully
     Wait Until Element Is Visible    ${UPDATE_PROFILE_SUCCESS}
-
 
 #API
 user clicks on Submit button in User Information form and send valid information

@@ -42,12 +42,12 @@ ${REPORT_MENU}     xpath=/html/body/div[1]/header/div/div[1]/div/a[6]/button[tex
 
 #My Account Menu Locators
 
-${MY_ACCOUNT_MENU}    xpath=//*[@id="radix-:r1:"]
+${MY_ACCOUNT_MENU}    xpath=//span/img[@alt='User Avatar']
 
-${PROFILE_MENU_BUTTON}    xpath=//*[@id="radix-:r2:"]/div[3]/a[1]/div
+${PROFILE_MENU_BUTTON}    xpath=//div[normalize-space(text())='Profile']
 
-${CHANGE_PASSWORD_MENU_BUTTON}    xpath=//*[@id="radix-:r2:"]/div[3]/a[2]/div
+${CHANGE_PASSWORD_MENU_BUTTON}    xpath=//div[normalize-space(text())='Change Password']
 
-${LANGUAGE_MENU_BUTTON}    xpath=//*[@id="radix-:r2:"]/div[3]/a[3]/div
+${LANGUAGE_MENU_BUTTON}    xpath=//div[normalize-space(text())='Language']
 
-${SIGN_OUT_BUTTON}    xpath=//*[@id="radix-:r2:"]/div[5][text()='Logout']
+${SIGN_OUT_BUTTON}    xpath=//div[normalize-space(text())='Logout']

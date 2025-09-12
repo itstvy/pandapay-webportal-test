@@ -101,46 +101,46 @@ user Sign Out successfully
 
 # Validation Message Verification Keywords
 user should see User ID empty validation
-    Element Should Be Visible    ${VALIDATION_TEXT_EMPTY_USER_ID}    timeout=${TIMEOUT}
+    Wait Until Element Is Visible    ${VALIDATION_TEXT_EMPTY_USER_ID}    timeout=${TIMEOUT}
 
 user should see User ID validation for less than 5 characters
-    Element Should Be Visible    ${VALIDATION_TEXT_LESS_THAN_5_CHARACTERS}    timeout=${TIMEOUT}
+    Wait Until Element Is Visible    ${VALIDATION_TEXT_LESS_THAN_5_CHARACTERS}    timeout=${TIMEOUT}
 
 user should see User ID validation for more than 20 characters
-    Element Should Be Visible    ${VALIDATION_TEXT_MORE_THAN_20_CHARACTERS}    timeout=${TIMEOUT}
+    Wait Until Element Is Visible    ${VALIDATION_TEXT_MORE_THAN_20_CHARACTERS}    timeout=${TIMEOUT}
 
 user should see User ID validation for special characters
-    Element Should Be Visible    ${VALIDATION_TEXT_CONTAIN_SPECIAL_CHARACTERS}    timeout=${TIMEOUT}
+    Wait Until Element Is Visible    ${VALIDATION_TEXT_CONTAIN_SPECIAL_CHARACTERS}    timeout=${TIMEOUT}
 
 user should see User ID validation for spaces
-    Element Should Be Visible    ${VALIDATION_TEXT_CONTAIN_SPACES}    timeout=${TIMEOUT}
+    Wait Until Element Is Visible    ${VALIDATION_TEXT_CONTAIN_SPACES}    timeout=${TIMEOUT}
 
 user should see Password empty validation
-    Element Should Be Visible    ${VALIDATION_TEXT_EMPTY_PASSWORD}    timeout=${TIMEOUT}
+    Wait Until Element Is Visible    ${VALIDATION_TEXT_EMPTY_PASSWORD}    timeout=${TIMEOUT}
 
 user should see Password validation for less than 8 characters
-    Element Should Be Visible    ${VALIDATION_TEXT_LESS_THAN_8_CHARACTERS}    timeout=${TIMEOUT}
+    Wait Until Element Is Visible    ${VALIDATION_TEXT_LESS_THAN_8_CHARACTERS}    timeout=${TIMEOUT}
 
 user should see Password validation for spaces
-    Element Should Be Visible    ${VALIDATION_TEXT_CONTAIN_SPACES}    timeout=${TIMEOUT}
+    Wait Until Element Is Visible    ${VALIDATION_TEXT_CONTAIN_SPACES}    timeout=${TIMEOUT}
 
 user should see Password validation for missing number
-    Element Should Be Visible    ${VALIDATION_TEXT_MISSING_NUMBER}    timeout=${TIMEOUT}
+    Wait Until Element Is Visible    ${VALIDATION_TEXT_MISSING_NUMBER}    timeout=${TIMEOUT}
 
 user should see Password validation for missing uppercase
-    Element Should Be Visible    ${VALIDATION_TEXT_MISSING_UPPERCASE}    timeout=${TIMEOUT}
+    Wait Until Element Is Visible    ${VALIDATION_TEXT_MISSING_UPPERCASE}    timeout=${TIMEOUT}
 
 user should see Password validation for missing lowercase
-    Element Should Be Visible    ${VALIDATION_TEXT_MISSING_LOWERCASE}    timeout=${TIMEOUT}
+    Wait Until Element Is Visible    ${VALIDATION_TEXT_MISSING_LOWERCASE}    timeout=${TIMEOUT}
 
 user should see Password validation for missing special character
-    Element Should Be Visible    ${VALIDATION_TEXT_MISSING_SPECIAL_CHARACTER}    timeout=${TIMEOUT}
+    Wait Until Element Is Visible    ${VALIDATION_TEXT_MISSING_SPECIAL_CHARACTER}    timeout=${TIMEOUT}
 
 user should see an Incorrect Account error message
-    Element Should Be Visible    ${INCORRECT_ACCOUNT_MESSAGE}
+    Wait Until Element Is Visible    ${INCORRECT_ACCOUNT_MESSAGE}
 
 user should see a Deactivated Account error message
-    Element Should Be Visible    ${DEACTIVATED_ACCOUNT_MESSAGE}
+    Wait Until Element Is Visible    ${DEACTIVATED_ACCOUNT_MESSAGE}
 
 user should see Report menu
     Wait Until Element Is Visible    ${REPORT_MENU}    timeout=${TIMEOUT}
@@ -153,7 +153,7 @@ user should be redirected to Sign in screen
 #Owner sign in successfully
 user click on Sign In button and send Owner valid credentials
     ${webdriver}=    Get Selenium Driver
-    Start API Capture    ${webdriver}
+    Setup API Capture Environment    ${webdriver}
     And user clicks Sign In button
     #Capture API
     ${signin_request}=    Wait for API Request    ${webdriver}    ${SIGNIN_ENDPOINT}    POST    10
@@ -185,10 +185,10 @@ user click on Sign In button and send Owner valid credentials
 #Admin sign in successfully
 user click on Sign In button and send Admin valid credentials
     ${webdriver}=    Get Selenium Driver
-    Start API Capture    ${webdriver}
+    Setup API Capture Environment    ${webdriver}
     And user clicks Sign In button
     #Capture API
-    ${signin_request}=    Wait for API Request    ${webdriver}    ${SIGNIN_ENDPOINT}    POST    10
+    ${signin_request}=    Wait for API Request    ${webdriver}    ${SIGNIN_ENDPOINT}    POST    20
     #Log
     Log everything of API Request    ${signin_request}
     Should Be Equal As Strings    ${signin_request['status']}    201
@@ -219,7 +219,7 @@ user click on Sign In button and send Admin valid credentials
 #Owner sign in unsuccessfully
 user click on Sign in button and send Owner Incorrect credentials
     ${webdriver}=    Get Selenium Driver
-    Start API Capture    ${webdriver}
+    Setup API Capture Environment    ${webdriver}
     And user clicks Sign In button
     #Capture API
     ${signin_request}=    Wait for API Request    ${webdriver}    ${SIGNIN_ENDPOINT}    POST    10
@@ -239,7 +239,7 @@ user click on Sign in button and send Owner Incorrect credentials
 user click on Sign in button and send Owner Deactivated credentials
     #Prepare
     ${webdriver}=    Get Selenium Driver
-    Start API Capture    ${webdriver}
+    Setup API Capture Environment    ${webdriver}
     And user clicks Sign In button
     #Capture API
     ${signin_request}=    Wait for API Request    ${webdriver}    ${SIGNIN_ENDPOINT}    POST    10
@@ -253,7 +253,7 @@ user click on Sign in button and send Owner Deactivated credentials
 user click on Sign In button and send Owner valid credentials in Admin role
     #Prepare
     ${webdriver}=    Get Selenium Driver
-    Start API Capture    ${webdriver}
+    Setup API Capture Environment    ${webdriver}
     And user clicks Sign In button
     #Capture API
     ${signin_request}=    Wait for API Request    ${webdriver}    ${SIGNIN_ENDPOINT}    POST    10
@@ -266,7 +266,7 @@ user click on Sign In button and send Owner valid credentials in Admin role
 
 user click on Sign In button and Send Admin invalid credentials in Admin role
     ${webdriver}=    Get Selenium Driver
-    Start API Capture    ${webdriver}
+    Setup API Capture Environment    ${webdriver}
     And user clicks Sign In button
     #Capture API
     ${signin_request}=    Wait for API Request    ${webdriver}    ${SIGNIN_ENDPOINT}    POST    10
@@ -280,10 +280,10 @@ user click on Sign In button and Send Admin invalid credentials in Admin role
 user click on Sign Out button and system sign user out successfully
     #Prepare
     ${webdriver}=    Get Selenium Driver
-    Start API Capture    ${webdriver}
+    Setup API Capture Environment    ${webdriver}
     And user clicks on Sign Out button
     #Capture API
-    ${signout_request}=    Wait for API Request    ${webdriver}    ${SIGNOUT_ENDPOINT}    POST    10
+    ${signout_request}=    Wait for API Request    ${webdriver}    ${SIGNOUT_ENDPOINT}    POST    20
     #Log
     Log everything of API Request    ${signout_request}
     #Set message
