@@ -16,7 +16,8 @@ ${SIGNIN_ENDPOINT}    api/user/sign-in/
 ${SIGNOUT_ENDPOINT}    api/logout/
 #PROFILE
 ${PROFILE_ENDPOINT}    api/user/me/profile/
-
+#USER
+${USER_LIST_ENDPOINT}    api/admin/user/
 #Common Data Input
 ${DATA_EMPTY}    ${EMPTY}
 ${ONLY_SPACES}    ${SPACE}
@@ -51,3 +52,6 @@ ${CHANGE_PASSWORD_MENU_BUTTON}    xpath=//div[normalize-space(text())='Change Pa
 ${LANGUAGE_MENU_BUTTON}    xpath=//div[normalize-space(text())='Language']
 
 ${SIGN_OUT_BUTTON}    xpath=//div[normalize-space(text())='Logout']
+
+#Header
+${USER_MENU_BUTTON}    xpath=//button[contains(text(),"User")]

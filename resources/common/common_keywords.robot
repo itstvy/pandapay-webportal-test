@@ -24,14 +24,14 @@ Get Selenium Driver
 
     ${selenium_Library}=    Get Library Instance    ${library_name}
     ${webdriver}=    Set Variable    ${selenium_Library.driver}
-    [RETURN]    ${webdriver}
+    RETURN    ${webdriver}
 
 Wait for API Request
     [Arguments]    ${driver}    ${api_endpoint}    ${http-method}    ${timeout}
 
     bikip.Clear Persistent Storage    ${driver}
     ${request}=    bikip.Wait For Request    ${driver}    ${api_endpoint}    ${http-method}    ${timeout}
-    [RETURN]    ${request}
+    RETURN    ${request}
 
 #Setup API Capture Environment
 Clear API Storage
@@ -65,6 +65,7 @@ Log everything of API Request
 Set Log Request to Test Message
     [Arguments]    ${request}    ${append}=True
     Set Test Message    URL: ${request['url']}
+    Set Test Message    \n\nMethod: ${request['method']}    append=${append}
     Set Test Message    \n\nStatusCode: ${request['status']}    append=${append}
     Set Test Message    \n\nPayload: ${request['payload']}    append=${append}
     Set Test Message    \n\nResponse: ${request['response']}    append=${append}

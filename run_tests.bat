@@ -4,4 +4,4 @@
 
 @REM robot --output logs/output.xml --log logs/log.html --report logs/report.html tests/myAccount/profile.robot
 
-robot -d logs tests\myAccount
+robot -d logs tests\user-management\
