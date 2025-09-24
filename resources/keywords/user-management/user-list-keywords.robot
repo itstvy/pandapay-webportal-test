@@ -21,6 +21,15 @@ system displays correct data of User List
     #Log
     Log everything of API Request    ${user_list_request} 
 
+    #Parse Response
+    ${user_list_response}=    Set Variable    ${user_list_request['response']}
+    ${parse_user_list_response}=    Evaluate    json.loads('''${user_list_response}''')    json
+    ${data_of_user_list}=    Get From Dictionary    ${parse_user_list_response}    data
+    
+    FOR    ${user}    IN    @{data_of_user_list}
+        ${id}=    Get From Dictionary    ${user}    id
+    END
+
     #Set Test Message
     Set Log Request to Test Message    ${user_list_request}
     bikip.Start Network Interception    ${webdriver}   

@@ -71,5 +71,7 @@ Set Log Request to Test Message
     Set Test Message    \n\nResponse: ${request['response']}    append=${append}
 
 Set element to Test Message
-    [Arguments]    ${element}
-    Set Test Message    Validation Text:${element}
+    [Arguments]    ${element1}    ${element2}    ${element3}    ${append}=True
+    Set Test Message    ${element1}
+    Set Test Message    ${element2}    append=${append}
+    Set Test Message    ${element3}    append=${append}
