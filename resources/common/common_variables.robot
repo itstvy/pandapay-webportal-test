@@ -18,6 +18,10 @@ ${SIGNOUT_ENDPOINT}    api/logout/
 ${PROFILE_ENDPOINT}    api/user/me/profile/
 #USER
 ${USER_LIST_ENDPOINT}    api/admin/user/
+#ORGANIZATION
+${ORGANIZATION_DETAILS_ENDPOINT}    api/organization/
+
+
 #Common Data Input
 ${DATA_EMPTY}    ${EMPTY}
 ${ONLY_SPACES}    ${SPACE}
