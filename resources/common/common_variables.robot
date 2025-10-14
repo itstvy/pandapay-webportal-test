@@ -1,9 +1,21 @@
 *** Variables ***
-${DEV_URL}    https://app.panda.ennam.vn
+${PANDAPAY_URL}    https://app.panda.ennam.vn
 ${DEV_API}    https://api.panda.ennam.vn
 ${PROD_URL}     https://www.pandapay360.ca/
 ${BROWSER}     chrome
-${TIMEOUT}    20s
+${TIMEOUT}    10s
+
+#Route
+#Authentication
+${LOGIN_URL}    ${PANDAPAY_URL}/login
+
+#My Account
+${CHANGE_LANGUAGE_URL}    ${PANDAPAY_URL}/account/language-change
+${CHANGE_PROFILE_URL}    ${PANDAPAY_URL}/account/change-information
+${CHANGE_PASSWORD_URL}    ${PANDAPAY_URL}/account/change-password
+
+#User
+${USER_URL}    ${PANDAPAY_URL}/user-management/list
 
 #Status Code
 ${201_Created}    201

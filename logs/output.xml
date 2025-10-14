@@ -1,22 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.3.2 (Python 3.13.3 on win32)" generated="2025-09-29T17:50:16.973804" rpa="false" schemaversion="5">
-<suite id="s1" name="User-Management" source="D:\Automation-Testing\Robot-Framework\PandaPay-v2\tests\user-management">
-<suite id="s1-s1" name="User-List" source="D:\Automation-Testing\Robot-Framework\PandaPay-v2\tests\user-management\user-list.robot">
+<robot generator="Robot 7.3.2 (Python 3.13.3 on win32)" generated="2025-10-14T16:34:15.964529" rpa="false" schemaversion="5">
+<suite id="s1" name="Change-Password" source="D:\Automation-Testing\Robot-Framework\PandaPay-v2\tests\myAccount\change-password.robot">
 <kw name="Basic Setup" owner="common_keywords" type="SETUP">
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-09-29T17:50:17.902938" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x000001F00B696510&gt;</msg>
+<msg time="2025-10-14T16:34:17.050016" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x000001CBF92530E0&gt;</msg>
 <var>${options}</var>
 <arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
 <arg>sys</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-09-29T17:50:17.902187" elapsed="0.000847"/>
+<status status="PASS" start="2025-10-14T16:34:17.049340" elapsed="0.000771"/>
 </kw>
 <kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-09-29T17:50:17.903998" level="INFO">${logging_prefs} = {'performance': 'ALL'}</msg>
+<msg time="2025-10-14T16:34:17.051017" level="INFO">${logging_prefs} = {'performance': 'ALL'}</msg>
 <var>${logging_prefs}</var>
 <arg>performance=ALL</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-09-29T17:50:17.903460" elapsed="0.000606"/>
+<status status="PASS" start="2025-10-14T16:34:17.050503" elapsed="0.000586"/>
 </kw>
 <kw name="Call Method" owner="BuiltIn">
 <arg>${options}</arg>
@@ -24,1211 +23,541 @@
 <arg>goog:loggingPrefs</arg>
 <arg>${logging_prefs}</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="PASS" start="2025-09-29T17:50:17.904351" elapsed="0.000328"/>
+<status status="PASS" start="2025-10-14T16:34:17.051383" elapsed="0.000328"/>
 </kw>
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-09-29T17:50:17.905562" level="INFO">Opening browser 'chrome' to base url 'https://app.panda.ennam.vn'.</msg>
-<arg>${DEV_URL}</arg>
+<msg time="2025-10-14T16:34:17.052617" level="INFO">Opening browser 'chrome' to base url 'https://app.panda.ennam.vn'.</msg>
+<arg>${PANDAPAY_URL}</arg>
 <arg>${BROWSER}</arg>
 <arg>options=${options}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-09-29T17:50:17.905017" elapsed="3.419991"/>
+<status status="PASS" start="2025-10-14T16:34:17.052061" elapsed="4.554263"/>
 </kw>
 <kw name="Maximize Browser Window" owner="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2025-09-29T17:50:21.325614" elapsed="0.084590"/>
+<status status="PASS" start="2025-10-14T16:34:21.607077" elapsed="0.630280"/>
 </kw>
-<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
-<arg>${USERID_FIELD}</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" start="2025-09-29T17:50:21.410812" elapsed="0.410257"/>
+<kw name="Restore Browser Session" owner="browser_keywords">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-10-14T16:34:22.240002" level="INFO">${cookies_file} = .session/cookies.json</msg>
+<var>${cookies_file}</var>
+<arg>${SESSION}/cookies.json</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-10-14T16:34:22.239384" elapsed="0.000743"/>
 </kw>
-<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
-<arg>${PASSWORD_FIELD}</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" start="2025-09-29T17:50:21.821608" elapsed="0.030932"/>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="File Should Exist" owner="OperatingSystem">
+<msg time="2025-10-14T16:34:22.242027" level="INFO" html="true">File '&lt;a href="file://D:\Automation-Testing\Robot-Framework\PandaPay-v2\.session\cookies.json"&gt;D:\Automation-Testing\Robot-Framework\PandaPay-v2\.session\cookies.json&lt;/a&gt;' exists.</msg>
+<arg>${cookies_file}</arg>
+<doc>Fails unless the given ``path`` points to an existing file.</doc>
+<status status="PASS" start="2025-10-14T16:34:22.241338" elapsed="0.000993"/>
 </kw>
-<status status="PASS" start="2025-09-29T17:50:17.900251" elapsed="3.952894"/>
+<msg time="2025-10-14T16:34:22.242730" level="INFO">${cookies_exist} = True</msg>
+<var>${cookies_exist}</var>
+<arg>File Should Exist</arg>
+<arg>${cookies_file}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-10-14T16:34:22.240733" elapsed="0.002101"/>
 </kw>
-<test id="s1-s1-t1" name="Verify Owner Sign In Successfully when user inputs correct credentials" line="6">
-<kw name="When user enters Owner User ID" owner="sign-in-keyword">
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-09-29T17:50:21.857031" level="INFO">Typing text 'bennguyen' into text field 'xpath=//*[@id="user_code"]'.</msg>
-<arg>${USERID_FIELD}</arg>
-<arg>${OWNER_USER_ID}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-09-29T17:50:21.856336" elapsed="0.340853"/>
-</kw>
-<status status="PASS" start="2025-09-29T17:50:21.855414" elapsed="0.342092"/>
-</kw>
-<kw name="And user enters Owner password" owner="sign-in-keyword">
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-09-29T17:50:22.200677" level="INFO">Typing text 'Dev123!@#' into text field 'xpath=//*[@id="password"]'.</msg>
-<arg>${PASSWORD_FIELD}</arg>
-<arg>${OWNER_PASSWORD}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-09-29T17:50:22.199949" elapsed="0.186203"/>
-</kw>
-<status status="PASS" start="2025-09-29T17:50:22.198777" elapsed="0.187651"/>
-</kw>
-<kw name="When user click on Sign In button and send Owner valid credentials" owner="sign-in-keyword">
+<if>
+<branch type="IF" condition="${cookies_exist}">
 <kw name="Get Selenium Driver" owner="common_keywords">
 <kw name="Get Library Instance" owner="BuiltIn">
-<msg time="2025-09-29T17:50:22.390178" level="INFO">${selenium_Library} = &lt;SeleniumLibrary.SeleniumLibrary object at 0x000001F00B39AA50&gt;</msg>
+<msg time="2025-10-14T16:34:22.246737" level="INFO">${selenium_Library} = &lt;SeleniumLibrary.SeleniumLibrary object at 0x000001CBF8DAAA50&gt;</msg>
 <var>${selenium_Library}</var>
 <arg>${library_name}</arg>
 <doc>Returns the currently active instance of the specified library.</doc>
-<status status="PASS" start="2025-09-29T17:50:22.389692" elapsed="0.000560"/>
+<status status="PASS" start="2025-10-14T16:34:22.245722" elapsed="0.001192"/>
 </kw>
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-09-29T17:50:22.393286" level="INFO">${webdriver} = &lt;selenium.webdriver.chrome.webdriver.WebDriver (session="4d2060ce236d755044d1d2a1bfffd2f2")&gt;</msg>
+<msg time="2025-10-14T16:34:22.252234" level="INFO">${webdriver} = &lt;selenium.webdriver.chrome.webdriver.WebDriver (session="6d2a36b8a6015889f8e59515fb428666")&gt;</msg>
 <var>${webdriver}</var>
 <arg>${selenium_Library.driver}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-09-29T17:50:22.390568" elapsed="0.002802"/>
+<status status="PASS" start="2025-10-14T16:34:22.247525" elapsed="0.004865"/>
 </kw>
 <return>
 <value>${webdriver}</value>
-<status status="PASS" start="2025-09-29T17:50:22.393655" elapsed="0.000178"/>
+<status status="PASS" start="2025-10-14T16:34:22.252700" elapsed="0.000268"/>
 </return>
-<msg time="2025-09-29T17:50:22.394160" level="INFO">${webdriver} = &lt;selenium.webdriver.chrome.webdriver.WebDriver (session="4d2060ce236d755044d1d2a1bfffd2f2")&gt;</msg>
+<msg time="2025-10-14T16:34:22.253633" level="INFO">${webdriver} = &lt;selenium.webdriver.chrome.webdriver.WebDriver (session="6d2a36b8a6015889f8e59515fb428666")&gt;</msg>
 <var>${webdriver}</var>
-<status status="PASS" start="2025-09-29T17:50:22.388797" elapsed="0.005435"/>
+<status status="PASS" start="2025-10-14T16:34:22.244457" elapsed="0.009407"/>
 </kw>
-<kw name="Setup API Capture Environment" owner="common_keywords">
-<kw name="Clear API Storage" owner="common_keywords">
-<kw name="Clear Persistent Storage" owner="bikip">
-<msg time="2025-09-29T17:50:22.399278" level="INFO">Cleared persistent storage file: D:\Automation-Testing\Robot-Framework\PandaPay-v2\logs\network_requests_v2.pkl</msg>
-<msg time="2025-09-29T17:50:22.412871" level="INFO">Cleared all persistent storage and in-memory buffers</msg>
-<arg>${driver}</arg>
-<doc>Clear persistent storage file and in-memory storage to avoid getting old cached requests.</doc>
-<status status="PASS" start="2025-09-29T17:50:22.395816" elapsed="0.017264"/>
-</kw>
-<arg>${driver}</arg>
-<status status="PASS" start="2025-09-29T17:50:22.395278" elapsed="0.018013"/>
-</kw>
-<kw name="Start API Capture" owner="common_keywords">
-<kw name="Start Network Interception" owner="bikip">
-<arg>${driver}</arg>
-<doc>Enable network and performance logging, inject JS hooks, and clear buffers.</doc>
-<status status="PASS" start="2025-09-29T17:50:22.414574" elapsed="0.037796"/>
-</kw>
-<arg>${driver}</arg>
-<status status="PASS" start="2025-09-29T17:50:22.413719" elapsed="0.038892"/>
-</kw>
-<kw name="Clear API Intercepted Requests" owner="common_keywords">
-<kw name="Clear Intercepted Requests" owner="bikip">
-<arg>${driver}</arg>
-<doc>Clear in-memory buffers and sessionStorage hooks buffer.</doc>
-<status status="PASS" start="2025-09-29T17:50:22.453757" elapsed="0.007927"/>
-</kw>
-<arg>${driver}</arg>
-<status status="PASS" start="2025-09-29T17:50:22.453044" elapsed="0.008884"/>
-</kw>
-<arg>${webdriver}</arg>
-<status status="PASS" start="2025-09-29T17:50:22.394634" elapsed="0.067444"/>
-</kw>
-<kw name="And user clicks Sign In button" owner="sign-in-keyword">
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-09-29T17:50:22.463638" level="INFO">Clicking element 'xpath=/html/body/div[1]/div/div/div/div[2]/div/div/form/button'.</msg>
-<arg>${SIGNIN_BUTTON}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-09-29T17:50:22.463210" elapsed="0.142658"/>
-</kw>
-<status status="PASS" start="2025-09-29T17:50:22.462510" elapsed="0.143606"/>
-</kw>
-<kw name="Wait for API Request" owner="common_keywords">
-<kw name="Clear Persistent Storage" owner="bikip">
-<msg time="2025-09-29T17:50:22.619530" level="INFO">Cleared all persistent storage and in-memory buffers</msg>
-<arg>${driver}</arg>
-<doc>Clear persistent storage file and in-memory storage to avoid getting old cached requests.</doc>
-<status status="PASS" start="2025-09-29T17:50:22.607696" elapsed="0.012049"/>
-</kw>
-<kw name="Wait For Request" owner="bikip">
-<msg time="2025-09-29T17:50:24.475688" level="INFO">Saved 5 requests to D:\Automation-Testing\Robot-Framework\PandaPay-v2\logs\network_requests_v2.pkl</msg>
-<msg time="2025-09-29T17:50:24.606311" level="INFO">Saved 10 requests to D:\Automation-Testing\Robot-Framework\PandaPay-v2\logs\network_requests_v2.pkl</msg>
-<msg time="2025-09-29T17:50:24.726096" level="INFO">Saved 15 requests to D:\Automation-Testing\Robot-Framework\PandaPay-v2\logs\network_requests_v2.pkl</msg>
-<msg time="2025-09-29T17:50:24.848914" level="INFO">Saved 20 requests to D:\Automation-Testing\Robot-Framework\PandaPay-v2\logs\network_requests_v2.pkl</msg>
-<msg time="2025-09-29T17:50:24.989090" level="INFO">Saved 25 requests to D:\Automation-Testing\Robot-Framework\PandaPay-v2\logs\network_requests_v2.pkl</msg>
-<msg time="2025-09-29T17:50:25.195892" level="INFO">Saved 30 requests to D:\Automation-Testing\Robot-Framework\PandaPay-v2\logs\network_requests_v2.pkl</msg>
-<msg time="2025-09-29T17:50:25.485682" level="INFO">Saved 35 requests to D:\Automation-Testing\Robot-Framework\PandaPay-v2\logs\network_requests_v2.pkl</msg>
-<msg time="2025-09-29T17:50:25.708245" level="INFO">Saved 40 requests to D:\Automation-Testing\Robot-Framework\PandaPay-v2\logs\network_requests_v2.pkl</msg>
-<msg time="2025-09-29T17:50:26.107921" level="INFO">Saved 45 requests to D:\Automation-Testing\Robot-Framework\PandaPay-v2\logs\network_requests_v2.pkl</msg>
-<msg time="2025-09-29T17:50:26.182975" level="INFO">Saved 50 requests to D:\Automation-Testing\Robot-Framework\PandaPay-v2\logs\network_requests_v2.pkl</msg>
-<msg time="2025-09-29T17:50:26.183559" level="INFO">${request} = {'method': 'POST', 'payload': '{"user_code":"bennguyen","password":"Dev123!@#","type":"ORG_ADMIN"}', 'response': '{"success":true,"statusCode":201,"message":"SIGN_IN_SUCCESSFULLY","data":{"access_toke...</msg>
-<var>${request}</var>
-<arg>${driver}</arg>
-<arg>${api_endpoint}</arg>
-<arg>${http-method}</arg>
-<arg>${timeout}</arg>
-<doc>Wait until a request matching endpoint (substring) and optional method appears.
-Returns request dict with url, method, headers, payload, status, response, timestamp.</doc>
-<status status="PASS" start="2025-09-29T17:50:22.620320" elapsed="3.563409"/>
-</kw>
-<return>
-<value>${request}</value>
-<status status="PASS" start="2025-09-29T17:50:26.184068" elapsed="0.000220"/>
-</return>
-<msg time="2025-09-29T17:50:26.184978" level="INFO">${signin_request} = {'method': 'POST', 'payload': '{"user_code":"bennguyen","password":"Dev123!@#","type":"ORG_ADMIN"}', 'response': '{"success":true,"statusCode":201,"message":"SIGN_IN_SUCCESSFULLY","data":{"access_toke...</msg>
-<var>${signin_request}</var>
-<arg>${webdriver}</arg>
-<arg>${SIGNIN_ENDPOINT}</arg>
-<arg>POST</arg>
-<arg>10</arg>
-<status status="PASS" start="2025-09-29T17:50:22.606595" elapsed="3.578509"/>
-</kw>
-<kw name="Log everything of API Request" owner="common_keywords">
-<kw name="Log" owner="BuiltIn">
-<msg time="2025-09-29T17:50:26.191937" level="INFO">URL: https://api.panda.ennam.vn/api/user/sign-in/</msg>
-<arg>URL: ${request['url']}</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-09-29T17:50:26.187697" elapsed="0.004482"/>
-</kw>
-<kw name="Log" owner="BuiltIn">
-<msg time="2025-09-29T17:50:26.199717" level="INFO">Method: POST</msg>
-<arg>Method: ${request['method']}</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-09-29T17:50:26.192820" elapsed="0.007146"/>
-</kw>
-<kw name="Log" owner="BuiltIn">
-<msg time="2025-09-29T17:50:26.205866" level="INFO">StatusCode: 201</msg>
-<arg>StatusCode: ${request['status']}</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-09-29T17:50:26.200615" elapsed="0.005842"/>
-</kw>
-<kw name="Log" owner="BuiltIn">
-<msg time="2025-09-29T17:50:26.211213" level="INFO">Payload: {"user_code":"bennguyen","password":"Dev123!@#","type":"ORG_ADMIN"}</msg>
-<arg>Payload: ${request['payload']}</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-09-29T17:50:26.207139" elapsed="0.004280"/>
-</kw>
-<kw name="Log" owner="BuiltIn">
-<msg time="2025-09-29T17:50:26.216892" level="INFO">Response: {"success":true,"statusCode":201,"message":"SIGN_IN_SUCCESSFULLY","data":{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU5MjI5NDIzLCJpYXQiOjE3NTkxNDMwMjMsImp0aSI6IjU5NTcwMTUxZTEwYTRjN2ViZjY0Njk4ODFlYzc3OWM5IiwidXNlcl9pZCI6ODg3LCJwaG9uZV9udW1iZXIiOiIzMzIyMDk3MjMyIiwiZW1haWwiOiJiZW5AeW9wbWFpbC5jb20iLCJ1c2VyX3R5cGUiOiJPV05FUiIsImZpcnN0X25hbWUiOiJWeSIsImxhc3RfbmFtZSI6Ik5ndXllbiIsInVzZXJfY29kZSI6ImJlbm5ndXllbiJ9.Qawne3vzxNVE8pKdhXE6EevMzTyZZULSKxTMycxapZs","refresh_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc2NDMyNzAyMywiaWF0IjoxNzU5MTQzMDIzLCJqdGkiOiI4Y2I3NWRmNzljZTQ0ZDY4ODY0Y2MzYzAzNGM3OTJhMSIsInVzZXJfaWQiOjg4NywicGhvbmVfbnVtYmVyIjoiMzMyMjA5NzIzMiIsImVtYWlsIjoiYmVuQHlvcG1haWwuY29tIiwidXNlcl90eXBlIjoiT1dORVIiLCJmaXJzdF9uYW1lIjoiVnkiLCJsYXN0X25hbWUiOiJOZ3V5ZW4iLCJ1c2VyX2NvZGUiOiJiZW5uZ3V5ZW4ifQ.BTJ3b_qsH3W6ZMAMhtxqVXCPzACc3HSFkdSLObsVYH8","info":{"id":887,"phone_number":"3322097232","email":"ben@yopmail.com","first_name":"Vy","last_name":"Nguyen","address":"1090 NW 1st Avennue","gender":"FEMALE","avatar":"https://panda-sgp-public-storage.s3.amazonaws.com/media/files/2025/8/15/561401tech20.jpg","dob":"2000-11-15","user_code":"bennguyen","language":"en","is_belong_to_merchant":true,"is_belong_to_supplier":false}}}</msg>
-<arg>Response: ${request['response']}</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-09-29T17:50:26.211984" elapsed="0.005161"/>
-</kw>
-<arg>${signin_request}</arg>
-<status status="PASS" start="2025-09-29T17:50:26.185968" elapsed="0.031485"/>
-</kw>
-<kw name="Should Be Equal As Strings" owner="BuiltIn">
-<msg time="2025-09-29T17:50:26.221911" level="INFO">Argument types are:
-&lt;class 'int'&gt;
-&lt;class 'str'&gt;</msg>
-<arg>${signin_request['status']}</arg>
-<arg>201</arg>
-<doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="PASS" start="2025-09-29T17:50:26.218032" elapsed="0.004100"/>
-</kw>
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-09-29T17:50:26.226614" level="INFO">${signin_payload} = {"user_code":"bennguyen","password":"Dev123!@#","type":"ORG_ADMIN"}</msg>
-<var>${signin_payload}</var>
-<arg>${signin_request['payload']}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-09-29T17:50:26.222682" elapsed="0.004064"/>
+<kw name="Get File" owner="OperatingSystem">
+<msg time="2025-10-14T16:34:22.255514" level="INFO" html="true">Getting file '&lt;a href="file://D:\Automation-Testing\Robot-Framework\PandaPay-v2\.session\cookies.json"&gt;D:\Automation-Testing\Robot-Framework\PandaPay-v2\.session\cookies.json&lt;/a&gt;'.</msg>
+<msg time="2025-10-14T16:34:22.256729" level="INFO">${cookies_json} = [{"domain": "app.panda.ennam.vn", "httpOnly": false, "name": "refresh_token", "path": "/", "sameSite": "Lax", "secure": false, "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcm...</msg>
+<var>${cookies_json}</var>
+<arg>${cookies_file}</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="PASS" start="2025-10-14T16:34:22.254726" elapsed="0.002160"/>
 </kw>
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-09-29T17:50:26.228258" level="INFO">${parse_signin_payload} = {'user_code': 'bennguyen', 'password': 'Dev123!@#', 'type': 'ORG_ADMIN'}</msg>
-<var>${parse_signin_payload}</var>
-<arg>json.loads('''${signin_payload}''')</arg>
-<arg>json</arg>
+<msg time="2025-10-14T16:34:22.259015" level="INFO">${cookies} = [{'domain': 'app.panda.ennam.vn', 'httpOnly': False, 'name': 'refresh_token', 'path': '/', 'sameSite': 'Lax', 'secure': False, 'value': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcm...</msg>
+<var>${cookies}</var>
+<arg>json.loads('''${cookies_json}''')</arg>
+<arg>modules=json</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-09-29T17:50:26.227308" elapsed="0.001058"/>
-</kw>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${parse_signin_payload['type']}</arg>
-<arg>${TYPE_ORG_ADMIN}</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2025-09-29T17:50:26.228905" elapsed="0.005329"/>
-</kw>
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-09-29T17:50:26.238773" level="INFO">${signin_response} = {"success":true,"statusCode":201,"message":"SIGN_IN_SUCCESSFULLY","data":{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU5MjI5NDIzLCJpYXQiOjE3NTkxNDMwM...</msg>
-<var>${signin_response}</var>
-<arg>${signin_request['response']}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-09-29T17:50:26.234853" elapsed="0.004055"/>
-</kw>
-<kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-09-29T17:50:26.241899" level="INFO">${parse_signin_response} = {'success': True, 'statusCode': 201, 'message': 'SIGN_IN_SUCCESSFULLY', 'data': {'access_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU5MjI5NDIzLCJpYXQiOjE3N...</msg>
-<var>${parse_signin_response}</var>
-<arg>json.loads('''${signin_response}''')</arg>
-<arg>json</arg>
-<doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-09-29T17:50:26.239505" elapsed="0.003041"/>
-</kw>
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-09-29T17:50:26.249318" level="INFO">${data_of_signin} = {'access_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU5MjI5NDIzLCJpYXQiOjE3NTkxNDMwMjMsImp0aSI6IjU5NTcwMTUxZTEwYTRjN2ViZjY0Njk4ODFlYzc3OWM5IiwidXNlcl9pZCI6O...</msg>
-<var>${data_of_signin}</var>
-<arg>${parse_signin_response['data']}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-09-29T17:50:26.243425" elapsed="0.006245"/>
-</kw>
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-09-29T17:50:26.255322" level="INFO">${info_of_signin} = {'id': 887, 'phone_number': '3322097232', 'email': 'ben@yopmail.com', 'first_name': 'Vy', 'last_name': 'Nguyen', 'address': '1090 NW 1st Avennue', 'gender': 'FEMALE', 'avatar': 'https://panda-sgp-publ...</msg>
-<var>${info_of_signin}</var>
-<arg>${data_of_signin['info']}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-09-29T17:50:26.250798" elapsed="0.004671"/>
-</kw>
-<kw name="Log" owner="BuiltIn">
-<msg time="2025-09-29T17:50:26.260133" level="INFO">bennguyen</msg>
-<arg>${info_of_signin['user_code']}</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-09-29T17:50:26.256054" elapsed="0.004297"/>
-</kw>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${info_of_signin['user_code']}</arg>
-<arg>${OWNER_USER_ID}</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2025-09-29T17:50:26.261016" elapsed="0.005231"/>
-</kw>
-<kw name="Set Log Request to Test Message" owner="common_keywords">
-<kw name="Set Test Message" owner="BuiltIn">
-<msg time="2025-09-29T17:50:26.273262" level="INFO">Set test message to:
-URL: https://api.panda.ennam.vn/api/user/sign-in/</msg>
-<arg>URL: ${request['url']}</arg>
-<doc>Sets message for the current test case.</doc>
-<status status="PASS" start="2025-09-29T17:50:26.269453" elapsed="0.004039"/>
-</kw>
-<kw name="Set Test Message" owner="BuiltIn">
-<msg time="2025-09-29T17:50:26.279113" level="INFO">Set test message to:
-URL: https://api.panda.ennam.vn/api/user/sign-in/ 
-
-Method: POST</msg>
-<arg>\n\nMethod: ${request['method']}</arg>
-<arg>append=${append}</arg>
-<doc>Sets message for the current test case.</doc>
-<status status="PASS" start="2025-09-29T17:50:26.274217" elapsed="0.005469"/>
-</kw>
-<kw name="Set Test Message" owner="BuiltIn">
-<msg time="2025-09-29T17:50:26.290027" level="INFO">Set test message to:
-URL: https://api.panda.ennam.vn/api/user/sign-in/ 
-
-Method: POST 
-
-StatusCode: 201</msg>
-<arg>\n\nStatusCode: ${request['status']}</arg>
-<arg>append=${append}</arg>
-<doc>Sets message for the current test case.</doc>
-<status status="PASS" start="2025-09-29T17:50:26.280432" elapsed="0.009832"/>
-</kw>
-<kw name="Set Test Message" owner="BuiltIn">
-<msg time="2025-09-29T17:50:26.297957" level="INFO">Set test message to:
-URL: https://api.panda.ennam.vn/api/user/sign-in/ 
-
-Method: POST 
-
-StatusCode: 201 
-
-Payload: {"user_code":"bennguyen","password":"Dev123!@#","type":"ORG_ADMIN"}</msg>
-<arg>\n\nPayload: ${request['payload']}</arg>
-<arg>append=${append}</arg>
-<doc>Sets message for the current test case.</doc>
-<status status="PASS" start="2025-09-29T17:50:26.291191" elapsed="0.007030"/>
-</kw>
-<kw name="Set Test Message" owner="BuiltIn">
-<msg time="2025-09-29T17:50:26.303394" level="INFO">Set test message to:
-URL: https://api.panda.ennam.vn/api/user/sign-in/ 
-
-Method: POST 
-
-StatusCode: 201 
-
-Payload: {"user_code":"bennguyen","password":"Dev123!@#","type":"ORG_ADMIN"} 
-
-Response: {"success":true,"statusCode":201,"message":"SIGN_IN_SUCCESSFULLY","data":{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU5MjI5NDIzLCJpYXQiOjE3NTkxNDMwMjMsImp0aSI6IjU5NTcwMTUxZTEwYTRjN2ViZjY0Njk4ODFlYzc3OWM5IiwidXNlcl9pZCI6ODg3LCJwaG9uZV9udW1iZXIiOiIzMzIyMDk3MjMyIiwiZW1haWwiOiJiZW5AeW9wbWFpbC5jb20iLCJ1c2VyX3R5cGUiOiJPV05FUiIsImZpcnN0X25hbWUiOiJWeSIsImxhc3RfbmFtZSI6Ik5ndXllbiIsInVzZXJfY29kZSI6ImJlbm5ndXllbiJ9.Qawne3vzxNVE8pKdhXE6EevMzTyZZULSKxTMycxapZs","refresh_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc2NDMyNzAyMywiaWF0IjoxNzU5MTQzMDIzLCJqdGkiOiI4Y2I3NWRmNzljZTQ0ZDY4ODY0Y2MzYzAzNGM3OTJhMSIsInVzZXJfaWQiOjg4NywicGhvbmVfbnVtYmVyIjoiMzMyMjA5NzIzMiIsImVtYWlsIjoiYmVuQHlvcG1haWwuY29tIiwidXNlcl90eXBlIjoiT1dORVIiLCJmaXJzdF9uYW1lIjoiVnkiLCJsYXN0X25hbWUiOiJOZ3V5ZW4iLCJ1c2VyX2NvZGUiOiJiZW5uZ3V5ZW4ifQ.BTJ3b_qsH3W6ZMAMhtxqVXCPzACc3HSFkdSLObsVYH8","info":{"id":887,"phone_number":"3322097232","email":"ben@yopmail.com","first_name":"Vy","last_name":"Nguyen","address":"1090 NW 1st Avennue","gender":"FEMALE","avatar":"https://panda-sgp-public-storage.s3.amazonaws.com/media/files/2025/8/15/561401tech20.jpg","dob":"2000-11-15","user_code":"bennguyen","language":"en","is_belong_to_merchant":true,"is_belong_to_supplier":false}}}</msg>
-<arg>\n\nResponse: ${request['response']}</arg>
-<arg>append=${append}</arg>
-<doc>Sets message for the current test case.</doc>
-<status status="PASS" start="2025-09-29T17:50:26.298878" elapsed="0.004784"/>
-</kw>
-<arg>${signin_request}</arg>
-<status status="PASS" start="2025-09-29T17:50:26.267720" elapsed="0.036297"/>
-</kw>
-<kw name="Stop Network Interception" owner="bikip">
-<arg>${webdriver}</arg>
-<doc>Stop listening (does not clear persisted data).</doc>
-<status status="PASS" start="2025-09-29T17:50:26.304509" elapsed="0.000568"/>
-</kw>
-<status status="PASS" start="2025-09-29T17:50:22.387664" elapsed="3.917671"/>
-</kw>
-<kw name="Sleep" owner="BuiltIn">
-<msg time="2025-09-29T17:50:31.308109" level="INFO">Slept 5 seconds.</msg>
-<arg>5s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-09-29T17:50:26.306179" elapsed="5.002184"/>
-</kw>
-<kw name="Then user should see Report menu" owner="sign-in-keyword">
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${REPORT_MENU}</arg>
-<arg>timeout=${TIMEOUT}</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-09-29T17:50:31.310099" elapsed="0.044894"/>
-</kw>
-<status status="PASS" start="2025-09-29T17:50:31.309291" elapsed="0.045958"/>
-</kw>
-<doc>Owner Sign in successfully</doc>
-<tag>API</tag>
-<tag>Success</tag>
-<status status="PASS" start="2025-09-29T17:50:21.853350" elapsed="9.502508">URL: https://api.panda.ennam.vn/api/user/sign-in/ 
-
-Method: POST 
-
-StatusCode: 201 
-
-Payload: {"user_code":"bennguyen","password":"Dev123!@#","type":"ORG_ADMIN"} 
-
-Response: {"success":true,"statusCode":201,"message":"SIGN_IN_SUCCESSFULLY","data":{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU5MjI5NDIzLCJpYXQiOjE3NTkxNDMwMjMsImp0aSI6IjU5NTcwMTUxZTEwYTRjN2ViZjY0Njk4ODFlYzc3OWM5IiwidXNlcl9pZCI6ODg3LCJwaG9uZV9udW1iZXIiOiIzMzIyMDk3MjMyIiwiZW1haWwiOiJiZW5AeW9wbWFpbC5jb20iLCJ1c2VyX3R5cGUiOiJPV05FUiIsImZpcnN0X25hbWUiOiJWeSIsImxhc3RfbmFtZSI6Ik5ndXllbiIsInVzZXJfY29kZSI6ImJlbm5ndXllbiJ9.Qawne3vzxNVE8pKdhXE6EevMzTyZZULSKxTMycxapZs","refresh_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc2NDMyNzAyMywiaWF0IjoxNzU5MTQzMDIzLCJqdGkiOiI4Y2I3NWRmNzljZTQ0ZDY4ODY0Y2MzYzAzNGM3OTJhMSIsInVzZXJfaWQiOjg4NywicGhvbmVfbnVtYmVyIjoiMzMyMjA5NzIzMiIsImVtYWlsIjoiYmVuQHlvcG1haWwuY29tIiwidXNlcl90eXBlIjoiT1dORVIiLCJmaXJzdF9uYW1lIjoiVnkiLCJsYXN0X25hbWUiOiJOZ3V5ZW4iLCJ1c2VyX2NvZGUiOiJiZW5uZ3V5ZW4ifQ.BTJ3b_qsH3W6ZMAMhtxqVXCPzACc3HSFkdSLObsVYH8","info":{"id":887,"phone_number":"3322097232","email":"ben@yopmail.com","first_name":"Vy","last_name":"Nguyen","address":"1090 NW 1st Avennue","gender":"FEMALE","avatar":"https://panda-sgp-public-storage.s3.amazonaws.com/media/files/2025/8/15/561401tech20.jpg","dob":"2000-11-15","user_code":"bennguyen","language":"en","is_belong_to_merchant":true,"is_belong_to_supplier":false}}}</status>
-</test>
-<test id="s1-s1-t2" name="Verify the system displays User List page when user press on &quot;User&quot; in Menu" line="15">
-<kw name="When user press on &quot;User&quot; in Menu" owner="user-list-keywords">
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${USER_MENU_BUTTON}</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-09-29T17:50:31.360822" elapsed="0.034942"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-09-29T17:50:31.396769" level="INFO">Clicking element 'xpath=//button[contains(text(),"User")]'.</msg>
-<arg>${USER_MENU_BUTTON}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-09-29T17:50:31.396276" elapsed="0.161029"/>
-</kw>
-<status status="PASS" start="2025-09-29T17:50:31.360228" elapsed="0.197453"/>
-</kw>
-<kw name="Then system displays correct data of User List" owner="user-list-keywords">
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${RANDOM_USERS}</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-09-29T17:50:31.560221" elapsed="1.831939"/>
-</kw>
-<kw name="Get WebElements" owner="SeleniumLibrary">
-<msg time="2025-09-29T17:50:33.423705" level="INFO">${user_list} = [&lt;selenium.webdriver.remote.webelement.WebElement (session="4d2060ce236d755044d1d2a1bfffd2f2", element="f.29BE3101DD1F72FA1D1DEB7F6CE31973.d.A752E678BBD8972CACF6004FBC728B7D.e.64")&gt;, &lt;selenium.webdriv...</msg>
-<var>${user_list}</var>
-<arg>${RANDOM_USERS}</arg>
-<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
-<status status="PASS" start="2025-09-29T17:50:33.392938" elapsed="0.030945"/>
-</kw>
-<kw name="Get Length" owner="BuiltIn">
-<msg time="2025-09-29T17:50:33.425250" level="INFO">Length is 2.</msg>
-<msg time="2025-09-29T17:50:33.425693" level="INFO">${count} = 2</msg>
-<var>${count}</var>
-<arg>${user_list}</arg>
-<doc>Returns and logs the length of the given item as an integer.</doc>
-<status status="PASS" start="2025-09-29T17:50:33.424629" elapsed="0.001188"/>
-</kw>
-<kw name="Get Selenium Driver" owner="common_keywords">
-<kw name="Get Library Instance" owner="BuiltIn">
-<msg time="2025-09-29T17:50:33.428894" level="INFO">${selenium_Library} = &lt;SeleniumLibrary.SeleniumLibrary object at 0x000001F00B39AA50&gt;</msg>
-<var>${selenium_Library}</var>
-<arg>${library_name}</arg>
-<doc>Returns the currently active instance of the specified library.</doc>
-<status status="PASS" start="2025-09-29T17:50:33.427946" elapsed="0.001081"/>
-</kw>
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-09-29T17:50:33.434454" level="INFO">${webdriver} = &lt;selenium.webdriver.chrome.webdriver.WebDriver (session="4d2060ce236d755044d1d2a1bfffd2f2")&gt;</msg>
-<var>${webdriver}</var>
-<arg>${selenium_Library.driver}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-09-29T17:50:33.429646" elapsed="0.004969"/>
-</kw>
-<return>
-<value>${webdriver}</value>
-<status status="PASS" start="2025-09-29T17:50:33.434958" elapsed="0.000188"/>
-</return>
-<msg time="2025-09-29T17:50:33.435756" level="INFO">${webdriver} = &lt;selenium.webdriver.chrome.webdriver.WebDriver (session="4d2060ce236d755044d1d2a1bfffd2f2")&gt;</msg>
-<var>${webdriver}</var>
-<status status="PASS" start="2025-09-29T17:50:33.426667" elapsed="0.009215"/>
-</kw>
-<kw name="Setup API Capture Environment" owner="common_keywords">
-<kw name="Clear API Storage" owner="common_keywords">
-<kw name="Clear Persistent Storage" owner="bikip">
-<msg time="2025-09-29T17:50:33.504660" level="INFO">Cleared persistent storage file: D:\Automation-Testing\Robot-Framework\PandaPay-v2\logs\network_requests_v2.pkl</msg>
-<msg time="2025-09-29T17:50:33.528407" level="INFO">Cleared all persistent storage and in-memory buffers</msg>
-<arg>${driver}</arg>
-<doc>Clear persistent storage file and in-memory storage to avoid getting old cached requests.</doc>
-<status status="PASS" start="2025-09-29T17:50:33.439127" elapsed="0.089614"/>
-</kw>
-<arg>${driver}</arg>
-<status status="PASS" start="2025-09-29T17:50:33.437938" elapsed="0.091149"/>
-</kw>
-<kw name="Start API Capture" owner="common_keywords">
-<kw name="Start Network Interception" owner="bikip">
-<arg>${driver}</arg>
-<doc>Enable network and performance logging, inject JS hooks, and clear buffers.</doc>
-<status status="PASS" start="2025-09-29T17:50:33.534018" elapsed="0.378463"/>
-</kw>
-<arg>${driver}</arg>
-<status status="PASS" start="2025-09-29T17:50:33.532578" elapsed="0.380252"/>
-</kw>
-<kw name="Clear API Intercepted Requests" owner="common_keywords">
-<kw name="Clear Intercepted Requests" owner="bikip">
-<arg>${driver}</arg>
-<doc>Clear in-memory buffers and sessionStorage hooks buffer.</doc>
-<status status="PASS" start="2025-09-29T17:50:33.914693" elapsed="0.013833"/>
-</kw>
-<arg>${driver}</arg>
-<status status="PASS" start="2025-09-29T17:50:33.913458" elapsed="0.015486"/>
-</kw>
-<arg>${webdriver}</arg>
-<status status="PASS" start="2025-09-29T17:50:33.436591" elapsed="0.492599"/>
-</kw>
-<kw name="When user refresh the User List page" owner="user-list-keywords">
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${USER_LIST_TITLE_PAGE}</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-09-29T17:50:33.930969" elapsed="0.262074"/>
-</kw>
-<kw name="Reload Page" owner="SeleniumLibrary">
-<doc>Simulates user reloading page.</doc>
-<status status="PASS" start="2025-09-29T17:50:34.193801" elapsed="0.884439"/>
-</kw>
-<status status="PASS" start="2025-09-29T17:50:33.929848" elapsed="1.148734"/>
-</kw>
-<kw name="Wait for API Request" owner="common_keywords">
-<kw name="Clear Persistent Storage" owner="bikip">
-<msg time="2025-09-29T17:50:35.136916" level="INFO">Cleared all persistent storage and in-memory buffers</msg>
-<arg>${driver}</arg>
-<doc>Clear persistent storage file and in-memory storage to avoid getting old cached requests.</doc>
-<status status="PASS" start="2025-09-29T17:50:35.081247" elapsed="0.055965"/>
-</kw>
-<kw name="Wait For Request" owner="bikip">
-<msg time="2025-09-29T17:50:35.401086" level="INFO">Saved 5 requests to D:\Automation-Testing\Robot-Framework\PandaPay-v2\logs\network_requests_v2.pkl</msg>
-<msg time="2025-09-29T17:50:35.639842" level="INFO">Saved 10 requests to D:\Automation-Testing\Robot-Framework\PandaPay-v2\logs\network_requests_v2.pkl</msg>
-<msg time="2025-09-29T17:50:35.810819" level="INFO">Saved 15 requests to D:\Automation-Testing\Robot-Framework\PandaPay-v2\logs\network_requests_v2.pkl</msg>
-<msg time="2025-09-29T17:50:35.943893" level="INFO">Saved 20 requests to D:\Automation-Testing\Robot-Framework\PandaPay-v2\logs\network_requests_v2.pkl</msg>
-<msg time="2025-09-29T17:50:36.139029" level="INFO">Saved 25 requests to D:\Automation-Testing\Robot-Framework\PandaPay-v2\logs\network_requests_v2.pkl</msg>
-<msg time="2025-09-29T17:50:36.562552" level="INFO">Saved 30 requests to D:\Automation-Testing\Robot-Framework\PandaPay-v2\logs\network_requests_v2.pkl</msg>
-<msg time="2025-09-29T17:50:36.696083" level="INFO">Saved 35 requests to D:\Automation-Testing\Robot-Framework\PandaPay-v2\logs\network_requests_v2.pkl</msg>
-<msg time="2025-09-29T17:50:36.854209" level="INFO">Saved 40 requests to D:\Automation-Testing\Robot-Framework\PandaPay-v2\logs\network_requests_v2.pkl</msg>
-<msg time="2025-09-29T17:50:37.329921" level="INFO">Saved 45 requests to D:\Automation-Testing\Robot-Framework\PandaPay-v2\logs\network_requests_v2.pkl</msg>
-<msg time="2025-09-29T17:50:37.410426" level="INFO">Saved 50 requests to D:\Automation-Testing\Robot-Framework\PandaPay-v2\logs\network_requests_v2.pkl</msg>
-<msg time="2025-09-29T17:50:37.592373" level="INFO">Saved 55 requests to D:\Automation-Testing\Robot-Framework\PandaPay-v2\logs\network_requests_v2.pkl</msg>
-<msg time="2025-09-29T17:50:37.854869" level="INFO">Saved 60 requests to D:\Automation-Testing\Robot-Framework\PandaPay-v2\logs\network_requests_v2.pkl</msg>
-<msg time="2025-09-29T17:50:37.970369" level="INFO">Saved 65 requests to D:\Automation-Testing\Robot-Framework\PandaPay-v2\logs\network_requests_v2.pkl</msg>
-<msg time="2025-09-29T17:50:38.078798" level="INFO">Saved 70 requests to D:\Automation-Testing\Robot-Framework\PandaPay-v2\logs\network_requests_v2.pkl</msg>
-<msg time="2025-09-29T17:50:38.079428" level="INFO">${request} = {'method': 'GET', 'payload': None, 'response': '{"success":true,"statusCode":200,"message":"GET_DATA_SUCCEEDED","totalItems":2,"nextPage":null,"previousPage":null,"currentPage":1,"totalPages":1,"limit...</msg>
-<var>${request}</var>
-<arg>${driver}</arg>
-<arg>${api_endpoint}</arg>
-<arg>${http-method}</arg>
-<arg>${timeout}</arg>
-<doc>Wait until a request matching endpoint (substring) and optional method appears.
-Returns request dict with url, method, headers, payload, status, response, timestamp.</doc>
-<status status="PASS" start="2025-09-29T17:50:35.137873" elapsed="2.942323"/>
-</kw>
-<return>
-<value>${request}</value>
-<status status="PASS" start="2025-09-29T17:50:38.080601" elapsed="0.000213"/>
-</return>
-<msg time="2025-09-29T17:50:38.081580" level="INFO">${user_list_request} = {'method': 'GET', 'payload': None, 'response': '{"success":true,"statusCode":200,"message":"GET_DATA_SUCCEEDED","totalItems":2,"nextPage":null,"previousPage":null,"currentPage":1,"totalPages":1,"limit...</msg>
-<var>${user_list_request}</var>
-<arg>${webdriver}</arg>
-<arg>${USER_LIST_ENDPOINT}</arg>
-<arg>GET</arg>
-<arg>10</arg>
-<status status="PASS" start="2025-09-29T17:50:35.079268" elapsed="3.002465"/>
-</kw>
-<kw name="Log everything of API Request" owner="common_keywords">
-<kw name="Log" owner="BuiltIn">
-<msg time="2025-09-29T17:50:38.088918" level="INFO">URL: https://api.panda.ennam.vn/api/admin/user/?page=1</msg>
-<arg>URL: ${request['url']}</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-09-29T17:50:38.084963" elapsed="0.004210"/>
-</kw>
-<kw name="Log" owner="BuiltIn">
-<msg time="2025-09-29T17:50:38.094105" level="INFO">Method: GET</msg>
-<arg>Method: ${request['method']}</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-09-29T17:50:38.089840" elapsed="0.004492"/>
-</kw>
-<kw name="Log" owner="BuiltIn">
-<msg time="2025-09-29T17:50:38.099138" level="INFO">StatusCode: 200</msg>
-<arg>StatusCode: ${request['status']}</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-09-29T17:50:38.094956" elapsed="0.004410"/>
-</kw>
-<kw name="Log" owner="BuiltIn">
-<msg time="2025-09-29T17:50:38.104256" level="INFO">Payload: None</msg>
-<arg>Payload: ${request['payload']}</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-09-29T17:50:38.099987" elapsed="0.004487"/>
-</kw>
-<kw name="Log" owner="BuiltIn">
-<msg time="2025-09-29T17:50:38.109483" level="INFO">Response: {"success":true,"statusCode":200,"message":"GET_DATA_SUCCEEDED","totalItems":2,"nextPage":null,"previousPage":null,"currentPage":1,"totalPages":1,"limit":10,"data":[{"id":889,"userprofile":{"first_name":"Alex","last_name":"Pham","gender":"FEMALE","dob":"2000-06-10","avatar":"https://panda-sgp-public-storage.s3.amazonaws.com/media/files/2025/7/24/581080avaa.png","address":"103 NW 167nd Avenue Miami, FL 33125","email":"alex.ben@yopmail.com","phone_number":"3693256983","user_code":"alexstaff","role":"STAFF"},"organization":{"id":403,"name":"Ben Store"},"is_active":true,"created_at":"2025-07-24T04:45:29.070097Z"},{"id":888,"userprofile":{"first_name":"Kira","last_name":"Vo","gender":"FEMALE","dob":"2000-12-21","avatar":"https://panda-sgp-public-storage.s3.amazonaws.com/media/files/2025/7/24/499333tech20.jpg","address":"190 NW 123nd Avenue Miami, FL 33125","email":"kira.ben@yopmail.com","phone_number":"9878989000","user_code":"kirastaff","role":"STAFF"},"organization":{"id":403,"name":"Ben Store"},"is_active":true,"created_at":"2025-07-24T04:43:49.662378Z"}]}</msg>
-<arg>Response: ${request['response']}</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-09-29T17:50:38.105036" elapsed="0.004730"/>
-</kw>
-<arg>${user_list_request}</arg>
-<status status="PASS" start="2025-09-29T17:50:38.083690" elapsed="0.026397"/>
-</kw>
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-09-29T17:50:38.119134" level="INFO">${user_list_response} = {"success":true,"statusCode":200,"message":"GET_DATA_SUCCEEDED","totalItems":2,"nextPage":null,"previousPage":null,"currentPage":1,"totalPages":1,"limit":10,"data":[{"id":889,"userprofile":{"first_nam...</msg>
-<var>${user_list_response}</var>
-<arg>${user_list_request['response']}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-09-29T17:50:38.110654" elapsed="0.008655"/>
-</kw>
-<kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-09-29T17:50:38.121686" level="INFO">${parse_user_list_response} = {'success': True, 'statusCode': 200, 'message': 'GET_DATA_SUCCEEDED', 'totalItems': 2, 'nextPage': None, 'previousPage': None, 'currentPage': 1, 'totalPages': 1, 'limit': 10, 'data': [{'id': 889, 'use...</msg>
-<var>${parse_user_list_response}</var>
-<arg>json.loads('''${user_list_response}''')</arg>
-<arg>json</arg>
-<doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-09-29T17:50:38.119980" elapsed="0.001897"/>
-</kw>
-<kw name="Get From Dictionary" owner="Collections">
-<msg time="2025-09-29T17:50:38.123288" level="INFO">${data_of_user_list} = [{'id': 889, 'userprofile': {'first_name': 'Alex', 'last_name': 'Pham', 'gender': 'FEMALE', 'dob': '2000-06-10', 'avatar': 'https://panda-sgp-public-storage.s3.amazonaws.com/media/files/2025/7/24/5810...</msg>
-<var>${data_of_user_list}</var>
-<arg>${parse_user_list_response}</arg>
-<arg>data</arg>
-<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
-<status status="PASS" start="2025-09-29T17:50:38.122519" elapsed="0.000892"/>
-</kw>
-<kw name="Create List" owner="BuiltIn">
-<msg time="2025-09-29T17:50:38.124871" level="INFO">${user_list} = []</msg>
-<var>${user_list}</var>
-<doc>Returns a list containing given items.</doc>
-<status status="PASS" start="2025-09-29T17:50:38.124139" elapsed="0.000870"/>
+<status status="PASS" start="2025-10-14T16:34:22.257625" elapsed="0.001538"/>
 </kw>
 <for flavor="IN">
 <iter>
-<kw name="Get From Dictionary" owner="Collections">
-<msg time="2025-09-29T17:50:38.128185" level="INFO">${user_profile} = {'first_name': 'Alex', 'last_name': 'Pham', 'gender': 'FEMALE', 'dob': '2000-06-10', 'avatar': 'https://panda-sgp-public-storage.s3.amazonaws.com/media/files/2025/7/24/581080avaa.png', 'address': '103...</msg>
-<var>${user_profile}</var>
-<arg>${user_items}</arg>
-<arg>userprofile</arg>
-<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
-<status status="PASS" start="2025-09-29T17:50:38.126766" elapsed="0.001611"/>
-</kw>
-<kw name="Get From Dictionary" owner="Collections">
-<msg time="2025-09-29T17:50:38.129908" level="INFO">${first_name} = Alex</msg>
-<var>${first_name}</var>
-<arg>${user_profile}</arg>
-<arg>first_name</arg>
-<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
-<status status="PASS" start="2025-09-29T17:50:38.129105" elapsed="0.001554"/>
-</kw>
-<kw name="Get From Dictionary" owner="Collections">
-<msg time="2025-09-29T17:50:38.132424" level="INFO">${last_name} = Pham</msg>
-<var>${last_name}</var>
-<arg>${user_profile}</arg>
-<arg>last_name</arg>
-<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
-<status status="PASS" start="2025-09-29T17:50:38.131382" elapsed="0.001732"/>
-</kw>
-<kw name="Get From Dictionary" owner="Collections">
-<msg time="2025-09-29T17:50:38.135347" level="INFO">${role} = STAFF</msg>
-<var>${role}</var>
-<arg>${user_profile}</arg>
-<arg>role</arg>
-<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
-<status status="PASS" start="2025-09-29T17:50:38.134200" elapsed="0.001294"/>
-</kw>
-<kw name="Append To List" owner="Collections">
-<arg>${user_list}</arg>
-<arg>${first_name}</arg>
-<arg>${last_name}</arg>
-<arg>${role}</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" start="2025-09-29T17:50:38.136348" elapsed="0.001034"/>
-</kw>
-<var name="${user_items}">{'id': 889, 'userprofile': {'first_name': 'Alex', 'last_name': 'Pham', 'gender': 'FEMALE', 'dob': '2000-06-10', 'avatar': 'https://panda-sgp-public-storage.s3.amazonaws.com/media/files/2025/7/24/58108...</var>
-<status status="PASS" start="2025-09-29T17:50:38.126197" elapsed="0.011489"/>
-</iter>
-<iter>
-<kw name="Get From Dictionary" owner="Collections">
-<msg time="2025-09-29T17:50:38.139660" level="INFO">${user_profile} = {'first_name': 'Kira', 'last_name': 'Vo', 'gender': 'FEMALE', 'dob': '2000-12-21', 'avatar': 'https://panda-sgp-public-storage.s3.amazonaws.com/media/files/2025/7/24/499333tech20.jpg', 'address': '190...</msg>
-<var>${user_profile}</var>
-<arg>${user_items}</arg>
-<arg>userprofile</arg>
-<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
-<status status="PASS" start="2025-09-29T17:50:38.138885" elapsed="0.000920"/>
-</kw>
-<kw name="Get From Dictionary" owner="Collections">
-<msg time="2025-09-29T17:50:38.141179" level="INFO">${first_name} = Kira</msg>
-<var>${first_name}</var>
-<arg>${user_profile}</arg>
-<arg>first_name</arg>
-<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
-<status status="PASS" start="2025-09-29T17:50:38.140431" elapsed="0.000883"/>
-</kw>
-<kw name="Get From Dictionary" owner="Collections">
-<msg time="2025-09-29T17:50:38.142706" level="INFO">${last_name} = Vo</msg>
-<var>${last_name}</var>
-<arg>${user_profile}</arg>
-<arg>last_name</arg>
-<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
-<status status="PASS" start="2025-09-29T17:50:38.141991" elapsed="0.000847"/>
-</kw>
-<kw name="Get From Dictionary" owner="Collections">
-<msg time="2025-09-29T17:50:38.145086" level="INFO">${role} = STAFF</msg>
-<var>${role}</var>
-<arg>${user_profile}</arg>
-<arg>role</arg>
-<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
-<status status="PASS" start="2025-09-29T17:50:38.143803" elapsed="0.001523"/>
-</kw>
-<kw name="Append To List" owner="Collections">
-<arg>${user_list}</arg>
-<arg>${first_name}</arg>
-<arg>${last_name}</arg>
-<arg>${role}</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" start="2025-09-29T17:50:38.146405" elapsed="0.007229"/>
-</kw>
-<var name="${user_items}">{'id': 888, 'userprofile': {'first_name': 'Kira', 'last_name': 'Vo', 'gender': 'FEMALE', 'dob': '2000-12-21', 'avatar': 'https://panda-sgp-public-storage.s3.amazonaws.com/media/files/2025/7/24/499333t...</var>
-<status status="PASS" start="2025-09-29T17:50:38.138310" elapsed="0.015856"/>
-</iter>
-<var>${user_items}</var>
-<value>@{data_of_user_list}</value>
-<status status="PASS" start="2025-09-29T17:50:38.125332" elapsed="0.029092"/>
-</for>
-<kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-09-29T17:50:38.158996" level="INFO">${all_user_items} = ["Alex", "Pham", "STAFF", "Kira", "Vo", "STAFF"]</msg>
-<var>${all_user_items}</var>
-<arg>json.dumps(${user_list})</arg>
-<arg>json</arg>
-<doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-09-29T17:50:38.157425" elapsed="0.001737"/>
-</kw>
-<kw name="Set element to Test Message" owner="common_keywords">
-<for flavor="IN ENUMERATE">
-<iter>
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<kw name="Should Be Equal As Integers" owner="BuiltIn">
-<msg time="2025-09-29T17:50:38.165027" level="INFO">Argument types are:
-&lt;class 'int'&gt;
-&lt;class 'str'&gt;</msg>
-<arg>${index}</arg>
-<arg>0</arg>
-<doc>Fails if objects are unequal after converting them to integers.</doc>
-<status status="PASS" start="2025-09-29T17:50:38.164311" elapsed="0.000986"/>
-</kw>
-<msg time="2025-09-29T17:50:38.165738" level="INFO">${is_first} = True</msg>
-<var>${is_first}</var>
-<arg>Should Be Equal As Integers</arg>
-<arg>${index}</arg>
-<arg>0</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2025-09-29T17:50:38.163380" elapsed="0.002470"/>
-</kw>
-<if>
-<branch type="IF" condition="${is_first}">
-<kw name="Set Test Message" owner="BuiltIn">
-<msg time="2025-09-29T17:50:38.167901" level="INFO">Set test message to:
-Total User:2</msg>
-<arg>${element}</arg>
-<doc>Sets message for the current test case.</doc>
-<status status="PASS" start="2025-09-29T17:50:38.167204" elapsed="0.000931"/>
-</kw>
-<status status="PASS" start="2025-09-29T17:50:38.166426" elapsed="0.001913"/>
-</branch>
-<branch type="ELSE">
-<kw name="Set Test Message" owner="BuiltIn">
-<arg>\n\n${element}</arg>
-<arg>append=${append}</arg>
-<doc>Sets message for the current test case.</doc>
-<status status="NOT RUN" start="2025-09-29T17:50:38.169152" elapsed="0.000125"/>
-</kw>
-<status status="NOT RUN" start="2025-09-29T17:50:38.168541" elapsed="0.000938"/>
-</branch>
-<status status="PASS" start="2025-09-29T17:50:38.166312" elapsed="0.003334"/>
-</if>
-<var name="${index}">0</var>
-<var name="${element}">Total User:2</var>
-<status status="PASS" start="2025-09-29T17:50:38.162785" elapsed="0.007000"/>
-</iter>
-<iter>
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<kw name="Should Be Equal As Integers" owner="BuiltIn">
-<msg time="2025-09-29T17:50:38.176599" level="INFO">Argument types are:
-&lt;class 'int'&gt;
-&lt;class 'str'&gt;</msg>
-<msg time="2025-09-29T17:50:38.177521" level="FAIL">1 != 0</msg>
-<arg>${index}</arg>
-<arg>0</arg>
-<doc>Fails if objects are unequal after converting them to integers.</doc>
-<status status="FAIL" start="2025-09-29T17:50:38.175702" elapsed="0.003149">1 != 0</status>
-</kw>
-<msg time="2025-09-29T17:50:38.179510" level="INFO">${is_first} = False</msg>
-<var>${is_first}</var>
-<arg>Should Be Equal As Integers</arg>
-<arg>${index}</arg>
-<arg>0</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2025-09-29T17:50:38.174340" elapsed="0.005309"/>
-</kw>
-<if>
-<branch type="IF" condition="${is_first}">
-<kw name="Set Test Message" owner="BuiltIn">
-<arg>${element}</arg>
-<doc>Sets message for the current test case.</doc>
-<status status="NOT RUN" start="2025-09-29T17:50:38.181628" elapsed="0.000158"/>
-</kw>
-<status status="NOT RUN" start="2025-09-29T17:50:38.180624" elapsed="0.001373"/>
-</branch>
-<branch type="ELSE">
-<kw name="Set Test Message" owner="BuiltIn">
-<msg time="2025-09-29T17:50:38.183745" level="INFO">Set test message to:
-Total User:2 
-
-User:["Alex", "Pham", "STAFF", "Kira", "Vo", "STAFF"]</msg>
-<arg>\n\n${element}</arg>
-<arg>append=${append}</arg>
-<doc>Sets message for the current test case.</doc>
-<status status="PASS" start="2025-09-29T17:50:38.182759" elapsed="0.001218"/>
-</kw>
-<status status="PASS" start="2025-09-29T17:50:38.182176" elapsed="0.002170"/>
-</branch>
-<status status="PASS" start="2025-09-29T17:50:38.180369" elapsed="0.004170"/>
-</if>
-<var name="${index}">1</var>
-<var name="${element}">User:["Alex", "Pham", "STAFF", "Kira", "Vo", "STAFF"]</var>
-<status status="PASS" start="2025-09-29T17:50:38.173645" elapsed="0.011069"/>
-</iter>
-<iter>
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<kw name="Should Be Equal As Integers" owner="BuiltIn">
-<msg time="2025-09-29T17:50:38.187692" level="INFO">Argument types are:
-&lt;class 'int'&gt;
-&lt;class 'str'&gt;</msg>
-<msg time="2025-09-29T17:50:38.188412" level="FAIL">2 != 0</msg>
-<arg>${index}</arg>
-<arg>0</arg>
-<doc>Fails if objects are unequal after converting them to integers.</doc>
-<status status="FAIL" start="2025-09-29T17:50:38.186908" elapsed="0.001871">2 != 0</status>
-</kw>
-<msg time="2025-09-29T17:50:38.189271" level="INFO">${is_first} = False</msg>
-<var>${is_first}</var>
-<arg>Should Be Equal As Integers</arg>
-<arg>${index}</arg>
-<arg>0</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2025-09-29T17:50:38.186190" elapsed="0.003197"/>
-</kw>
-<if>
-<branch type="IF" condition="${is_first}">
-<kw name="Set Test Message" owner="BuiltIn">
-<arg>${element}</arg>
-<doc>Sets message for the current test case.</doc>
-<status status="NOT RUN" start="2025-09-29T17:50:38.191099" elapsed="0.000165"/>
-</kw>
-<status status="NOT RUN" start="2025-09-29T17:50:38.190171" elapsed="0.001387"/>
-</branch>
-<branch type="ELSE">
-<kw name="Set Test Message" owner="BuiltIn">
-<msg time="2025-09-29T17:50:38.193241" level="INFO">Set test message to:
-Total User:2 
-
-User:["Alex", "Pham", "STAFF", "Kira", "Vo", "STAFF"] 
-
-Response: {'success': True, 'statusCode': 200, 'message': 'GET_DATA_SUCCEEDED', 'totalItems': 2, 'nextPage': None, 'previousPage': None, 'currentPage': 1, 'totalPages': 1, 'limit': 10, 'data': [{'id': 889, 'userprofile': {'first_name': 'Alex', 'last_name': 'Pham', 'gender': 'FEMALE', 'dob': '2000-06-10', 'avatar': 'https://panda-sgp-public-storage.s3.amazonaws.com/media/files/2025/7/24/581080avaa.png', 'address': '103 NW 167nd Avenue Miami, FL 33125', 'email': 'alex.ben@yopmail.com', 'phone_number': '3693256983', 'user_code': 'alexstaff', 'role': 'STAFF'}, 'organization': {'id': 403, 'name': 'Ben Store'}, 'is_active': True, 'created_at': '2025-07-24T04:45:29.070097Z'}, {'id': 888, 'userprofile': {'first_name': 'Kira', 'last_name': 'Vo', 'gender': 'FEMALE', 'dob': '2000-12-21', 'avatar': 'https://panda-sgp-public-storage.s3.amazonaws.com/media/files/2025/7/24/499333tech20.jpg', 'address': '190 NW 123nd Avenue Miami, FL 33125', 'email': 'kira.ben@yopmail.com', 'phone_number': '9878989000', 'user_code': 'kirastaff', 'role': 'STAFF'}, 'organization': {'id': 403, 'name': 'Ben Store'}, 'is_active': True, 'created_at': '2025-07-24T04:43:49.662378Z'}]}</msg>
-<arg>\n\n${element}</arg>
-<arg>append=${append}</arg>
-<doc>Sets message for the current test case.</doc>
-<status status="PASS" start="2025-09-29T17:50:38.192362" elapsed="0.001131"/>
-</kw>
-<status status="PASS" start="2025-09-29T17:50:38.191753" elapsed="0.001968"/>
-</branch>
-<status status="PASS" start="2025-09-29T17:50:38.190061" elapsed="0.003826"/>
-</if>
-<var name="${index}">2</var>
-<var name="${element}">Response: {'success': True, 'statusCode': 200, 'message': 'GET_DATA_SUCCEEDED', 'totalItems': 2, 'nextPage': None, 'previousPage': None, 'currentPage': 1, 'totalPages': 1, 'limit': 10, 'data': [{'id':...</var>
-<status status="PASS" start="2025-09-29T17:50:38.185562" elapsed="0.008443"/>
-</iter>
-<var>${index}</var>
-<var>${element}</var>
-<value>@{elements}</value>
-<status status="PASS" start="2025-09-29T17:50:38.161934" elapsed="0.032316"/>
-</for>
-<arg>Total User:${count}</arg>
-<arg>User:${all_user_items}</arg>
-<arg>Response: ${parse_user_list_response}</arg>
-<status status="PASS" start="2025-09-29T17:50:38.160469" elapsed="0.034226"/>
-</kw>
-<kw name="Stop Network Interception" owner="bikip">
+<kw name="Call Method" owner="BuiltIn">
 <arg>${webdriver}</arg>
-<doc>Stop listening (does not clear persisted data).</doc>
-<status status="PASS" start="2025-09-29T17:50:38.195262" elapsed="0.000950"/>
+<arg>add_cookie</arg>
+<arg>${cookie}</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2025-10-14T16:34:22.261042" elapsed="0.059489"/>
 </kw>
-<status status="PASS" start="2025-09-29T17:50:31.558983" elapsed="6.637969"/>
+<var name="${cookie}">{'domain': 'app.panda.ennam.vn', 'httpOnly': False, 'name': 'refresh_token', 'path': '/', 'sameSite': 'Lax', 'secure': False, 'value': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmV...</var>
+<status status="PASS" start="2025-10-14T16:34:22.260225" elapsed="0.060632"/>
+</iter>
+<iter>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${webdriver}</arg>
+<arg>add_cookie</arg>
+<arg>${cookie}</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2025-10-14T16:34:22.321910" elapsed="0.074939"/>
 </kw>
-<doc>User access to User List and system displays correct User list data</doc>
-<tag>API</tag>
-<tag>Success</tag>
-<status status="PASS" start="2025-09-29T17:50:31.358928" elapsed="6.839864">Total User:2 
-
-User:["Alex", "Pham", "STAFF", "Kira", "Vo", "STAFF"] 
-
-Response: {'success': True, 'statusCode': 200, 'message': 'GET_DATA_SUCCEEDED', 'totalItems': 2, 'nextPage': None, 'previousPage': None, 'currentPage': 1, 'totalPages': 1, 'limit': 10, 'data': [{'id': 889, 'userprofile': {'first_name': 'Alex', 'last_name': 'Pham', 'gender': 'FEMALE', 'dob': '2000-06-10', 'avatar': 'https://panda-sgp-public-storage.s3.amazonaws.com/media/files/2025/7/24/581080avaa.png', 'address': '103 NW 167nd Avenue Miami, FL 33125', 'email': 'alex.ben@yopmail.com', 'phone_number': '3693256983', 'user_code': 'alexstaff', 'role': 'STAFF'}, 'organization': {'id': 403, 'name': 'Ben Store'}, 'is_active': True, 'created_at': '2025-07-24T04:45:29.070097Z'}, {'id': 888, 'userprofile': {'first_name': 'Kira', 'last_name': 'Vo', 'gender': 'FEMALE', 'dob': '2000-12-21', 'avatar': 'https://panda-sgp-public-storage.s3.amazonaws.com/media/files/2025/7/24/499333tech20.jpg', 'address': '190 NW 123nd Avenue Miami, FL 33125', 'email': 'kira.ben@yopmail.com', 'phone_number': '9878989000', 'user_code': 'kirastaff', 'role': 'STAFF'}, 'organization': {'id': 403, 'name': 'Ben Store'}, 'is_active': True, 'created_at': '2025-07-24T04:43:49.662378Z'}]}</status>
-</test>
-<test id="s1-s1-t3" name="Verify the system displays correct when user search by User ID" line="21">
-<kw name="When user enter correct User ID in Search field" owner="user-list-keywords">
+<var name="${cookie}">{'domain': 'app.panda.ennam.vn', 'httpOnly': False, 'name': 'access_token', 'path': '/', 'sameSite': 'Lax', 'secure': False, 'value': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNz...</var>
+<status status="PASS" start="2025-10-14T16:34:22.321405" elapsed="0.075770"/>
+</iter>
+<iter>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${webdriver}</arg>
+<arg>add_cookie</arg>
+<arg>${cookie}</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2025-10-14T16:34:22.398442" elapsed="0.237988"/>
+</kw>
+<var name="${cookie}">{'domain': 'app.panda.ennam.vn', 'httpOnly': False, 'name': 'NEXT_LOCALE', 'path': '/', 'sameSite': 'Lax', 'secure': False, 'value': 'en'}</var>
+<status status="PASS" start="2025-10-14T16:34:22.397793" elapsed="0.239056"/>
+</iter>
+<var>${cookie}</var>
+<value>@{cookies}</value>
+<status status="PASS" start="2025-10-14T16:34:22.259545" elapsed="0.377612"/>
+</for>
+<status status="PASS" start="2025-10-14T16:34:22.243250" elapsed="0.394359"/>
+</branch>
+<status status="PASS" start="2025-10-14T16:34:22.243137" elapsed="0.395086"/>
+</if>
+<status status="PASS" start="2025-10-14T16:34:22.238520" elapsed="0.400408"/>
+</kw>
+<status status="PASS" start="2025-10-14T16:34:17.047476" elapsed="5.591879"/>
+</kw>
+<test id="s1-t1" name="Verify the system displays Change Password screen when user click on Change Password menu button" line="7">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-10-14T16:34:22.643278" level="INFO">Opening url 'https://app.panda.ennam.vn'</msg>
+<arg>${PANDAPAY_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-10-14T16:34:22.642325" elapsed="0.315871"/>
+</kw>
+<kw name="Given user clicks on My Account avatar" owner="sign-in-keyword">
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${SEARCH_USER_FIELD}</arg>
+<arg>${MY_ACCOUNT_MENU}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-09-29T17:50:38.207065" elapsed="0.072104"/>
+<status status="PASS" start="2025-10-14T16:34:22.961118" elapsed="2.654667"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-09-29T17:50:38.281093" level="INFO">Clicking element 'xpath=//input[@placeholder='Search by User ID, User Name, Email, Phone Number...']'.</msg>
-<arg>${SEARCH_USER_FIELD}</arg>
+<msg time="2025-10-14T16:34:25.616746" level="INFO">Clicking element 'xpath=//span/img[@alt='User Avatar']'.</msg>
+<arg>${MY_ACCOUNT_MENU}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-09-29T17:50:38.279907" elapsed="0.318128"/>
+<status status="PASS" start="2025-10-14T16:34:25.616266" elapsed="0.197724"/>
+</kw>
+<status status="PASS" start="2025-10-14T16:34:22.959482" elapsed="2.854768"/>
+</kw>
+<kw name="And user clicks on the Change Password menu button" owner="change-password-keyword">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${CHANGE_PASSWORD_MENU_BUTTON}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-10-14T16:34:25.816028" elapsed="0.065947"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-10-14T16:34:25.883207" level="INFO">Clicking element 'xpath=//div[normalize-space(text())='Change Password']'.</msg>
+<arg>${CHANGE_PASSWORD_MENU_BUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-14T16:34:25.882574" elapsed="0.186345"/>
+</kw>
+<status status="PASS" start="2025-10-14T16:34:25.815098" elapsed="0.254320"/>
+</kw>
+<kw name="Then system displays Change Password screen" owner="change-password-keyword">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${CHANGE_PASSWORD_TITLE}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-10-14T16:34:26.071591" elapsed="0.556529"/>
+</kw>
+<status status="PASS" start="2025-10-14T16:34:26.070599" elapsed="0.557839"/>
+</kw>
+<tag>UI</tag>
+<status status="PASS" start="2025-10-14T16:34:22.639679" elapsed="3.989396"/>
+</test>
+<test id="s1-t2" name="Verify the system show validation text when user leaves Current Password field empty" line="14">
+<kw name="When user leaves Current Password, New Password, Confirm New Password fields empty" owner="change-password-keyword">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-10-14T16:34:26.632625" level="INFO">Clicking element 'xpath=//input[@id="current_password"]'.</msg>
+<arg>${CURRENT_PASSWORD_FIELD}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-14T16:34:26.632213" elapsed="0.181157"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-10-14T16:34:26.814471" level="INFO">Clicking element 'xpath=//input[@id="new_password"]'.</msg>
+<arg>${NEW_PASSWORD_FIELD}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-14T16:34:26.813863" elapsed="0.137865"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-10-14T16:34:26.952745" level="INFO">Clicking element 'xpath=//input[@id="confirm_new_password"]'.</msg>
+<arg>${CONFIRM_NEW_PASSWORD_FIELD}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-14T16:34:26.952225" elapsed="0.136889"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-10-14T16:34:27.090104" level="INFO">Clicking element 'xpath=/html/body/div[1]/div/main/div/form/button[text()='Submit']'.</msg>
+<arg>${SUBMIT_CHANGE_PASSWORD_BUTTON_2}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-14T16:34:27.089607" elapsed="0.145744"/>
+</kw>
+<status status="PASS" start="2025-10-14T16:34:26.631586" elapsed="0.604059"/>
+</kw>
+<kw name="Then system displays validation texts when data in Current Password, New Password, Confirm New Password fields are empty" owner="change-password-keyword">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${VALIDATION_CURRENT_PASSWORD_EMPTY}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-10-14T16:34:27.237431" elapsed="0.048485"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${VALIDATION_NEW_PASSWORD_EMPTY}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-10-14T16:34:27.286479" elapsed="0.031594"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${VALIDATION_CONFIRM_NEW_PASSWORD_EMPTY}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-10-14T16:34:27.318552" elapsed="0.030515"/>
+</kw>
+<status status="PASS" start="2025-10-14T16:34:27.236564" elapsed="0.112742"/>
+</kw>
+<tag>Validation</tag>
+<status status="PASS" start="2025-10-14T16:34:26.630250" elapsed="0.719540"/>
+</test>
+<test id="s1-t3" name="Verify the system show validation text when user input data in Current Password, New Password field less than 8 characters" line="19">
+<kw name="When user enters data less than 8 characters in Current Password, New Password, Confirm New Password fields" owner="change-password-keyword">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-10-14T16:34:27.353088" level="INFO">Typing text 'Dev123@' into text field 'xpath=//input[@id="current_password"]'.</msg>
+<arg>${CURRENT_PASSWORD_FIELD}</arg>
+<arg>${LESS_THAN_8_CHARACTERS}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-14T16:34:27.352621" elapsed="0.185599"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-09-29T17:50:38.599815" level="INFO">Typing text 'alexstaff' into text field 'xpath=//input[@placeholder='Search by User ID, User Name, Email, Phone Number...']'.</msg>
-<arg>${SEARCH_USER_FIELD}</arg>
-<arg>${USER_ID_DATA}</arg>
+<msg time="2025-10-14T16:34:27.539498" level="INFO">Typing text 'Dev123@' into text field 'xpath=//input[@id="new_password"]'.</msg>
+<arg>${NEW_PASSWORD_FIELD}</arg>
+<arg>${LESS_THAN_8_CHARACTERS}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-09-29T17:50:38.598905" elapsed="0.286486"/>
+<status status="PASS" start="2025-10-14T16:34:27.538801" elapsed="0.182897"/>
 </kw>
-<kw name="Press Keys" owner="SeleniumLibrary">
-<msg time="2025-09-29T17:50:38.887724" level="INFO">Sending key(s) ('ENTER',) to xpath=//input[@placeholder='Search by User ID, User Name, Email, Phone Number...'] element.</msg>
-<msg time="2025-09-29T17:50:39.214257" level="INFO">Pressing special key ENTER to element.</msg>
-<msg time="2025-09-29T17:50:39.214701" level="INFO">Releasing special key ENTER.</msg>
-<arg>${SEARCH_USER_FIELD}</arg>
-<arg>ENTER</arg>
-<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
-<status status="PASS" start="2025-09-29T17:50:38.886110" elapsed="0.356205"/>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-10-14T16:34:27.722963" level="INFO">Typing text 'Dev123@' into text field 'xpath=//input[@id="confirm_new_password"]'.</msg>
+<arg>${CONFIRM_NEW_PASSWORD_FIELD}</arg>
+<arg>${LESS_THAN_8_CHARACTERS}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-14T16:34:27.722287" elapsed="0.184593"/>
 </kw>
-<status status="PASS" start="2025-09-29T17:50:38.205877" elapsed="1.036832"/>
+<status status="PASS" start="2025-10-14T16:34:27.352038" elapsed="0.555149"/>
 </kw>
-<kw name="Then system displays data match with data entered in Search field" owner="user-list-keywords">
-<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
-<arg>${USER_ITEMS_CONTAINS_USER_ID}</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" start="2025-09-29T17:50:39.245017" elapsed="0.062019"/>
-</kw>
-<status status="PASS" start="2025-09-29T17:50:39.243810" elapsed="0.063616"/>
-</kw>
-<doc>User search by User ID</doc>
-<tag>API</tag>
-<tag>Success</tag>
-<status status="PASS" start="2025-09-29T17:50:38.203602" elapsed="1.108115"/>
-</test>
-<test id="s1-s1-t4" name="Verify the system reset User list successful when user press on &quot;Reset&quot; button" line="27">
-<kw name="When user press on &quot;Reset&quot; button" owner="user-list-keywords">
+<kw name="Then system displays validation text when Current Password, New Password fields have fewer than 8 characters" owner="change-password-keyword">
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${RESET_BUTTON}</arg>
+<arg>${VALIDATION_CURRENT_PASSWORD_LESS_THAN_8_CHARACTERS}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-09-29T17:50:39.326207" elapsed="0.127565"/>
+<status status="PASS" start="2025-10-14T16:34:27.909038" elapsed="0.044656"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${VALIDATION_NEW_PASSWORD_LESS_THAN_8_CHARACTERS}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-10-14T16:34:27.954277" elapsed="0.041923"/>
+</kw>
+<status status="PASS" start="2025-10-14T16:34:27.908092" elapsed="0.088380"/>
+</kw>
+<status status="PASS" start="2025-10-14T16:34:27.350840" elapsed="0.646450"/>
+</test>
+<test id="s1-t4" name="Verify the system displays validation text when user enters data missing Uppercase in Current Password, New Password fields" line="23">
+<kw name="When user enters data missing Uppercase in Current Password, New Password fields" owner="change-password-keyword">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-10-14T16:34:28.001023" level="INFO">Typing text 'dev123!@#' into text field 'xpath=//input[@id="current_password"]'.</msg>
+<arg>${CURRENT_PASSWORD_FIELD}</arg>
+<arg>${MISSING_UPPERCASE}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-14T16:34:28.000513" elapsed="0.241615"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-10-14T16:34:28.243874" level="INFO">Typing text 'dev123!@#' into text field 'xpath=//input[@id="new_password"]'.</msg>
+<arg>${NEW_PASSWORD_FIELD}</arg>
+<arg>${MISSING_UPPERCASE}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-14T16:34:28.242800" elapsed="0.227338"/>
+</kw>
+<status status="PASS" start="2025-10-14T16:34:27.999860" elapsed="0.470668"/>
+</kw>
+<kw name="Then system displays validation text when data in Current Password, New Password fields are missing uppercase" owner="change-password-keyword">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${VALIDATION_CURRENT_PASSWORD_MISSING_UPPERCASE}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-10-14T16:34:28.472892" elapsed="0.048025"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${VALIDATION_NEW_PASSWORD_MISSING_UPPERCASE}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-10-14T16:34:28.521551" elapsed="0.029956"/>
+</kw>
+<status status="PASS" start="2025-10-14T16:34:28.471668" elapsed="0.080132"/>
+</kw>
+<status status="PASS" start="2025-10-14T16:34:27.998520" elapsed="0.553837"/>
+</test>
+<test id="s1-t5" name="Verify the system displays validation text when user enters data missing Lowercase in Current Password, New Password fields" line="27">
+<kw name="When user enters data missing Lowercase in Current Password, New Password fields" owner="change-password-keyword">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-10-14T16:34:28.556198" level="INFO">Typing text 'DEV123!@#' into text field 'xpath=//input[@id="current_password"]'.</msg>
+<arg>${CURRENT_PASSWORD_FIELD}</arg>
+<arg>${MISSING_LOWERCASE}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-14T16:34:28.555635" elapsed="0.214040"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-10-14T16:34:28.770993" level="INFO">Typing text 'DEV123!@#' into text field 'xpath=//input[@id="new_password"]'.</msg>
+<arg>${NEW_PASSWORD_FIELD}</arg>
+<arg>${MISSING_LOWERCASE}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-14T16:34:28.770274" elapsed="0.199610"/>
+</kw>
+<status status="PASS" start="2025-10-14T16:34:28.554796" elapsed="0.415407"/>
+</kw>
+<kw name="Then system displays validation text when data in Current Password, New Password fields are missing lowercase" owner="change-password-keyword">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${VALIDATION_CURRENT_PASSWORD_MISSING_LOWERCASE}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-10-14T16:34:28.972418" elapsed="0.043826"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${VALIDATION_NEW_PASSWORD_MISSING_LOWERCASE}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-10-14T16:34:29.016888" elapsed="0.030582"/>
+</kw>
+<status status="PASS" start="2025-10-14T16:34:28.971143" elapsed="0.076648"/>
+</kw>
+<status status="PASS" start="2025-10-14T16:34:28.553377" elapsed="0.494947"/>
+</test>
+<test id="s1-t6" name="Verify the system displays validation text when user enters data missing Number in Current Password, New Password fields" line="31">
+<kw name="When user enters data missing Number in Current Password, New Password fields" owner="change-password-keyword">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-10-14T16:34:29.052114" level="INFO">Typing text 'Dev!!@@##' into text field 'xpath=//input[@id="current_password"]'.</msg>
+<arg>${CURRENT_PASSWORD_FIELD}</arg>
+<arg>${MISSING_NUMBER}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-14T16:34:29.051533" elapsed="0.219697"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-10-14T16:34:29.272537" level="INFO">Typing text 'Dev!!@@##' into text field 'xpath=//input[@id="new_password"]'.</msg>
+<arg>${NEW_PASSWORD_FIELD}</arg>
+<arg>${MISSING_NUMBER}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-14T16:34:29.271847" elapsed="0.190425"/>
+</kw>
+<status status="PASS" start="2025-10-14T16:34:29.050803" elapsed="0.411866"/>
+</kw>
+<kw name="Then system displays validation text when data in Current Password, New Password fields are missing number" owner="change-password-keyword">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${VALIDATION_NEW_PASSWORD_MISSING_NUMBER}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-10-14T16:34:29.464705" elapsed="0.048141"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${VALIDATION_CURRENT_PASSWORD_MISSING_NUMBER}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-10-14T16:34:29.513500" elapsed="0.034109"/>
+</kw>
+<status status="PASS" start="2025-10-14T16:34:29.463666" elapsed="0.084257"/>
+</kw>
+<status status="PASS" start="2025-10-14T16:34:29.049345" elapsed="0.499140"/>
+</test>
+<test id="s1-t7" name="Verify the system displays validation text when user enters data missing Special Character in Current Password, New Password fields" line="35">
+<kw name="When user enters data missing Special Character in Current Password, New Password fields" owner="change-password-keyword">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-10-14T16:34:29.552461" level="INFO">Typing text 'Dev123456' into text field 'xpath=//input[@id="current_password"]'.</msg>
+<arg>${CURRENT_PASSWORD_FIELD}</arg>
+<arg>${MISSING_SPECIAL_CHARACTERS}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-14T16:34:29.551793" elapsed="0.213229"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-10-14T16:34:29.766814" level="INFO">Typing text 'Dev123456' into text field 'xpath=//input[@id="new_password"]'.</msg>
+<arg>${NEW_PASSWORD_FIELD}</arg>
+<arg>${MISSING_SPECIAL_CHARACTERS}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-14T16:34:29.765785" elapsed="0.221942"/>
+</kw>
+<status status="PASS" start="2025-10-14T16:34:29.551045" elapsed="0.436998"/>
+</kw>
+<kw name="Then system displays validation text when data in Current Password, New Password fields are missing special characters" owner="change-password-keyword">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${VALIDATION_CURRENT_PASSWORD_MISSING_SPECIAL_CHARACTERS}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-10-14T16:34:29.989770" elapsed="0.043641"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${VALIDATION_NEW_PASSWORD_MISSING_SPECIAL_CHARACTERS}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-10-14T16:34:30.034009" elapsed="0.030977"/>
+</kw>
+<status status="PASS" start="2025-10-14T16:34:29.988921" elapsed="0.076509"/>
+</kw>
+<status status="PASS" start="2025-10-14T16:34:29.549549" elapsed="0.516405"/>
+</test>
+<test id="s1-t8" name="Verify the system displays validation text when user enters data in Confirm New Password field NOT MATCH with New Password field" line="39">
+<kw name="When user enters data in Confirm New Password field NOT MATCH with New Password field" owner="change-password-keyword">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-10-14T16:34:30.069670" level="INFO">Typing text 'Exnodes123!@#' into text field 'xpath=//input[@id="current_password"]'.</msg>
+<arg>${CURRENT_PASSWORD_FIELD}</arg>
+<arg>${CORRECT_CURRENT_PASSWORD}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-14T16:34:30.069104" elapsed="0.268757"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-10-14T16:34:30.339060" level="INFO">Typing text 'Dev123!@#' into text field 'xpath=//input[@id="new_password"]'.</msg>
+<arg>${NEW_PASSWORD_FIELD}</arg>
+<arg>${VALID_NEW_PASSWORD}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-14T16:34:30.338417" elapsed="0.198943"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-10-14T16:34:30.538754" level="INFO">Typing text 'Mobi1234@' into text field 'xpath=//input[@id="confirm_new_password"]'.</msg>
+<arg>${CONFIRM_NEW_PASSWORD_FIELD}</arg>
+<arg>${NOT_MATCH_NEW_PASSWORD}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-14T16:34:30.538053" elapsed="0.222106"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-09-29T17:50:39.455415" level="INFO">Clicking element 'xpath=//p[contains(text(),"Reset")]'.</msg>
-<arg>${RESET_BUTTON}</arg>
+<msg time="2025-10-14T16:34:30.762086" level="INFO">Clicking element 'xpath=/html/body/div[1]/div/main/div/form/button[text()='Submit']'.</msg>
+<arg>${SUBMIT_CHANGE_PASSWORD_BUTTON_2}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-09-29T17:50:39.454571" elapsed="0.271423"/>
+<status status="PASS" start="2025-10-14T16:34:30.760900" elapsed="0.144351"/>
 </kw>
-<status status="PASS" start="2025-09-29T17:50:39.325014" elapsed="0.401368"/>
+<status status="PASS" start="2025-10-14T16:34:30.068406" elapsed="0.837134"/>
 </kw>
-<kw name="Then system reset User list successfully" owner="user-list-keywords">
+<kw name="Then system displays validation text when Confirm New Password NOT MATCH with New Password" owner="change-password-keyword">
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${RANDOM_USERS}</arg>
+<arg>${VALIDATION_CONFIRM_NEW_PASSWORD_NOT_MATCH}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-09-29T17:50:39.729108" elapsed="0.312183"/>
+<status status="PASS" start="2025-10-14T16:34:30.907577" elapsed="0.053283"/>
 </kw>
-<kw name="Get WebElements" owner="SeleniumLibrary">
-<msg time="2025-09-29T17:50:40.079637" level="INFO">${user_list} = [&lt;selenium.webdriver.remote.webelement.WebElement (session="4d2060ce236d755044d1d2a1bfffd2f2", element="f.29BE3101DD1F72FA1D1DEB7F6CE31973.d.FAB500FF058351B0D3201306ACC36860.e.89")&gt;, &lt;selenium.webdriv...</msg>
-<var>${user_list}</var>
-<arg>${RANDOM_USERS}</arg>
-<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
-<status status="PASS" start="2025-09-29T17:50:40.041875" elapsed="0.037914"/>
+<status status="PASS" start="2025-10-14T16:34:30.906658" elapsed="0.054548"/>
 </kw>
-<kw name="Get Length" owner="BuiltIn">
-<msg time="2025-09-29T17:50:40.081641" level="INFO">Length is 2.</msg>
-<msg time="2025-09-29T17:50:40.081941" level="INFO">${count} = 2</msg>
-<var>${count}</var>
-<arg>${user_list}</arg>
-<doc>Returns and logs the length of the given item as an integer.</doc>
-<status status="PASS" start="2025-09-29T17:50:40.081062" elapsed="0.001015"/>
-</kw>
-<kw name="Set element to Test Message" owner="common_keywords">
-<for flavor="IN ENUMERATE">
-<iter>
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<kw name="Should Be Equal As Integers" owner="BuiltIn">
-<msg time="2025-09-29T17:50:40.086611" level="INFO">Argument types are:
-&lt;class 'int'&gt;
-&lt;class 'str'&gt;</msg>
-<arg>${index}</arg>
-<arg>0</arg>
-<doc>Fails if objects are unequal after converting them to integers.</doc>
-<status status="PASS" start="2025-09-29T17:50:40.085999" elapsed="0.000851"/>
-</kw>
-<msg time="2025-09-29T17:50:40.087238" level="INFO">${is_first} = True</msg>
-<var>${is_first}</var>
-<arg>Should Be Equal As Integers</arg>
-<arg>${index}</arg>
-<arg>0</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2025-09-29T17:50:40.085359" elapsed="0.001981"/>
-</kw>
-<if>
-<branch type="IF" condition="${is_first}">
-<kw name="Set Test Message" owner="BuiltIn">
-<msg time="2025-09-29T17:50:40.088883" level="INFO">Set test message to:
-Total User:2</msg>
-<arg>${element}</arg>
-<doc>Sets message for the current test case.</doc>
-<status status="PASS" start="2025-09-29T17:50:40.088400" elapsed="0.000671"/>
-</kw>
-<status status="PASS" start="2025-09-29T17:50:40.087711" elapsed="0.001535"/>
-</branch>
-<branch type="ELSE">
-<kw name="Set Test Message" owner="BuiltIn">
-<arg>\n\n${element}</arg>
-<arg>append=${append}</arg>
-<doc>Sets message for the current test case.</doc>
-<status status="NOT RUN" start="2025-09-29T17:50:40.089909" elapsed="0.000107"/>
-</kw>
-<status status="NOT RUN" start="2025-09-29T17:50:40.089412" elapsed="0.000806"/>
-</branch>
-<status status="PASS" start="2025-09-29T17:50:40.087625" elapsed="0.002731"/>
-</if>
-<var name="${index}">0</var>
-<var name="${element}">Total User:2</var>
-<status status="PASS" start="2025-09-29T17:50:40.084842" elapsed="0.005629"/>
-</iter>
-<var>${index}</var>
-<var>${element}</var>
-<value>@{elements}</value>
-<status status="PASS" start="2025-09-29T17:50:40.084111" elapsed="0.006567"/>
-</for>
-<arg>Total User:${count}</arg>
-<status status="PASS" start="2025-09-29T17:50:40.083049" elapsed="0.007961"/>
-</kw>
-<status status="PASS" start="2025-09-29T17:50:39.727881" elapsed="0.363373"/>
-</kw>
-<status status="PASS" start="2025-09-29T17:50:39.319996" elapsed="0.772039">Total User:2</status>
+<status status="PASS" start="2025-10-14T16:34:30.066970" elapsed="0.894901"/>
 </test>
-<test id="s1-s1-t5" name="Verify the system displays User Details when user select any User items in User List" line="31">
-<kw name="When user select any user items" owner="user-list-keywords">
-<kw name="Get Element Count" owner="SeleniumLibrary">
-<msg time="2025-09-29T17:50:40.144594" level="INFO">${COUNT_USER_ITEMS} = 2</msg>
-<var>${COUNT_USER_ITEMS}</var>
-<arg>${USER_ITEMS}</arg>
-<doc>Returns the number of elements matching ``locator``.</doc>
-<status status="PASS" start="2025-09-29T17:50:40.099717" elapsed="0.045024"/>
+<test id="s1-t9" name="Verify the system changes password successfully when user inputs correct credentials" line="43">
+<kw name="Given user is on Change Password screen" owner="change-password-keyword">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${CHANGE_PASSWORD_TITLE}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-10-14T16:34:30.966432" elapsed="0.038776"/>
 </kw>
-<kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-09-29T17:50:40.146495" level="INFO">${RANDOM_USER_ITEMS} = 1</msg>
-<var>${RANDOM_USER_ITEMS}</var>
-<arg>random.randint(1, int(${COUNT_USER_ITEMS}))</arg>
-<arg>random</arg>
-<doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-09-29T17:50:40.145416" elapsed="0.001213"/>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${CURRENT_PASSWORD_FIELD}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-10-14T16:34:31.005953" elapsed="0.045214"/>
 </kw>
-<kw name="Get Selenium Driver" owner="common_keywords">
-<kw name="Get Library Instance" owner="BuiltIn">
-<msg time="2025-09-29T17:50:40.151580" level="INFO">${selenium_Library} = &lt;SeleniumLibrary.SeleniumLibrary object at 0x000001F00B39AA50&gt;</msg>
-<var>${selenium_Library}</var>
-<arg>${library_name}</arg>
-<doc>Returns the currently active instance of the specified library.</doc>
-<status status="PASS" start="2025-09-29T17:50:40.150071" elapsed="0.001691"/>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${NEW_PASSWORD_FIELD}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-10-14T16:34:31.051785" elapsed="0.031454"/>
 </kw>
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-09-29T17:50:40.156864" level="INFO">${webdriver} = &lt;selenium.webdriver.chrome.webdriver.WebDriver (session="4d2060ce236d755044d1d2a1bfffd2f2")&gt;</msg>
-<var>${webdriver}</var>
-<arg>${selenium_Library.driver}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-09-29T17:50:40.152459" elapsed="0.004555"/>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${CONFIRM_NEW_PASSWORD_FIELD}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-10-14T16:34:31.083821" elapsed="0.028120"/>
 </kw>
-<return>
-<value>${webdriver}</value>
-<status status="PASS" start="2025-09-29T17:50:40.157280" elapsed="0.000150"/>
-</return>
-<msg time="2025-09-29T17:50:40.157905" level="INFO">${webdriver} = &lt;selenium.webdriver.chrome.webdriver.WebDriver (session="4d2060ce236d755044d1d2a1bfffd2f2")&gt;</msg>
-<var>${webdriver}</var>
-<status status="PASS" start="2025-09-29T17:50:40.147916" elapsed="0.010089"/>
+<status status="PASS" start="2025-10-14T16:34:30.965574" elapsed="0.146650"/>
 </kw>
-<kw name="Setup API Capture Environment" owner="common_keywords">
-<kw name="Clear API Storage" owner="common_keywords">
-<kw name="Clear Persistent Storage" owner="bikip">
-<msg time="2025-09-29T17:50:40.217465" level="INFO">Cleared persistent storage file: D:\Automation-Testing\Robot-Framework\PandaPay-v2\logs\network_requests_v2.pkl</msg>
-<msg time="2025-09-29T17:50:40.235156" level="INFO">Cleared all persistent storage and in-memory buffers</msg>
-<arg>${driver}</arg>
-<doc>Clear persistent storage file and in-memory storage to avoid getting old cached requests.</doc>
-<status status="PASS" start="2025-09-29T17:50:40.160382" elapsed="0.075077"/>
+<kw name="When user enters correct current password in Current Password field" owner="change-password-keyword">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-10-14T16:34:31.114354" level="INFO">Typing text 'Exnodes123!@#' into text field 'xpath=//input[@id="current_password"]'.</msg>
+<arg>${CURRENT_PASSWORD_FIELD}</arg>
+<arg>${CORRECT_CURRENT_PASSWORD}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-14T16:34:31.113806" elapsed="0.228386"/>
 </kw>
-<arg>${driver}</arg>
-<status status="PASS" start="2025-09-29T17:50:40.159546" elapsed="0.076214"/>
+<status status="PASS" start="2025-10-14T16:34:31.113095" elapsed="0.229407"/>
 </kw>
-<kw name="Start API Capture" owner="common_keywords">
-<kw name="Start Network Interception" owner="bikip">
-<arg>${driver}</arg>
-<doc>Enable network and performance logging, inject JS hooks, and clear buffers.</doc>
-<status status="PASS" start="2025-09-29T17:50:40.237520" elapsed="0.040324"/>
+<kw name="And user enters valid data in New Password field" owner="change-password-keyword">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-10-14T16:34:31.345093" level="INFO">Typing text 'Dev123!@#' into text field 'xpath=//input[@id="new_password"]'.</msg>
+<arg>${NEW_PASSWORD_FIELD}</arg>
+<arg>${VALID_NEW_PASSWORD}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-14T16:34:31.344460" elapsed="0.199215"/>
 </kw>
-<arg>${driver}</arg>
-<status status="PASS" start="2025-09-29T17:50:40.236484" elapsed="0.041682"/>
+<status status="PASS" start="2025-10-14T16:34:31.343550" elapsed="0.200460"/>
 </kw>
-<kw name="Clear API Intercepted Requests" owner="common_keywords">
-<kw name="Clear Intercepted Requests" owner="bikip">
-<arg>${driver}</arg>
-<doc>Clear in-memory buffers and sessionStorage hooks buffer.</doc>
-<status status="PASS" start="2025-09-29T17:50:40.279646" elapsed="0.011298"/>
+<kw name="And user enters valid data in Confirm New Password field" owner="change-password-keyword">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-10-14T16:34:31.546232" level="INFO">Typing text 'Dev123!@#' into text field 'xpath=//input[@id="confirm_new_password"]'.</msg>
+<arg>${CONFIRM_NEW_PASSWORD_FIELD}</arg>
+<arg>${VALID_CONFIRM_NEW_PASSWORD}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-14T16:34:31.545636" elapsed="0.204379"/>
 </kw>
-<arg>${driver}</arg>
-<status status="PASS" start="2025-09-29T17:50:40.278714" elapsed="0.012546"/>
+<status status="PASS" start="2025-10-14T16:34:31.544868" elapsed="0.205686"/>
 </kw>
-<arg>${webdriver}</arg>
-<status status="PASS" start="2025-09-29T17:50:40.158586" elapsed="0.132879"/>
+<kw name="And user press on Submit form button" owner="change-password-keyword">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${SUBMIT_CHANGE_PASSWORD_BUTTON_1}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-10-14T16:34:31.752505" elapsed="0.052579"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-09-29T17:50:40.292665" level="INFO">Clicking element 'xpath=//table//tbody/tr[1]'.</msg>
-<arg>xpath=//table//tbody/tr[${RANDOM_USER_ITEMS}]</arg>
+<msg time="2025-10-14T16:34:31.806276" level="INFO">Clicking element 'xpath=/html/body/div[1]/div/main/div/form/div[1]/button[text()='Submit']'.</msg>
+<arg>${SUBMIT_CHANGE_PASSWORD_BUTTON_1}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-09-29T17:50:40.291994" elapsed="0.163660"/>
+<status status="PASS" start="2025-10-14T16:34:31.805687" elapsed="0.148712"/>
 </kw>
-<kw name="Wait for API Request" owner="common_keywords">
-<kw name="Clear Persistent Storage" owner="bikip">
-<msg time="2025-09-29T17:50:40.474232" level="INFO">Cleared all persistent storage and in-memory buffers</msg>
-<arg>${driver}</arg>
-<doc>Clear persistent storage file and in-memory storage to avoid getting old cached requests.</doc>
-<status status="PASS" start="2025-09-29T17:50:40.457837" elapsed="0.017410"/>
+<status status="PASS" start="2025-10-14T16:34:31.751597" elapsed="0.203101"/>
 </kw>
-<kw name="Wait For Request" owner="bikip">
-<msg time="2025-09-29T17:50:40.830750" level="INFO">${request} = {'method': 'GET', 'payload': None, 'response': '{"success":true,"statusCode":200,"message":"GET_DATA_SUCCEEDED","totalItems":1,"nextPage":null,"previousPage":null,"currentPage":1,"totalPages":1,"limit...</msg>
-<var>${request}</var>
-<arg>${driver}</arg>
-<arg>${api_endpoint}</arg>
-<arg>${http-method}</arg>
-<arg>${timeout}</arg>
-<doc>Wait until a request matching endpoint (substring) and optional method appears.
-Returns request dict with url, method, headers, payload, status, response, timestamp.</doc>
-<status status="PASS" start="2025-09-29T17:50:40.476054" elapsed="0.354941"/>
-</kw>
-<return>
-<value>${request}</value>
-<status status="PASS" start="2025-09-29T17:50:40.831323" elapsed="0.000174"/>
-</return>
-<msg time="2025-09-29T17:50:40.832144" level="INFO">${user_details_request} = {'method': 'GET', 'payload': None, 'response': '{"success":true,"statusCode":200,"message":"GET_DATA_SUCCEEDED","totalItems":1,"nextPage":null,"previousPage":null,"currentPage":1,"totalPages":1,"limit...</msg>
-<var>${user_details_request}</var>
-<arg>${webdriver}</arg>
-<arg>${USER_LIST_ENDPOINT}</arg>
-<arg>GET</arg>
-<arg>10</arg>
-<status status="PASS" start="2025-09-29T17:50:40.456489" elapsed="0.375778"/>
-</kw>
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-09-29T17:50:40.837282" level="INFO">${user_details_response} = {"success":true,"statusCode":200,"message":"GET_DATA_SUCCEEDED","totalItems":1,"nextPage":null,"previousPage":null,"currentPage":1,"totalPages":1,"limit":10,"data":[{"id":889,"userprofile":{"first_nam...</msg>
-<var>${user_details_response}</var>
-<arg>${user_details_request['response']}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-09-29T17:50:40.832890" elapsed="0.004542"/>
-</kw>
-<kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-09-29T17:50:40.839404" level="INFO">${parse_user_details_response} = {'success': True, 'statusCode': 200, 'message': 'GET_DATA_SUCCEEDED', 'totalItems': 1, 'nextPage': None, 'previousPage': None, 'currentPage': 1, 'totalPages': 1, 'limit': 10, 'data': [{'id': 889, 'use...</msg>
-<var>${parse_user_details_response}</var>
-<arg>json.loads('''${user_details_response}''')</arg>
-<arg>json</arg>
-<doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-09-29T17:50:40.838087" elapsed="0.001472"/>
-</kw>
-<kw name="Get From Dictionary" owner="Collections">
-<msg time="2025-09-29T17:50:40.841069" level="INFO">${data_of_userdetails} = [{'id': 889, 'userprofile': {'first_name': 'Alex', 'last_name': 'Pham', 'gender': 'FEMALE', 'dob': '2000-06-10', 'avatar': 'https://panda-sgp-public-storage.s3.amazonaws.com/media/files/2025/7/24/5810...</msg>
-<var>${data_of_userdetails}</var>
-<arg>${parse_user_details_response}</arg>
-<arg>data</arg>
-<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
-<status status="PASS" start="2025-09-29T17:50:40.840272" elapsed="0.000940"/>
-</kw>
-<kw name="Set element to Test Message" owner="common_keywords">
-<for flavor="IN ENUMERATE">
-<iter>
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<kw name="Should Be Equal As Integers" owner="BuiltIn">
-<msg time="2025-09-29T17:50:40.846180" level="INFO">Argument types are:
-&lt;class 'int'&gt;
-&lt;class 'str'&gt;</msg>
-<arg>${index}</arg>
-<arg>0</arg>
-<doc>Fails if objects are unequal after converting them to integers.</doc>
-<status status="PASS" start="2025-09-29T17:50:40.845366" elapsed="0.001083"/>
-</kw>
-<msg time="2025-09-29T17:50:40.847839" level="INFO">${is_first} = True</msg>
-<var>${is_first}</var>
-<arg>Should Be Equal As Integers</arg>
-<arg>${index}</arg>
-<arg>0</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2025-09-29T17:50:40.844694" elapsed="0.003280"/>
-</kw>
-<if>
-<branch type="IF" condition="${is_first}">
-<kw name="Set Test Message" owner="BuiltIn">
-<msg time="2025-09-29T17:50:40.849632" level="INFO">Set test message to:
-User Details:[{'id': 889, 'userprofile': {'first_name': 'Alex', 'last_name': 'Pham', 'gender': 'FEMALE', 'dob': '2000-06-10', 'avatar': 'https://panda-sgp-public-storage.s3.amazonaws.com/media/files/2025/7/24/581080avaa.png', 'address': '103 NW 167nd Avenue Miami, FL 33125', 'email': 'alex.ben@yopmail.com', 'phone_number': '3693256983', 'user_code': 'alexstaff', 'role': 'STAFF'}, 'organization': {'id': 403, 'name': 'Ben Store'}, 'is_active': True, 'created_at': '2025-07-24T04:45:29.070097Z'}]</msg>
-<arg>${element}</arg>
-<doc>Sets message for the current test case.</doc>
-<status status="PASS" start="2025-09-29T17:50:40.849073" elapsed="0.000788"/>
-</kw>
-<status status="PASS" start="2025-09-29T17:50:40.848400" elapsed="0.001677"/>
-</branch>
-<branch type="ELSE">
-<kw name="Set Test Message" owner="BuiltIn">
-<arg>\n\n${element}</arg>
-<arg>append=${append}</arg>
-<doc>Sets message for the current test case.</doc>
-<status status="NOT RUN" start="2025-09-29T17:50:40.850907" elapsed="0.000135"/>
-</kw>
-<status status="NOT RUN" start="2025-09-29T17:50:40.850331" elapsed="0.000897"/>
-</branch>
-<status status="PASS" start="2025-09-29T17:50:40.848309" elapsed="0.003068"/>
-</if>
-<var name="${index}">0</var>
-<var name="${element}">User Details:[{'id': 889, 'userprofile': {'first_name': 'Alex', 'last_name': 'Pham', 'gender': 'FEMALE', 'dob': '2000-06-10', 'avatar': 'https://panda-sgp-public-storage.s3.amazonaws.com/media/files/2...</var>
-<status status="PASS" start="2025-09-29T17:50:40.844130" elapsed="0.007372"/>
-</iter>
-<var>${index}</var>
-<var>${element}</var>
-<value>@{elements}</value>
-<status status="PASS" start="2025-09-29T17:50:40.843290" elapsed="0.008441"/>
-</for>
-<arg>User Details:${data_of_userdetails}</arg>
-<status status="PASS" start="2025-09-29T17:50:40.842218" elapsed="0.009880"/>
-</kw>
-<kw name="Stop Network Interception" owner="bikip">
-<arg>${webdriver}</arg>
-<doc>Stop listening (does not clear persisted data).</doc>
-<status status="PASS" start="2025-09-29T17:50:40.852693" elapsed="0.000632"/>
-</kw>
-<status status="PASS" start="2025-09-29T17:50:40.096355" elapsed="0.757294"/>
-</kw>
-<kw name="Then system displays User Details screen correctly" owner="user-list-keywords">
+<kw name="Then system displays success message" owner="change-password-keyword">
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${USER_DETAILS_TITLE}</arg>
+<msg time="2025-10-14T16:34:37.126747" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-39.png"&gt;&lt;img src="selenium-screenshot-39.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-10-14T16:34:37.127142" level="FAIL">Element 'xpath=//div[normalize-space(text())='Password changed successfully.']' not visible after 5 seconds.</msg>
+<arg>${SUCCESS_CHANGE_PASSWORD_MESSAGE}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-09-29T17:50:40.855855" elapsed="0.555067"/>
+<status status="FAIL" start="2025-10-14T16:34:31.956427" elapsed="5.175348">Element 'xpath=//div[normalize-space(text())='Password changed successfully.']' not visible after 5 seconds.</status>
 </kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${USER_INFORMATION_TITLE_FORM}</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-09-29T17:50:41.411739" elapsed="0.082493"/>
+<status status="FAIL" start="2025-10-14T16:34:31.955536" elapsed="5.176643">Element 'xpath=//div[normalize-space(text())='Password changed successfully.']' not visible after 5 seconds.</status>
 </kw>
-<status status="PASS" start="2025-09-29T17:50:40.854738" elapsed="0.640006"/>
-</kw>
-<doc>User select random user and system displays correct User Details information</doc>
+<doc>Change password successfully</doc>
 <tag>API</tag>
 <tag>Success</tag>
-<status status="PASS" start="2025-09-29T17:50:40.094044" elapsed="1.401667">User Details:[{'id': 889, 'userprofile': {'first_name': 'Alex', 'last_name': 'Pham', 'gender': 'FEMALE', 'dob': '2000-06-10', 'avatar': 'https://panda-sgp-public-storage.s3.amazonaws.com/media/files/2025/7/24/581080avaa.png', 'address': '103 NW 167nd Avenue Miami, FL 33125', 'email': 'alex.ben@yopmail.com', 'phone_number': '3693256983', 'user_code': 'alexstaff', 'role': 'STAFF'}, 'organization': {'id': 403, 'name': 'Ben Store'}, 'is_active': True, 'created_at': '2025-07-24T04:45:29.070097Z'}]</status>
+<status status="FAIL" start="2025-10-14T16:34:30.963742" elapsed="6.169112">Element 'xpath=//div[normalize-space(text())='Password changed successfully.']' not visible after 5 seconds.</status>
 </test>
-<status status="PASS" start="2025-09-29T17:50:17.047345" elapsed="24.453716"/>
-</suite>
-<status status="PASS" start="2025-09-29T17:50:16.978397" elapsed="24.527192"/>
+<kw name="Close PandaPay" owner="common_keywords" type="TEARDOWN">
+<kw name="Close All Browsers" owner="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2025-10-14T16:34:37.135922" elapsed="8.825404"/>
+</kw>
+<status status="PASS" start="2025-10-14T16:34:37.135244" elapsed="8.826371"/>
+</kw>
+<status status="FAIL" start="2025-10-14T16:34:15.969875" elapsed="29.991852"/>
 </suite>
 <statistics>
 <total>
-<stat pass="5" fail="0" skip="0">All Tests</stat>
+<stat pass="8" fail="1" skip="0">All Tests</stat>
 </total>
 <tag>
-<stat pass="4" fail="0" skip="0">API</stat>
-<stat pass="4" fail="0" skip="0">Success</stat>
+<stat pass="0" fail="1" skip="0">API</stat>
+<stat pass="0" fail="1" skip="0">Success</stat>
+<stat pass="1" fail="0" skip="0">UI</stat>
+<stat pass="1" fail="0" skip="0">Validation</stat>
 </tag>
 <suite>
-<stat name="User-Management" id="s1" pass="5" fail="0" skip="0">User-Management</stat>
-<stat name="User-List" id="s1-s1" pass="5" fail="0" skip="0">User-Management.User-List</stat>
+<stat name="Change-Password" id="s1" pass="8" fail="1" skip="0">Change-Password</stat>
 </suite>
 </statistics>
 <errors>

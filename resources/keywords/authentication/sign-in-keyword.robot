@@ -28,6 +28,7 @@ user clicks Sign In button
 
 # User ID Input Keywords
 user enters Owner User ID
+    Wait Until Page Contains Element    ${USERID_FIELD}
     Input Text    ${USERID_FIELD}    ${OWNER_USER_ID}
 
 user enters Admin User ID
@@ -56,6 +57,7 @@ user enters User ID with spaces
 
 # Password Input Keywords
 user enters Owner password
+    Wait Until Page Contains Element    ${PASSWORD_FIELD}
     Input Text    ${PASSWORD_FIELD}    ${OWNER_PASSWORD}
 
 user enters incorrect Owner Password

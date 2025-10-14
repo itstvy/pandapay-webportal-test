@@ -4,21 +4,25 @@ Resource    ../../resources/common/common_settings.robot
 Library    ../../library-python/CaptureAPI.py    WITH NAME     bikip
 
 *** Keywords ***
+#==========================================================================================#
+Basic Setup
+    ${options}=    Evaluate    sys.modules['selenium.webdriver'].ChromeOptions()    sys
+    ${logging_prefs}=    Create Dictionary    performance=ALL
+    Call Method    ${options}    set_capability    goog:loggingPrefs    ${logging_prefs}
+    Open Browser    ${PANDAPAY_URL}    ${BROWSER}    options=${options}
+    Maximize Browser Window
+    Restore Browser Session
+    
 Close PandaPay
     Close All Browsers
+#==========================================================================================#
+
 
 Clear Input field
     [Arguments]    ${locator}
     SeleniumLibrary.Press Keys       ${locator}    CTRL+A+BACKSPACE
     
-Basic Setup
-    ${options}=    Evaluate    sys.modules['selenium.webdriver'].ChromeOptions()    sys
-    ${logging_prefs}=    Create Dictionary    performance=ALL
-    Call Method    ${options}    set_capability    goog:loggingPrefs    ${logging_prefs}
-    SeleniumLibrary.Open Browser    ${DEV_URL}    ${BROWSER}    options=${options}
-    Maximize Browser Window
-    Wait Until Page Contains Element    ${USERID_FIELD}
-    Wait Until Page Contains Element    ${PASSWORD_FIELD}
+
 Get Selenium Driver
     [Arguments]    ${library_name}=SeleniumLibrary
 
@@ -80,3 +84,4 @@ Set element to Test Message
             Set Test Message    \n\n${element}    append=${append}
         END
     END
+

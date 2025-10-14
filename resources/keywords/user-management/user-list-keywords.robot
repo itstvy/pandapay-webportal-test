@@ -30,10 +30,6 @@ system reset User list successfully
 
 #API
 system displays correct data of User List
-    Wait Until Element Is Visible    ${RANDOM_USERS}
-    ${user_list}=    Get WebElements    ${RANDOM_USERS}
-    ${count}=    Get Length    ${user_list}
-
     ${webdriver}=    Get Selenium Driver
     Setup API Capture Environment    ${webdriver}
     When user refresh the User List page
@@ -48,6 +44,7 @@ system displays correct data of User List
     ${user_list_response}=    Set Variable    ${user_list_request['response']}
     ${parse_user_list_response}=    Evaluate    json.loads('''${user_list_response}''')    json
     ${data_of_user_list}=    Get From Dictionary    ${parse_user_list_response}    data
+    ${api_count}=    Get Length    ${data_of_user_list}
     
     ${user_list}=    Create List
     FOR    ${user_items}    IN    @{data_of_user_list}
@@ -60,7 +57,7 @@ system displays correct data of User List
 
     #Set Test Message
     ${all_user_items}=    Evaluate    json.dumps(${user_list})    json
-    Set element to Test Message    Total User:${count}    User:${all_user_items}    Response: ${parse_user_list_response}    
+    Set element to Test Message    Total User:${api_count}    User:${all_user_items}    Response: ${parse_user_list_response}    
     bikip.Stop Network Interception    ${webdriver}   
 
 user select any user items

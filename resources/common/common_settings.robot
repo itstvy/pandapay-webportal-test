@@ -5,11 +5,12 @@ Library    Collections
 Library    String
 Library    BuiltIn
 Library    RequestsLibrary
-Library    json
+Library    JSONLibrary
 Library    ../../library-python/CaptureAPI.py    WITH NAME     bikip
 
 #Keyword
 Resource    ../../resources/common/common_keywords.robot
+Resource    ../../resources/common/browser_keywords.robot
 Resource    ../../resources/keywords/authentication/sign-in-keyword.robot
 Resource    ../../resources/keywords/myAccount/profile-keyword.robot
 Resource    ../../resources/keywords/myAccount/change-language-keyword.robot
