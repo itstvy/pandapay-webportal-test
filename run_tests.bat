@@ -6,4 +6,5 @@
 
 @REM robot -d logs tests\user-management\create-user.robot
 @REM robot -d logs tests\myAccount\profile.robot
-robot -d logs tests\authentication\signin.robot
+@REM robot -d logs tests\authentication\
+robot --listener allure_robotframework;results\allure-results -d logs tests\authentication\signin.robot

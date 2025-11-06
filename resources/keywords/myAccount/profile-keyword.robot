@@ -16,7 +16,7 @@ user click on the Profile menu button
 user should see a Profile menu button
     Wait Until Element Is Visible    ${PROFILE_MENU_BUTTON}
 user clicks on Submit button in User Information form
-    Click on Element    ${SUBMIT_PROFILE_BUTTON_2}
+    Click on Element    ${SUBMIT_FORM_PROFILE_BUTTON}
 the system displays the Change User Information screen
     Wait Until Element Is Visible     ${CHANGE_USER_INFORMATION_TITLE} 
 
@@ -88,8 +88,8 @@ system should displays validation text if the Address field has more than 100 ch
 
 #Message
 the system must displays success message when update profile successfully
-    Wait Until Element Is Visible    ${UPDATE_PROFILE_SUCCESS}
-
+    Wait Until Element Is Visible    ${UPDATE_PROFILE_SUCCESS}    5s
+    
 #API
 user clicks on Submit button in User Information form and send valid information
     ${webdriver}=    Get Selenium Driver

@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.3.2 (Python 3.13.3 on win32)" generated="2025-11-06T11:25:50.886223" rpa="false" schemaversion="5">
+<robot generator="Robot 7.3.2 (Python 3.13.3 on win32)" generated="2025-11-06T14:35:20.600017" rpa="false" schemaversion="5">
 <suite id="s1" name="Signin" source="D:\Automation-Testing\Robot-Framework\PandaPay-v2\tests\authentication\signin.robot">
 <kw name="Basic Setup" owner="common_keywords" type="SETUP">
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-11-06T11:25:53.455724" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x000001BE81D83CB0&gt;</msg>
+<msg time="2025-11-06T14:35:24.368179" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x0000027B2D96A510&gt;</msg>
 <var>${options}</var>
 <arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
 <arg>sys</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-11-06T11:25:53.454939" elapsed="0.000886"/>
+<status status="PASS" start="2025-11-06T14:35:24.366954" elapsed="0.001375"/>
 </kw>
 <kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-11-06T11:25:53.456767" level="INFO">${logging_prefs} = {'performance': 'ALL'}</msg>
+<msg time="2025-11-06T14:35:24.373992" level="INFO">${logging_prefs} = {'performance': 'ALL'}</msg>
 <var>${logging_prefs}</var>
 <arg>performance=ALL</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-11-06T11:25:53.456261" elapsed="0.000578"/>
+<status status="PASS" start="2025-11-06T14:35:24.372222" elapsed="0.001951"/>
 </kw>
 <kw name="Call Method" owner="BuiltIn">
 <arg>${options}</arg>
@@ -23,21 +23,21 @@
 <arg>goog:loggingPrefs</arg>
 <arg>${logging_prefs}</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="PASS" start="2025-11-06T11:25:53.457147" elapsed="0.000351"/>
+<status status="PASS" start="2025-11-06T14:35:24.379524" elapsed="0.000871"/>
 </kw>
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-11-06T11:25:53.458424" level="INFO">Opening browser 'chrome' to base url 'https://app.panda.ennam.vn'.</msg>
+<msg time="2025-11-06T14:35:24.382959" level="INFO">Opening browser 'chrome' to base url 'https://app.panda.ennam.vn'.</msg>
 <arg>${PANDAPAY_URL}</arg>
 <arg>${BROWSER}</arg>
 <arg>options=${options}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-11-06T11:25:53.457876" elapsed="4.025198"/>
+<status status="PASS" start="2025-11-06T14:35:24.381462" elapsed="5.375456"/>
 </kw>
 <kw name="Maximize Browser Window" owner="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2025-11-06T11:25:57.484662" elapsed="0.793052"/>
+<status status="PASS" start="2025-11-06T14:35:29.764956" elapsed="0.687602"/>
 </kw>
-<status status="PASS" start="2025-11-06T11:25:53.452122" elapsed="4.825978"/>
+<status status="PASS" start="2025-11-06T14:35:24.362853" elapsed="6.090639"/>
 </kw>
 <test id="s1-t1" name="Verify the system displays validation text when user input annn and Dev123!@#" line="8">
 <kw name="Sign in">
@@ -46,73 +46,73 @@
 <arg>${element_locator}</arg>
 <arg>5s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-11-06T11:25:58.300308" elapsed="0.416001"/>
+<status status="PASS" start="2025-11-06T14:35:30.484718" elapsed="0.582978"/>
 </kw>
 <kw name="Press Keys" owner="SeleniumLibrary">
-<msg time="2025-11-06T11:25:58.718362" level="INFO">Sending key(s) ('CTRL+A+BACKSPACE',) to xpath=//input[@id="user_code"] element.</msg>
-<msg time="2025-11-06T11:25:59.103040" level="INFO">Pressing special key CONTROL down.</msg>
-<msg time="2025-11-06T11:25:59.103283" level="INFO">Sending key A</msg>
-<msg time="2025-11-06T11:25:59.103437" level="INFO">Pressing special key BACKSPACE down.</msg>
-<msg time="2025-11-06T11:25:59.103566" level="INFO">Releasing special key CONTROL.</msg>
-<msg time="2025-11-06T11:25:59.103685" level="INFO">Releasing special key BACKSPACE.</msg>
+<msg time="2025-11-06T14:35:31.070626" level="INFO">Sending key(s) ('CTRL+A+BACKSPACE',) to xpath=//input[@id="user_code"] element.</msg>
+<msg time="2025-11-06T14:35:31.765722" level="INFO">Pressing special key CONTROL down.</msg>
+<msg time="2025-11-06T14:35:31.765988" level="INFO">Sending key A</msg>
+<msg time="2025-11-06T14:35:31.766170" level="INFO">Pressing special key BACKSPACE down.</msg>
+<msg time="2025-11-06T14:35:31.766322" level="INFO">Releasing special key CONTROL.</msg>
+<msg time="2025-11-06T14:35:31.766465" level="INFO">Releasing special key BACKSPACE.</msg>
 <arg>${element_locator}</arg>
 <arg>CTRL+A+BACKSPACE</arg>
 <doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
-<status status="PASS" start="2025-11-06T11:25:58.717020" elapsed="0.430562"/>
+<status status="PASS" start="2025-11-06T14:35:31.068941" elapsed="0.762378"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-11-06T11:25:59.149874" level="INFO">Typing text 'annn' into text field 'xpath=//input[@id="user_code"]'.</msg>
+<msg time="2025-11-06T14:35:31.836652" level="INFO">Typing text 'annn' into text field 'xpath=//input[@id="user_code"]'.</msg>
 <arg>${element_locator}</arg>
 <arg>${data_input}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-11-06T11:25:59.148723" elapsed="0.235352"/>
+<status status="PASS" start="2025-11-06T14:35:31.835521" elapsed="0.346453"/>
 </kw>
 <arg>${USERID_FIELD}</arg>
 <arg>${userid}</arg>
-<status status="PASS" start="2025-11-06T11:25:58.298007" elapsed="1.086429"/>
+<status status="PASS" start="2025-11-06T14:35:30.482843" elapsed="1.702933"/>
 </kw>
 <kw name="Input data in Element" owner="common_keywords">
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${element_locator}</arg>
 <arg>5s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-11-06T11:25:59.386356" elapsed="0.039622"/>
+<status status="PASS" start="2025-11-06T14:35:32.188787" elapsed="0.063569"/>
 </kw>
 <kw name="Press Keys" owner="SeleniumLibrary">
-<msg time="2025-11-06T11:25:59.427522" level="INFO">Sending key(s) ('CTRL+A+BACKSPACE',) to xpath=//input[@id="password"] element.</msg>
-<msg time="2025-11-06T11:25:59.747702" level="INFO">Pressing special key CONTROL down.</msg>
-<msg time="2025-11-06T11:25:59.747868" level="INFO">Sending key A</msg>
-<msg time="2025-11-06T11:25:59.747952" level="INFO">Pressing special key BACKSPACE down.</msg>
-<msg time="2025-11-06T11:25:59.748021" level="INFO">Releasing special key CONTROL.</msg>
-<msg time="2025-11-06T11:25:59.748089" level="INFO">Releasing special key BACKSPACE.</msg>
+<msg time="2025-11-06T14:35:32.255103" level="INFO">Sending key(s) ('CTRL+A+BACKSPACE',) to xpath=//input[@id="password"] element.</msg>
+<msg time="2025-11-06T14:35:32.604118" level="INFO">Pressing special key CONTROL down.</msg>
+<msg time="2025-11-06T14:35:32.604390" level="INFO">Sending key A</msg>
+<msg time="2025-11-06T14:35:32.604561" level="INFO">Pressing special key BACKSPACE down.</msg>
+<msg time="2025-11-06T14:35:32.604713" level="INFO">Releasing special key CONTROL.</msg>
+<msg time="2025-11-06T14:35:32.604858" level="INFO">Releasing special key BACKSPACE.</msg>
 <arg>${element_locator}</arg>
 <arg>CTRL+A+BACKSPACE</arg>
 <doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
-<status status="PASS" start="2025-11-06T11:25:59.426539" elapsed="0.343171"/>
+<status status="PASS" start="2025-11-06T14:35:32.253576" elapsed="0.459013"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-11-06T11:25:59.770803" level="INFO">Typing text 'Dev123!@#' into text field 'xpath=//input[@id="password"]'.</msg>
+<msg time="2025-11-06T14:35:32.720950" level="INFO">Typing text 'Dev123!@#' into text field 'xpath=//input[@id="password"]'.</msg>
 <arg>${element_locator}</arg>
 <arg>${data_input}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-11-06T11:25:59.770235" elapsed="0.145975"/>
+<status status="PASS" start="2025-11-06T14:35:32.719577" elapsed="0.350165"/>
 </kw>
 <arg>${PASSWORD_FIELD}</arg>
 <arg>${password}</arg>
-<status status="PASS" start="2025-11-06T11:25:59.385142" elapsed="0.531381"/>
+<status status="PASS" start="2025-11-06T14:35:32.187021" elapsed="0.887228"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${expected}</arg>
 <arg>5s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-11-06T11:25:59.917016" elapsed="0.034406"/>
+<status status="PASS" start="2025-11-06T14:35:33.075363" elapsed="0.061482"/>
 </kw>
 <arg>userid=${USER_ID_LESS_THAN_5}</arg>
 <arg>password=${OWNER_PASSWORD}</arg>
 <arg>expected=${VALIDATION_TEXT_LESS_THAN_5_CHARACTERS}</arg>
-<status status="PASS" start="2025-11-06T11:25:58.296029" elapsed="1.655664"/>
+<status status="PASS" start="2025-11-06T14:35:30.474783" elapsed="2.662885"/>
 </kw>
-<status status="PASS" start="2025-11-06T11:25:58.278814" elapsed="1.673491"/>
+<status status="PASS" start="2025-11-06T14:35:30.454401" elapsed="2.684512"/>
 </test>
 <test id="s1-t2" name="Verify the system displays validation text when user input annstoreannstoreannstoreannstore and Dev123!@#" line="8">
 <kw name="Sign in">
@@ -121,73 +121,73 @@
 <arg>${element_locator}</arg>
 <arg>5s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-11-06T11:25:59.961225" elapsed="0.037759"/>
+<status status="PASS" start="2025-11-06T14:35:33.201166" elapsed="0.071381"/>
 </kw>
 <kw name="Press Keys" owner="SeleniumLibrary">
-<msg time="2025-11-06T11:26:00.000770" level="INFO">Sending key(s) ('CTRL+A+BACKSPACE',) to xpath=//input[@id="user_code"] element.</msg>
-<msg time="2025-11-06T11:26:00.312780" level="INFO">Pressing special key CONTROL down.</msg>
-<msg time="2025-11-06T11:26:00.312932" level="INFO">Sending key A</msg>
-<msg time="2025-11-06T11:26:00.313011" level="INFO">Pressing special key BACKSPACE down.</msg>
-<msg time="2025-11-06T11:26:00.313079" level="INFO">Releasing special key CONTROL.</msg>
-<msg time="2025-11-06T11:26:00.313149" level="INFO">Releasing special key BACKSPACE.</msg>
+<msg time="2025-11-06T14:35:33.275269" level="INFO">Sending key(s) ('CTRL+A+BACKSPACE',) to xpath=//input[@id="user_code"] element.</msg>
+<msg time="2025-11-06T14:35:33.636656" level="INFO">Pressing special key CONTROL down.</msg>
+<msg time="2025-11-06T14:35:33.636952" level="INFO">Sending key A</msg>
+<msg time="2025-11-06T14:35:33.637203" level="INFO">Pressing special key BACKSPACE down.</msg>
+<msg time="2025-11-06T14:35:33.637353" level="INFO">Releasing special key CONTROL.</msg>
+<msg time="2025-11-06T14:35:33.637505" level="INFO">Releasing special key BACKSPACE.</msg>
 <arg>${element_locator}</arg>
 <arg>CTRL+A+BACKSPACE</arg>
 <doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
-<status status="PASS" start="2025-11-06T11:25:59.999595" elapsed="0.355357"/>
+<status status="PASS" start="2025-11-06T14:35:33.273842" elapsed="0.481282"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-11-06T11:26:00.356037" level="INFO">Typing text 'annstoreannstoreannstoreannstore' into text field 'xpath=//input[@id="user_code"]'.</msg>
+<msg time="2025-11-06T14:35:33.761441" level="INFO">Typing text 'annstoreannstoreannstoreannstore' into text field 'xpath=//input[@id="user_code"]'.</msg>
 <arg>${element_locator}</arg>
 <arg>${data_input}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-11-06T11:26:00.355479" elapsed="0.337943"/>
+<status status="PASS" start="2025-11-06T14:35:33.759424" elapsed="0.510260"/>
 </kw>
 <arg>${USERID_FIELD}</arg>
 <arg>${userid}</arg>
-<status status="PASS" start="2025-11-06T11:25:59.960505" elapsed="0.733405"/>
+<status status="PASS" start="2025-11-06T14:35:33.198996" elapsed="1.073936"/>
 </kw>
 <kw name="Input data in Element" owner="common_keywords">
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${element_locator}</arg>
 <arg>5s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-11-06T11:26:00.697370" elapsed="0.038702"/>
+<status status="PASS" start="2025-11-06T14:35:34.277196" elapsed="0.042381"/>
 </kw>
 <kw name="Press Keys" owner="SeleniumLibrary">
-<msg time="2025-11-06T11:26:00.737726" level="INFO">Sending key(s) ('CTRL+A+BACKSPACE',) to xpath=//input[@id="password"] element.</msg>
-<msg time="2025-11-06T11:26:01.035116" level="INFO">Pressing special key CONTROL down.</msg>
-<msg time="2025-11-06T11:26:01.035360" level="INFO">Sending key A</msg>
-<msg time="2025-11-06T11:26:01.035446" level="INFO">Pressing special key BACKSPACE down.</msg>
-<msg time="2025-11-06T11:26:01.035520" level="INFO">Releasing special key CONTROL.</msg>
-<msg time="2025-11-06T11:26:01.035591" level="INFO">Releasing special key BACKSPACE.</msg>
+<msg time="2025-11-06T14:35:34.322178" level="INFO">Sending key(s) ('CTRL+A+BACKSPACE',) to xpath=//input[@id="password"] element.</msg>
+<msg time="2025-11-06T14:35:34.661342" level="INFO">Pressing special key CONTROL down.</msg>
+<msg time="2025-11-06T14:35:34.661767" level="INFO">Sending key A</msg>
+<msg time="2025-11-06T14:35:34.662010" level="INFO">Pressing special key BACKSPACE down.</msg>
+<msg time="2025-11-06T14:35:34.662184" level="INFO">Releasing special key CONTROL.</msg>
+<msg time="2025-11-06T14:35:34.662346" level="INFO">Releasing special key BACKSPACE.</msg>
 <arg>${element_locator}</arg>
 <arg>CTRL+A+BACKSPACE</arg>
 <doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
-<status status="PASS" start="2025-11-06T11:26:00.736673" elapsed="0.327162"/>
+<status status="PASS" start="2025-11-06T14:35:34.320842" elapsed="0.390875"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-11-06T11:26:01.065521" level="INFO">Typing text 'Dev123!@#' into text field 'xpath=//input[@id="password"]'.</msg>
+<msg time="2025-11-06T14:35:34.720047" level="INFO">Typing text 'Dev123!@#' into text field 'xpath=//input[@id="password"]'.</msg>
 <arg>${element_locator}</arg>
 <arg>${data_input}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-11-06T11:26:01.064641" elapsed="0.144868"/>
+<status status="PASS" start="2025-11-06T14:35:34.718880" elapsed="0.245297"/>
 </kw>
 <arg>${PASSWORD_FIELD}</arg>
 <arg>${password}</arg>
-<status status="PASS" start="2025-11-06T11:26:00.695236" elapsed="0.514557"/>
+<status status="PASS" start="2025-11-06T14:35:34.274554" elapsed="0.694287"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${expected}</arg>
 <arg>5s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-11-06T11:26:01.210370" elapsed="0.045246"/>
+<status status="PASS" start="2025-11-06T14:35:34.969979" elapsed="0.051511"/>
 </kw>
 <arg>userid=${USER_ID_MORE_THAN_20}</arg>
 <arg>password=${OWNER_PASSWORD}</arg>
 <arg>expected=${VALIDATION_TEXT_MORE_THAN_20_CHARACTERS}</arg>
-<status status="PASS" start="2025-11-06T11:25:59.959570" elapsed="1.296301"/>
+<status status="PASS" start="2025-11-06T14:35:33.194262" elapsed="1.828044"/>
 </kw>
-<status status="PASS" start="2025-11-06T11:25:59.953522" elapsed="1.302921"/>
+<status status="PASS" start="2025-11-06T14:35:33.181081" elapsed="1.842426"/>
 </test>
 <test id="s1-t3" name="Verify the system displays validation text when user input annstore!@# and Dev123!@#" line="8">
 <kw name="Sign in">
@@ -196,73 +196,73 @@
 <arg>${element_locator}</arg>
 <arg>5s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-11-06T11:26:01.265149" elapsed="0.029486"/>
+<status status="PASS" start="2025-11-06T14:35:35.080339" elapsed="0.059236"/>
 </kw>
 <kw name="Press Keys" owner="SeleniumLibrary">
-<msg time="2025-11-06T11:26:01.296015" level="INFO">Sending key(s) ('CTRL+A+BACKSPACE',) to xpath=//input[@id="user_code"] element.</msg>
-<msg time="2025-11-06T11:26:01.644794" level="INFO">Pressing special key CONTROL down.</msg>
-<msg time="2025-11-06T11:26:01.645030" level="INFO">Sending key A</msg>
-<msg time="2025-11-06T11:26:01.645186" level="INFO">Pressing special key BACKSPACE down.</msg>
-<msg time="2025-11-06T11:26:01.645316" level="INFO">Releasing special key CONTROL.</msg>
-<msg time="2025-11-06T11:26:01.645438" level="INFO">Releasing special key BACKSPACE.</msg>
+<msg time="2025-11-06T14:35:35.142262" level="INFO">Sending key(s) ('CTRL+A+BACKSPACE',) to xpath=//input[@id="user_code"] element.</msg>
+<msg time="2025-11-06T14:35:35.490184" level="INFO">Pressing special key CONTROL down.</msg>
+<msg time="2025-11-06T14:35:35.490508" level="INFO">Sending key A</msg>
+<msg time="2025-11-06T14:35:35.490677" level="INFO">Pressing special key BACKSPACE down.</msg>
+<msg time="2025-11-06T14:35:35.490820" level="INFO">Releasing special key CONTROL.</msg>
+<msg time="2025-11-06T14:35:35.490959" level="INFO">Releasing special key BACKSPACE.</msg>
 <arg>${element_locator}</arg>
 <arg>CTRL+A+BACKSPACE</arg>
 <doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
-<status status="PASS" start="2025-11-06T11:26:01.295129" elapsed="0.464935"/>
+<status status="PASS" start="2025-11-06T14:35:35.140726" elapsed="0.470164"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-11-06T11:26:01.761901" level="INFO">Typing text 'annstore!@#' into text field 'xpath=//input[@id="user_code"]'.</msg>
+<msg time="2025-11-06T14:35:35.621238" level="INFO">Typing text 'annstore!@#' into text field 'xpath=//input[@id="user_code"]'.</msg>
 <arg>${element_locator}</arg>
 <arg>${data_input}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-11-06T11:26:01.760901" elapsed="0.363637"/>
+<status status="PASS" start="2025-11-06T14:35:35.619694" elapsed="0.303342"/>
 </kw>
 <arg>${USERID_FIELD}</arg>
 <arg>${userid}</arg>
-<status status="PASS" start="2025-11-06T11:26:01.264439" elapsed="0.860463"/>
+<status status="PASS" start="2025-11-06T14:35:35.078489" elapsed="0.848125"/>
 </kw>
 <kw name="Input data in Element" owner="common_keywords">
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${element_locator}</arg>
 <arg>5s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-11-06T11:26:02.127090" elapsed="0.072077"/>
+<status status="PASS" start="2025-11-06T14:35:35.930140" elapsed="0.061566"/>
 </kw>
 <kw name="Press Keys" owner="SeleniumLibrary">
-<msg time="2025-11-06T11:26:02.201114" level="INFO">Sending key(s) ('CTRL+A+BACKSPACE',) to xpath=//input[@id="password"] element.</msg>
-<msg time="2025-11-06T11:26:02.519290" level="INFO">Pressing special key CONTROL down.</msg>
-<msg time="2025-11-06T11:26:02.519561" level="INFO">Sending key A</msg>
-<msg time="2025-11-06T11:26:02.519966" level="INFO">Pressing special key BACKSPACE down.</msg>
-<msg time="2025-11-06T11:26:02.520090" level="INFO">Releasing special key CONTROL.</msg>
-<msg time="2025-11-06T11:26:02.520206" level="INFO">Releasing special key BACKSPACE.</msg>
+<msg time="2025-11-06T14:35:35.994811" level="INFO">Sending key(s) ('CTRL+A+BACKSPACE',) to xpath=//input[@id="password"] element.</msg>
+<msg time="2025-11-06T14:35:36.331849" level="INFO">Pressing special key CONTROL down.</msg>
+<msg time="2025-11-06T14:35:36.332118" level="INFO">Sending key A</msg>
+<msg time="2025-11-06T14:35:36.332387" level="INFO">Pressing special key BACKSPACE down.</msg>
+<msg time="2025-11-06T14:35:36.332555" level="INFO">Releasing special key CONTROL.</msg>
+<msg time="2025-11-06T14:35:36.332700" level="INFO">Releasing special key BACKSPACE.</msg>
 <arg>${element_locator}</arg>
 <arg>CTRL+A+BACKSPACE</arg>
 <doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
-<status status="PASS" start="2025-11-06T11:26:02.199838" elapsed="0.354241"/>
+<status status="PASS" start="2025-11-06T14:35:35.993215" elapsed="0.482078"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-11-06T11:26:02.555642" level="INFO">Typing text 'Dev123!@#' into text field 'xpath=//input[@id="password"]'.</msg>
+<msg time="2025-11-06T14:35:36.481893" level="INFO">Typing text 'Dev123!@#' into text field 'xpath=//input[@id="password"]'.</msg>
 <arg>${element_locator}</arg>
 <arg>${data_input}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-11-06T11:26:02.554795" elapsed="0.174753"/>
+<status status="PASS" start="2025-11-06T14:35:36.480383" elapsed="0.519187"/>
 </kw>
 <arg>${PASSWORD_FIELD}</arg>
 <arg>${password}</arg>
-<status status="PASS" start="2025-11-06T11:26:02.125733" elapsed="0.604160"/>
+<status status="PASS" start="2025-11-06T14:35:35.928363" elapsed="1.076691"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${expected}</arg>
 <arg>5s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-11-06T11:26:02.730523" elapsed="0.047233"/>
+<status status="PASS" start="2025-11-06T14:35:37.006218" elapsed="0.082123"/>
 </kw>
 <arg>userid=${USER_ID_CONTAIN_SPECIAL_CHARACTERS}</arg>
 <arg>password=${OWNER_PASSWORD}</arg>
 <arg>expected=${VALIDATION_TEXT_CONTAIN_SPECIAL_CHARACTERS}</arg>
-<status status="PASS" start="2025-11-06T11:26:01.263517" elapsed="1.514576"/>
+<status status="PASS" start="2025-11-06T14:35:35.074357" elapsed="2.014899"/>
 </kw>
-<status status="PASS" start="2025-11-06T11:26:01.257651" elapsed="1.521140"/>
+<status status="PASS" start="2025-11-06T14:35:35.062441" elapsed="2.028175"/>
 </test>
 <test id="s1-t4" name="Verify the system displays validation text when user input   and Dev123!@#" line="8">
 <kw name="Sign in">
@@ -271,73 +271,73 @@
 <arg>${element_locator}</arg>
 <arg>5s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-11-06T11:26:02.791656" elapsed="0.056447"/>
+<status status="PASS" start="2025-11-06T14:35:37.220378" elapsed="0.054338"/>
 </kw>
 <kw name="Press Keys" owner="SeleniumLibrary">
-<msg time="2025-11-06T11:26:02.850397" level="INFO">Sending key(s) ('CTRL+A+BACKSPACE',) to xpath=//input[@id="user_code"] element.</msg>
-<msg time="2025-11-06T11:26:03.174407" level="INFO">Pressing special key CONTROL down.</msg>
-<msg time="2025-11-06T11:26:03.174564" level="INFO">Sending key A</msg>
-<msg time="2025-11-06T11:26:03.174651" level="INFO">Pressing special key BACKSPACE down.</msg>
-<msg time="2025-11-06T11:26:03.174723" level="INFO">Releasing special key CONTROL.</msg>
-<msg time="2025-11-06T11:26:03.174793" level="INFO">Releasing special key BACKSPACE.</msg>
+<msg time="2025-11-06T14:35:37.278994" level="INFO">Sending key(s) ('CTRL+A+BACKSPACE',) to xpath=//input[@id="user_code"] element.</msg>
+<msg time="2025-11-06T14:35:37.674951" level="INFO">Pressing special key CONTROL down.</msg>
+<msg time="2025-11-06T14:35:37.675214" level="INFO">Sending key A</msg>
+<msg time="2025-11-06T14:35:37.675379" level="INFO">Pressing special key BACKSPACE down.</msg>
+<msg time="2025-11-06T14:35:37.675531" level="INFO">Releasing special key CONTROL.</msg>
+<msg time="2025-11-06T14:35:37.675671" level="INFO">Releasing special key BACKSPACE.</msg>
 <arg>${element_locator}</arg>
 <arg>CTRL+A+BACKSPACE</arg>
 <doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
-<status status="PASS" start="2025-11-06T11:26:02.849009" elapsed="0.359399"/>
+<status status="PASS" start="2025-11-06T14:35:37.276941" elapsed="0.498133"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-11-06T11:26:03.209457" level="INFO">Typing text ' ' into text field 'xpath=//input[@id="user_code"]'.</msg>
+<msg time="2025-11-06T14:35:37.781750" level="INFO">Typing text ' ' into text field 'xpath=//input[@id="user_code"]'.</msg>
 <arg>${element_locator}</arg>
 <arg>${data_input}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-11-06T11:26:03.208911" elapsed="0.109316"/>
+<status status="PASS" start="2025-11-06T14:35:37.780660" elapsed="0.183467"/>
 </kw>
 <arg>${USERID_FIELD}</arg>
 <arg>${userid}</arg>
-<status status="PASS" start="2025-11-06T11:26:02.790656" elapsed="0.528179"/>
+<status status="PASS" start="2025-11-06T14:35:37.215887" elapsed="0.751580"/>
 </kw>
 <kw name="Input data in Element" owner="common_keywords">
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${element_locator}</arg>
 <arg>5s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-11-06T11:26:03.321170" elapsed="0.026902"/>
+<status status="PASS" start="2025-11-06T14:35:37.970537" elapsed="0.066895"/>
 </kw>
 <kw name="Press Keys" owner="SeleniumLibrary">
-<msg time="2025-11-06T11:26:03.349586" level="INFO">Sending key(s) ('CTRL+A+BACKSPACE',) to xpath=//input[@id="password"] element.</msg>
-<msg time="2025-11-06T11:26:03.654276" level="INFO">Pressing special key CONTROL down.</msg>
-<msg time="2025-11-06T11:26:03.654440" level="INFO">Sending key A</msg>
-<msg time="2025-11-06T11:26:03.654522" level="INFO">Pressing special key BACKSPACE down.</msg>
-<msg time="2025-11-06T11:26:03.654592" level="INFO">Releasing special key CONTROL.</msg>
-<msg time="2025-11-06T11:26:03.654661" level="INFO">Releasing special key BACKSPACE.</msg>
+<msg time="2025-11-06T14:35:38.042297" level="INFO">Sending key(s) ('CTRL+A+BACKSPACE',) to xpath=//input[@id="password"] element.</msg>
+<msg time="2025-11-06T14:35:38.360760" level="INFO">Pressing special key CONTROL down.</msg>
+<msg time="2025-11-06T14:35:38.361028" level="INFO">Sending key A</msg>
+<msg time="2025-11-06T14:35:38.361194" level="INFO">Pressing special key BACKSPACE down.</msg>
+<msg time="2025-11-06T14:35:38.361344" level="INFO">Releasing special key CONTROL.</msg>
+<msg time="2025-11-06T14:35:38.361489" level="INFO">Releasing special key BACKSPACE.</msg>
 <arg>${element_locator}</arg>
 <arg>CTRL+A+BACKSPACE</arg>
 <doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
-<status status="PASS" start="2025-11-06T11:26:03.348693" elapsed="0.331230"/>
+<status status="PASS" start="2025-11-06T14:35:38.038571" elapsed="0.380152"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-11-06T11:26:03.680990" level="INFO">Typing text 'Dev123!@#' into text field 'xpath=//input[@id="password"]'.</msg>
+<msg time="2025-11-06T14:35:38.423617" level="INFO">Typing text 'Dev123!@#' into text field 'xpath=//input[@id="password"]'.</msg>
 <arg>${element_locator}</arg>
 <arg>${data_input}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-11-06T11:26:03.680433" elapsed="0.142216"/>
+<status status="PASS" start="2025-11-06T14:35:38.422531" elapsed="0.368653"/>
 </kw>
 <arg>${PASSWORD_FIELD}</arg>
 <arg>${password}</arg>
-<status status="PASS" start="2025-11-06T11:26:03.319490" elapsed="0.503431"/>
+<status status="PASS" start="2025-11-06T14:35:37.968693" elapsed="0.829257"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${expected}</arg>
 <arg>5s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-11-06T11:26:03.823422" elapsed="0.035418"/>
+<status status="PASS" start="2025-11-06T14:35:38.799103" elapsed="0.054644"/>
 </kw>
 <arg>userid=${USER_ID_CONTAIN_SPACES}</arg>
 <arg>password=${OWNER_PASSWORD}</arg>
 <arg>expected=${VALIDATION_TEXT_USER_ID_CONTAIN_SPACES}</arg>
-<status status="PASS" start="2025-11-06T11:26:02.789383" elapsed="1.069715"/>
+<status status="PASS" start="2025-11-06T14:35:37.213468" elapsed="1.641113"/>
 </kw>
-<status status="PASS" start="2025-11-06T11:26:02.780264" elapsed="1.079378"/>
+<status status="PASS" start="2025-11-06T14:35:37.186016" elapsed="1.669744"/>
 </test>
 <test id="s1-t5" name="Verify the system displays validation text when user input  and Dev123!@#" line="8">
 <kw name="Sign in">
@@ -346,73 +346,73 @@
 <arg>${element_locator}</arg>
 <arg>5s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-11-06T11:26:03.872642" elapsed="0.032296"/>
+<status status="PASS" start="2025-11-06T14:35:38.918047" elapsed="0.058779"/>
 </kw>
 <kw name="Press Keys" owner="SeleniumLibrary">
-<msg time="2025-11-06T11:26:03.906284" level="INFO">Sending key(s) ('CTRL+A+BACKSPACE',) to xpath=//input[@id="user_code"] element.</msg>
-<msg time="2025-11-06T11:26:04.242307" level="INFO">Pressing special key CONTROL down.</msg>
-<msg time="2025-11-06T11:26:04.242462" level="INFO">Sending key A</msg>
-<msg time="2025-11-06T11:26:04.242541" level="INFO">Pressing special key BACKSPACE down.</msg>
-<msg time="2025-11-06T11:26:04.242609" level="INFO">Releasing special key CONTROL.</msg>
-<msg time="2025-11-06T11:26:04.242675" level="INFO">Releasing special key BACKSPACE.</msg>
+<msg time="2025-11-06T14:35:38.979735" level="INFO">Sending key(s) ('CTRL+A+BACKSPACE',) to xpath=//input[@id="user_code"] element.</msg>
+<msg time="2025-11-06T14:35:39.353103" level="INFO">Pressing special key CONTROL down.</msg>
+<msg time="2025-11-06T14:35:39.353383" level="INFO">Sending key A</msg>
+<msg time="2025-11-06T14:35:39.353568" level="INFO">Pressing special key BACKSPACE down.</msg>
+<msg time="2025-11-06T14:35:39.353730" level="INFO">Releasing special key CONTROL.</msg>
+<msg time="2025-11-06T14:35:39.353889" level="INFO">Releasing special key BACKSPACE.</msg>
 <arg>${element_locator}</arg>
 <arg>CTRL+A+BACKSPACE</arg>
 <doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
-<status status="PASS" start="2025-11-06T11:26:03.905425" elapsed="0.355417"/>
+<status status="PASS" start="2025-11-06T14:35:38.978152" elapsed="0.407086"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-11-06T11:26:04.261899" level="INFO">Typing text '' into text field 'xpath=//input[@id="user_code"]'.</msg>
+<msg time="2025-11-06T14:35:39.390138" level="INFO">Typing text '' into text field 'xpath=//input[@id="user_code"]'.</msg>
 <arg>${element_locator}</arg>
 <arg>${data_input}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-11-06T11:26:04.261346" elapsed="0.096125"/>
+<status status="PASS" start="2025-11-06T14:35:39.388917" elapsed="0.192589"/>
 </kw>
 <arg>${USERID_FIELD}</arg>
 <arg>${userid}</arg>
-<status status="PASS" start="2025-11-06T11:26:03.871926" elapsed="0.485874"/>
+<status status="PASS" start="2025-11-06T14:35:38.916389" elapsed="0.669297"/>
 </kw>
 <kw name="Input data in Element" owner="common_keywords">
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${element_locator}</arg>
 <arg>5s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-11-06T11:26:04.359141" elapsed="0.025937"/>
+<status status="PASS" start="2025-11-06T14:35:39.588580" elapsed="0.050010"/>
 </kw>
 <kw name="Press Keys" owner="SeleniumLibrary">
-<msg time="2025-11-06T11:26:04.386370" level="INFO">Sending key(s) ('CTRL+A+BACKSPACE',) to xpath=//input[@id="password"] element.</msg>
-<msg time="2025-11-06T11:26:04.688214" level="INFO">Pressing special key CONTROL down.</msg>
-<msg time="2025-11-06T11:26:04.688379" level="INFO">Sending key A</msg>
-<msg time="2025-11-06T11:26:04.688462" level="INFO">Pressing special key BACKSPACE down.</msg>
-<msg time="2025-11-06T11:26:04.688536" level="INFO">Releasing special key CONTROL.</msg>
-<msg time="2025-11-06T11:26:04.688606" level="INFO">Releasing special key BACKSPACE.</msg>
+<msg time="2025-11-06T14:35:39.641300" level="INFO">Sending key(s) ('CTRL+A+BACKSPACE',) to xpath=//input[@id="password"] element.</msg>
+<msg time="2025-11-06T14:35:39.983489" level="INFO">Pressing special key CONTROL down.</msg>
+<msg time="2025-11-06T14:35:39.983784" level="INFO">Sending key A</msg>
+<msg time="2025-11-06T14:35:39.983980" level="INFO">Pressing special key BACKSPACE down.</msg>
+<msg time="2025-11-06T14:35:39.984123" level="INFO">Releasing special key CONTROL.</msg>
+<msg time="2025-11-06T14:35:39.984265" level="INFO">Releasing special key BACKSPACE.</msg>
 <arg>${element_locator}</arg>
 <arg>CTRL+A+BACKSPACE</arg>
 <doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
-<status status="PASS" start="2025-11-06T11:26:04.385565" elapsed="0.327670"/>
+<status status="PASS" start="2025-11-06T14:35:39.639837" elapsed="0.428353"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-11-06T11:26:04.714350" level="INFO">Typing text 'Dev123!@#' into text field 'xpath=//input[@id="password"]'.</msg>
+<msg time="2025-11-06T14:35:40.072846" level="INFO">Typing text 'Dev123!@#' into text field 'xpath=//input[@id="password"]'.</msg>
 <arg>${element_locator}</arg>
 <arg>${data_input}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-11-06T11:26:04.713775" elapsed="0.165386"/>
+<status status="PASS" start="2025-11-06T14:35:40.071767" elapsed="0.341864"/>
 </kw>
 <arg>${PASSWORD_FIELD}</arg>
 <arg>${password}</arg>
-<status status="PASS" start="2025-11-06T11:26:04.358264" elapsed="0.521163"/>
+<status status="PASS" start="2025-11-06T14:35:39.586871" elapsed="0.831322"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${expected}</arg>
 <arg>5s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-11-06T11:26:04.879912" elapsed="0.029120"/>
+<status status="PASS" start="2025-11-06T14:35:40.419407" elapsed="0.052605"/>
 </kw>
 <arg>userid=${EMPTY}</arg>
 <arg>password=${OWNER_PASSWORD}</arg>
 <arg>expected=${VALIDATION_TEXT_EMPTY_USER_ID}</arg>
-<status status="PASS" start="2025-11-06T11:26:03.869195" elapsed="1.040101"/>
+<status status="PASS" start="2025-11-06T14:35:38.910741" elapsed="1.562155"/>
 </kw>
-<status status="PASS" start="2025-11-06T11:26:03.862800" elapsed="1.047042"/>
+<status status="PASS" start="2025-11-06T14:35:38.896294" elapsed="1.577840"/>
 </test>
 <test id="s1-t6" name="Verify the system displays validation text when user input bennguyen and Dev123" line="8">
 <kw name="Sign in">
@@ -421,73 +421,73 @@
 <arg>${element_locator}</arg>
 <arg>5s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-11-06T11:26:04.920390" elapsed="0.030426"/>
+<status status="PASS" start="2025-11-06T14:35:40.538728" elapsed="0.070290"/>
 </kw>
 <kw name="Press Keys" owner="SeleniumLibrary">
-<msg time="2025-11-06T11:26:04.952504" level="INFO">Sending key(s) ('CTRL+A+BACKSPACE',) to xpath=//input[@id="user_code"] element.</msg>
-<msg time="2025-11-06T11:26:05.281924" level="INFO">Pressing special key CONTROL down.</msg>
-<msg time="2025-11-06T11:26:05.282127" level="INFO">Sending key A</msg>
-<msg time="2025-11-06T11:26:05.282221" level="INFO">Pressing special key BACKSPACE down.</msg>
-<msg time="2025-11-06T11:26:05.282328" level="INFO">Releasing special key CONTROL.</msg>
-<msg time="2025-11-06T11:26:05.282406" level="INFO">Releasing special key BACKSPACE.</msg>
+<msg time="2025-11-06T14:35:40.612272" level="INFO">Sending key(s) ('CTRL+A+BACKSPACE',) to xpath=//input[@id="user_code"] element.</msg>
+<msg time="2025-11-06T14:35:41.006262" level="INFO">Pressing special key CONTROL down.</msg>
+<msg time="2025-11-06T14:35:41.006532" level="INFO">Sending key A</msg>
+<msg time="2025-11-06T14:35:41.006710" level="INFO">Pressing special key BACKSPACE down.</msg>
+<msg time="2025-11-06T14:35:41.006866" level="INFO">Releasing special key CONTROL.</msg>
+<msg time="2025-11-06T14:35:41.007024" level="INFO">Releasing special key BACKSPACE.</msg>
 <arg>${element_locator}</arg>
 <arg>CTRL+A+BACKSPACE</arg>
 <doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
-<status status="PASS" start="2025-11-06T11:26:04.951381" elapsed="0.349216"/>
+<status status="PASS" start="2025-11-06T14:35:40.610735" elapsed="0.443473"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-11-06T11:26:05.301647" level="INFO">Typing text 'bennguyen' into text field 'xpath=//input[@id="user_code"]'.</msg>
+<msg time="2025-11-06T14:35:41.061863" level="INFO">Typing text 'bennguyen' into text field 'xpath=//input[@id="user_code"]'.</msg>
 <arg>${element_locator}</arg>
 <arg>${data_input}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-11-06T11:26:05.301101" elapsed="0.144473"/>
+<status status="PASS" start="2025-11-06T14:35:41.059896" elapsed="0.297358"/>
 </kw>
 <arg>${USERID_FIELD}</arg>
 <arg>${userid}</arg>
-<status status="PASS" start="2025-11-06T11:26:04.919640" elapsed="0.527259"/>
+<status status="PASS" start="2025-11-06T14:35:40.536252" elapsed="0.825082"/>
 </kw>
 <kw name="Input data in Element" owner="common_keywords">
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${element_locator}</arg>
 <arg>5s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-11-06T11:26:05.449460" elapsed="0.031705"/>
+<status status="PASS" start="2025-11-06T14:35:41.364427" elapsed="0.056574"/>
 </kw>
 <kw name="Press Keys" owner="SeleniumLibrary">
-<msg time="2025-11-06T11:26:05.482520" level="INFO">Sending key(s) ('CTRL+A+BACKSPACE',) to xpath=//input[@id="password"] element.</msg>
-<msg time="2025-11-06T11:26:05.783725" level="INFO">Pressing special key CONTROL down.</msg>
-<msg time="2025-11-06T11:26:05.784249" level="INFO">Sending key A</msg>
-<msg time="2025-11-06T11:26:05.784350" level="INFO">Pressing special key BACKSPACE down.</msg>
-<msg time="2025-11-06T11:26:05.784430" level="INFO">Releasing special key CONTROL.</msg>
-<msg time="2025-11-06T11:26:05.784506" level="INFO">Releasing special key BACKSPACE.</msg>
+<msg time="2025-11-06T14:35:41.423409" level="INFO">Sending key(s) ('CTRL+A+BACKSPACE',) to xpath=//input[@id="password"] element.</msg>
+<msg time="2025-11-06T14:35:41.757625" level="INFO">Pressing special key CONTROL down.</msg>
+<msg time="2025-11-06T14:35:41.757885" level="INFO">Sending key A</msg>
+<msg time="2025-11-06T14:35:41.758052" level="INFO">Pressing special key BACKSPACE down.</msg>
+<msg time="2025-11-06T14:35:41.758199" level="INFO">Releasing special key CONTROL.</msg>
+<msg time="2025-11-06T14:35:41.758341" level="INFO">Releasing special key BACKSPACE.</msg>
 <arg>${element_locator}</arg>
 <arg>CTRL+A+BACKSPACE</arg>
 <doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
-<status status="PASS" start="2025-11-06T11:26:05.481693" elapsed="0.339642"/>
+<status status="PASS" start="2025-11-06T14:35:41.422104" elapsed="0.393283"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-11-06T11:26:05.823191" level="INFO">Typing text 'Dev123' into text field 'xpath=//input[@id="password"]'.</msg>
+<msg time="2025-11-06T14:35:41.824621" level="INFO">Typing text 'Dev123' into text field 'xpath=//input[@id="password"]'.</msg>
 <arg>${element_locator}</arg>
 <arg>${data_input}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-11-06T11:26:05.822063" elapsed="0.134583"/>
+<status status="PASS" start="2025-11-06T14:35:41.823504" elapsed="0.313373"/>
 </kw>
 <arg>${PASSWORD_FIELD}</arg>
 <arg>${password}</arg>
-<status status="PASS" start="2025-11-06T11:26:05.447737" elapsed="0.509264"/>
+<status status="PASS" start="2025-11-06T14:35:41.362637" elapsed="0.778682"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${expected}</arg>
 <arg>5s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-11-06T11:26:05.957607" elapsed="0.050860"/>
+<status status="PASS" start="2025-11-06T14:35:42.143325" elapsed="0.107823"/>
 </kw>
 <arg>userid=${OWNER_USER_ID}</arg>
 <arg>password=${PASSWORD_LESS_THAN_8}</arg>
 <arg>expected=${VALIDATION_TEXT_LESS_THAN_8_CHARACTERS}</arg>
-<status status="PASS" start="2025-11-06T11:26:04.918659" elapsed="1.090100"/>
+<status status="PASS" start="2025-11-06T14:35:40.533950" elapsed="1.718229"/>
 </kw>
-<status status="PASS" start="2025-11-06T11:26:04.911009" elapsed="1.098297"/>
+<status status="PASS" start="2025-11-06T14:35:40.518268" elapsed="1.739359"/>
 </test>
 <test id="s1-t7" name="Verify the system displays validation text when user input bennguyen and DevPassword!@" line="8">
 <kw name="Sign in">
@@ -496,73 +496,73 @@
 <arg>${element_locator}</arg>
 <arg>5s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-11-06T11:26:06.020468" elapsed="0.050779"/>
+<status status="PASS" start="2025-11-06T14:35:42.347665" elapsed="0.078512"/>
 </kw>
 <kw name="Press Keys" owner="SeleniumLibrary">
-<msg time="2025-11-06T11:26:06.073673" level="INFO">Sending key(s) ('CTRL+A+BACKSPACE',) to xpath=//input[@id="user_code"] element.</msg>
-<msg time="2025-11-06T11:26:06.408889" level="INFO">Pressing special key CONTROL down.</msg>
-<msg time="2025-11-06T11:26:06.409051" level="INFO">Sending key A</msg>
-<msg time="2025-11-06T11:26:06.409135" level="INFO">Pressing special key BACKSPACE down.</msg>
-<msg time="2025-11-06T11:26:06.409207" level="INFO">Releasing special key CONTROL.</msg>
-<msg time="2025-11-06T11:26:06.409276" level="INFO">Releasing special key BACKSPACE.</msg>
+<msg time="2025-11-06T14:35:42.428593" level="INFO">Sending key(s) ('CTRL+A+BACKSPACE',) to xpath=//input[@id="user_code"] element.</msg>
+<msg time="2025-11-06T14:35:42.925257" level="INFO">Pressing special key CONTROL down.</msg>
+<msg time="2025-11-06T14:35:42.925491" level="INFO">Sending key A</msg>
+<msg time="2025-11-06T14:35:42.925634" level="INFO">Pressing special key BACKSPACE down.</msg>
+<msg time="2025-11-06T14:35:42.925758" level="INFO">Releasing special key CONTROL.</msg>
+<msg time="2025-11-06T14:35:42.925883" level="INFO">Releasing special key BACKSPACE.</msg>
 <arg>${element_locator}</arg>
 <arg>CTRL+A+BACKSPACE</arg>
 <doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
-<status status="PASS" start="2025-11-06T11:26:06.072301" elapsed="0.389494"/>
+<status status="PASS" start="2025-11-06T14:35:42.427282" elapsed="0.588106"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-11-06T11:26:06.463254" level="INFO">Typing text 'bennguyen' into text field 'xpath=//input[@id="user_code"]'.</msg>
+<msg time="2025-11-06T14:35:43.020492" level="INFO">Typing text 'bennguyen' into text field 'xpath=//input[@id="user_code"]'.</msg>
 <arg>${element_locator}</arg>
 <arg>${data_input}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-11-06T11:26:06.462433" elapsed="0.325408"/>
+<status status="PASS" start="2025-11-06T14:35:43.019382" elapsed="0.359145"/>
 </kw>
 <arg>${USERID_FIELD}</arg>
 <arg>${userid}</arg>
-<status status="PASS" start="2025-11-06T11:26:06.019287" elapsed="0.768983"/>
+<status status="PASS" start="2025-11-06T14:35:42.341613" elapsed="1.040255"/>
 </kw>
 <kw name="Input data in Element" owner="common_keywords">
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${element_locator}</arg>
 <arg>5s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-11-06T11:26:06.790711" elapsed="0.057699"/>
+<status status="PASS" start="2025-11-06T14:35:43.384731" elapsed="0.049617"/>
 </kw>
 <kw name="Press Keys" owner="SeleniumLibrary">
-<msg time="2025-11-06T11:26:06.850590" level="INFO">Sending key(s) ('CTRL+A+BACKSPACE',) to xpath=//input[@id="password"] element.</msg>
-<msg time="2025-11-06T11:26:07.206820" level="INFO">Pressing special key CONTROL down.</msg>
-<msg time="2025-11-06T11:26:07.207050" level="INFO">Sending key A</msg>
-<msg time="2025-11-06T11:26:07.207184" level="INFO">Pressing special key BACKSPACE down.</msg>
-<msg time="2025-11-06T11:26:07.207299" level="INFO">Releasing special key CONTROL.</msg>
-<msg time="2025-11-06T11:26:07.207413" level="INFO">Releasing special key BACKSPACE.</msg>
+<msg time="2025-11-06T14:35:43.436717" level="INFO">Sending key(s) ('CTRL+A+BACKSPACE',) to xpath=//input[@id="password"] element.</msg>
+<msg time="2025-11-06T14:35:43.827202" level="INFO">Pressing special key CONTROL down.</msg>
+<msg time="2025-11-06T14:35:43.827471" level="INFO">Sending key A</msg>
+<msg time="2025-11-06T14:35:43.827651" level="INFO">Pressing special key BACKSPACE down.</msg>
+<msg time="2025-11-06T14:35:43.827812" level="INFO">Releasing special key CONTROL.</msg>
+<msg time="2025-11-06T14:35:43.827964" level="INFO">Releasing special key BACKSPACE.</msg>
 <arg>${element_locator}</arg>
 <arg>CTRL+A+BACKSPACE</arg>
 <doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
-<status status="PASS" start="2025-11-06T11:26:06.849221" elapsed="0.402463"/>
+<status status="PASS" start="2025-11-06T14:35:43.435482" elapsed="0.533623"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-11-06T11:26:07.253857" level="INFO">Typing text 'DevPassword!@' into text field 'xpath=//input[@id="password"]'.</msg>
+<msg time="2025-11-06T14:35:43.976543" level="INFO">Typing text 'DevPassword!@' into text field 'xpath=//input[@id="password"]'.</msg>
 <arg>${element_locator}</arg>
 <arg>${data_input}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-11-06T11:26:07.252722" elapsed="0.256407"/>
+<status status="PASS" start="2025-11-06T14:35:43.975041" elapsed="0.395462"/>
 </kw>
 <arg>${PASSWORD_FIELD}</arg>
 <arg>${password}</arg>
-<status status="PASS" start="2025-11-06T11:26:06.789038" elapsed="0.720491"/>
+<status status="PASS" start="2025-11-06T14:35:43.383052" elapsed="0.991655"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${expected}</arg>
 <arg>5s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-11-06T11:26:07.510286" elapsed="0.051896"/>
+<status status="PASS" start="2025-11-06T14:35:44.376038" elapsed="0.064575"/>
 </kw>
 <arg>userid=${OWNER_USER_ID}</arg>
 <arg>password=${PASSWORD_MISSING_NUMBER}</arg>
 <arg>expected=${VALIDATION_TEXT_MISSING_NUMBER}</arg>
-<status status="PASS" start="2025-11-06T11:26:06.018016" elapsed="1.544560"/>
+<status status="PASS" start="2025-11-06T14:35:42.338732" elapsed="2.102766"/>
 </kw>
-<status status="PASS" start="2025-11-06T11:26:06.010626" elapsed="1.552941"/>
+<status status="PASS" start="2025-11-06T14:35:42.312803" elapsed="2.129912"/>
 </test>
 <test id="s1-t8" name="Verify the system displays validation text when user input bennguyen and devpassword1234!@" line="8">
 <kw name="Sign in">
@@ -571,73 +571,73 @@
 <arg>${element_locator}</arg>
 <arg>5s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-11-06T11:26:07.584666" elapsed="0.125835"/>
+<status status="PASS" start="2025-11-06T14:35:44.519555" elapsed="0.081790"/>
 </kw>
 <kw name="Press Keys" owner="SeleniumLibrary">
-<msg time="2025-11-06T11:26:07.713150" level="INFO">Sending key(s) ('CTRL+A+BACKSPACE',) to xpath=//input[@id="user_code"] element.</msg>
-<msg time="2025-11-06T11:26:08.134985" level="INFO">Pressing special key CONTROL down.</msg>
-<msg time="2025-11-06T11:26:08.135526" level="INFO">Sending key A</msg>
-<msg time="2025-11-06T11:26:08.135688" level="INFO">Pressing special key BACKSPACE down.</msg>
-<msg time="2025-11-06T11:26:08.135837" level="INFO">Releasing special key CONTROL.</msg>
-<msg time="2025-11-06T11:26:08.135955" level="INFO">Releasing special key BACKSPACE.</msg>
+<msg time="2025-11-06T14:35:44.604144" level="INFO">Sending key(s) ('CTRL+A+BACKSPACE',) to xpath=//input[@id="user_code"] element.</msg>
+<msg time="2025-11-06T14:35:44.986642" level="INFO">Pressing special key CONTROL down.</msg>
+<msg time="2025-11-06T14:35:44.986889" level="INFO">Sending key A</msg>
+<msg time="2025-11-06T14:35:44.987133" level="INFO">Pressing special key BACKSPACE down.</msg>
+<msg time="2025-11-06T14:35:44.987398" level="INFO">Releasing special key CONTROL.</msg>
+<msg time="2025-11-06T14:35:44.987542" level="INFO">Releasing special key BACKSPACE.</msg>
 <arg>${element_locator}</arg>
 <arg>CTRL+A+BACKSPACE</arg>
 <doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
-<status status="PASS" start="2025-11-06T11:26:07.711393" elapsed="0.477424"/>
+<status status="PASS" start="2025-11-06T14:35:44.602607" elapsed="0.516156"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-11-06T11:26:08.190644" level="INFO">Typing text 'bennguyen' into text field 'xpath=//input[@id="user_code"]'.</msg>
+<msg time="2025-11-06T14:35:45.124413" level="INFO">Typing text 'bennguyen' into text field 'xpath=//input[@id="user_code"]'.</msg>
 <arg>${element_locator}</arg>
 <arg>${data_input}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-11-06T11:26:08.189567" elapsed="0.246224"/>
+<status status="PASS" start="2025-11-06T14:35:45.123373" elapsed="0.363722"/>
 </kw>
 <arg>${USERID_FIELD}</arg>
 <arg>${userid}</arg>
-<status status="PASS" start="2025-11-06T11:26:07.583310" elapsed="0.852886"/>
+<status status="PASS" start="2025-11-06T14:35:44.517729" elapsed="0.976909"/>
 </kw>
 <kw name="Input data in Element" owner="common_keywords">
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${element_locator}</arg>
 <arg>5s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-11-06T11:26:08.439111" elapsed="0.067189"/>
+<status status="PASS" start="2025-11-06T14:35:45.499219" elapsed="0.056178"/>
 </kw>
 <kw name="Press Keys" owner="SeleniumLibrary">
-<msg time="2025-11-06T11:26:08.508055" level="INFO">Sending key(s) ('CTRL+A+BACKSPACE',) to xpath=//input[@id="password"] element.</msg>
-<msg time="2025-11-06T11:26:08.817787" level="INFO">Pressing special key CONTROL down.</msg>
-<msg time="2025-11-06T11:26:08.817945" level="INFO">Sending key A</msg>
-<msg time="2025-11-06T11:26:08.818040" level="INFO">Pressing special key BACKSPACE down.</msg>
-<msg time="2025-11-06T11:26:08.818111" level="INFO">Releasing special key CONTROL.</msg>
-<msg time="2025-11-06T11:26:08.818176" level="INFO">Releasing special key BACKSPACE.</msg>
+<msg time="2025-11-06T14:35:45.558166" level="INFO">Sending key(s) ('CTRL+A+BACKSPACE',) to xpath=//input[@id="password"] element.</msg>
+<msg time="2025-11-06T14:35:45.926736" level="INFO">Pressing special key CONTROL down.</msg>
+<msg time="2025-11-06T14:35:45.927050" level="INFO">Sending key A</msg>
+<msg time="2025-11-06T14:35:45.927247" level="INFO">Pressing special key BACKSPACE down.</msg>
+<msg time="2025-11-06T14:35:45.927418" level="INFO">Releasing special key CONTROL.</msg>
+<msg time="2025-11-06T14:35:45.927578" level="INFO">Releasing special key BACKSPACE.</msg>
 <arg>${element_locator}</arg>
 <arg>CTRL+A+BACKSPACE</arg>
 <doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
-<status status="PASS" start="2025-11-06T11:26:08.506903" elapsed="0.337900"/>
+<status status="PASS" start="2025-11-06T14:35:45.556688" elapsed="0.467720"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-11-06T11:26:08.845893" level="INFO">Typing text 'devpassword1234!@' into text field 'xpath=//input[@id="password"]'.</msg>
+<msg time="2025-11-06T14:35:46.030622" level="INFO">Typing text 'devpassword1234!@' into text field 'xpath=//input[@id="password"]'.</msg>
 <arg>${element_locator}</arg>
 <arg>${data_input}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-11-06T11:26:08.845299" elapsed="0.196200"/>
+<status status="PASS" start="2025-11-06T14:35:46.029520" elapsed="0.523632"/>
 </kw>
 <arg>${PASSWORD_FIELD}</arg>
 <arg>${password}</arg>
-<status status="PASS" start="2025-11-06T11:26:08.436992" elapsed="0.604817"/>
+<status status="PASS" start="2025-11-06T14:35:45.496055" elapsed="1.061256"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${expected}</arg>
 <arg>5s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-11-06T11:26:09.042314" elapsed="0.040030"/>
+<status status="PASS" start="2025-11-06T14:35:46.558401" elapsed="0.252912"/>
 </kw>
 <arg>userid=${OWNER_USER_ID}</arg>
 <arg>password=${PASSWORD_MISSING_UPPERCASE}</arg>
 <arg>expected=${VALIDATION_TEXT_MISSING_UPPERCASE}</arg>
-<status status="PASS" start="2025-11-06T11:26:07.581634" elapsed="1.501025"/>
+<status status="PASS" start="2025-11-06T14:35:44.515492" elapsed="2.296712"/>
 </kw>
-<status status="PASS" start="2025-11-06T11:26:07.568308" elapsed="1.515002"/>
+<status status="PASS" start="2025-11-06T14:35:44.498993" elapsed="2.315598"/>
 </test>
 <test id="s1-t9" name="Verify the system displays validation text when user input bennguyen and DEVPASSWORD1234!@" line="8">
 <kw name="Sign in">
@@ -646,73 +646,73 @@
 <arg>${element_locator}</arg>
 <arg>5s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-11-06T11:26:09.095046" elapsed="0.033002"/>
+<status status="PASS" start="2025-11-06T14:35:46.962378" elapsed="0.090221"/>
 </kw>
 <kw name="Press Keys" owner="SeleniumLibrary">
-<msg time="2025-11-06T11:26:09.129707" level="INFO">Sending key(s) ('CTRL+A+BACKSPACE',) to xpath=//input[@id="user_code"] element.</msg>
-<msg time="2025-11-06T11:26:09.442860" level="INFO">Pressing special key CONTROL down.</msg>
-<msg time="2025-11-06T11:26:09.443013" level="INFO">Sending key A</msg>
-<msg time="2025-11-06T11:26:09.443095" level="INFO">Pressing special key BACKSPACE down.</msg>
-<msg time="2025-11-06T11:26:09.443164" level="INFO">Releasing special key CONTROL.</msg>
-<msg time="2025-11-06T11:26:09.443232" level="INFO">Releasing special key BACKSPACE.</msg>
+<msg time="2025-11-06T14:35:47.055428" level="INFO">Sending key(s) ('CTRL+A+BACKSPACE',) to xpath=//input[@id="user_code"] element.</msg>
+<msg time="2025-11-06T14:35:47.473106" level="INFO">Pressing special key CONTROL down.</msg>
+<msg time="2025-11-06T14:35:47.473369" level="INFO">Sending key A</msg>
+<msg time="2025-11-06T14:35:47.473541" level="INFO">Pressing special key BACKSPACE down.</msg>
+<msg time="2025-11-06T14:35:47.473732" level="INFO">Releasing special key CONTROL.</msg>
+<msg time="2025-11-06T14:35:47.473882" level="INFO">Releasing special key BACKSPACE.</msg>
 <arg>${element_locator}</arg>
 <arg>CTRL+A+BACKSPACE</arg>
 <doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
-<status status="PASS" start="2025-11-06T11:26:09.128630" elapsed="0.351188"/>
+<status status="PASS" start="2025-11-06T14:35:47.053889" elapsed="0.510569"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-11-06T11:26:09.480999" level="INFO">Typing text 'bennguyen' into text field 'xpath=//input[@id="user_code"]'.</msg>
+<msg time="2025-11-06T14:35:47.570844" level="INFO">Typing text 'bennguyen' into text field 'xpath=//input[@id="user_code"]'.</msg>
 <arg>${element_locator}</arg>
 <arg>${data_input}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-11-06T11:26:09.480371" elapsed="0.156683"/>
+<status status="PASS" start="2025-11-06T14:35:47.569639" elapsed="0.358649"/>
 </kw>
 <arg>${USERID_FIELD}</arg>
 <arg>${userid}</arg>
-<status status="PASS" start="2025-11-06T11:26:09.094127" elapsed="0.543247"/>
+<status status="PASS" start="2025-11-06T14:35:46.955403" elapsed="0.977742"/>
 </kw>
 <kw name="Input data in Element" owner="common_keywords">
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${element_locator}</arg>
 <arg>5s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-11-06T11:26:09.639148" elapsed="0.031877"/>
+<status status="PASS" start="2025-11-06T14:35:47.936857" elapsed="0.060800"/>
 </kw>
 <kw name="Press Keys" owner="SeleniumLibrary">
-<msg time="2025-11-06T11:26:09.672389" level="INFO">Sending key(s) ('CTRL+A+BACKSPACE',) to xpath=//input[@id="password"] element.</msg>
-<msg time="2025-11-06T11:26:09.972057" level="INFO">Pressing special key CONTROL down.</msg>
-<msg time="2025-11-06T11:26:09.972227" level="INFO">Sending key A</msg>
-<msg time="2025-11-06T11:26:09.972315" level="INFO">Pressing special key BACKSPACE down.</msg>
-<msg time="2025-11-06T11:26:09.972389" level="INFO">Releasing special key CONTROL.</msg>
-<msg time="2025-11-06T11:26:09.972462" level="INFO">Releasing special key BACKSPACE.</msg>
+<msg time="2025-11-06T14:35:48.000168" level="INFO">Sending key(s) ('CTRL+A+BACKSPACE',) to xpath=//input[@id="password"] element.</msg>
+<msg time="2025-11-06T14:35:48.430141" level="INFO">Pressing special key CONTROL down.</msg>
+<msg time="2025-11-06T14:35:48.430409" level="INFO">Sending key A</msg>
+<msg time="2025-11-06T14:35:48.430623" level="INFO">Pressing special key BACKSPACE down.</msg>
+<msg time="2025-11-06T14:35:48.430783" level="INFO">Releasing special key CONTROL.</msg>
+<msg time="2025-11-06T14:35:48.430942" level="INFO">Releasing special key BACKSPACE.</msg>
 <arg>${element_locator}</arg>
 <arg>CTRL+A+BACKSPACE</arg>
 <doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
-<status status="PASS" start="2025-11-06T11:26:09.671524" elapsed="0.348514"/>
+<status status="PASS" start="2025-11-06T14:35:47.998872" elapsed="0.489292"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-11-06T11:26:10.021143" level="INFO">Typing text 'DEVPASSWORD1234!@' into text field 'xpath=//input[@id="password"]'.</msg>
+<msg time="2025-11-06T14:35:48.493310" level="INFO">Typing text 'DEVPASSWORD1234!@' into text field 'xpath=//input[@id="password"]'.</msg>
 <arg>${element_locator}</arg>
 <arg>${data_input}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-11-06T11:26:10.020545" elapsed="0.307280"/>
+<status status="PASS" start="2025-11-06T14:35:48.491883" elapsed="0.305997"/>
 </kw>
 <arg>${PASSWORD_FIELD}</arg>
 <arg>${password}</arg>
-<status status="PASS" start="2025-11-06T11:26:09.637910" elapsed="0.690455"/>
+<status status="PASS" start="2025-11-06T14:35:47.934412" elapsed="0.870715"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${expected}</arg>
 <arg>5s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-11-06T11:26:10.329172" elapsed="0.046614"/>
+<status status="PASS" start="2025-11-06T14:35:48.806359" elapsed="0.076812"/>
 </kw>
 <arg>userid=${OWNER_USER_ID}</arg>
 <arg>password=${PASSWORD_MISSING_LOWERCASE}</arg>
 <arg>expected=${VALIDATION_TEXT_MISSING_LOWERCASE}</arg>
-<status status="PASS" start="2025-11-06T11:26:09.092917" elapsed="1.283262"/>
+<status status="PASS" start="2025-11-06T14:35:46.941336" elapsed="1.942777"/>
 </kw>
-<status status="PASS" start="2025-11-06T11:26:09.084618" elapsed="1.292257"/>
+<status status="PASS" start="2025-11-06T14:35:46.903423" elapsed="1.985986"/>
 </test>
 <test id="s1-t10" name="Verify the system displays validation text when user input bennguyen and DevPassword1234" line="8">
 <kw name="Sign in">
@@ -721,73 +721,73 @@
 <arg>${element_locator}</arg>
 <arg>5s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-11-06T11:26:10.391964" elapsed="0.085302"/>
+<status status="PASS" start="2025-11-06T14:35:49.007479" elapsed="0.071571"/>
 </kw>
 <kw name="Press Keys" owner="SeleniumLibrary">
-<msg time="2025-11-06T11:26:10.479742" level="INFO">Sending key(s) ('CTRL+A+BACKSPACE',) to xpath=//input[@id="user_code"] element.</msg>
-<msg time="2025-11-06T11:26:10.989213" level="INFO">Pressing special key CONTROL down.</msg>
-<msg time="2025-11-06T11:26:10.989422" level="INFO">Sending key A</msg>
-<msg time="2025-11-06T11:26:10.989550" level="INFO">Pressing special key BACKSPACE down.</msg>
-<msg time="2025-11-06T11:26:10.989688" level="INFO">Releasing special key CONTROL.</msg>
-<msg time="2025-11-06T11:26:10.989804" level="INFO">Releasing special key BACKSPACE.</msg>
+<msg time="2025-11-06T14:35:49.082019" level="INFO">Sending key(s) ('CTRL+A+BACKSPACE',) to xpath=//input[@id="user_code"] element.</msg>
+<msg time="2025-11-06T14:35:49.441492" level="INFO">Pressing special key CONTROL down.</msg>
+<msg time="2025-11-06T14:35:49.441765" level="INFO">Sending key A</msg>
+<msg time="2025-11-06T14:35:49.441936" level="INFO">Pressing special key BACKSPACE down.</msg>
+<msg time="2025-11-06T14:35:49.442678" level="INFO">Releasing special key CONTROL.</msg>
+<msg time="2025-11-06T14:35:49.442863" level="INFO">Releasing special key BACKSPACE.</msg>
 <arg>${element_locator}</arg>
 <arg>CTRL+A+BACKSPACE</arg>
 <doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
-<status status="PASS" start="2025-11-06T11:26:10.478148" elapsed="0.645033"/>
+<status status="PASS" start="2025-11-06T14:35:49.080455" elapsed="0.420049"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-11-06T11:26:11.125107" level="INFO">Typing text 'bennguyen' into text field 'xpath=//input[@id="user_code"]'.</msg>
+<msg time="2025-11-06T14:35:49.506667" level="INFO">Typing text 'bennguyen' into text field 'xpath=//input[@id="user_code"]'.</msg>
 <arg>${element_locator}</arg>
 <arg>${data_input}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-11-06T11:26:11.123889" elapsed="0.425709"/>
+<status status="PASS" start="2025-11-06T14:35:49.505231" elapsed="0.231788"/>
 </kw>
 <arg>${USERID_FIELD}</arg>
 <arg>${userid}</arg>
-<status status="PASS" start="2025-11-06T11:26:10.390893" elapsed="1.159114"/>
+<status status="PASS" start="2025-11-06T14:35:49.002950" elapsed="0.737720"/>
 </kw>
 <kw name="Input data in Element" owner="common_keywords">
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${element_locator}</arg>
 <arg>5s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-11-06T11:26:11.552185" elapsed="0.064770"/>
+<status status="PASS" start="2025-11-06T14:35:49.744281" elapsed="0.055455"/>
 </kw>
 <kw name="Press Keys" owner="SeleniumLibrary">
-<msg time="2025-11-06T11:26:11.618877" level="INFO">Sending key(s) ('CTRL+A+BACKSPACE',) to xpath=//input[@id="password"] element.</msg>
-<msg time="2025-11-06T11:26:11.973332" level="INFO">Pressing special key CONTROL down.</msg>
-<msg time="2025-11-06T11:26:11.973531" level="INFO">Sending key A</msg>
-<msg time="2025-11-06T11:26:11.973649" level="INFO">Pressing special key BACKSPACE down.</msg>
-<msg time="2025-11-06T11:26:11.973749" level="INFO">Releasing special key CONTROL.</msg>
-<msg time="2025-11-06T11:26:11.973846" level="INFO">Releasing special key BACKSPACE.</msg>
+<msg time="2025-11-06T14:35:49.802249" level="INFO">Sending key(s) ('CTRL+A+BACKSPACE',) to xpath=//input[@id="password"] element.</msg>
+<msg time="2025-11-06T14:35:50.189781" level="INFO">Pressing special key CONTROL down.</msg>
+<msg time="2025-11-06T14:35:50.190026" level="INFO">Sending key A</msg>
+<msg time="2025-11-06T14:35:50.190187" level="INFO">Pressing special key BACKSPACE down.</msg>
+<msg time="2025-11-06T14:35:50.190333" level="INFO">Releasing special key CONTROL.</msg>
+<msg time="2025-11-06T14:35:50.190471" level="INFO">Releasing special key BACKSPACE.</msg>
 <arg>${element_locator}</arg>
 <arg>CTRL+A+BACKSPACE</arg>
 <doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
-<status status="PASS" start="2025-11-06T11:26:11.617683" elapsed="0.390246"/>
+<status status="PASS" start="2025-11-06T14:35:49.800814" elapsed="0.440910"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-11-06T11:26:12.009290" level="INFO">Typing text 'DevPassword1234' into text field 'xpath=//input[@id="password"]'.</msg>
+<msg time="2025-11-06T14:35:50.249708" level="INFO">Typing text 'DevPassword1234' into text field 'xpath=//input[@id="password"]'.</msg>
 <arg>${element_locator}</arg>
 <arg>${data_input}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-11-06T11:26:12.008564" elapsed="0.203351"/>
+<status status="PASS" start="2025-11-06T14:35:50.247784" elapsed="0.290064"/>
 </kw>
 <arg>${PASSWORD_FIELD}</arg>
 <arg>${password}</arg>
-<status status="PASS" start="2025-11-06T11:26:11.550720" elapsed="0.661636"/>
+<status status="PASS" start="2025-11-06T14:35:49.741921" elapsed="0.801358"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${expected}</arg>
 <arg>5s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-11-06T11:26:12.212946" elapsed="0.043304"/>
+<status status="PASS" start="2025-11-06T14:35:50.544851" elapsed="0.087973"/>
 </kw>
 <arg>userid=${OWNER_USER_ID}</arg>
 <arg>password=${PASSWORD_MISSING_SPECIAL_CHARACTER}</arg>
 <arg>expected=${VALIDATION_TEXT_MISSING_SPECIAL_CHARACTER}</arg>
-<status status="PASS" start="2025-11-06T11:26:10.389467" elapsed="1.867117"/>
+<status status="PASS" start="2025-11-06T14:35:49.000984" elapsed="1.632652"/>
 </kw>
-<status status="PASS" start="2025-11-06T11:26:10.378398" elapsed="1.878885"/>
+<status status="PASS" start="2025-11-06T14:35:48.970843" elapsed="1.663815"/>
 </test>
 <test id="s1-t11" name="Verify the system displays validation text when user input bennguyen and " line="8">
 <kw name="Sign in">
@@ -796,73 +796,73 @@
 <arg>${element_locator}</arg>
 <arg>5s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-11-06T11:26:12.277396" elapsed="0.082073"/>
+<status status="PASS" start="2025-11-06T14:35:50.702230" elapsed="0.052879"/>
 </kw>
 <kw name="Press Keys" owner="SeleniumLibrary">
-<msg time="2025-11-06T11:26:12.361660" level="INFO">Sending key(s) ('CTRL+A+BACKSPACE',) to xpath=//input[@id="user_code"] element.</msg>
-<msg time="2025-11-06T11:26:12.665613" level="INFO">Pressing special key CONTROL down.</msg>
-<msg time="2025-11-06T11:26:12.665783" level="INFO">Sending key A</msg>
-<msg time="2025-11-06T11:26:12.665869" level="INFO">Pressing special key BACKSPACE down.</msg>
-<msg time="2025-11-06T11:26:12.665950" level="INFO">Releasing special key CONTROL.</msg>
-<msg time="2025-11-06T11:26:12.666022" level="INFO">Releasing special key BACKSPACE.</msg>
+<msg time="2025-11-06T14:35:50.757634" level="INFO">Sending key(s) ('CTRL+A+BACKSPACE',) to xpath=//input[@id="user_code"] element.</msg>
+<msg time="2025-11-06T14:35:51.086752" level="INFO">Pressing special key CONTROL down.</msg>
+<msg time="2025-11-06T14:35:51.087502" level="INFO">Sending key A</msg>
+<msg time="2025-11-06T14:35:51.087780" level="INFO">Pressing special key BACKSPACE down.</msg>
+<msg time="2025-11-06T14:35:51.088240" level="INFO">Releasing special key CONTROL.</msg>
+<msg time="2025-11-06T14:35:51.088740" level="INFO">Releasing special key BACKSPACE.</msg>
 <arg>${element_locator}</arg>
 <arg>CTRL+A+BACKSPACE</arg>
 <doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
-<status status="PASS" start="2025-11-06T11:26:12.360288" elapsed="0.343670"/>
+<status status="PASS" start="2025-11-06T14:35:50.756216" elapsed="0.383089"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-11-06T11:26:12.705234" level="INFO">Typing text 'bennguyen' into text field 'xpath=//input[@id="user_code"]'.</msg>
+<msg time="2025-11-06T14:35:51.145285" level="INFO">Typing text 'bennguyen' into text field 'xpath=//input[@id="user_code"]'.</msg>
 <arg>${element_locator}</arg>
 <arg>${data_input}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-11-06T11:26:12.704470" elapsed="0.155900"/>
+<status status="PASS" start="2025-11-06T14:35:51.144199" elapsed="0.225471"/>
 </kw>
 <arg>${USERID_FIELD}</arg>
 <arg>${userid}</arg>
-<status status="PASS" start="2025-11-06T11:26:12.276031" elapsed="0.584759"/>
+<status status="PASS" start="2025-11-06T14:35:50.700306" elapsed="0.672724"/>
 </kw>
 <kw name="Input data in Element" owner="common_keywords">
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${element_locator}</arg>
 <arg>5s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-11-06T11:26:12.863203" elapsed="0.026355"/>
+<status status="PASS" start="2025-11-06T14:35:51.376854" elapsed="0.064788"/>
 </kw>
 <kw name="Press Keys" owner="SeleniumLibrary">
-<msg time="2025-11-06T11:26:12.890798" level="INFO">Sending key(s) ('CTRL+A+BACKSPACE',) to xpath=//input[@id="password"] element.</msg>
-<msg time="2025-11-06T11:26:13.185010" level="INFO">Pressing special key CONTROL down.</msg>
-<msg time="2025-11-06T11:26:13.185175" level="INFO">Sending key A</msg>
-<msg time="2025-11-06T11:26:13.185260" level="INFO">Pressing special key BACKSPACE down.</msg>
-<msg time="2025-11-06T11:26:13.185334" level="INFO">Releasing special key CONTROL.</msg>
-<msg time="2025-11-06T11:26:13.185429" level="INFO">Releasing special key BACKSPACE.</msg>
+<msg time="2025-11-06T14:35:51.444598" level="INFO">Sending key(s) ('CTRL+A+BACKSPACE',) to xpath=//input[@id="password"] element.</msg>
+<msg time="2025-11-06T14:35:51.781300" level="INFO">Pressing special key CONTROL down.</msg>
+<msg time="2025-11-06T14:35:51.781630" level="INFO">Sending key A</msg>
+<msg time="2025-11-06T14:35:51.781797" level="INFO">Pressing special key BACKSPACE down.</msg>
+<msg time="2025-11-06T14:35:51.781930" level="INFO">Releasing special key CONTROL.</msg>
+<msg time="2025-11-06T14:35:51.782064" level="INFO">Releasing special key BACKSPACE.</msg>
 <arg>${element_locator}</arg>
 <arg>CTRL+A+BACKSPACE</arg>
 <doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
-<status status="PASS" start="2025-11-06T11:26:12.890012" elapsed="0.325087"/>
+<status status="PASS" start="2025-11-06T14:35:51.443017" elapsed="0.378928"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-11-06T11:26:13.216223" level="INFO">Typing text '' into text field 'xpath=//input[@id="password"]'.</msg>
+<msg time="2025-11-06T14:35:51.828252" level="INFO">Typing text '' into text field 'xpath=//input[@id="password"]'.</msg>
 <arg>${element_locator}</arg>
 <arg>${data_input}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-11-06T11:26:13.215639" elapsed="0.096023"/>
+<status status="PASS" start="2025-11-06T14:35:51.827173" elapsed="0.198484"/>
 </kw>
 <arg>${PASSWORD_FIELD}</arg>
 <arg>${password}</arg>
-<status status="PASS" start="2025-11-06T11:26:12.861402" elapsed="0.450518"/>
+<status status="PASS" start="2025-11-06T14:35:51.374232" elapsed="0.655898"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${expected}</arg>
 <arg>5s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-11-06T11:26:13.312461" elapsed="0.030722"/>
+<status status="PASS" start="2025-11-06T14:35:52.031233" elapsed="0.098253"/>
 </kw>
 <arg>userid=${OWNER_USER_ID}</arg>
 <arg>password=${EMPTY}</arg>
 <arg>expected=${VALIDATION_TEXT_EMPTY_PASSWORD}</arg>
-<status status="PASS" start="2025-11-06T11:26:12.271319" elapsed="1.072122"/>
+<status status="PASS" start="2025-11-06T14:35:50.689161" elapsed="1.441230"/>
 </kw>
-<status status="PASS" start="2025-11-06T11:26:12.261664" elapsed="1.082768"/>
+<status status="PASS" start="2025-11-06T14:35:50.678790" elapsed="1.456945"/>
 </test>
 <test id="s1-t12" name="Verify the system displays validation text when user input bennguyen and  " line="8">
 <kw name="Sign in">
@@ -871,82 +871,82 @@
 <arg>${element_locator}</arg>
 <arg>5s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-11-06T11:26:13.354774" elapsed="0.037100"/>
+<status status="PASS" start="2025-11-06T14:35:52.252370" elapsed="0.063923"/>
 </kw>
 <kw name="Press Keys" owner="SeleniumLibrary">
-<msg time="2025-11-06T11:26:13.393545" level="INFO">Sending key(s) ('CTRL+A+BACKSPACE',) to xpath=//input[@id="user_code"] element.</msg>
-<msg time="2025-11-06T11:26:13.708793" level="INFO">Pressing special key CONTROL down.</msg>
-<msg time="2025-11-06T11:26:13.708971" level="INFO">Sending key A</msg>
-<msg time="2025-11-06T11:26:13.709060" level="INFO">Pressing special key BACKSPACE down.</msg>
-<msg time="2025-11-06T11:26:13.709133" level="INFO">Releasing special key CONTROL.</msg>
-<msg time="2025-11-06T11:26:13.709204" level="INFO">Releasing special key BACKSPACE.</msg>
+<msg time="2025-11-06T14:35:52.318596" level="INFO">Sending key(s) ('CTRL+A+BACKSPACE',) to xpath=//input[@id="user_code"] element.</msg>
+<msg time="2025-11-06T14:35:52.649502" level="INFO">Pressing special key CONTROL down.</msg>
+<msg time="2025-11-06T14:35:52.649944" level="INFO">Sending key A</msg>
+<msg time="2025-11-06T14:35:52.650221" level="INFO">Pressing special key BACKSPACE down.</msg>
+<msg time="2025-11-06T14:35:52.650383" level="INFO">Releasing special key CONTROL.</msg>
+<msg time="2025-11-06T14:35:52.650530" level="INFO">Releasing special key BACKSPACE.</msg>
 <arg>${element_locator}</arg>
 <arg>CTRL+A+BACKSPACE</arg>
 <doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
-<status status="PASS" start="2025-11-06T11:26:13.392402" elapsed="0.352814"/>
+<status status="PASS" start="2025-11-06T14:35:52.317379" elapsed="0.397564"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-11-06T11:26:13.746481" level="INFO">Typing text 'bennguyen' into text field 'xpath=//input[@id="user_code"]'.</msg>
+<msg time="2025-11-06T14:35:52.720255" level="INFO">Typing text 'bennguyen' into text field 'xpath=//input[@id="user_code"]'.</msg>
 <arg>${element_locator}</arg>
 <arg>${data_input}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-11-06T11:26:13.745925" elapsed="0.155085"/>
+<status status="PASS" start="2025-11-06T14:35:52.719123" elapsed="0.217104"/>
 </kw>
 <arg>${USERID_FIELD}</arg>
 <arg>${userid}</arg>
-<status status="PASS" start="2025-11-06T11:26:13.354069" elapsed="0.547275"/>
+<status status="PASS" start="2025-11-06T14:35:52.245286" elapsed="0.698053"/>
 </kw>
 <kw name="Input data in Element" owner="common_keywords">
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${element_locator}</arg>
 <arg>5s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-11-06T11:26:13.903623" elapsed="0.042333"/>
+<status status="PASS" start="2025-11-06T14:35:52.947117" elapsed="0.054535"/>
 </kw>
 <kw name="Press Keys" owner="SeleniumLibrary">
-<msg time="2025-11-06T11:26:13.947403" level="INFO">Sending key(s) ('CTRL+A+BACKSPACE',) to xpath=//input[@id="password"] element.</msg>
-<msg time="2025-11-06T11:26:14.248833" level="INFO">Pressing special key CONTROL down.</msg>
-<msg time="2025-11-06T11:26:14.249001" level="INFO">Sending key A</msg>
-<msg time="2025-11-06T11:26:14.249090" level="INFO">Pressing special key BACKSPACE down.</msg>
-<msg time="2025-11-06T11:26:14.249198" level="INFO">Releasing special key CONTROL.</msg>
-<msg time="2025-11-06T11:26:14.249313" level="INFO">Releasing special key BACKSPACE.</msg>
+<msg time="2025-11-06T14:35:53.004331" level="INFO">Sending key(s) ('CTRL+A+BACKSPACE',) to xpath=//input[@id="password"] element.</msg>
+<msg time="2025-11-06T14:35:53.323747" level="INFO">Pressing special key CONTROL down.</msg>
+<msg time="2025-11-06T14:35:53.323966" level="INFO">Sending key A</msg>
+<msg time="2025-11-06T14:35:53.324093" level="INFO">Pressing special key BACKSPACE down.</msg>
+<msg time="2025-11-06T14:35:53.324211" level="INFO">Releasing special key CONTROL.</msg>
+<msg time="2025-11-06T14:35:53.324322" level="INFO">Releasing special key BACKSPACE.</msg>
 <arg>${element_locator}</arg>
 <arg>CTRL+A+BACKSPACE</arg>
 <doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
-<status status="PASS" start="2025-11-06T11:26:13.946430" elapsed="0.323213"/>
+<status status="PASS" start="2025-11-06T14:35:53.002853" elapsed="0.350376"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-11-06T11:26:14.270785" level="INFO">Typing text ' ' into text field 'xpath=//input[@id="password"]'.</msg>
+<msg time="2025-11-06T14:35:53.357916" level="INFO">Typing text ' ' into text field 'xpath=//input[@id="password"]'.</msg>
 <arg>${element_locator}</arg>
 <arg>${data_input}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-11-06T11:26:14.270164" elapsed="0.129002"/>
+<status status="PASS" start="2025-11-06T14:35:53.356910" elapsed="0.263825"/>
 </kw>
 <arg>${PASSWORD_FIELD}</arg>
 <arg>${password}</arg>
-<status status="PASS" start="2025-11-06T11:26:13.902166" elapsed="0.497514"/>
+<status status="PASS" start="2025-11-06T14:35:52.945085" elapsed="0.679445"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${expected}</arg>
 <arg>5s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-11-06T11:26:14.400220" elapsed="0.026827"/>
+<status status="PASS" start="2025-11-06T14:35:53.627442" elapsed="0.097120"/>
 </kw>
 <arg>userid=${OWNER_USER_ID}</arg>
 <arg>password=${SPACE}</arg>
 <arg>expected=${VALIDATION_TEXT_PASSWORD_CONTAIN_SPACES}</arg>
-<status status="PASS" start="2025-11-06T11:26:13.353150" elapsed="1.074170"/>
+<status status="PASS" start="2025-11-06T14:35:52.233339" elapsed="1.492416"/>
 </kw>
-<status status="PASS" start="2025-11-06T11:26:13.345715" elapsed="1.082123"/>
+<status status="PASS" start="2025-11-06T14:35:52.189830" elapsed="1.537546"/>
 </test>
 <kw name="Close PandaPay" owner="common_keywords" type="TEARDOWN">
 <kw name="Close All Browsers" owner="SeleniumLibrary">
 <doc>Closes all open browsers and resets the browser cache.</doc>
-<status status="PASS" start="2025-11-06T11:26:14.430200" elapsed="7.049217"/>
+<status status="PASS" start="2025-11-06T14:35:53.772880" elapsed="7.738646"/>
 </kw>
-<status status="PASS" start="2025-11-06T11:26:14.429480" elapsed="7.050218"/>
+<status status="PASS" start="2025-11-06T14:35:53.771853" elapsed="7.740248"/>
 </kw>
-<status status="PASS" start="2025-11-06T11:25:50.895429" elapsed="30.584377"/>
+<status status="PASS" start="2025-11-06T14:35:20.986218" elapsed="40.526231"/>
 </suite>
 <statistics>
 <total>
@@ -959,8 +959,8 @@
 </suite>
 </statistics>
 <errors>
-<msg time="2025-11-06T11:26:03.863033" level="WARN">Multiple tests with name 'Verify the system displays validation text when user input  and Dev123!@#' executed in suite 'Signin'.</msg>
-<msg time="2025-11-06T11:26:09.084751" level="WARN">Multiple tests with name 'Verify the system displays validation text when user input bennguyen and DEVPASSWORD1234!@' executed in suite 'Signin'.</msg>
-<msg time="2025-11-06T11:26:13.345832" level="WARN">Multiple tests with name 'Verify the system displays validation text when user input bennguyen and  ' executed in suite 'Signin'.</msg>
+<msg time="2025-11-06T14:35:38.896783" level="WARN">Multiple tests with name 'Verify the system displays validation text when user input  and Dev123!@#' executed in suite 'Signin'.</msg>
+<msg time="2025-11-06T14:35:46.903784" level="WARN">Multiple tests with name 'Verify the system displays validation text when user input bennguyen and DEVPASSWORD1234!@' executed in suite 'Signin'.</msg>
+<msg time="2025-11-06T14:35:52.190029" level="WARN">Multiple tests with name 'Verify the system displays validation text when user input bennguyen and  ' executed in suite 'Signin'.</msg>
 </errors>
 </robot>
