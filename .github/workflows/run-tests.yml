@@ -1,5 +1,9 @@
 name: Run Robot Tests on Push
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 # 🔸 Khi nào workflow chạy
 on:
   push:             # mỗi khi bạn push code
