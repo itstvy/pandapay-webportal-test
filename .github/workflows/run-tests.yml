@@ -1,8 +1,4 @@
 name: Run Robot Tests on Push
-permissions:
-  contents: read
-  pages: write
-  id-token: write
 # 🔸 Khi nào workflow chạy
 on:
   push:             # mỗi khi bạn push code
@@ -13,6 +9,10 @@ on:
 jobs:
   run-tests:
     runs-on: ubuntu-latest    # tạo máy ảo Ubuntu sạch
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
 
     steps:
       # 1️⃣ Lấy code trong repo về
