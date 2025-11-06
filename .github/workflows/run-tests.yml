@@ -35,7 +35,7 @@ jobs:
       - name: Run Robot tests
         run: |
           mkdir -p results
-          robot --listener allure_robotframework;results\allure-results -d logs tests\authentication\signin.robot
+          robot --listener allure_robotframework:results/allure-results -d results tests/authentication/signin.robot
 
       # 5️⃣ Generate Allure HTML report
       - name: Generate Allure report
