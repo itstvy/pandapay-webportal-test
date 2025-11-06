@@ -59,6 +59,12 @@ jobs:
           npm install -g allure-commandline --save-dev
           allure generate results/allure-results -o results/allure-report --clean
 
+      - name: Upload Allure raw results
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-results
+          path: results/allure-results
+
       - name: Upload Allure report
         uses: actions/upload-artifact@v4
         with:
@@ -68,8 +74,4 @@ jobs:
       - name: Deploy to Github Pages
         uses: actions/deploy-pages@v4   
 
-      - name: Upload Allure raw results
-        uses: actions/upload-artifact@v4
-        with:
-          name: allure-results
-          path: results/allure-results
+
