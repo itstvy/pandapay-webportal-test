@@ -4,7 +4,7 @@ name: Run Robot Tests on Push
 on:
   push:             # mỗi khi bạn push code
     branches:
-      - main        # bạn có thể đổi thành branch khác (VD: dev)
+      - bugfix        # bạn có thể đổi thành branch khác (VD: dev)
   workflow_dispatch: # cho phép bấm "Run workflow" thủ công trong tab Actions
 
 jobs:
