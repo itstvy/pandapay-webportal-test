@@ -42,7 +42,7 @@ jobs:
           CHROME_DRIVER_PATH=$(python -c "from webdriver_manager.chrome import ChromeDriverManager; print(ChromeDriverManager().install())")
           sudo mv "$CHROME_DRIVER_PATH" /usr/local/bin/chromedriver
           sudo chmod +x /usr/local/bin/chromedriver
-            
+
       # 4️⃣ Chạy Robot test + ghi kết quả Allure
       - name: Run Robot tests
         run: |
@@ -55,3 +55,11 @@ jobs:
           pip install allure-robotframework
           npm install -g allure-commandline --save-dev
           allure generate results/allure-results -o results/allure-report --clean
+
+      - name: Upload Allure report to Pages artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: results/allure-report
+  
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v1          
