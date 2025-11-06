@@ -44,7 +44,7 @@ jobs:
       # 5️⃣ Generate Allure HTML report
       - name: Generate Allure report
         run: |
-          pip install allure-pytest
+          pip install allure-robotframework
           allure generate results/allure-results -o results/allure-report --clean
 
       # 6️⃣ (Tuỳ chọn) Upload report làm artifact để tải về
@@ -53,7 +53,7 @@ jobs:
         with:
           name: allure-report
           path: results/allure-report
-          
+
       - name: Install Chrome and ChromeDriver
         run: |
           sudo apt-get update
