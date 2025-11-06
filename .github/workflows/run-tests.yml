@@ -1,9 +1,5 @@
 name: Run Robot Tests on Push
 
-permissions:
-  contents: read
-  pages: write
-  id-token: write
 # 🔸 Khi nào workflow chạy
 on:
   push:             # mỗi khi bạn push code
@@ -60,22 +56,14 @@ jobs:
           npm install -g allure-commandline --save-dev
           allure generate results/allure-results -o results/allure-report --clean
 
-          - name: Upload Allure report artifact
-          uses: actions/upload-artifact@v4
-          with:
-            name: allure-report
-            path: results/allure-report
-  
-      - name: Upload Allure results (raw)
+      - name: Upload Allure report
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-report
+          path: results/allure-report
+
+      - name: Upload Allure raw results
         uses: actions/upload-artifact@v4
         with:
           name: allure-results
           path: results/allure-results
-  
-      - name: Upload Allure report to Pages artifact
-        uses: actions/upload-pages-artifact@v1
-        with:
-          path: results/allure-report
-  
-      - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v1       
