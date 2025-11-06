@@ -12,7 +12,6 @@ Basic Setup
     Call Method    ${options}    add_argument    --no-sandbox
     Call Method    ${options}    add_argument    --disable-dev-shm-usage
     Call Method    ${options}    add_argument    --disable-gpu
-    Call Method    ${options}    add_argument    --window-size=1920,1080
     ${logging_prefs}=    Create Dictionary    performance=ALL
     Call Method    ${options}    set_capability    goog:loggingPrefs    ${logging_prefs}
     Open Browser    ${PANDAPAY_URL}    ${BROWSER}    options=${options}
