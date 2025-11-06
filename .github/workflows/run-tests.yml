@@ -45,6 +45,7 @@ jobs:
       - name: Generate Allure report
         run: |
           pip install allure-robotframework
+          npm install allure-commandline
           allure generate results/allure-results -o results/allure-report --clean
 
       # 6️⃣ (Tuỳ chọn) Upload report làm artifact để tải về
