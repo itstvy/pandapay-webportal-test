@@ -6,6 +6,7 @@ Library    String
 Library    BuiltIn
 Library    RequestsLibrary
 Library    JSONLibrary
+Library    FakerLibrary    locale=en_US
 Library    ../../library-python/CaptureAPI.py    WITH NAME     bikip
 
 #Keyword
@@ -16,6 +17,7 @@ Resource    ../../resources/keywords/myAccount/profile-keyword.robot
 Resource    ../../resources/keywords/myAccount/change-language-keyword.robot
 Resource    ../../resources/keywords/myAccount/change-password-keyword.robot
 Resource    ../../resources/keywords/user-management/user-list-keywords.robot
+Resource    ../../resources/keywords/user-management/create-user-keywords.robot
 
 #Variable
 Resource    ../../resources/common/common_variables.robot
@@ -24,6 +26,8 @@ Resource    ../../resources/variables/myAccount/change-language-variables.robot
 Resource    ../../resources/variables/myAccount/change-password-variables.robot
 Resource    ../../resources/variables/myAccount/profile-variables.robot
 Resource    ../../resources/variables/user-management/user-list-variables.robot
+Resource    ../../resources/variables/user-management/create-user-variables.robot
+
 
 #Draft
 Resource    ../../draft/sign-in-keywords-draft.robot

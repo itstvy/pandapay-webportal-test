@@ -5,6 +5,7 @@ Suite Teardown  Close PandaPay
 Documentation    Test Sign In page with UI; Success; Unssucess; Logic; API
 
 *** Test Cases ***
+#Case
 Verify the system shows validation text when user leaves User ID empty
     [Tags]    Validation
     When user clicks on User ID field
@@ -99,7 +100,6 @@ Verify the Owner Sign In Successfully when user inputs correct credentials
     And user enters Owner password
     And user unticks the Admin checkbox
     When user click on Sign In button and send Owner valid credentials
-    Sleep    5s
     Then user should see Report menu
     
 Verify the system Sign user out successfully when user click on Sign Out button
@@ -107,7 +107,6 @@ Verify the system Sign user out successfully when user click on Sign Out button
     Given user clicks on My Account avatar
     And user click on Sign Out button and system sign user out successfully
     Then user should be redirected to Sign in screen
-    Sleep    5s
 Verify that Admin sign-in fails when the Admin checkbox is not selected
     [Tags]    Unsuccess    API
     When user enters Admin User ID
@@ -121,8 +120,18 @@ Verify the Admin Sign In Successfully when user inputs correct credentials
     And user enters Admin password
     And user ticks the Admin checkbox
     When user click on Sign In button and send Admin valid credentials
-    Sleep    5s
     Then user should see Report menu
+
+
+
+
+
+
+
+
+
+    
+
 
 
 

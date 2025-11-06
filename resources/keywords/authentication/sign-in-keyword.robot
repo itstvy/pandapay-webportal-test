@@ -2,100 +2,78 @@
 Resource    ../../../resources/common/common_settings.robot
 
 *** Keywords ***
+#Data Driver keyword
+Verify data input in UserID and Password field
+    [Arguments]    ${userid}    ${password}    ${expected}
+    Input data in Element    ${USERID_FIELD}    ${userid}
+    Input data in Element    ${PASSWORD_FIELD}    ${password}
+    Wait Until Element Is Visible    ${expected}    5s
+
 # Basic Navigation Keywords
 user is on the sign in page
-    Wait Until Page Contains Element    ${USERID_FIELD}
-    Wait Until Page Contains Element    ${PASSWORD_FIELD}
+    Wait Until Element Is Visible    ${USERID_FIELD}
+    Wait Until Element Is Visible    ${PASSWORD_FIELD}
+    Wait Until Element Is Visible    ${ADMIN_CHECKBOX_UNCHECKED}
+    Wait Until Element Is Visible    ${SIGNIN_BUTTON}
 
 # Input Field Interaction Keywords
 user clicks on User ID field
-    Wait Until Page Contains Element    ${USERID_FIELD}
-    Click Element    ${USERID_FIELD}
-
+    Click on Element    ${USERID_FIELD}
 user clicks on Password field
-    Wait Until Page Contains Element    ${PASSWORD_FIELD}
-    Click Element    ${PASSWORD_FIELD}
-
+    Click on Element    ${PASSWORD_FIELD}
 user ticks the Admin checkbox
-    Wait Until Page Contains Element    ${ADMIN_CHECKBOX_UNCHECKED}
-    Click Element    ${ADMIN_CHECKBOX_UNCHECKED}
+    Click on Element    ${ADMIN_CHECKBOX_UNCHECKED}
 user unticks the Admin checkbox
-    Wait Until Page Contains Element    ${ADMIN_CHECKBOX_CHECKED}
-    Click Element    ${ADMIN_CHECKBOX_CHECKED}
-
+    Click on Element    ${ADMIN_CHECKBOX_CHECKED}
 user clicks Sign In button
-    Click Element    ${SIGNIN_BUTTON}
+    Click on Element    ${SIGNIN_BUTTON}
 
 # User ID Input Keywords
 user enters Owner User ID
-    Wait Until Page Contains Element    ${USERID_FIELD}
-    Input Text    ${USERID_FIELD}    ${OWNER_USER_ID}
-
+    Input data in Element    ${USERID_FIELD}    ${OWNER_USER_ID}
 user enters Admin User ID
-    Input Text    ${USERID_FIELD}    ${ADMIN}
-
+    Input data in Element    ${USERID_FIELD}    ${ADMIN}
 user enters Deactivated User ID
-    Input Text    ${USERID_FIELD}    ${DEACTIVATED_USER_ID}
-
+    Input data in Element    ${USERID_FIELD}    ${DEACTIVATED_USER_ID}
 user enters Deactivated Password
-    Input Text    ${PASSWORD_FIELD}    ${DEACTIVATED_PASSWORD}
-
+    Input data in Element    ${PASSWORD_FIELD}    ${DEACTIVATED_PASSWORD}
 user leaves User ID empty
-    Input Text    ${USERID_FIELD}    ${EMPTY}
-
+    Input data in Element    ${USERID_FIELD}    ${EMPTY}
 user enters User ID with less than 5 characters
-    Input Text    ${USERID_FIELD}    ${USER_ID_LESS_THAN_5}
-
+    Input data in Element    ${USERID_FIELD}    ${USER_ID_LESS_THAN_5}
 user enters User ID with more than 20 characters
-    Input Text    ${USERID_FIELD}    ${USER_ID_MORE_THAN_20}
-
+    Input data in Element    ${USERID_FIELD}    ${USER_ID_MORE_THAN_20}
 user enters User ID with special characters
-    Input Text    ${USERID_FIELD}    ${USER_ID_CONTAIN_SPECIAL_CHARACTERS}
-
+    Input data in Element    ${USERID_FIELD}    ${USER_ID_CONTAIN_SPECIAL_CHARACTERS}
 user enters User ID with spaces
-    Input Text    ${USERID_FIELD}    ${USER_ID_CONTAIN_SPACES}
-
+    Input data in Element    ${USERID_FIELD}    ${USER_ID_CONTAIN_SPACES}
+    
 # Password Input Keywords
 user enters Owner password
-    Wait Until Page Contains Element    ${PASSWORD_FIELD}
-    Input Text    ${PASSWORD_FIELD}    ${OWNER_PASSWORD}
-
+    Input data in Element    ${PASSWORD_FIELD}    ${OWNER_PASSWORD}
 user enters incorrect Owner Password
-    Input Text    ${PASSWORD_FIELD}    ${INCORRECT_PASSWORD}
-
+    Input data in Element    ${PASSWORD_FIELD}    ${INCORRECT_PASSWORD}
 user enters Admin password
-    Input Text    ${PASSWORD_FIELD}    ${ADMIN_PASSWORD}
-
+    Input data in Element    ${PASSWORD_FIELD}    ${ADMIN_PASSWORD}
 user leaves Password empty
-    Input Text    ${PASSWORD_FIELD}    ${EMPTY}
-
+    Input data in Element    ${PASSWORD_FIELD}    ${EMPTY}
 user enters Password with less than 8 characters
-    Input Text    ${PASSWORD_FIELD}    ${PASSWORD_LESS_THAN_8}
-
+    Input data in Element    ${PASSWORD_FIELD}    ${PASSWORD_LESS_THAN_8}
 user enters Password with spaces
-    Input Text    ${PASSWORD_FIELD}    ${PASSWORD_CONTAIN_SPACES}
-
+    Input data in Element    ${PASSWORD_FIELD}    ${PASSWORD_CONTAIN_SPACES}
 user enters Password without numbers
-    Input Text    ${PASSWORD_FIELD}    ${PASSWORD_MISSING_NUMBER}
-
+    Input data in Element    ${PASSWORD_FIELD}    ${PASSWORD_MISSING_NUMBER}
 user enters Password without uppercase letters
-    Input Text    ${PASSWORD_FIELD}    ${PASSWORD_MISSING_UPPERCASE}
-
+    Input data in Element    ${PASSWORD_FIELD}    ${PASSWORD_MISSING_UPPERCASE}
 user enters Password without lowercase letters
-    Input Text    ${PASSWORD_FIELD}    ${PASSWORD_MISSING_LOWERCASE}
-
+    Input data in Element    ${PASSWORD_FIELD}    ${PASSWORD_MISSING_LOWERCASE}
 user enters Password without special characters
-    Input Text    ${PASSWORD_FIELD}    ${PASSWORD_MISSING_SPECIAL_CHARACTER}
-
+    Input data in Element    ${PASSWORD_FIELD}    ${PASSWORD_MISSING_SPECIAL_CHARACTER}
 # Logout Keywords
 user clicks on My Account avatar
-    Wait Until Element Is Visible    ${MY_ACCOUNT_MENU}
-    Click Element    ${MY_ACCOUNT_MENU}
-
+    Click on Element    ${MY_ACCOUNT_MENU}
 user clicks on Sign Out button
-    Wait Until Element Is Visible    ${SIGN_OUT_BUTTON}    timeout=${TIMEOUT}
-    Click Element    ${SIGN_OUT_BUTTON}
-
+    Click on Element    ${SIGN_OUT_BUTTON}
 user Sign Out successfully
     Given user clicks on My Account avatar
     And user clicks on Sign Out button
@@ -115,7 +93,7 @@ user should see User ID validation for special characters
     Wait Until Element Is Visible    ${VALIDATION_TEXT_CONTAIN_SPECIAL_CHARACTERS}    timeout=${TIMEOUT}
 
 user should see User ID validation for spaces
-    Wait Until Element Is Visible    ${VALIDATION_TEXT_CONTAIN_SPACES}    timeout=${TIMEOUT}
+    Wait Until Element Is Visible    ${VALIDATION_TEXT_USER_ID_CONTAIN_SPACES}    timeout=${TIMEOUT}
 
 user should see Password empty validation
     Wait Until Element Is Visible    ${VALIDATION_TEXT_EMPTY_PASSWORD}    timeout=${TIMEOUT}
@@ -124,7 +102,7 @@ user should see Password validation for less than 8 characters
     Wait Until Element Is Visible    ${VALIDATION_TEXT_LESS_THAN_8_CHARACTERS}    timeout=${TIMEOUT}
 
 user should see Password validation for spaces
-    Wait Until Element Is Visible    ${VALIDATION_TEXT_CONTAIN_SPACES}    timeout=${TIMEOUT}
+    Wait Until Element Is Visible    ${VALIDATION_TEXT_PASSWORD_CONTAIN_SPACES}    timeout=${TIMEOUT}
 
 user should see Password validation for missing number
     Wait Until Element Is Visible    ${VALIDATION_TEXT_MISSING_NUMBER}    timeout=${TIMEOUT}
@@ -148,7 +126,7 @@ user should see Report menu
     Wait Until Element Is Visible    ${REPORT_MENU}    timeout=${TIMEOUT}
 
 user should be redirected to Sign in screen
-    Wait Until Page Contains Element    ${WELCOME_SIGN_IN}    timeout=${TIMEOUT}
+    Wait Until Element Is Visible    ${WELCOME_SIGN_IN}    timeout=${TIMEOUT}
 
 
 #API Keywords
@@ -217,6 +195,7 @@ user click on Sign In button and send Admin valid credentials
     #Set message
     Set Log Request to Test Message    ${signin_request}
     bikip.Stop Network Interception    ${webdriver}
+
 
 #Owner sign in unsuccessfully
 user click on Sign in button and send Owner Incorrect credentials
@@ -291,3 +270,4 @@ user click on Sign Out button and system sign user out successfully
     #Set message
     Set Log Request to Test Message    ${signout_request}
     bikip.Stop Network Interception    ${webdriver}
+

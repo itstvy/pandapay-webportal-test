@@ -10,6 +10,9 @@ Login and Save Cookies
     Setup API Capture Environment    ${webdriver}
     When user enters Owner User ID
     And user enters Owner password
+    # And user enters Admin User ID
+    # And user enters Admin password
+    # Then user ticks the Admin checkbox
     And user clicks Sign In button
     #Capture API
     ${signin_request}=    Wait for API Request    ${webdriver}    ${SIGNIN_ENDPOINT}    POST    10
@@ -27,6 +30,6 @@ Restore Browser Session
         ${cookies}=    Evaluate    json.loads('''${cookies_json}''')    modules=json
         FOR    ${cookie}    IN    @{cookies}
             Call Method    ${webdriver}    add_cookie    ${cookie}
+            Reload Page
         END
     END
-    Go To    ${PANDAPAY_URL}

@@ -2,60 +2,62 @@
 Resource    ../../../resources/common/common_settings.robot
 
 *** Keywords ***
+
+when user click on Profile menu button
+    [Tags]    UI
+    Login and Save Cookies
+    Given user clicks on My Account avatar
+    And user should see a Profile menu button
+    And user click on the Profile menu button
+    Then the system displays the Change User Information screen
 #UI
 user click on the Profile menu button
-    Click Element    ${PROFILE_MENU_BUTTON}
+    Click on Element    ${PROFILE_MENU_BUTTON}
 user should see a Profile menu button
     Wait Until Element Is Visible    ${PROFILE_MENU_BUTTON}
 user clicks on Submit button in User Information form
-    Click Element    ${SUBMIT_PROFILE_BUTTON_2}
+    Click on Element    ${SUBMIT_PROFILE_BUTTON_2}
 the system displays the Change User Information screen
-    Sleep    5s
     Wait Until Element Is Visible     ${CHANGE_USER_INFORMATION_TITLE} 
+
 #Success 
 user input new User information
     Clear Element Text    ${PROFILE_FIRST_NAME_FIELD}
-    Input Text    ${PROFILE_FIRST_NAME_FIELD}    ${NEW_FIRST_NAME}
+    Input data in Element    ${PROFILE_FIRST_NAME_FIELD}    ${NEW_FIRST_NAME}
 
     Clear Element Text    ${PROFILE_LAST_NAME_FIELD}
-    Input Text    ${PROFILE_LAST_NAME_FIELD}    ${NEW_LAST_NAME}
+    Input data in Element    ${PROFILE_LAST_NAME_FIELD}    ${NEW_LAST_NAME}
 
     Clear Element Text    ${PROFILE_ADDRESS_FIELD}
-    Input Text    ${PROFILE_ADDRESS_FIELD}    ${NEW_ADRESS}
+    Input data in Element    ${PROFILE_ADDRESS_FIELD}    ${NEW_ADRESS}
 
 #First Name Input keywords
 user clicks on First Name field
-    Click Element    ${PROFILE_FIRST_NAME_FIELD}
+    Click on Element    ${PROFILE_FIRST_NAME_FIELD}
 user leaves First Name field empty
     Clear Input field    ${PROFILE_FIRST_NAME_FIELD}
 user enters data less than 2 characters in First Name field
-    Clear Input field    ${PROFILE_FIRST_NAME_FIELD}
-    Input Text    ${PROFILE_FIRST_NAME_FIELD}    ${LESS_THAN_2_CHARACTERS}
+    Input data in Element    ${PROFILE_FIRST_NAME_FIELD}    ${LESS_THAN_2_CHARACTERS}
 user enters data more than 50 characters in First Name field
-    Clear Input field    ${PROFILE_FIRST_NAME_FIELD}
-    Input Text    ${PROFILE_FIRST_NAME_FIELD}    ${MORE_THAN_50_CHARACTERS}
+    Input data in Element    ${PROFILE_FIRST_NAME_FIELD}    ${MORE_THAN_50_CHARACTERS}
 
 #Last Name Input keywords
 user clicks on Last Name field
-    Click Element    ${PROFILE_LAST_NAME_FIELD}
+    Click on Element    ${PROFILE_LAST_NAME_FIELD}
 user leaves Last Name field empty
     Clear Input field    ${PROFILE_LAST_NAME_FIELD}
 user enters data less than 2 characters in Last Name field
-    Clear Input field    ${PROFILE_LAST_NAME_FIELD}
-    Input Text    ${PROFILE_LAST_NAME_FIELD}    ${LESS_THAN_2_CHARACTERS}
+    Input data in Element    ${PROFILE_LAST_NAME_FIELD}    ${LESS_THAN_2_CHARACTERS}
 user enters data more than 50 characters in Last Name field
-    Clear Input field    ${PROFILE_LAST_NAME_FIELD}
-    Input Text    ${PROFILE_LAST_NAME_FIELD}    ${MORE_THAN_50_CHARACTERS}
+    Input data in Element    ${PROFILE_LAST_NAME_FIELD}    ${MORE_THAN_50_CHARACTERS}
 
 #Address Input Keywords
 user clicks on Address field
-    Click Element    ${PROFILE_ADDRESS_FIELD}
+    Click on Element    ${PROFILE_ADDRESS_FIELD}
 user enters data less than 5 characters in Address field
-    Clear Input field    ${PROFILE_ADDRESS_FIELD}
-    Input Text    ${PROFILE_ADDRESS_FIELD}    ${LESS_THAN_5_CHARACTERS}
+    Input data in Element    ${PROFILE_ADDRESS_FIELD}    ${LESS_THAN_5_CHARACTERS}
 user enters data more than 100 characters in Address field
-    Clear Input field    ${PROFILE_ADDRESS_FIELD}
-    Input Text    ${PROFILE_ADDRESS_FIELD}    ${MORE_THAN_100_CHARACTERS}
+    Input data in Element    ${PROFILE_ADDRESS_FIELD}    ${MORE_THAN_100_CHARACTERS}
 
 # Validation Message Verification Keywords
 #First Name field

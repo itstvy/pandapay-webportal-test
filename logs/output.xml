@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.3.2 (Python 3.13.3 on win32)" generated="2025-10-14T16:34:15.964529" rpa="false" schemaversion="5">
-<suite id="s1" name="Change-Password" source="D:\Automation-Testing\Robot-Framework\PandaPay-v2\tests\myAccount\change-password.robot">
+<robot generator="Robot 7.3.2 (Python 3.13.3 on win32)" generated="2025-11-06T11:25:50.886223" rpa="false" schemaversion="5">
+<suite id="s1" name="Signin" source="D:\Automation-Testing\Robot-Framework\PandaPay-v2\tests\authentication\signin.robot">
 <kw name="Basic Setup" owner="common_keywords" type="SETUP">
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-10-14T16:34:17.050016" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x000001CBF92530E0&gt;</msg>
+<msg time="2025-11-06T11:25:53.455724" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x000001BE81D83CB0&gt;</msg>
 <var>${options}</var>
 <arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
 <arg>sys</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-10-14T16:34:17.049340" elapsed="0.000771"/>
+<status status="PASS" start="2025-11-06T11:25:53.454939" elapsed="0.000886"/>
 </kw>
 <kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-10-14T16:34:17.051017" level="INFO">${logging_prefs} = {'performance': 'ALL'}</msg>
+<msg time="2025-11-06T11:25:53.456767" level="INFO">${logging_prefs} = {'performance': 'ALL'}</msg>
 <var>${logging_prefs}</var>
 <arg>performance=ALL</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-10-14T16:34:17.050503" elapsed="0.000586"/>
+<status status="PASS" start="2025-11-06T11:25:53.456261" elapsed="0.000578"/>
 </kw>
 <kw name="Call Method" owner="BuiltIn">
 <arg>${options}</arg>
@@ -23,543 +23,944 @@
 <arg>goog:loggingPrefs</arg>
 <arg>${logging_prefs}</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="PASS" start="2025-10-14T16:34:17.051383" elapsed="0.000328"/>
+<status status="PASS" start="2025-11-06T11:25:53.457147" elapsed="0.000351"/>
 </kw>
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-10-14T16:34:17.052617" level="INFO">Opening browser 'chrome' to base url 'https://app.panda.ennam.vn'.</msg>
+<msg time="2025-11-06T11:25:53.458424" level="INFO">Opening browser 'chrome' to base url 'https://app.panda.ennam.vn'.</msg>
 <arg>${PANDAPAY_URL}</arg>
 <arg>${BROWSER}</arg>
 <arg>options=${options}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-10-14T16:34:17.052061" elapsed="4.554263"/>
+<status status="PASS" start="2025-11-06T11:25:53.457876" elapsed="4.025198"/>
 </kw>
 <kw name="Maximize Browser Window" owner="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2025-10-14T16:34:21.607077" elapsed="0.630280"/>
+<status status="PASS" start="2025-11-06T11:25:57.484662" elapsed="0.793052"/>
 </kw>
-<kw name="Restore Browser Session" owner="browser_keywords">
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-10-14T16:34:22.240002" level="INFO">${cookies_file} = .session/cookies.json</msg>
-<var>${cookies_file}</var>
-<arg>${SESSION}/cookies.json</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-10-14T16:34:22.239384" elapsed="0.000743"/>
+<status status="PASS" start="2025-11-06T11:25:53.452122" elapsed="4.825978"/>
 </kw>
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<kw name="File Should Exist" owner="OperatingSystem">
-<msg time="2025-10-14T16:34:22.242027" level="INFO" html="true">File '&lt;a href="file://D:\Automation-Testing\Robot-Framework\PandaPay-v2\.session\cookies.json"&gt;D:\Automation-Testing\Robot-Framework\PandaPay-v2\.session\cookies.json&lt;/a&gt;' exists.</msg>
-<arg>${cookies_file}</arg>
-<doc>Fails unless the given ``path`` points to an existing file.</doc>
-<status status="PASS" start="2025-10-14T16:34:22.241338" elapsed="0.000993"/>
-</kw>
-<msg time="2025-10-14T16:34:22.242730" level="INFO">${cookies_exist} = True</msg>
-<var>${cookies_exist}</var>
-<arg>File Should Exist</arg>
-<arg>${cookies_file}</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2025-10-14T16:34:22.240733" elapsed="0.002101"/>
-</kw>
-<if>
-<branch type="IF" condition="${cookies_exist}">
-<kw name="Get Selenium Driver" owner="common_keywords">
-<kw name="Get Library Instance" owner="BuiltIn">
-<msg time="2025-10-14T16:34:22.246737" level="INFO">${selenium_Library} = &lt;SeleniumLibrary.SeleniumLibrary object at 0x000001CBF8DAAA50&gt;</msg>
-<var>${selenium_Library}</var>
-<arg>${library_name}</arg>
-<doc>Returns the currently active instance of the specified library.</doc>
-<status status="PASS" start="2025-10-14T16:34:22.245722" elapsed="0.001192"/>
-</kw>
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-10-14T16:34:22.252234" level="INFO">${webdriver} = &lt;selenium.webdriver.chrome.webdriver.WebDriver (session="6d2a36b8a6015889f8e59515fb428666")&gt;</msg>
-<var>${webdriver}</var>
-<arg>${selenium_Library.driver}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-10-14T16:34:22.247525" elapsed="0.004865"/>
-</kw>
-<return>
-<value>${webdriver}</value>
-<status status="PASS" start="2025-10-14T16:34:22.252700" elapsed="0.000268"/>
-</return>
-<msg time="2025-10-14T16:34:22.253633" level="INFO">${webdriver} = &lt;selenium.webdriver.chrome.webdriver.WebDriver (session="6d2a36b8a6015889f8e59515fb428666")&gt;</msg>
-<var>${webdriver}</var>
-<status status="PASS" start="2025-10-14T16:34:22.244457" elapsed="0.009407"/>
-</kw>
-<kw name="Get File" owner="OperatingSystem">
-<msg time="2025-10-14T16:34:22.255514" level="INFO" html="true">Getting file '&lt;a href="file://D:\Automation-Testing\Robot-Framework\PandaPay-v2\.session\cookies.json"&gt;D:\Automation-Testing\Robot-Framework\PandaPay-v2\.session\cookies.json&lt;/a&gt;'.</msg>
-<msg time="2025-10-14T16:34:22.256729" level="INFO">${cookies_json} = [{"domain": "app.panda.ennam.vn", "httpOnly": false, "name": "refresh_token", "path": "/", "sameSite": "Lax", "secure": false, "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcm...</msg>
-<var>${cookies_json}</var>
-<arg>${cookies_file}</arg>
-<doc>Returns the contents of a specified file.</doc>
-<status status="PASS" start="2025-10-14T16:34:22.254726" elapsed="0.002160"/>
-</kw>
-<kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-10-14T16:34:22.259015" level="INFO">${cookies} = [{'domain': 'app.panda.ennam.vn', 'httpOnly': False, 'name': 'refresh_token', 'path': '/', 'sameSite': 'Lax', 'secure': False, 'value': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcm...</msg>
-<var>${cookies}</var>
-<arg>json.loads('''${cookies_json}''')</arg>
-<arg>modules=json</arg>
-<doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-10-14T16:34:22.257625" elapsed="0.001538"/>
-</kw>
-<for flavor="IN">
-<iter>
-<kw name="Call Method" owner="BuiltIn">
-<arg>${webdriver}</arg>
-<arg>add_cookie</arg>
-<arg>${cookie}</arg>
-<doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="PASS" start="2025-10-14T16:34:22.261042" elapsed="0.059489"/>
-</kw>
-<var name="${cookie}">{'domain': 'app.panda.ennam.vn', 'httpOnly': False, 'name': 'refresh_token', 'path': '/', 'sameSite': 'Lax', 'secure': False, 'value': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmV...</var>
-<status status="PASS" start="2025-10-14T16:34:22.260225" elapsed="0.060632"/>
-</iter>
-<iter>
-<kw name="Call Method" owner="BuiltIn">
-<arg>${webdriver}</arg>
-<arg>add_cookie</arg>
-<arg>${cookie}</arg>
-<doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="PASS" start="2025-10-14T16:34:22.321910" elapsed="0.074939"/>
-</kw>
-<var name="${cookie}">{'domain': 'app.panda.ennam.vn', 'httpOnly': False, 'name': 'access_token', 'path': '/', 'sameSite': 'Lax', 'secure': False, 'value': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNz...</var>
-<status status="PASS" start="2025-10-14T16:34:22.321405" elapsed="0.075770"/>
-</iter>
-<iter>
-<kw name="Call Method" owner="BuiltIn">
-<arg>${webdriver}</arg>
-<arg>add_cookie</arg>
-<arg>${cookie}</arg>
-<doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="PASS" start="2025-10-14T16:34:22.398442" elapsed="0.237988"/>
-</kw>
-<var name="${cookie}">{'domain': 'app.panda.ennam.vn', 'httpOnly': False, 'name': 'NEXT_LOCALE', 'path': '/', 'sameSite': 'Lax', 'secure': False, 'value': 'en'}</var>
-<status status="PASS" start="2025-10-14T16:34:22.397793" elapsed="0.239056"/>
-</iter>
-<var>${cookie}</var>
-<value>@{cookies}</value>
-<status status="PASS" start="2025-10-14T16:34:22.259545" elapsed="0.377612"/>
-</for>
-<status status="PASS" start="2025-10-14T16:34:22.243250" elapsed="0.394359"/>
-</branch>
-<status status="PASS" start="2025-10-14T16:34:22.243137" elapsed="0.395086"/>
-</if>
-<status status="PASS" start="2025-10-14T16:34:22.238520" elapsed="0.400408"/>
-</kw>
-<status status="PASS" start="2025-10-14T16:34:17.047476" elapsed="5.591879"/>
-</kw>
-<test id="s1-t1" name="Verify the system displays Change Password screen when user click on Change Password menu button" line="7">
-<kw name="Go To" owner="SeleniumLibrary">
-<msg time="2025-10-14T16:34:22.643278" level="INFO">Opening url 'https://app.panda.ennam.vn'</msg>
-<arg>${PANDAPAY_URL}</arg>
-<doc>Navigates the current browser window to the provided ``url``.</doc>
-<status status="PASS" start="2025-10-14T16:34:22.642325" elapsed="0.315871"/>
-</kw>
-<kw name="Given user clicks on My Account avatar" owner="sign-in-keyword">
+<test id="s1-t1" name="Verify the system displays validation text when user input annn and Dev123!@#" line="8">
+<kw name="Sign in">
+<kw name="Input data in Element" owner="common_keywords">
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${MY_ACCOUNT_MENU}</arg>
+<arg>${element_locator}</arg>
+<arg>5s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-10-14T16:34:22.961118" elapsed="2.654667"/>
+<status status="PASS" start="2025-11-06T11:25:58.300308" elapsed="0.416001"/>
 </kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-10-14T16:34:25.616746" level="INFO">Clicking element 'xpath=//span/img[@alt='User Avatar']'.</msg>
-<arg>${MY_ACCOUNT_MENU}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-10-14T16:34:25.616266" elapsed="0.197724"/>
+<kw name="Press Keys" owner="SeleniumLibrary">
+<msg time="2025-11-06T11:25:58.718362" level="INFO">Sending key(s) ('CTRL+A+BACKSPACE',) to xpath=//input[@id="user_code"] element.</msg>
+<msg time="2025-11-06T11:25:59.103040" level="INFO">Pressing special key CONTROL down.</msg>
+<msg time="2025-11-06T11:25:59.103283" level="INFO">Sending key A</msg>
+<msg time="2025-11-06T11:25:59.103437" level="INFO">Pressing special key BACKSPACE down.</msg>
+<msg time="2025-11-06T11:25:59.103566" level="INFO">Releasing special key CONTROL.</msg>
+<msg time="2025-11-06T11:25:59.103685" level="INFO">Releasing special key BACKSPACE.</msg>
+<arg>${element_locator}</arg>
+<arg>CTRL+A+BACKSPACE</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="PASS" start="2025-11-06T11:25:58.717020" elapsed="0.430562"/>
 </kw>
-<status status="PASS" start="2025-10-14T16:34:22.959482" elapsed="2.854768"/>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-11-06T11:25:59.149874" level="INFO">Typing text 'annn' into text field 'xpath=//input[@id="user_code"]'.</msg>
+<arg>${element_locator}</arg>
+<arg>${data_input}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-06T11:25:59.148723" elapsed="0.235352"/>
 </kw>
-<kw name="And user clicks on the Change Password menu button" owner="change-password-keyword">
+<arg>${USERID_FIELD}</arg>
+<arg>${userid}</arg>
+<status status="PASS" start="2025-11-06T11:25:58.298007" elapsed="1.086429"/>
+</kw>
+<kw name="Input data in Element" owner="common_keywords">
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${CHANGE_PASSWORD_MENU_BUTTON}</arg>
+<arg>${element_locator}</arg>
+<arg>5s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-10-14T16:34:25.816028" elapsed="0.065947"/>
+<status status="PASS" start="2025-11-06T11:25:59.386356" elapsed="0.039622"/>
 </kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-10-14T16:34:25.883207" level="INFO">Clicking element 'xpath=//div[normalize-space(text())='Change Password']'.</msg>
-<arg>${CHANGE_PASSWORD_MENU_BUTTON}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-10-14T16:34:25.882574" elapsed="0.186345"/>
+<kw name="Press Keys" owner="SeleniumLibrary">
+<msg time="2025-11-06T11:25:59.427522" level="INFO">Sending key(s) ('CTRL+A+BACKSPACE',) to xpath=//input[@id="password"] element.</msg>
+<msg time="2025-11-06T11:25:59.747702" level="INFO">Pressing special key CONTROL down.</msg>
+<msg time="2025-11-06T11:25:59.747868" level="INFO">Sending key A</msg>
+<msg time="2025-11-06T11:25:59.747952" level="INFO">Pressing special key BACKSPACE down.</msg>
+<msg time="2025-11-06T11:25:59.748021" level="INFO">Releasing special key CONTROL.</msg>
+<msg time="2025-11-06T11:25:59.748089" level="INFO">Releasing special key BACKSPACE.</msg>
+<arg>${element_locator}</arg>
+<arg>CTRL+A+BACKSPACE</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="PASS" start="2025-11-06T11:25:59.426539" elapsed="0.343171"/>
 </kw>
-<status status="PASS" start="2025-10-14T16:34:25.815098" elapsed="0.254320"/>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-11-06T11:25:59.770803" level="INFO">Typing text 'Dev123!@#' into text field 'xpath=//input[@id="password"]'.</msg>
+<arg>${element_locator}</arg>
+<arg>${data_input}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-06T11:25:59.770235" elapsed="0.145975"/>
 </kw>
-<kw name="Then system displays Change Password screen" owner="change-password-keyword">
+<arg>${PASSWORD_FIELD}</arg>
+<arg>${password}</arg>
+<status status="PASS" start="2025-11-06T11:25:59.385142" elapsed="0.531381"/>
+</kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${CHANGE_PASSWORD_TITLE}</arg>
+<arg>${expected}</arg>
+<arg>5s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-10-14T16:34:26.071591" elapsed="0.556529"/>
+<status status="PASS" start="2025-11-06T11:25:59.917016" elapsed="0.034406"/>
 </kw>
-<status status="PASS" start="2025-10-14T16:34:26.070599" elapsed="0.557839"/>
+<arg>userid=${USER_ID_LESS_THAN_5}</arg>
+<arg>password=${OWNER_PASSWORD}</arg>
+<arg>expected=${VALIDATION_TEXT_LESS_THAN_5_CHARACTERS}</arg>
+<status status="PASS" start="2025-11-06T11:25:58.296029" elapsed="1.655664"/>
 </kw>
-<tag>UI</tag>
-<status status="PASS" start="2025-10-14T16:34:22.639679" elapsed="3.989396"/>
+<status status="PASS" start="2025-11-06T11:25:58.278814" elapsed="1.673491"/>
 </test>
-<test id="s1-t2" name="Verify the system show validation text when user leaves Current Password field empty" line="14">
-<kw name="When user leaves Current Password, New Password, Confirm New Password fields empty" owner="change-password-keyword">
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-10-14T16:34:26.632625" level="INFO">Clicking element 'xpath=//input[@id="current_password"]'.</msg>
-<arg>${CURRENT_PASSWORD_FIELD}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-10-14T16:34:26.632213" elapsed="0.181157"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-10-14T16:34:26.814471" level="INFO">Clicking element 'xpath=//input[@id="new_password"]'.</msg>
-<arg>${NEW_PASSWORD_FIELD}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-10-14T16:34:26.813863" elapsed="0.137865"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-10-14T16:34:26.952745" level="INFO">Clicking element 'xpath=//input[@id="confirm_new_password"]'.</msg>
-<arg>${CONFIRM_NEW_PASSWORD_FIELD}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-10-14T16:34:26.952225" elapsed="0.136889"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-10-14T16:34:27.090104" level="INFO">Clicking element 'xpath=/html/body/div[1]/div/main/div/form/button[text()='Submit']'.</msg>
-<arg>${SUBMIT_CHANGE_PASSWORD_BUTTON_2}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-10-14T16:34:27.089607" elapsed="0.145744"/>
-</kw>
-<status status="PASS" start="2025-10-14T16:34:26.631586" elapsed="0.604059"/>
-</kw>
-<kw name="Then system displays validation texts when data in Current Password, New Password, Confirm New Password fields are empty" owner="change-password-keyword">
+<test id="s1-t2" name="Verify the system displays validation text when user input annstoreannstoreannstoreannstore and Dev123!@#" line="8">
+<kw name="Sign in">
+<kw name="Input data in Element" owner="common_keywords">
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${VALIDATION_CURRENT_PASSWORD_EMPTY}</arg>
+<arg>${element_locator}</arg>
+<arg>5s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-10-14T16:34:27.237431" elapsed="0.048485"/>
+<status status="PASS" start="2025-11-06T11:25:59.961225" elapsed="0.037759"/>
+</kw>
+<kw name="Press Keys" owner="SeleniumLibrary">
+<msg time="2025-11-06T11:26:00.000770" level="INFO">Sending key(s) ('CTRL+A+BACKSPACE',) to xpath=//input[@id="user_code"] element.</msg>
+<msg time="2025-11-06T11:26:00.312780" level="INFO">Pressing special key CONTROL down.</msg>
+<msg time="2025-11-06T11:26:00.312932" level="INFO">Sending key A</msg>
+<msg time="2025-11-06T11:26:00.313011" level="INFO">Pressing special key BACKSPACE down.</msg>
+<msg time="2025-11-06T11:26:00.313079" level="INFO">Releasing special key CONTROL.</msg>
+<msg time="2025-11-06T11:26:00.313149" level="INFO">Releasing special key BACKSPACE.</msg>
+<arg>${element_locator}</arg>
+<arg>CTRL+A+BACKSPACE</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="PASS" start="2025-11-06T11:25:59.999595" elapsed="0.355357"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-11-06T11:26:00.356037" level="INFO">Typing text 'annstoreannstoreannstoreannstore' into text field 'xpath=//input[@id="user_code"]'.</msg>
+<arg>${element_locator}</arg>
+<arg>${data_input}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-06T11:26:00.355479" elapsed="0.337943"/>
+</kw>
+<arg>${USERID_FIELD}</arg>
+<arg>${userid}</arg>
+<status status="PASS" start="2025-11-06T11:25:59.960505" elapsed="0.733405"/>
+</kw>
+<kw name="Input data in Element" owner="common_keywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${element_locator}</arg>
+<arg>5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-06T11:26:00.697370" elapsed="0.038702"/>
+</kw>
+<kw name="Press Keys" owner="SeleniumLibrary">
+<msg time="2025-11-06T11:26:00.737726" level="INFO">Sending key(s) ('CTRL+A+BACKSPACE',) to xpath=//input[@id="password"] element.</msg>
+<msg time="2025-11-06T11:26:01.035116" level="INFO">Pressing special key CONTROL down.</msg>
+<msg time="2025-11-06T11:26:01.035360" level="INFO">Sending key A</msg>
+<msg time="2025-11-06T11:26:01.035446" level="INFO">Pressing special key BACKSPACE down.</msg>
+<msg time="2025-11-06T11:26:01.035520" level="INFO">Releasing special key CONTROL.</msg>
+<msg time="2025-11-06T11:26:01.035591" level="INFO">Releasing special key BACKSPACE.</msg>
+<arg>${element_locator}</arg>
+<arg>CTRL+A+BACKSPACE</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="PASS" start="2025-11-06T11:26:00.736673" elapsed="0.327162"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-11-06T11:26:01.065521" level="INFO">Typing text 'Dev123!@#' into text field 'xpath=//input[@id="password"]'.</msg>
+<arg>${element_locator}</arg>
+<arg>${data_input}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-06T11:26:01.064641" elapsed="0.144868"/>
+</kw>
+<arg>${PASSWORD_FIELD}</arg>
+<arg>${password}</arg>
+<status status="PASS" start="2025-11-06T11:26:00.695236" elapsed="0.514557"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${VALIDATION_NEW_PASSWORD_EMPTY}</arg>
+<arg>${expected}</arg>
+<arg>5s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-10-14T16:34:27.286479" elapsed="0.031594"/>
+<status status="PASS" start="2025-11-06T11:26:01.210370" elapsed="0.045246"/>
 </kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${VALIDATION_CONFIRM_NEW_PASSWORD_EMPTY}</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-10-14T16:34:27.318552" elapsed="0.030515"/>
+<arg>userid=${USER_ID_MORE_THAN_20}</arg>
+<arg>password=${OWNER_PASSWORD}</arg>
+<arg>expected=${VALIDATION_TEXT_MORE_THAN_20_CHARACTERS}</arg>
+<status status="PASS" start="2025-11-06T11:25:59.959570" elapsed="1.296301"/>
 </kw>
-<status status="PASS" start="2025-10-14T16:34:27.236564" elapsed="0.112742"/>
-</kw>
-<tag>Validation</tag>
-<status status="PASS" start="2025-10-14T16:34:26.630250" elapsed="0.719540"/>
+<status status="PASS" start="2025-11-06T11:25:59.953522" elapsed="1.302921"/>
 </test>
-<test id="s1-t3" name="Verify the system show validation text when user input data in Current Password, New Password field less than 8 characters" line="19">
-<kw name="When user enters data less than 8 characters in Current Password, New Password, Confirm New Password fields" owner="change-password-keyword">
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-10-14T16:34:27.353088" level="INFO">Typing text 'Dev123@' into text field 'xpath=//input[@id="current_password"]'.</msg>
-<arg>${CURRENT_PASSWORD_FIELD}</arg>
-<arg>${LESS_THAN_8_CHARACTERS}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-10-14T16:34:27.352621" elapsed="0.185599"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-10-14T16:34:27.539498" level="INFO">Typing text 'Dev123@' into text field 'xpath=//input[@id="new_password"]'.</msg>
-<arg>${NEW_PASSWORD_FIELD}</arg>
-<arg>${LESS_THAN_8_CHARACTERS}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-10-14T16:34:27.538801" elapsed="0.182897"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-10-14T16:34:27.722963" level="INFO">Typing text 'Dev123@' into text field 'xpath=//input[@id="confirm_new_password"]'.</msg>
-<arg>${CONFIRM_NEW_PASSWORD_FIELD}</arg>
-<arg>${LESS_THAN_8_CHARACTERS}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-10-14T16:34:27.722287" elapsed="0.184593"/>
-</kw>
-<status status="PASS" start="2025-10-14T16:34:27.352038" elapsed="0.555149"/>
-</kw>
-<kw name="Then system displays validation text when Current Password, New Password fields have fewer than 8 characters" owner="change-password-keyword">
+<test id="s1-t3" name="Verify the system displays validation text when user input annstore!@# and Dev123!@#" line="8">
+<kw name="Sign in">
+<kw name="Input data in Element" owner="common_keywords">
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${VALIDATION_CURRENT_PASSWORD_LESS_THAN_8_CHARACTERS}</arg>
+<arg>${element_locator}</arg>
+<arg>5s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-10-14T16:34:27.909038" elapsed="0.044656"/>
+<status status="PASS" start="2025-11-06T11:26:01.265149" elapsed="0.029486"/>
+</kw>
+<kw name="Press Keys" owner="SeleniumLibrary">
+<msg time="2025-11-06T11:26:01.296015" level="INFO">Sending key(s) ('CTRL+A+BACKSPACE',) to xpath=//input[@id="user_code"] element.</msg>
+<msg time="2025-11-06T11:26:01.644794" level="INFO">Pressing special key CONTROL down.</msg>
+<msg time="2025-11-06T11:26:01.645030" level="INFO">Sending key A</msg>
+<msg time="2025-11-06T11:26:01.645186" level="INFO">Pressing special key BACKSPACE down.</msg>
+<msg time="2025-11-06T11:26:01.645316" level="INFO">Releasing special key CONTROL.</msg>
+<msg time="2025-11-06T11:26:01.645438" level="INFO">Releasing special key BACKSPACE.</msg>
+<arg>${element_locator}</arg>
+<arg>CTRL+A+BACKSPACE</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="PASS" start="2025-11-06T11:26:01.295129" elapsed="0.464935"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-11-06T11:26:01.761901" level="INFO">Typing text 'annstore!@#' into text field 'xpath=//input[@id="user_code"]'.</msg>
+<arg>${element_locator}</arg>
+<arg>${data_input}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-06T11:26:01.760901" elapsed="0.363637"/>
+</kw>
+<arg>${USERID_FIELD}</arg>
+<arg>${userid}</arg>
+<status status="PASS" start="2025-11-06T11:26:01.264439" elapsed="0.860463"/>
+</kw>
+<kw name="Input data in Element" owner="common_keywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${element_locator}</arg>
+<arg>5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-06T11:26:02.127090" elapsed="0.072077"/>
+</kw>
+<kw name="Press Keys" owner="SeleniumLibrary">
+<msg time="2025-11-06T11:26:02.201114" level="INFO">Sending key(s) ('CTRL+A+BACKSPACE',) to xpath=//input[@id="password"] element.</msg>
+<msg time="2025-11-06T11:26:02.519290" level="INFO">Pressing special key CONTROL down.</msg>
+<msg time="2025-11-06T11:26:02.519561" level="INFO">Sending key A</msg>
+<msg time="2025-11-06T11:26:02.519966" level="INFO">Pressing special key BACKSPACE down.</msg>
+<msg time="2025-11-06T11:26:02.520090" level="INFO">Releasing special key CONTROL.</msg>
+<msg time="2025-11-06T11:26:02.520206" level="INFO">Releasing special key BACKSPACE.</msg>
+<arg>${element_locator}</arg>
+<arg>CTRL+A+BACKSPACE</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="PASS" start="2025-11-06T11:26:02.199838" elapsed="0.354241"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-11-06T11:26:02.555642" level="INFO">Typing text 'Dev123!@#' into text field 'xpath=//input[@id="password"]'.</msg>
+<arg>${element_locator}</arg>
+<arg>${data_input}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-06T11:26:02.554795" elapsed="0.174753"/>
+</kw>
+<arg>${PASSWORD_FIELD}</arg>
+<arg>${password}</arg>
+<status status="PASS" start="2025-11-06T11:26:02.125733" elapsed="0.604160"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${VALIDATION_NEW_PASSWORD_LESS_THAN_8_CHARACTERS}</arg>
+<arg>${expected}</arg>
+<arg>5s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-10-14T16:34:27.954277" elapsed="0.041923"/>
+<status status="PASS" start="2025-11-06T11:26:02.730523" elapsed="0.047233"/>
 </kw>
-<status status="PASS" start="2025-10-14T16:34:27.908092" elapsed="0.088380"/>
+<arg>userid=${USER_ID_CONTAIN_SPECIAL_CHARACTERS}</arg>
+<arg>password=${OWNER_PASSWORD}</arg>
+<arg>expected=${VALIDATION_TEXT_CONTAIN_SPECIAL_CHARACTERS}</arg>
+<status status="PASS" start="2025-11-06T11:26:01.263517" elapsed="1.514576"/>
 </kw>
-<status status="PASS" start="2025-10-14T16:34:27.350840" elapsed="0.646450"/>
+<status status="PASS" start="2025-11-06T11:26:01.257651" elapsed="1.521140"/>
 </test>
-<test id="s1-t4" name="Verify the system displays validation text when user enters data missing Uppercase in Current Password, New Password fields" line="23">
-<kw name="When user enters data missing Uppercase in Current Password, New Password fields" owner="change-password-keyword">
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-10-14T16:34:28.001023" level="INFO">Typing text 'dev123!@#' into text field 'xpath=//input[@id="current_password"]'.</msg>
-<arg>${CURRENT_PASSWORD_FIELD}</arg>
-<arg>${MISSING_UPPERCASE}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-10-14T16:34:28.000513" elapsed="0.241615"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-10-14T16:34:28.243874" level="INFO">Typing text 'dev123!@#' into text field 'xpath=//input[@id="new_password"]'.</msg>
-<arg>${NEW_PASSWORD_FIELD}</arg>
-<arg>${MISSING_UPPERCASE}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-10-14T16:34:28.242800" elapsed="0.227338"/>
-</kw>
-<status status="PASS" start="2025-10-14T16:34:27.999860" elapsed="0.470668"/>
-</kw>
-<kw name="Then system displays validation text when data in Current Password, New Password fields are missing uppercase" owner="change-password-keyword">
+<test id="s1-t4" name="Verify the system displays validation text when user input   and Dev123!@#" line="8">
+<kw name="Sign in">
+<kw name="Input data in Element" owner="common_keywords">
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${VALIDATION_CURRENT_PASSWORD_MISSING_UPPERCASE}</arg>
+<arg>${element_locator}</arg>
+<arg>5s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-10-14T16:34:28.472892" elapsed="0.048025"/>
+<status status="PASS" start="2025-11-06T11:26:02.791656" elapsed="0.056447"/>
+</kw>
+<kw name="Press Keys" owner="SeleniumLibrary">
+<msg time="2025-11-06T11:26:02.850397" level="INFO">Sending key(s) ('CTRL+A+BACKSPACE',) to xpath=//input[@id="user_code"] element.</msg>
+<msg time="2025-11-06T11:26:03.174407" level="INFO">Pressing special key CONTROL down.</msg>
+<msg time="2025-11-06T11:26:03.174564" level="INFO">Sending key A</msg>
+<msg time="2025-11-06T11:26:03.174651" level="INFO">Pressing special key BACKSPACE down.</msg>
+<msg time="2025-11-06T11:26:03.174723" level="INFO">Releasing special key CONTROL.</msg>
+<msg time="2025-11-06T11:26:03.174793" level="INFO">Releasing special key BACKSPACE.</msg>
+<arg>${element_locator}</arg>
+<arg>CTRL+A+BACKSPACE</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="PASS" start="2025-11-06T11:26:02.849009" elapsed="0.359399"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-11-06T11:26:03.209457" level="INFO">Typing text ' ' into text field 'xpath=//input[@id="user_code"]'.</msg>
+<arg>${element_locator}</arg>
+<arg>${data_input}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-06T11:26:03.208911" elapsed="0.109316"/>
+</kw>
+<arg>${USERID_FIELD}</arg>
+<arg>${userid}</arg>
+<status status="PASS" start="2025-11-06T11:26:02.790656" elapsed="0.528179"/>
+</kw>
+<kw name="Input data in Element" owner="common_keywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${element_locator}</arg>
+<arg>5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-06T11:26:03.321170" elapsed="0.026902"/>
+</kw>
+<kw name="Press Keys" owner="SeleniumLibrary">
+<msg time="2025-11-06T11:26:03.349586" level="INFO">Sending key(s) ('CTRL+A+BACKSPACE',) to xpath=//input[@id="password"] element.</msg>
+<msg time="2025-11-06T11:26:03.654276" level="INFO">Pressing special key CONTROL down.</msg>
+<msg time="2025-11-06T11:26:03.654440" level="INFO">Sending key A</msg>
+<msg time="2025-11-06T11:26:03.654522" level="INFO">Pressing special key BACKSPACE down.</msg>
+<msg time="2025-11-06T11:26:03.654592" level="INFO">Releasing special key CONTROL.</msg>
+<msg time="2025-11-06T11:26:03.654661" level="INFO">Releasing special key BACKSPACE.</msg>
+<arg>${element_locator}</arg>
+<arg>CTRL+A+BACKSPACE</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="PASS" start="2025-11-06T11:26:03.348693" elapsed="0.331230"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-11-06T11:26:03.680990" level="INFO">Typing text 'Dev123!@#' into text field 'xpath=//input[@id="password"]'.</msg>
+<arg>${element_locator}</arg>
+<arg>${data_input}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-06T11:26:03.680433" elapsed="0.142216"/>
+</kw>
+<arg>${PASSWORD_FIELD}</arg>
+<arg>${password}</arg>
+<status status="PASS" start="2025-11-06T11:26:03.319490" elapsed="0.503431"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${VALIDATION_NEW_PASSWORD_MISSING_UPPERCASE}</arg>
+<arg>${expected}</arg>
+<arg>5s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-10-14T16:34:28.521551" elapsed="0.029956"/>
+<status status="PASS" start="2025-11-06T11:26:03.823422" elapsed="0.035418"/>
 </kw>
-<status status="PASS" start="2025-10-14T16:34:28.471668" elapsed="0.080132"/>
+<arg>userid=${USER_ID_CONTAIN_SPACES}</arg>
+<arg>password=${OWNER_PASSWORD}</arg>
+<arg>expected=${VALIDATION_TEXT_USER_ID_CONTAIN_SPACES}</arg>
+<status status="PASS" start="2025-11-06T11:26:02.789383" elapsed="1.069715"/>
 </kw>
-<status status="PASS" start="2025-10-14T16:34:27.998520" elapsed="0.553837"/>
+<status status="PASS" start="2025-11-06T11:26:02.780264" elapsed="1.079378"/>
 </test>
-<test id="s1-t5" name="Verify the system displays validation text when user enters data missing Lowercase in Current Password, New Password fields" line="27">
-<kw name="When user enters data missing Lowercase in Current Password, New Password fields" owner="change-password-keyword">
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-10-14T16:34:28.556198" level="INFO">Typing text 'DEV123!@#' into text field 'xpath=//input[@id="current_password"]'.</msg>
-<arg>${CURRENT_PASSWORD_FIELD}</arg>
-<arg>${MISSING_LOWERCASE}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-10-14T16:34:28.555635" elapsed="0.214040"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-10-14T16:34:28.770993" level="INFO">Typing text 'DEV123!@#' into text field 'xpath=//input[@id="new_password"]'.</msg>
-<arg>${NEW_PASSWORD_FIELD}</arg>
-<arg>${MISSING_LOWERCASE}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-10-14T16:34:28.770274" elapsed="0.199610"/>
-</kw>
-<status status="PASS" start="2025-10-14T16:34:28.554796" elapsed="0.415407"/>
-</kw>
-<kw name="Then system displays validation text when data in Current Password, New Password fields are missing lowercase" owner="change-password-keyword">
+<test id="s1-t5" name="Verify the system displays validation text when user input  and Dev123!@#" line="8">
+<kw name="Sign in">
+<kw name="Input data in Element" owner="common_keywords">
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${VALIDATION_CURRENT_PASSWORD_MISSING_LOWERCASE}</arg>
+<arg>${element_locator}</arg>
+<arg>5s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-10-14T16:34:28.972418" elapsed="0.043826"/>
+<status status="PASS" start="2025-11-06T11:26:03.872642" elapsed="0.032296"/>
+</kw>
+<kw name="Press Keys" owner="SeleniumLibrary">
+<msg time="2025-11-06T11:26:03.906284" level="INFO">Sending key(s) ('CTRL+A+BACKSPACE',) to xpath=//input[@id="user_code"] element.</msg>
+<msg time="2025-11-06T11:26:04.242307" level="INFO">Pressing special key CONTROL down.</msg>
+<msg time="2025-11-06T11:26:04.242462" level="INFO">Sending key A</msg>
+<msg time="2025-11-06T11:26:04.242541" level="INFO">Pressing special key BACKSPACE down.</msg>
+<msg time="2025-11-06T11:26:04.242609" level="INFO">Releasing special key CONTROL.</msg>
+<msg time="2025-11-06T11:26:04.242675" level="INFO">Releasing special key BACKSPACE.</msg>
+<arg>${element_locator}</arg>
+<arg>CTRL+A+BACKSPACE</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="PASS" start="2025-11-06T11:26:03.905425" elapsed="0.355417"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-11-06T11:26:04.261899" level="INFO">Typing text '' into text field 'xpath=//input[@id="user_code"]'.</msg>
+<arg>${element_locator}</arg>
+<arg>${data_input}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-06T11:26:04.261346" elapsed="0.096125"/>
+</kw>
+<arg>${USERID_FIELD}</arg>
+<arg>${userid}</arg>
+<status status="PASS" start="2025-11-06T11:26:03.871926" elapsed="0.485874"/>
+</kw>
+<kw name="Input data in Element" owner="common_keywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${element_locator}</arg>
+<arg>5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-06T11:26:04.359141" elapsed="0.025937"/>
+</kw>
+<kw name="Press Keys" owner="SeleniumLibrary">
+<msg time="2025-11-06T11:26:04.386370" level="INFO">Sending key(s) ('CTRL+A+BACKSPACE',) to xpath=//input[@id="password"] element.</msg>
+<msg time="2025-11-06T11:26:04.688214" level="INFO">Pressing special key CONTROL down.</msg>
+<msg time="2025-11-06T11:26:04.688379" level="INFO">Sending key A</msg>
+<msg time="2025-11-06T11:26:04.688462" level="INFO">Pressing special key BACKSPACE down.</msg>
+<msg time="2025-11-06T11:26:04.688536" level="INFO">Releasing special key CONTROL.</msg>
+<msg time="2025-11-06T11:26:04.688606" level="INFO">Releasing special key BACKSPACE.</msg>
+<arg>${element_locator}</arg>
+<arg>CTRL+A+BACKSPACE</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="PASS" start="2025-11-06T11:26:04.385565" elapsed="0.327670"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-11-06T11:26:04.714350" level="INFO">Typing text 'Dev123!@#' into text field 'xpath=//input[@id="password"]'.</msg>
+<arg>${element_locator}</arg>
+<arg>${data_input}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-06T11:26:04.713775" elapsed="0.165386"/>
+</kw>
+<arg>${PASSWORD_FIELD}</arg>
+<arg>${password}</arg>
+<status status="PASS" start="2025-11-06T11:26:04.358264" elapsed="0.521163"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${VALIDATION_NEW_PASSWORD_MISSING_LOWERCASE}</arg>
+<arg>${expected}</arg>
+<arg>5s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-10-14T16:34:29.016888" elapsed="0.030582"/>
+<status status="PASS" start="2025-11-06T11:26:04.879912" elapsed="0.029120"/>
 </kw>
-<status status="PASS" start="2025-10-14T16:34:28.971143" elapsed="0.076648"/>
+<arg>userid=${EMPTY}</arg>
+<arg>password=${OWNER_PASSWORD}</arg>
+<arg>expected=${VALIDATION_TEXT_EMPTY_USER_ID}</arg>
+<status status="PASS" start="2025-11-06T11:26:03.869195" elapsed="1.040101"/>
 </kw>
-<status status="PASS" start="2025-10-14T16:34:28.553377" elapsed="0.494947"/>
+<status status="PASS" start="2025-11-06T11:26:03.862800" elapsed="1.047042"/>
 </test>
-<test id="s1-t6" name="Verify the system displays validation text when user enters data missing Number in Current Password, New Password fields" line="31">
-<kw name="When user enters data missing Number in Current Password, New Password fields" owner="change-password-keyword">
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-10-14T16:34:29.052114" level="INFO">Typing text 'Dev!!@@##' into text field 'xpath=//input[@id="current_password"]'.</msg>
-<arg>${CURRENT_PASSWORD_FIELD}</arg>
-<arg>${MISSING_NUMBER}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-10-14T16:34:29.051533" elapsed="0.219697"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-10-14T16:34:29.272537" level="INFO">Typing text 'Dev!!@@##' into text field 'xpath=//input[@id="new_password"]'.</msg>
-<arg>${NEW_PASSWORD_FIELD}</arg>
-<arg>${MISSING_NUMBER}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-10-14T16:34:29.271847" elapsed="0.190425"/>
-</kw>
-<status status="PASS" start="2025-10-14T16:34:29.050803" elapsed="0.411866"/>
-</kw>
-<kw name="Then system displays validation text when data in Current Password, New Password fields are missing number" owner="change-password-keyword">
+<test id="s1-t6" name="Verify the system displays validation text when user input bennguyen and Dev123" line="8">
+<kw name="Sign in">
+<kw name="Input data in Element" owner="common_keywords">
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${VALIDATION_NEW_PASSWORD_MISSING_NUMBER}</arg>
+<arg>${element_locator}</arg>
+<arg>5s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-10-14T16:34:29.464705" elapsed="0.048141"/>
+<status status="PASS" start="2025-11-06T11:26:04.920390" elapsed="0.030426"/>
+</kw>
+<kw name="Press Keys" owner="SeleniumLibrary">
+<msg time="2025-11-06T11:26:04.952504" level="INFO">Sending key(s) ('CTRL+A+BACKSPACE',) to xpath=//input[@id="user_code"] element.</msg>
+<msg time="2025-11-06T11:26:05.281924" level="INFO">Pressing special key CONTROL down.</msg>
+<msg time="2025-11-06T11:26:05.282127" level="INFO">Sending key A</msg>
+<msg time="2025-11-06T11:26:05.282221" level="INFO">Pressing special key BACKSPACE down.</msg>
+<msg time="2025-11-06T11:26:05.282328" level="INFO">Releasing special key CONTROL.</msg>
+<msg time="2025-11-06T11:26:05.282406" level="INFO">Releasing special key BACKSPACE.</msg>
+<arg>${element_locator}</arg>
+<arg>CTRL+A+BACKSPACE</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="PASS" start="2025-11-06T11:26:04.951381" elapsed="0.349216"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-11-06T11:26:05.301647" level="INFO">Typing text 'bennguyen' into text field 'xpath=//input[@id="user_code"]'.</msg>
+<arg>${element_locator}</arg>
+<arg>${data_input}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-06T11:26:05.301101" elapsed="0.144473"/>
+</kw>
+<arg>${USERID_FIELD}</arg>
+<arg>${userid}</arg>
+<status status="PASS" start="2025-11-06T11:26:04.919640" elapsed="0.527259"/>
+</kw>
+<kw name="Input data in Element" owner="common_keywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${element_locator}</arg>
+<arg>5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-06T11:26:05.449460" elapsed="0.031705"/>
+</kw>
+<kw name="Press Keys" owner="SeleniumLibrary">
+<msg time="2025-11-06T11:26:05.482520" level="INFO">Sending key(s) ('CTRL+A+BACKSPACE',) to xpath=//input[@id="password"] element.</msg>
+<msg time="2025-11-06T11:26:05.783725" level="INFO">Pressing special key CONTROL down.</msg>
+<msg time="2025-11-06T11:26:05.784249" level="INFO">Sending key A</msg>
+<msg time="2025-11-06T11:26:05.784350" level="INFO">Pressing special key BACKSPACE down.</msg>
+<msg time="2025-11-06T11:26:05.784430" level="INFO">Releasing special key CONTROL.</msg>
+<msg time="2025-11-06T11:26:05.784506" level="INFO">Releasing special key BACKSPACE.</msg>
+<arg>${element_locator}</arg>
+<arg>CTRL+A+BACKSPACE</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="PASS" start="2025-11-06T11:26:05.481693" elapsed="0.339642"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-11-06T11:26:05.823191" level="INFO">Typing text 'Dev123' into text field 'xpath=//input[@id="password"]'.</msg>
+<arg>${element_locator}</arg>
+<arg>${data_input}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-06T11:26:05.822063" elapsed="0.134583"/>
+</kw>
+<arg>${PASSWORD_FIELD}</arg>
+<arg>${password}</arg>
+<status status="PASS" start="2025-11-06T11:26:05.447737" elapsed="0.509264"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${VALIDATION_CURRENT_PASSWORD_MISSING_NUMBER}</arg>
+<arg>${expected}</arg>
+<arg>5s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-10-14T16:34:29.513500" elapsed="0.034109"/>
+<status status="PASS" start="2025-11-06T11:26:05.957607" elapsed="0.050860"/>
 </kw>
-<status status="PASS" start="2025-10-14T16:34:29.463666" elapsed="0.084257"/>
+<arg>userid=${OWNER_USER_ID}</arg>
+<arg>password=${PASSWORD_LESS_THAN_8}</arg>
+<arg>expected=${VALIDATION_TEXT_LESS_THAN_8_CHARACTERS}</arg>
+<status status="PASS" start="2025-11-06T11:26:04.918659" elapsed="1.090100"/>
 </kw>
-<status status="PASS" start="2025-10-14T16:34:29.049345" elapsed="0.499140"/>
+<status status="PASS" start="2025-11-06T11:26:04.911009" elapsed="1.098297"/>
 </test>
-<test id="s1-t7" name="Verify the system displays validation text when user enters data missing Special Character in Current Password, New Password fields" line="35">
-<kw name="When user enters data missing Special Character in Current Password, New Password fields" owner="change-password-keyword">
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-10-14T16:34:29.552461" level="INFO">Typing text 'Dev123456' into text field 'xpath=//input[@id="current_password"]'.</msg>
-<arg>${CURRENT_PASSWORD_FIELD}</arg>
-<arg>${MISSING_SPECIAL_CHARACTERS}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-10-14T16:34:29.551793" elapsed="0.213229"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-10-14T16:34:29.766814" level="INFO">Typing text 'Dev123456' into text field 'xpath=//input[@id="new_password"]'.</msg>
-<arg>${NEW_PASSWORD_FIELD}</arg>
-<arg>${MISSING_SPECIAL_CHARACTERS}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-10-14T16:34:29.765785" elapsed="0.221942"/>
-</kw>
-<status status="PASS" start="2025-10-14T16:34:29.551045" elapsed="0.436998"/>
-</kw>
-<kw name="Then system displays validation text when data in Current Password, New Password fields are missing special characters" owner="change-password-keyword">
+<test id="s1-t7" name="Verify the system displays validation text when user input bennguyen and DevPassword!@" line="8">
+<kw name="Sign in">
+<kw name="Input data in Element" owner="common_keywords">
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${VALIDATION_CURRENT_PASSWORD_MISSING_SPECIAL_CHARACTERS}</arg>
+<arg>${element_locator}</arg>
+<arg>5s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-10-14T16:34:29.989770" elapsed="0.043641"/>
+<status status="PASS" start="2025-11-06T11:26:06.020468" elapsed="0.050779"/>
+</kw>
+<kw name="Press Keys" owner="SeleniumLibrary">
+<msg time="2025-11-06T11:26:06.073673" level="INFO">Sending key(s) ('CTRL+A+BACKSPACE',) to xpath=//input[@id="user_code"] element.</msg>
+<msg time="2025-11-06T11:26:06.408889" level="INFO">Pressing special key CONTROL down.</msg>
+<msg time="2025-11-06T11:26:06.409051" level="INFO">Sending key A</msg>
+<msg time="2025-11-06T11:26:06.409135" level="INFO">Pressing special key BACKSPACE down.</msg>
+<msg time="2025-11-06T11:26:06.409207" level="INFO">Releasing special key CONTROL.</msg>
+<msg time="2025-11-06T11:26:06.409276" level="INFO">Releasing special key BACKSPACE.</msg>
+<arg>${element_locator}</arg>
+<arg>CTRL+A+BACKSPACE</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="PASS" start="2025-11-06T11:26:06.072301" elapsed="0.389494"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-11-06T11:26:06.463254" level="INFO">Typing text 'bennguyen' into text field 'xpath=//input[@id="user_code"]'.</msg>
+<arg>${element_locator}</arg>
+<arg>${data_input}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-06T11:26:06.462433" elapsed="0.325408"/>
+</kw>
+<arg>${USERID_FIELD}</arg>
+<arg>${userid}</arg>
+<status status="PASS" start="2025-11-06T11:26:06.019287" elapsed="0.768983"/>
+</kw>
+<kw name="Input data in Element" owner="common_keywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${element_locator}</arg>
+<arg>5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-06T11:26:06.790711" elapsed="0.057699"/>
+</kw>
+<kw name="Press Keys" owner="SeleniumLibrary">
+<msg time="2025-11-06T11:26:06.850590" level="INFO">Sending key(s) ('CTRL+A+BACKSPACE',) to xpath=//input[@id="password"] element.</msg>
+<msg time="2025-11-06T11:26:07.206820" level="INFO">Pressing special key CONTROL down.</msg>
+<msg time="2025-11-06T11:26:07.207050" level="INFO">Sending key A</msg>
+<msg time="2025-11-06T11:26:07.207184" level="INFO">Pressing special key BACKSPACE down.</msg>
+<msg time="2025-11-06T11:26:07.207299" level="INFO">Releasing special key CONTROL.</msg>
+<msg time="2025-11-06T11:26:07.207413" level="INFO">Releasing special key BACKSPACE.</msg>
+<arg>${element_locator}</arg>
+<arg>CTRL+A+BACKSPACE</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="PASS" start="2025-11-06T11:26:06.849221" elapsed="0.402463"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-11-06T11:26:07.253857" level="INFO">Typing text 'DevPassword!@' into text field 'xpath=//input[@id="password"]'.</msg>
+<arg>${element_locator}</arg>
+<arg>${data_input}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-06T11:26:07.252722" elapsed="0.256407"/>
+</kw>
+<arg>${PASSWORD_FIELD}</arg>
+<arg>${password}</arg>
+<status status="PASS" start="2025-11-06T11:26:06.789038" elapsed="0.720491"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${VALIDATION_NEW_PASSWORD_MISSING_SPECIAL_CHARACTERS}</arg>
+<arg>${expected}</arg>
+<arg>5s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-10-14T16:34:30.034009" elapsed="0.030977"/>
+<status status="PASS" start="2025-11-06T11:26:07.510286" elapsed="0.051896"/>
 </kw>
-<status status="PASS" start="2025-10-14T16:34:29.988921" elapsed="0.076509"/>
+<arg>userid=${OWNER_USER_ID}</arg>
+<arg>password=${PASSWORD_MISSING_NUMBER}</arg>
+<arg>expected=${VALIDATION_TEXT_MISSING_NUMBER}</arg>
+<status status="PASS" start="2025-11-06T11:26:06.018016" elapsed="1.544560"/>
 </kw>
-<status status="PASS" start="2025-10-14T16:34:29.549549" elapsed="0.516405"/>
+<status status="PASS" start="2025-11-06T11:26:06.010626" elapsed="1.552941"/>
 </test>
-<test id="s1-t8" name="Verify the system displays validation text when user enters data in Confirm New Password field NOT MATCH with New Password field" line="39">
-<kw name="When user enters data in Confirm New Password field NOT MATCH with New Password field" owner="change-password-keyword">
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-10-14T16:34:30.069670" level="INFO">Typing text 'Exnodes123!@#' into text field 'xpath=//input[@id="current_password"]'.</msg>
-<arg>${CURRENT_PASSWORD_FIELD}</arg>
-<arg>${CORRECT_CURRENT_PASSWORD}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-10-14T16:34:30.069104" elapsed="0.268757"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-10-14T16:34:30.339060" level="INFO">Typing text 'Dev123!@#' into text field 'xpath=//input[@id="new_password"]'.</msg>
-<arg>${NEW_PASSWORD_FIELD}</arg>
-<arg>${VALID_NEW_PASSWORD}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-10-14T16:34:30.338417" elapsed="0.198943"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-10-14T16:34:30.538754" level="INFO">Typing text 'Mobi1234@' into text field 'xpath=//input[@id="confirm_new_password"]'.</msg>
-<arg>${CONFIRM_NEW_PASSWORD_FIELD}</arg>
-<arg>${NOT_MATCH_NEW_PASSWORD}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-10-14T16:34:30.538053" elapsed="0.222106"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-10-14T16:34:30.762086" level="INFO">Clicking element 'xpath=/html/body/div[1]/div/main/div/form/button[text()='Submit']'.</msg>
-<arg>${SUBMIT_CHANGE_PASSWORD_BUTTON_2}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-10-14T16:34:30.760900" elapsed="0.144351"/>
-</kw>
-<status status="PASS" start="2025-10-14T16:34:30.068406" elapsed="0.837134"/>
-</kw>
-<kw name="Then system displays validation text when Confirm New Password NOT MATCH with New Password" owner="change-password-keyword">
+<test id="s1-t8" name="Verify the system displays validation text when user input bennguyen and devpassword1234!@" line="8">
+<kw name="Sign in">
+<kw name="Input data in Element" owner="common_keywords">
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${VALIDATION_CONFIRM_NEW_PASSWORD_NOT_MATCH}</arg>
+<arg>${element_locator}</arg>
+<arg>5s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-10-14T16:34:30.907577" elapsed="0.053283"/>
+<status status="PASS" start="2025-11-06T11:26:07.584666" elapsed="0.125835"/>
 </kw>
-<status status="PASS" start="2025-10-14T16:34:30.906658" elapsed="0.054548"/>
+<kw name="Press Keys" owner="SeleniumLibrary">
+<msg time="2025-11-06T11:26:07.713150" level="INFO">Sending key(s) ('CTRL+A+BACKSPACE',) to xpath=//input[@id="user_code"] element.</msg>
+<msg time="2025-11-06T11:26:08.134985" level="INFO">Pressing special key CONTROL down.</msg>
+<msg time="2025-11-06T11:26:08.135526" level="INFO">Sending key A</msg>
+<msg time="2025-11-06T11:26:08.135688" level="INFO">Pressing special key BACKSPACE down.</msg>
+<msg time="2025-11-06T11:26:08.135837" level="INFO">Releasing special key CONTROL.</msg>
+<msg time="2025-11-06T11:26:08.135955" level="INFO">Releasing special key BACKSPACE.</msg>
+<arg>${element_locator}</arg>
+<arg>CTRL+A+BACKSPACE</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="PASS" start="2025-11-06T11:26:07.711393" elapsed="0.477424"/>
 </kw>
-<status status="PASS" start="2025-10-14T16:34:30.066970" elapsed="0.894901"/>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-11-06T11:26:08.190644" level="INFO">Typing text 'bennguyen' into text field 'xpath=//input[@id="user_code"]'.</msg>
+<arg>${element_locator}</arg>
+<arg>${data_input}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-06T11:26:08.189567" elapsed="0.246224"/>
+</kw>
+<arg>${USERID_FIELD}</arg>
+<arg>${userid}</arg>
+<status status="PASS" start="2025-11-06T11:26:07.583310" elapsed="0.852886"/>
+</kw>
+<kw name="Input data in Element" owner="common_keywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${element_locator}</arg>
+<arg>5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-06T11:26:08.439111" elapsed="0.067189"/>
+</kw>
+<kw name="Press Keys" owner="SeleniumLibrary">
+<msg time="2025-11-06T11:26:08.508055" level="INFO">Sending key(s) ('CTRL+A+BACKSPACE',) to xpath=//input[@id="password"] element.</msg>
+<msg time="2025-11-06T11:26:08.817787" level="INFO">Pressing special key CONTROL down.</msg>
+<msg time="2025-11-06T11:26:08.817945" level="INFO">Sending key A</msg>
+<msg time="2025-11-06T11:26:08.818040" level="INFO">Pressing special key BACKSPACE down.</msg>
+<msg time="2025-11-06T11:26:08.818111" level="INFO">Releasing special key CONTROL.</msg>
+<msg time="2025-11-06T11:26:08.818176" level="INFO">Releasing special key BACKSPACE.</msg>
+<arg>${element_locator}</arg>
+<arg>CTRL+A+BACKSPACE</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="PASS" start="2025-11-06T11:26:08.506903" elapsed="0.337900"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-11-06T11:26:08.845893" level="INFO">Typing text 'devpassword1234!@' into text field 'xpath=//input[@id="password"]'.</msg>
+<arg>${element_locator}</arg>
+<arg>${data_input}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-06T11:26:08.845299" elapsed="0.196200"/>
+</kw>
+<arg>${PASSWORD_FIELD}</arg>
+<arg>${password}</arg>
+<status status="PASS" start="2025-11-06T11:26:08.436992" elapsed="0.604817"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${expected}</arg>
+<arg>5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-06T11:26:09.042314" elapsed="0.040030"/>
+</kw>
+<arg>userid=${OWNER_USER_ID}</arg>
+<arg>password=${PASSWORD_MISSING_UPPERCASE}</arg>
+<arg>expected=${VALIDATION_TEXT_MISSING_UPPERCASE}</arg>
+<status status="PASS" start="2025-11-06T11:26:07.581634" elapsed="1.501025"/>
+</kw>
+<status status="PASS" start="2025-11-06T11:26:07.568308" elapsed="1.515002"/>
 </test>
-<test id="s1-t9" name="Verify the system changes password successfully when user inputs correct credentials" line="43">
-<kw name="Given user is on Change Password screen" owner="change-password-keyword">
+<test id="s1-t9" name="Verify the system displays validation text when user input bennguyen and DEVPASSWORD1234!@" line="8">
+<kw name="Sign in">
+<kw name="Input data in Element" owner="common_keywords">
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${CHANGE_PASSWORD_TITLE}</arg>
+<arg>${element_locator}</arg>
+<arg>5s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-10-14T16:34:30.966432" elapsed="0.038776"/>
+<status status="PASS" start="2025-11-06T11:26:09.095046" elapsed="0.033002"/>
 </kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${CURRENT_PASSWORD_FIELD}</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-10-14T16:34:31.005953" elapsed="0.045214"/>
+<kw name="Press Keys" owner="SeleniumLibrary">
+<msg time="2025-11-06T11:26:09.129707" level="INFO">Sending key(s) ('CTRL+A+BACKSPACE',) to xpath=//input[@id="user_code"] element.</msg>
+<msg time="2025-11-06T11:26:09.442860" level="INFO">Pressing special key CONTROL down.</msg>
+<msg time="2025-11-06T11:26:09.443013" level="INFO">Sending key A</msg>
+<msg time="2025-11-06T11:26:09.443095" level="INFO">Pressing special key BACKSPACE down.</msg>
+<msg time="2025-11-06T11:26:09.443164" level="INFO">Releasing special key CONTROL.</msg>
+<msg time="2025-11-06T11:26:09.443232" level="INFO">Releasing special key BACKSPACE.</msg>
+<arg>${element_locator}</arg>
+<arg>CTRL+A+BACKSPACE</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="PASS" start="2025-11-06T11:26:09.128630" elapsed="0.351188"/>
 </kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${NEW_PASSWORD_FIELD}</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-10-14T16:34:31.051785" elapsed="0.031454"/>
-</kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${CONFIRM_NEW_PASSWORD_FIELD}</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-10-14T16:34:31.083821" elapsed="0.028120"/>
-</kw>
-<status status="PASS" start="2025-10-14T16:34:30.965574" elapsed="0.146650"/>
-</kw>
-<kw name="When user enters correct current password in Current Password field" owner="change-password-keyword">
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-10-14T16:34:31.114354" level="INFO">Typing text 'Exnodes123!@#' into text field 'xpath=//input[@id="current_password"]'.</msg>
-<arg>${CURRENT_PASSWORD_FIELD}</arg>
-<arg>${CORRECT_CURRENT_PASSWORD}</arg>
+<msg time="2025-11-06T11:26:09.480999" level="INFO">Typing text 'bennguyen' into text field 'xpath=//input[@id="user_code"]'.</msg>
+<arg>${element_locator}</arg>
+<arg>${data_input}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-10-14T16:34:31.113806" elapsed="0.228386"/>
+<status status="PASS" start="2025-11-06T11:26:09.480371" elapsed="0.156683"/>
 </kw>
-<status status="PASS" start="2025-10-14T16:34:31.113095" elapsed="0.229407"/>
+<arg>${USERID_FIELD}</arg>
+<arg>${userid}</arg>
+<status status="PASS" start="2025-11-06T11:26:09.094127" elapsed="0.543247"/>
 </kw>
-<kw name="And user enters valid data in New Password field" owner="change-password-keyword">
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-10-14T16:34:31.345093" level="INFO">Typing text 'Dev123!@#' into text field 'xpath=//input[@id="new_password"]'.</msg>
-<arg>${NEW_PASSWORD_FIELD}</arg>
-<arg>${VALID_NEW_PASSWORD}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-10-14T16:34:31.344460" elapsed="0.199215"/>
-</kw>
-<status status="PASS" start="2025-10-14T16:34:31.343550" elapsed="0.200460"/>
-</kw>
-<kw name="And user enters valid data in Confirm New Password field" owner="change-password-keyword">
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-10-14T16:34:31.546232" level="INFO">Typing text 'Dev123!@#' into text field 'xpath=//input[@id="confirm_new_password"]'.</msg>
-<arg>${CONFIRM_NEW_PASSWORD_FIELD}</arg>
-<arg>${VALID_CONFIRM_NEW_PASSWORD}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-10-14T16:34:31.545636" elapsed="0.204379"/>
-</kw>
-<status status="PASS" start="2025-10-14T16:34:31.544868" elapsed="0.205686"/>
-</kw>
-<kw name="And user press on Submit form button" owner="change-password-keyword">
+<kw name="Input data in Element" owner="common_keywords">
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${SUBMIT_CHANGE_PASSWORD_BUTTON_1}</arg>
+<arg>${element_locator}</arg>
+<arg>5s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-10-14T16:34:31.752505" elapsed="0.052579"/>
+<status status="PASS" start="2025-11-06T11:26:09.639148" elapsed="0.031877"/>
 </kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-10-14T16:34:31.806276" level="INFO">Clicking element 'xpath=/html/body/div[1]/div/main/div/form/div[1]/button[text()='Submit']'.</msg>
-<arg>${SUBMIT_CHANGE_PASSWORD_BUTTON_1}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-10-14T16:34:31.805687" elapsed="0.148712"/>
+<kw name="Press Keys" owner="SeleniumLibrary">
+<msg time="2025-11-06T11:26:09.672389" level="INFO">Sending key(s) ('CTRL+A+BACKSPACE',) to xpath=//input[@id="password"] element.</msg>
+<msg time="2025-11-06T11:26:09.972057" level="INFO">Pressing special key CONTROL down.</msg>
+<msg time="2025-11-06T11:26:09.972227" level="INFO">Sending key A</msg>
+<msg time="2025-11-06T11:26:09.972315" level="INFO">Pressing special key BACKSPACE down.</msg>
+<msg time="2025-11-06T11:26:09.972389" level="INFO">Releasing special key CONTROL.</msg>
+<msg time="2025-11-06T11:26:09.972462" level="INFO">Releasing special key BACKSPACE.</msg>
+<arg>${element_locator}</arg>
+<arg>CTRL+A+BACKSPACE</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="PASS" start="2025-11-06T11:26:09.671524" elapsed="0.348514"/>
 </kw>
-<status status="PASS" start="2025-10-14T16:34:31.751597" elapsed="0.203101"/>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-11-06T11:26:10.021143" level="INFO">Typing text 'DEVPASSWORD1234!@' into text field 'xpath=//input[@id="password"]'.</msg>
+<arg>${element_locator}</arg>
+<arg>${data_input}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-06T11:26:10.020545" elapsed="0.307280"/>
 </kw>
-<kw name="Then system displays success message" owner="change-password-keyword">
+<arg>${PASSWORD_FIELD}</arg>
+<arg>${password}</arg>
+<status status="PASS" start="2025-11-06T11:26:09.637910" elapsed="0.690455"/>
+</kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<msg time="2025-10-14T16:34:37.126747" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-39.png"&gt;&lt;img src="selenium-screenshot-39.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2025-10-14T16:34:37.127142" level="FAIL">Element 'xpath=//div[normalize-space(text())='Password changed successfully.']' not visible after 5 seconds.</msg>
-<arg>${SUCCESS_CHANGE_PASSWORD_MESSAGE}</arg>
+<arg>${expected}</arg>
+<arg>5s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="FAIL" start="2025-10-14T16:34:31.956427" elapsed="5.175348">Element 'xpath=//div[normalize-space(text())='Password changed successfully.']' not visible after 5 seconds.</status>
+<status status="PASS" start="2025-11-06T11:26:10.329172" elapsed="0.046614"/>
 </kw>
-<status status="FAIL" start="2025-10-14T16:34:31.955536" elapsed="5.176643">Element 'xpath=//div[normalize-space(text())='Password changed successfully.']' not visible after 5 seconds.</status>
+<arg>userid=${OWNER_USER_ID}</arg>
+<arg>password=${PASSWORD_MISSING_LOWERCASE}</arg>
+<arg>expected=${VALIDATION_TEXT_MISSING_LOWERCASE}</arg>
+<status status="PASS" start="2025-11-06T11:26:09.092917" elapsed="1.283262"/>
 </kw>
-<doc>Change password successfully</doc>
-<tag>API</tag>
-<tag>Success</tag>
-<status status="FAIL" start="2025-10-14T16:34:30.963742" elapsed="6.169112">Element 'xpath=//div[normalize-space(text())='Password changed successfully.']' not visible after 5 seconds.</status>
+<status status="PASS" start="2025-11-06T11:26:09.084618" elapsed="1.292257"/>
+</test>
+<test id="s1-t10" name="Verify the system displays validation text when user input bennguyen and DevPassword1234" line="8">
+<kw name="Sign in">
+<kw name="Input data in Element" owner="common_keywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${element_locator}</arg>
+<arg>5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-06T11:26:10.391964" elapsed="0.085302"/>
+</kw>
+<kw name="Press Keys" owner="SeleniumLibrary">
+<msg time="2025-11-06T11:26:10.479742" level="INFO">Sending key(s) ('CTRL+A+BACKSPACE',) to xpath=//input[@id="user_code"] element.</msg>
+<msg time="2025-11-06T11:26:10.989213" level="INFO">Pressing special key CONTROL down.</msg>
+<msg time="2025-11-06T11:26:10.989422" level="INFO">Sending key A</msg>
+<msg time="2025-11-06T11:26:10.989550" level="INFO">Pressing special key BACKSPACE down.</msg>
+<msg time="2025-11-06T11:26:10.989688" level="INFO">Releasing special key CONTROL.</msg>
+<msg time="2025-11-06T11:26:10.989804" level="INFO">Releasing special key BACKSPACE.</msg>
+<arg>${element_locator}</arg>
+<arg>CTRL+A+BACKSPACE</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="PASS" start="2025-11-06T11:26:10.478148" elapsed="0.645033"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-11-06T11:26:11.125107" level="INFO">Typing text 'bennguyen' into text field 'xpath=//input[@id="user_code"]'.</msg>
+<arg>${element_locator}</arg>
+<arg>${data_input}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-06T11:26:11.123889" elapsed="0.425709"/>
+</kw>
+<arg>${USERID_FIELD}</arg>
+<arg>${userid}</arg>
+<status status="PASS" start="2025-11-06T11:26:10.390893" elapsed="1.159114"/>
+</kw>
+<kw name="Input data in Element" owner="common_keywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${element_locator}</arg>
+<arg>5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-06T11:26:11.552185" elapsed="0.064770"/>
+</kw>
+<kw name="Press Keys" owner="SeleniumLibrary">
+<msg time="2025-11-06T11:26:11.618877" level="INFO">Sending key(s) ('CTRL+A+BACKSPACE',) to xpath=//input[@id="password"] element.</msg>
+<msg time="2025-11-06T11:26:11.973332" level="INFO">Pressing special key CONTROL down.</msg>
+<msg time="2025-11-06T11:26:11.973531" level="INFO">Sending key A</msg>
+<msg time="2025-11-06T11:26:11.973649" level="INFO">Pressing special key BACKSPACE down.</msg>
+<msg time="2025-11-06T11:26:11.973749" level="INFO">Releasing special key CONTROL.</msg>
+<msg time="2025-11-06T11:26:11.973846" level="INFO">Releasing special key BACKSPACE.</msg>
+<arg>${element_locator}</arg>
+<arg>CTRL+A+BACKSPACE</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="PASS" start="2025-11-06T11:26:11.617683" elapsed="0.390246"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-11-06T11:26:12.009290" level="INFO">Typing text 'DevPassword1234' into text field 'xpath=//input[@id="password"]'.</msg>
+<arg>${element_locator}</arg>
+<arg>${data_input}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-06T11:26:12.008564" elapsed="0.203351"/>
+</kw>
+<arg>${PASSWORD_FIELD}</arg>
+<arg>${password}</arg>
+<status status="PASS" start="2025-11-06T11:26:11.550720" elapsed="0.661636"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${expected}</arg>
+<arg>5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-06T11:26:12.212946" elapsed="0.043304"/>
+</kw>
+<arg>userid=${OWNER_USER_ID}</arg>
+<arg>password=${PASSWORD_MISSING_SPECIAL_CHARACTER}</arg>
+<arg>expected=${VALIDATION_TEXT_MISSING_SPECIAL_CHARACTER}</arg>
+<status status="PASS" start="2025-11-06T11:26:10.389467" elapsed="1.867117"/>
+</kw>
+<status status="PASS" start="2025-11-06T11:26:10.378398" elapsed="1.878885"/>
+</test>
+<test id="s1-t11" name="Verify the system displays validation text when user input bennguyen and " line="8">
+<kw name="Sign in">
+<kw name="Input data in Element" owner="common_keywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${element_locator}</arg>
+<arg>5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-06T11:26:12.277396" elapsed="0.082073"/>
+</kw>
+<kw name="Press Keys" owner="SeleniumLibrary">
+<msg time="2025-11-06T11:26:12.361660" level="INFO">Sending key(s) ('CTRL+A+BACKSPACE',) to xpath=//input[@id="user_code"] element.</msg>
+<msg time="2025-11-06T11:26:12.665613" level="INFO">Pressing special key CONTROL down.</msg>
+<msg time="2025-11-06T11:26:12.665783" level="INFO">Sending key A</msg>
+<msg time="2025-11-06T11:26:12.665869" level="INFO">Pressing special key BACKSPACE down.</msg>
+<msg time="2025-11-06T11:26:12.665950" level="INFO">Releasing special key CONTROL.</msg>
+<msg time="2025-11-06T11:26:12.666022" level="INFO">Releasing special key BACKSPACE.</msg>
+<arg>${element_locator}</arg>
+<arg>CTRL+A+BACKSPACE</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="PASS" start="2025-11-06T11:26:12.360288" elapsed="0.343670"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-11-06T11:26:12.705234" level="INFO">Typing text 'bennguyen' into text field 'xpath=//input[@id="user_code"]'.</msg>
+<arg>${element_locator}</arg>
+<arg>${data_input}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-06T11:26:12.704470" elapsed="0.155900"/>
+</kw>
+<arg>${USERID_FIELD}</arg>
+<arg>${userid}</arg>
+<status status="PASS" start="2025-11-06T11:26:12.276031" elapsed="0.584759"/>
+</kw>
+<kw name="Input data in Element" owner="common_keywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${element_locator}</arg>
+<arg>5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-06T11:26:12.863203" elapsed="0.026355"/>
+</kw>
+<kw name="Press Keys" owner="SeleniumLibrary">
+<msg time="2025-11-06T11:26:12.890798" level="INFO">Sending key(s) ('CTRL+A+BACKSPACE',) to xpath=//input[@id="password"] element.</msg>
+<msg time="2025-11-06T11:26:13.185010" level="INFO">Pressing special key CONTROL down.</msg>
+<msg time="2025-11-06T11:26:13.185175" level="INFO">Sending key A</msg>
+<msg time="2025-11-06T11:26:13.185260" level="INFO">Pressing special key BACKSPACE down.</msg>
+<msg time="2025-11-06T11:26:13.185334" level="INFO">Releasing special key CONTROL.</msg>
+<msg time="2025-11-06T11:26:13.185429" level="INFO">Releasing special key BACKSPACE.</msg>
+<arg>${element_locator}</arg>
+<arg>CTRL+A+BACKSPACE</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="PASS" start="2025-11-06T11:26:12.890012" elapsed="0.325087"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-11-06T11:26:13.216223" level="INFO">Typing text '' into text field 'xpath=//input[@id="password"]'.</msg>
+<arg>${element_locator}</arg>
+<arg>${data_input}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-06T11:26:13.215639" elapsed="0.096023"/>
+</kw>
+<arg>${PASSWORD_FIELD}</arg>
+<arg>${password}</arg>
+<status status="PASS" start="2025-11-06T11:26:12.861402" elapsed="0.450518"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${expected}</arg>
+<arg>5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-06T11:26:13.312461" elapsed="0.030722"/>
+</kw>
+<arg>userid=${OWNER_USER_ID}</arg>
+<arg>password=${EMPTY}</arg>
+<arg>expected=${VALIDATION_TEXT_EMPTY_PASSWORD}</arg>
+<status status="PASS" start="2025-11-06T11:26:12.271319" elapsed="1.072122"/>
+</kw>
+<status status="PASS" start="2025-11-06T11:26:12.261664" elapsed="1.082768"/>
+</test>
+<test id="s1-t12" name="Verify the system displays validation text when user input bennguyen and  " line="8">
+<kw name="Sign in">
+<kw name="Input data in Element" owner="common_keywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${element_locator}</arg>
+<arg>5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-06T11:26:13.354774" elapsed="0.037100"/>
+</kw>
+<kw name="Press Keys" owner="SeleniumLibrary">
+<msg time="2025-11-06T11:26:13.393545" level="INFO">Sending key(s) ('CTRL+A+BACKSPACE',) to xpath=//input[@id="user_code"] element.</msg>
+<msg time="2025-11-06T11:26:13.708793" level="INFO">Pressing special key CONTROL down.</msg>
+<msg time="2025-11-06T11:26:13.708971" level="INFO">Sending key A</msg>
+<msg time="2025-11-06T11:26:13.709060" level="INFO">Pressing special key BACKSPACE down.</msg>
+<msg time="2025-11-06T11:26:13.709133" level="INFO">Releasing special key CONTROL.</msg>
+<msg time="2025-11-06T11:26:13.709204" level="INFO">Releasing special key BACKSPACE.</msg>
+<arg>${element_locator}</arg>
+<arg>CTRL+A+BACKSPACE</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="PASS" start="2025-11-06T11:26:13.392402" elapsed="0.352814"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-11-06T11:26:13.746481" level="INFO">Typing text 'bennguyen' into text field 'xpath=//input[@id="user_code"]'.</msg>
+<arg>${element_locator}</arg>
+<arg>${data_input}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-06T11:26:13.745925" elapsed="0.155085"/>
+</kw>
+<arg>${USERID_FIELD}</arg>
+<arg>${userid}</arg>
+<status status="PASS" start="2025-11-06T11:26:13.354069" elapsed="0.547275"/>
+</kw>
+<kw name="Input data in Element" owner="common_keywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${element_locator}</arg>
+<arg>5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-06T11:26:13.903623" elapsed="0.042333"/>
+</kw>
+<kw name="Press Keys" owner="SeleniumLibrary">
+<msg time="2025-11-06T11:26:13.947403" level="INFO">Sending key(s) ('CTRL+A+BACKSPACE',) to xpath=//input[@id="password"] element.</msg>
+<msg time="2025-11-06T11:26:14.248833" level="INFO">Pressing special key CONTROL down.</msg>
+<msg time="2025-11-06T11:26:14.249001" level="INFO">Sending key A</msg>
+<msg time="2025-11-06T11:26:14.249090" level="INFO">Pressing special key BACKSPACE down.</msg>
+<msg time="2025-11-06T11:26:14.249198" level="INFO">Releasing special key CONTROL.</msg>
+<msg time="2025-11-06T11:26:14.249313" level="INFO">Releasing special key BACKSPACE.</msg>
+<arg>${element_locator}</arg>
+<arg>CTRL+A+BACKSPACE</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="PASS" start="2025-11-06T11:26:13.946430" elapsed="0.323213"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-11-06T11:26:14.270785" level="INFO">Typing text ' ' into text field 'xpath=//input[@id="password"]'.</msg>
+<arg>${element_locator}</arg>
+<arg>${data_input}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-06T11:26:14.270164" elapsed="0.129002"/>
+</kw>
+<arg>${PASSWORD_FIELD}</arg>
+<arg>${password}</arg>
+<status status="PASS" start="2025-11-06T11:26:13.902166" elapsed="0.497514"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${expected}</arg>
+<arg>5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-06T11:26:14.400220" elapsed="0.026827"/>
+</kw>
+<arg>userid=${OWNER_USER_ID}</arg>
+<arg>password=${SPACE}</arg>
+<arg>expected=${VALIDATION_TEXT_PASSWORD_CONTAIN_SPACES}</arg>
+<status status="PASS" start="2025-11-06T11:26:13.353150" elapsed="1.074170"/>
+</kw>
+<status status="PASS" start="2025-11-06T11:26:13.345715" elapsed="1.082123"/>
 </test>
 <kw name="Close PandaPay" owner="common_keywords" type="TEARDOWN">
 <kw name="Close All Browsers" owner="SeleniumLibrary">
 <doc>Closes all open browsers and resets the browser cache.</doc>
-<status status="PASS" start="2025-10-14T16:34:37.135922" elapsed="8.825404"/>
+<status status="PASS" start="2025-11-06T11:26:14.430200" elapsed="7.049217"/>
 </kw>
-<status status="PASS" start="2025-10-14T16:34:37.135244" elapsed="8.826371"/>
+<status status="PASS" start="2025-11-06T11:26:14.429480" elapsed="7.050218"/>
 </kw>
-<status status="FAIL" start="2025-10-14T16:34:15.969875" elapsed="29.991852"/>
+<status status="PASS" start="2025-11-06T11:25:50.895429" elapsed="30.584377"/>
 </suite>
 <statistics>
 <total>
-<stat pass="8" fail="1" skip="0">All Tests</stat>
+<stat pass="12" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
-<stat pass="0" fail="1" skip="0">API</stat>
-<stat pass="0" fail="1" skip="0">Success</stat>
-<stat pass="1" fail="0" skip="0">UI</stat>
-<stat pass="1" fail="0" skip="0">Validation</stat>
 </tag>
 <suite>
-<stat name="Change-Password" id="s1" pass="8" fail="1" skip="0">Change-Password</stat>
+<stat name="Signin" id="s1" pass="12" fail="0" skip="0">Signin</stat>
 </suite>
 </statistics>
 <errors>
+<msg time="2025-11-06T11:26:03.863033" level="WARN">Multiple tests with name 'Verify the system displays validation text when user input  and Dev123!@#' executed in suite 'Signin'.</msg>
+<msg time="2025-11-06T11:26:09.084751" level="WARN">Multiple tests with name 'Verify the system displays validation text when user input bennguyen and DEVPASSWORD1234!@' executed in suite 'Signin'.</msg>
+<msg time="2025-11-06T11:26:13.345832" level="WARN">Multiple tests with name 'Verify the system displays validation text when user input bennguyen and  ' executed in suite 'Signin'.</msg>
 </errors>
 </robot>

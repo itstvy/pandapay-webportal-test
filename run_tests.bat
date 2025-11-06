@@ -4,4 +4,6 @@
 
 @REM robot --output logs/output.xml --log logs/log.html --report logs/report.html tests/myAccount/profile.robot
 
-robot -d logs tests\myAccount\change-password.robot
+@REM robot -d logs tests\user-management\create-user.robot
+@REM robot -d logs tests\myAccount\profile.robot
+robot -d logs tests\authentication\signin.robot

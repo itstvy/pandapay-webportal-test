@@ -6,7 +6,6 @@ Suite Teardown    Close PandaPay
 *** Test Cases ***
 Verify the system displays Change Password screen when user click on Change Password menu button
     [Tags]    UI
-    
     Given user clicks on My Account avatar
     And user clicks on the Change Password menu button
     Then system displays Change Password screen
