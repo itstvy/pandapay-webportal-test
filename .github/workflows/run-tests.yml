@@ -29,6 +29,10 @@ jobs:
           pip install selenium
           pip install robotframework-seleniumlibrary
           pip install robotframework-datadriver
+          pip install robotframework-requests
+          pip install robotframework-extensions-collection
+          pip install robotframework-jsonlibrary
+          pip install robotframework-faker
           pip install allure-robotframework
 
       # 4️⃣ Chạy Robot test + ghi kết quả Allure
